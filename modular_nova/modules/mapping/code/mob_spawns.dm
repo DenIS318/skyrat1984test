@@ -498,7 +498,7 @@
 	handlebank(crewman)
 	return ..()
 
-/datum/outfit/proc/handlebank(mob/living/carbon/human/owner)
+/*/datum/outfit/proc/handlebank(mob/living/carbon/human/owner) //ss1984 edit- moved to modular_ss220/modules/rolesedit/code/_defines.dm
 	var/datum/bank_account/offstation_bank_account = new(owner.real_name)
 	owner.account_id = offstation_bank_account.account_id
 	offstation_bank_account.replaceable = FALSE
@@ -508,7 +508,7 @@
 		var/obj/item/card/id/id_card = owner.wear_id
 		id_card.registered_account = offstation_bank_account
 	return
-
+*/
 //ITEMS//
 /obj/item/radio/headset/cybersun
 	keyslot = new /obj/item/encryptionkey/headset_syndicate/cybersun
