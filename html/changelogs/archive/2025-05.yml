@@ -521,3 +521,6 @@
   dmnaru:
   - rscadd: Kaynite donor items
   - bugfix: fixed 2 donor items not showing up correctly in the loadout
+2025-05-19:
+  DenIS318:
+  - spellcheck: Adminwho colored & translated
