@@ -1,0 +1,5 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "Threshold for full death increased"
+  - balance: "Can perform actions during softcrit"
