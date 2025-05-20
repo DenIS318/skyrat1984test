@@ -524,3 +524,8 @@
 2025-05-19:
   DenIS318:
   - spellcheck: Adminwho colored & translated
+2025-05-20:
+  DenIS318:
+  - balance: Threshold for full death increased
+  - balance: Can perform actions during softcrit
+  - server: Hide metainfo (loaded ashwalker fortress at ...) from loading screen

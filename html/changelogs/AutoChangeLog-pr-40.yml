@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - server: "Hide metainfo (loaded ashwalker fortress at ...) from loading screen"
