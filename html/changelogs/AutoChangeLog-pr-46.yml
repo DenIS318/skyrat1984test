@@ -1,6 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - qol: "Radio Configuration at telecomms automated announcer"
-  - qol: "Support for NTTC at telecomms"
-  - qol: "Support for custom editable job + name formatting at automated announcer"

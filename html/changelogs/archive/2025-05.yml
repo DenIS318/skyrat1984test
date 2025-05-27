@@ -532,3 +532,8 @@
 2025-05-21:
   DenIS318:
   - server: Disabled some species from creation at editor
+2025-05-27:
+  DenIS318:
+  - qol: Radio Configuration at telecomms automated announcer
+  - qol: Support for NTTC at telecomms
+  - qol: Support for custom editable job + name formatting at automated announcer
