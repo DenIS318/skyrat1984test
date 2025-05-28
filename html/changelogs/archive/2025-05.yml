@@ -537,3 +537,6 @@
   - qol: Radio Configuration at telecomms automated announcer
   - qol: Support for NTTC at telecomms
   - qol: Support for custom editable job + name formatting at automated announcer
+2025-05-28:
+  DenIS318:
+  - server: Remove ERP-related stuff
