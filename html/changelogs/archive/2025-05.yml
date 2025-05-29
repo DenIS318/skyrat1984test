@@ -540,3 +540,7 @@
 2025-05-28:
   DenIS318:
   - server: Remove ERP-related stuff
+2025-05-29:
+  DenIS318:
+  - bugfix: Keybindings now work at menu loading screen
+  - bugfix: Swapping characters at menu now correctly update character name

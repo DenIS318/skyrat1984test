@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "Keybindings now work at menu loading screen"
-  - bugfix: "Swapping characters at menu now correctly update character name"
