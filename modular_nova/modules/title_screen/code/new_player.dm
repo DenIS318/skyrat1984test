@@ -11,7 +11,13 @@
 
 	if(client.interviewee)
 		return FALSE
-
+	// SS1984 ADDITION START
+	var/routed_key = href_list["route_key"]
+	if (routed_key)
+		var/converted_key = convert_ru_key_to_en_key(routed_key); // modular fix doesnt work without explicit calling here
+		client.keyDown(converted_key)
+		return
+	// SS1984 ADDITION END
 	if(href_list["observe"])
 		play_lobby_button_sound()
 		make_me_an_observer()
@@ -117,6 +123,7 @@
 
 	src << browse(SStitle.current_title_screen, "file=loading_screen.gif;display=0")
 	src << browse(dat, "window=title_browser")
+	set_focus(src) // need to focus mob instead of browser
 
 /datum/asset/simple/lobby
 	assets = list(
