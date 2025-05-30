@@ -1,0 +1,6 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "Most deadly Nova's sector guns moved to admin-spawn"
+  - balance: "Moved guns replaced by Sinado Submachine Gun at ruins/maps/other spawns"
+  - balance: "Armory now have 2 Sinado Submachine Gun instead of 2 Sol Rifles"
