@@ -544,3 +544,8 @@
   DenIS318:
   - bugfix: Keybindings now work at menu loading screen
   - bugfix: Swapping characters at menu now correctly update character name
+2025-05-30:
+  DenIS318:
+  - balance: Most deadly Nova's sector guns moved to admin-spawn
+  - balance: Moved guns replaced by Sinado Submachine Gun at ruins/maps/other spawns
+  - balance: Armory now have 2 Sinado Submachine Gun instead of 2 Sol Rifles
