@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - bugfix: "Nanotrasen Consultant m1911 gun now have default projectile speed (instead of slow-mode like)"
