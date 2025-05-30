@@ -549,3 +549,7 @@
   - balance: Most deadly Nova's sector guns moved to admin-spawn
   - balance: Moved guns replaced by Sinado Submachine Gun at ruins/maps/other spawns
   - balance: Armory now have 2 Sinado Submachine Gun instead of 2 Sol Rifles
+  - server: Blueshield and Nanotrasen Consultant can be played by anyone (no veteran
+      requirement)
+  - bugfix: Nanotrasen Consultant m1911 gun now have default projectile speed (instead
+      of slow-mode like)
