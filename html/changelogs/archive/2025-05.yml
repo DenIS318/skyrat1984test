@@ -553,3 +553,9 @@
       requirement)
   - bugfix: Nanotrasen Consultant m1911 gun now have default projectile speed (instead
       of slow-mode like)
+2025-05-31:
+  DenIS318:
+  - qol: SMES now have double capacity (5MJ->10MJ/10MJ->20MJ)
+  - qol: More roundstart charge for engineering SMES (5MJ->10MJ)
+  - balance: SMES now contains/require double power-cells (5->10)
+  - qol: Light switches on by default
