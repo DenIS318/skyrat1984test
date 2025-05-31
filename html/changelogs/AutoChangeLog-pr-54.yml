@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - qol: "Light switches on by default"
