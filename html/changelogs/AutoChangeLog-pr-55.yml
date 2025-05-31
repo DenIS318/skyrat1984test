@@ -1,0 +1,6 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - qol: "SMES now have double capacity (5MJ->10MJ/10MJ->20MJ)"
+  - qol: "More roundstart charge for engineering SMES (5MJ->10MJ)"
+  - balance: "SMES now contains/require double power-cells (5->10)"
