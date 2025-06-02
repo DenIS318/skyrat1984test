@@ -1,4 +1,0 @@
-author: "Arceniu"
-delete-after: True
-changes:
-  - bugfix: "NTR gun now have 1.6 projectile speed (instead of basic)"

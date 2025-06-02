@@ -1,0 +1,8 @@
+2025-06-02:
+  Arceniu:
+  - bugfix: NTR gun now have 1.6 projectile speed (instead of basic)
+  DenIS318:
+  - server: auto cryo after 10->25 minutes
+  Maximal08:
+  - bugfix: "\u043F\u043E\u0447\u0438\u043D\u043A\u0430 ert auto doc"
+  - rscdel: Remove subtler

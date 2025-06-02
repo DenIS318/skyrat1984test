@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - server: "auto cryo after 10->25 minutes"
