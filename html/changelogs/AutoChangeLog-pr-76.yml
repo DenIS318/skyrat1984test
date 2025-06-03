@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - server: "Remove all Nova's antag opt-in references (examine, GUI... and so on)"
