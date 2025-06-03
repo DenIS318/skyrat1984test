@@ -12,3 +12,6 @@
   - qol: Navigation tip for players with < 3 hours
   - server: Enable autotransfer in config
   - server: Disable combat indicator
+  - server: Remove all Nova's antag opt-in references (examine, GUI... and so on)
+  - bugfix: Fix input when changing name at menu
+  - rscdel: Removed Nova's antag metaprotections UI
