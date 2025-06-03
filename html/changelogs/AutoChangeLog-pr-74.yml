@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - server: "Enable autotransfer in config"
-  - server: "Disable combat indicator"

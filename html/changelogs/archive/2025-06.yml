@@ -10,3 +10,5 @@
   DenIS318:
   - server: Walk speed 2 -> 1.8 as headmin request
   - qol: Navigation tip for players with < 3 hours
+  - server: Enable autotransfer in config
+  - server: Disable combat indicator
