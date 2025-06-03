@@ -6,3 +6,6 @@
   Maximal08:
   - bugfix: "\u043F\u043E\u0447\u0438\u043D\u043A\u0430 ert auto doc"
   - rscdel: Remove subtler
+2025-06-03:
+  DenIS318:
+  - server: Walk speed 2 -> 1.8 as headmin request
