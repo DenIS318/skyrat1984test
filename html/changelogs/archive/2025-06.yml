@@ -16,5 +16,9 @@
   - bugfix: Fix input when changing name at menu
   - rscdel: Removed Nova's antag metaprotections UI
 2025-06-04:
+  Arceniu:
+  - bugfix: fixed a icon override
+  - code_imp: updated some code
   DenIS318:
   - bugfix: Now character name should correctly update at menu
+  - admin: Flag BUILDMODE should be accesible by admins now

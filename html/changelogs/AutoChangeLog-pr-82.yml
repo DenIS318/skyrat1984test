@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - admin: "Flag BUILDMODE should be accesible by admins now"
