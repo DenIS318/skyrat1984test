@@ -19,6 +19,9 @@
   Arceniu:
   - bugfix: fixed a icon override
   - code_imp: updated some code
+  - balance: returned guns to some ruins/outfits
+  - rscadd: Replaced basic telescopic baton with more elite version
+  - qol: Removed veteran req for NTR/BS
   DenIS318:
   - bugfix: Now character name should correctly update at menu
   - admin: Flag BUILDMODE should be accesible by admins now
