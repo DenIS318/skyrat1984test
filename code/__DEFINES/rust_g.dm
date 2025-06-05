@@ -410,8 +410,7 @@
 #define rustg_formatted_timestamp_tz(format, offset) RUSTG_CALL(RUST_G, "formatted_timestamp")(format, offset)
 
 /// Returns the timestamp as a string
-/proc/rustg_unix_timestamp()
-	return RUSTG_CALL(RUST_G, "unix_timestamp")()
+#define rustg_unix_timestamp(...) (RUSTG_CALL(RUST_G, "unix_timestamp")())
 
 #define rustg_create_toast(title, body) RUSTG_CALL(RUST_G, "create_toast")(title, body)
 
@@ -444,6 +443,13 @@
 	#define url_decode(text) rustg_url_decode(text)
 #endif
 
+/// Returns the current timestamp (in local time), formatted with the given format string.
+/// See https://docs.rs/chrono/latest/chrono/format/strftime/index.html for documentation on the formatting syntax.
+#define rustg_formatted_timestamp(format) RUSTG_CALL(RUST_G, "formatted_timestamp")(format)
+
+/// Returns the current timestamp (with the given UTC offset in hours), formatted with the given format string.
+/// See https://docs.rs/chrono/latest/chrono/format/strftime/index.html for documentation on the formatting syntax.
+#define rustg_formatted_timestamp_tz(format, offset) RUSTG_CALL(RUST_G, "formatted_timestamp")(format, offset)
 // Worley Noise Operations //
 
 /**

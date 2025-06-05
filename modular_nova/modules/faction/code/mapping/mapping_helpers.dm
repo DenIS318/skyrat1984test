@@ -187,6 +187,12 @@
 			for(var/i in 1 to 2)
 				new /obj/item/ammo_box/magazine/c35sol_pistol/stendo(src)
 				new /obj/item/ammo_box/magazine/c35sol_pistol/stendo(src)
+			new /obj/item/gun/ballistic/automatic/lanca(src)
+			for(var/i in 1 to 2)
+				new /obj/item/ammo_box/magazine/lanca(src)
+			new /obj/item/gun/ballistic/automatic/miecz(src)
+			for(var/i in 1 to 2)
+				new /obj/item/ammo_box/magazine/miecz(src)
 
 		if(4) //MODsuits
 			new /obj/item/mod/control/pre_equipped/mining(src)
@@ -196,11 +202,11 @@
 			new /obj/item/mod/control/pre_equipped/elite(src)
 		if(5) //Implants
 			new /obj/item/storage/box/cyber_implants(src)
-			new /obj/item/organ/cyberimp/arm/combat(src)
-			new /obj/item/organ/cyberimp/arm/surgery(src)
-			new /obj/item/organ/cyberimp/arm/baton(src)
-			new /obj/item/organ/cyberimp/arm/toolset(src)
-			new /obj/item/organ/cyberimp/arm/gun/taser(src)
+			new /obj/item/organ/cyberimp/arm/toolkit/combat(src)
+			new /obj/item/organ/cyberimp/arm/toolkit/surgery(src)
+			new /obj/item/organ/cyberimp/arm/toolkit/baton(src)
+			new /obj/item/organ/cyberimp/arm/toolkit/toolset(src)
+			new /obj/item/organ/cyberimp/arm/toolkit/gun/taser(src)
 
 /obj/structure/closet/crate/secure/tradership_cargo_valuable/populate_contents_immediate()
 	. = ..()

@@ -24,6 +24,10 @@
 	///What sound does our consumption play on consuming from the container?
 	var/consumption_sound = 'sound/items/drink.ogg'
 
+/obj/item/reagent_containers/cup/Initialize(mapload, vol)
+	. = ..()
+	AddElement(/datum/element/reagents_item_heatable)
+
 /obj/item/reagent_containers/cup/examine(mob/user)
 	. = ..()
 	if(drink_type)
@@ -93,7 +97,7 @@
 	var/fraction = min(gulp_size/reagents.total_volume, 1)
 	reagents.trans_to(target_mob, gulp_size, transferred_by = user, methods = reagent_consumption_method)
 	checkLiked(fraction, target_mob)
-	playsound(target_mob.loc, consumption_sound, rand(10,50), TRUE)
+	playsound_if_pref(target_mob.loc, consumption_sound, rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT CHANGE - Original: playsound(target_mob.loc, consumption_sound, rand(10,50), TRUE)
 	if(!iscarbon(target_mob))
 		return
 	var/mob/living/carbon/carbon_drinker = target_mob

@@ -109,6 +109,14 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 	fire = 70
 	acid = 60
 
+/obj/structure/closet/get_save_vars()
+	. = ..()
+	. += NAMEOF(src, welded)
+	. += NAMEOF(src, opened)
+	. += NAMEOF(src, locked)
+	. += NAMEOF(src, anchorable)
+	return .
+
 /obj/structure/closet/Initialize(mapload)
 	. = ..()
 
@@ -1046,7 +1054,7 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 	addtimer(CALLBACK(src, PROC_REF(check_if_shake)), 1 SECONDS)
 
 	if(do_after(user,(breakout_time), target = src))
-		if(!user || user.stat > SOFT_CRIT || (loc_required && (user.loc != src)) || opened || (!locked && !welded) )
+		if(!user || user.stat != CONSCIOUS || (loc_required && (user.loc != src)) || opened || (!locked && !welded) )
 			return
 		//we check after a while whether there is a point of resisting anymore and whether the user is capable of resisting
 		user.visible_message(span_danger("[user] successfully broke out of [src]!"),
@@ -1257,5 +1265,15 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 		log_combat(user, src, "attacked", attacking_item)
 		return
 	return ..()
+
+/obj/structure/closet/secure_closet/hitby(atom/movable/hit_by, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	if(!istype(hit_by, /obj/item/spear))
+		return ..()
+	// We have to manually tweak throwforce for now
+	var/obj/item/spear = hit_by
+	spear.throwforce *= 2
+	. = ..()
+	spear.throwforce /= 2
+	return .
 
 #undef LOCKER_FULL

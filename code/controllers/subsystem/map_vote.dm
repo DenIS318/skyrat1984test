@@ -22,6 +22,9 @@ SUBSYSTEM_DEF(map_vote)
 	/// Stores the last amount of potential players to compare next time we're called
 	var/player_cache = -1
 
+	/// Stores the last amount of potential players to compare next time we're called
+	var/player_cache = -1
+
 	/// Stores a formatted html string of the tally counts
 	var/tally_printout = span_red("Loading...")
 
@@ -115,6 +118,14 @@ SUBSYSTEM_DEF(map_vote)
 	else
 		filter_threshold = length(GLOB.clients)
 
+	if(filter_threshold == player_cache)
+		return null
+
+	player_cache = filter_threshold
+	var/list/valid_maps = list()
+	// Fill in our default choices with all of the maps in our map config, if they are votable and not blocked.
+	var/list/maps = shuffle(global.config.maplist)
+	for(var/map in maps)
 	if(filter_threshold == player_cache)
 		return null
 

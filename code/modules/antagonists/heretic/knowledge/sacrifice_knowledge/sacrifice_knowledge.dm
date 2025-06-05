@@ -84,7 +84,7 @@
 	// Let's remove any humans in our atoms list that aren't a sac target
 	for(var/mob/living/carbon/human/sacrifice in atoms)
 		// If the mob's not in soft crit or worse, remove from list
-		if(sacrifice.stat < UNCONSCIOUS)
+		if(sacrifice.stat < SOFT_CRIT)
 			atoms -= sacrifice
 		// Otherwise if it's neither a target nor a cultist, remove it
 		else if(!(sacrifice in heretic_datum.sac_targets) && !IS_CULTIST(sacrifice))
@@ -131,12 +131,10 @@
 			continue
 		if(possible_target.current.stat == DEAD)
 			continue
-		// SS1984 REMOVAL START
-		// // NOVA EDIT ADDITION BEGIN - Antag opt-in (Only security and command can be targetted)
-		// if (!CONFIG_GET(flag/disable_antag_opt_in_preferences) && !possible_target.assigned_role?.heretic_sac_target)
-		// 	continue
-		// // NOVA EDIT ADDITION END
-		// SS1984 REMOVAL END
+		// NOVA EDIT ADDITION BEGIN - Antag opt-in (Only security and command can be targetted)
+		if (!CONFIG_GET(flag/disable_antag_opt_in_preferences) && !possible_target.assigned_role?.heretic_sac_target)
+			continue
+		// NOVA EDIT ADDITION END
 
 		valid_targets += possible_target
 
@@ -435,7 +433,7 @@
 		var/obj/item/organ/to_give = new organ_path
 		to_give.Insert(sac_target)
 
-	new /obj/effect/gibspawner/human/bodypartless(get_turf(sac_target))
+	new /obj/effect/gibspawner/human/bodypartless(get_turf(sac_target), sac_target)
 	sac_target.visible_message(span_boldwarning("Several organs force themselves out of [sac_target]!"))
 
 /**
@@ -641,7 +639,7 @@
 		span_userdanger("Your organs are violently pulled out of your chest by shadowy hands!")
 	)
 
-	new /obj/effect/gibspawner/human/bodypartless(get_turf(sac_target))
+	new /obj/effect/gibspawner/human/bodypartless(get_turf(sac_target), sac_target)
 
 #undef SACRIFICE_SLEEP_DURATION
 #undef SACRIFICE_REALM_DURATION

@@ -345,7 +345,7 @@
 	var/shiftclick_flags = SEND_SIGNAL(user, COMSIG_CLICK_SHIFT, src)
 	if(shiftclick_flags & COMSIG_MOB_CANCEL_CLICKON)
 		return
-	if(user.client && (user.client.eye == user || user.client.eye == user.loc || shiftclick_flags & COMPONENT_ALLOW_EXAMINATE))
+	if(user.client)
 		user.examinate(src)
 
 /mob/proc/TurfAdjacent(turf/tile)
@@ -362,7 +362,7 @@
 
 /// Simple helper to face what you clicked on, in case it should be needed in more than one place
 /mob/proc/face_atom(atom/atom_to_face)
-	if( buckled || stat > SOFT_CRIT || !atom_to_face || !x || !y || !atom_to_face.x || !atom_to_face.y )
+	if( buckled || stat != CONSCIOUS || !atom_to_face || !x || !y || !atom_to_face.x || !atom_to_face.y )
 		return
 	var/dx = atom_to_face.x - x
 	var/dy = atom_to_face.y - y

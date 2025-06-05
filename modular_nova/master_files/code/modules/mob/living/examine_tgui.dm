@@ -51,6 +51,7 @@
 	var/datum/preferences/preferences = holder.client?.prefs
 
 	var/flavor_text
+	var/flavor_text_nsfw
 	var/custom_species
 	var/custom_species_lore
 	var/obscured
@@ -76,10 +77,13 @@
 
 	// Now we handle silicon and/or human, order doesn't matter as both obviously can't fire.
 	// If other variants of mob/living need to be handled at some point, put them here.
+	// Now we handle silicon and/or human, order doesn't matter as both obviously can't fire.
+	// If other variants of mob/living need to be handled at some point, put them here.
 	if(issilicon(holder))
 		flavor_text = preferences.read_preference(/datum/preference/text/silicon_flavor_text)
 		// SS1984 REMOVAL OF ERP EXAMINE START, END
 		custom_species = "Silicon"
+		custom_species_lore = "A silicon unit, like a cyborg or pAI."
 		custom_species_lore = "A silicon unit, like a cyborg or pAI."
 		ooc_notes += preferences.read_preference(/datum/preference/text/ooc_notes)
 		// SS1984 REMOVAL OF ERP EXAMINE START, END

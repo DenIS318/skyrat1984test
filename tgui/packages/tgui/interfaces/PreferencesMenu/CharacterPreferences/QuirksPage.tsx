@@ -27,7 +27,10 @@ function getColorValueClass(quirk: Quirk) {
     return 'positive';
   } else if (quirk.value < 0) {
     return 'negative';
-    // SS1984 REMOVAL OF ERP QUIRKS
+    // NOVA EDIT ADDITION BEGIN - Purple ERP quirks
+  } else if (quirk.erp_quirk) {
+    return 'erp_quirk';
+    // NOVA EDIT ADDITION END
   } else {
     return 'neutral';
   }
@@ -251,7 +254,7 @@ function QuirkPopper(props: QuirkPopperProps) {
                     serverData,
                     randomBodyEnabled,
                   )}
-                  maxHeight="160px" // NOVA EDIT CHANGE - ORIGINAL: 100px
+                  maxHeight="250px" // NOVA EDIT CHANGE - ORIGINAL: 100px
                 />
               </Stack.Item>
             </Stack>
@@ -424,7 +427,6 @@ export function QuirksPage(props) {
               width="200px"
               value={searchQuery}
               onChange={setSearchQuery}
-              expensive
             />
           </Stack.Item>
           <Stack.Item grow className="PreferencesMenu__Quirks__QuirkList">

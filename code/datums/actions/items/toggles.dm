@@ -113,10 +113,14 @@
 /datum/action/item_action/call_link
 	name = "Call MODlink"
 
-// NOVA EDIT ADDITION START
-/datum/action/item_action/toggle_hide_face
-	name = "Toggle Face Hiding"
-// NOVA EDIT ADDITION END
+/datum/action/item_action/toggle_wearable_hud
+	name = "Toggle Wearable HUD"
+	desc = "Toggles your wearable HUD. You can still access examine information while it's off."
+
+/datum/action/item_action/toggle_wearable_hud/do_effect(trigger_flags)
+	var/obj/item/clothing/glasses/hud/hud_display = target
+	hud_display.toggle_hud_display(owner)
+	return TRUE
 
 /datum/action/item_action/toggle_wearable_hud
 	name = "Toggle Wearable HUD"

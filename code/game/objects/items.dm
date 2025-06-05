@@ -457,7 +457,7 @@
 	set category = "Object"
 	set src in oview(1)
 
-	if(!isturf(loc) || usr.stat > SOFT_CRIT || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
+	if(!isturf(loc) || usr.stat != CONSCIOUS || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
 		return
 
 	if(isliving(usr))
@@ -807,7 +807,9 @@
 
 /// Sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(slot, mob/user, datum/action/action)
-	if(slot & (ITEM_SLOT_BACKPACK|ITEM_SLOT_LEGCUFFED)) //these aren't true slots, so avoid granting actions there
+	if(!slot) // Equipped into storage
+		return FALSE
+	if(slot & (ITEM_SLOT_HANDCUFFED|ITEM_SLOT_LEGCUFFED)) // These aren't true slots, so avoid granting actions there
 		return FALSE
 	if(!isnull(action_slots))
 		return (slot & action_slots)
@@ -1479,28 +1481,35 @@
 	stack_trace("Undefined handle_openspace_click() behaviour. Ascertain the openspace_item_click_handler element has been attached to the right item and that its proc override doesn't call parent.")
 
 /**
- * * An interrupt for offering an item to other people, called mainly from [/mob/living/carbon/proc/give], in case you want to run your own offer behavior instead.
+ * * An interrupt for offering an item to other people, called mainly from [/mob/living/proc/give], in case you want to run your own offer behavior instead.
  *
  * * Return TRUE if you want to interrupt the offer.
  *
  * * Arguments:
- * * offerer - The person offering the item.
- * * offered - The person being offered the item.
+ * * offerer - The living mob offering the item.
+ * * offered - The living mob being offered the item.
  */
-/obj/item/proc/on_offered(mob/living/carbon/offerer, mob/living/carbon/offered)
+/obj/item/proc/on_offered(mob/living/offerer, mob/living/offered)
+	if(!offered) // item has just been offered to anyone around
+		if(!(HAS_TRAIT(offerer, TRAIT_CAN_HOLD_ITEMS)))
+			return TRUE
+	else if(!(HAS_TRAIT(offerer, TRAIT_CAN_HOLD_ITEMS) && HAS_TRAIT(offered, TRAIT_CAN_HOLD_ITEMS)))
+		return TRUE // both must be able to hold items for this to make sense
 	if(SEND_SIGNAL(src, COMSIG_ITEM_OFFERING, offerer) & COMPONENT_OFFER_INTERRUPT)
 		return TRUE
 
 /**
- * * An interrupt for someone trying to accept an offered item, called mainly from [/mob/living/carbon/proc/take], in case you want to run your own take behavior instead.
+ * * An interrupt for someone trying to accept an offered item, called mainly from [/mob/living/proc/take], in case you want to run your own take behavior instead.
  *
  * * Return TRUE if you want to interrupt the taking.
  *
  * * Arguments:
- * * offerer - the person offering the item
- * * taker - the person trying to accept the offer
+ * * offerer - the living mob offering the item
+ * * taker - the living mob trying to accept the offer
  */
-/obj/item/proc/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)
+/obj/item/proc/on_offer_taken(mob/living/offerer, mob/living/taker)
+	if(!(HAS_TRAIT(offerer, TRAIT_CAN_HOLD_ITEMS) && HAS_TRAIT(taker, TRAIT_CAN_HOLD_ITEMS)))
+		return TRUE // both must be able to hold items for this to make sense
 	if(SEND_SIGNAL(src, COMSIG_ITEM_OFFER_TAKEN, offerer, taker) & COMPONENT_OFFER_INTERRUPT)
 		return TRUE
 
@@ -1886,7 +1895,7 @@
 		if(ishuman(target))
 			var/mob/living/carbon/human/victim_human = target
 			if(victim_human.key && !victim_human.client) // AKA braindead
-				if(victim_human.stat <= UNCONSCIOUS && LAZYLEN(victim_human.afk_thefts) <= AFK_THEFT_MAX_MESSAGES)
+				if(victim_human.stat <= SOFT_CRIT && LAZYLEN(victim_human.afk_thefts) <= AFK_THEFT_MAX_MESSAGES)
 					var/list/new_entry = list(list(user.name, "tried equipping you with [equipping]", world.time))
 					LAZYADD(victim_human.afk_thefts, new_entry)
 

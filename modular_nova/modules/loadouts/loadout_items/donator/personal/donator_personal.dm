@@ -302,6 +302,11 @@
 	item_path = /obj/item/clothing/neck/cloak/inferno
 	ckeywhitelist = list("inferno707")
 
+/datum/loadout_item/neck/kiaracollar
+	name = "Kiara's collar"
+	item_path = /obj/item/clothing/neck/inferno_collar
+	ckeywhitelist = list("inferno707")
+
 /datum/loadout_item/pocket_items/kiaramedal
 	name = "Insignia of Steele"
 	item_path = /obj/item/clothing/accessory/medal/steele
@@ -595,7 +600,7 @@
 
 /datum/loadout_item/under/jumpsuit/bubbly_clown
 	name = "Bubbly Clown Dress"
-	item_path = /obj/item/clothing/under/bubbly_clown/skirt
+	item_path = /obj/item/clothing/under/bubbly_clown_skirt
 	restricted_roles = list(JOB_CLOWN)
 	ckeywhitelist = list("boisterousbeebz", "aether217")
 
@@ -628,6 +633,11 @@
 	name = "Kitsuhana Singularity Cigarettes"
 	item_path = /obj/item/storage/fancy/cigarettes/khi
 	ckeywhitelist = list("ultimarifox")
+
+/datum/loadout_item/shoes/dragheels
+	name = "Fancy Heels (dragmeme)"
+	item_path = /obj/item/clothing/shoes/fancy_heels/drag
+	ckeywhitelist = list("thedragmeme", "snailomi")
 
 /datum/loadout_item/under/jumpsuit/bimpcap
 	name = "Formal Matte Black Captain Uniform"
@@ -811,7 +821,7 @@
 
 /datum/loadout_item/pocket_items/theurgic_crystal
 	name = "Theurgic Stone"
-	item_path = /obj/item/organ/cyberimp/arm/shard/donator/theurgic_crystal
+	item_path = /obj/item/organ/cyberimp/arm/toolkit/shard/donator/theurgic_crystal
 	ckeywhitelist = list("sciamach")
 
 /datum/loadout_item/toys/plush/delphic_synth
@@ -821,6 +831,11 @@
 /datum/loadout_item/under/miscellaneous/rem
 	name = "M.I.A. Limiter"
 	item_path = /obj/item/clothing/under/rem
+	ckeywhitelist = list("ignari")
+
+/datum/loadout_item/shoes/rem
+	name = "M.I.A. Heels"
+	item_path = /obj/item/clothing/shoes/rem_shoes
 	ckeywhitelist = list("ignari")
 
 /datum/loadout_item/under/miscellaneous/bwake
@@ -834,14 +849,14 @@
 	ckeywhitelist = list("centralsmith")
 
 /datum/loadout_item/under/jumpsuit/techpants
-    name = "Techwear Pants"
-    item_path = /obj/item/clothing/under/techpants
-    ckeywhitelist = list("alvcyktor", "snakebittenn")
+	name = "Techwear Pants"
+	item_path = /obj/item/clothing/under/techpants
+	ckeywhitelist = list("alvcyktor", "snakebittenn")
 
 /datum/loadout_item/inhand/drop_pouch
-    name = "Drop Pouch"
-    item_path = /obj/item/storage/backpack/satchel/drop_pouch
-    ckeywhitelist = list("alvcyktor", "snakebittenn")
+	name = "Drop Pouch"
+	item_path = /obj/item/storage/backpack/satchel/drop_pouch
+	ckeywhitelist = list("alvcyktor", "snakebittenn")
 
 /datum/loadout_item/pocket_items/melonseva
 	name = "Sundowner SEVA"
@@ -943,6 +958,26 @@
 	ckeywhitelist = list("tamaya")
 	restricted_roles = list(JOB_SHAFT_MINER)
 
+/datum/loadout_item/under/jumpsuit/ecologist
+	name = "Ecologist's Garb"
+	item_path = /obj/item/clothing/under/ecologist
+	ckeywhitelist = list("deadmonwonderland", "pyritechimera", "darkinite", "wivernshy")
+
+/datum/loadout_item/shoes/ecologist
+	name = "Ecologist's Boots"
+	item_path = /obj/item/clothing/shoes/ecologist
+	ckeywhitelist = list("deadmonwonderland", "pyritechimera", "darkinite", "wivernshy")
+
+/datum/loadout_item/suit/ecologist
+	name = "Ecologist's Coat"
+	item_path = /obj/item/clothing/suit/hooded/ecologist
+	ckeywhitelist = list("deadmonwonderland", "pyritechimera", "darkinite", "wivernshy")
+
+/datum/loadout_item/gloves/ecologist
+	name = "Ecologist's Gloves"
+	item_path = /obj/item/clothing/gloves/ecologist
+	ckeywhitelist = list("deadmonwonderland", "pyritechimera", "darkinite", "wivernshy")
+
 /datum/loadout_item/suit/merctac
 	name = "MercTac Hoodie"
 	item_path = /obj/item/clothing/suit/hooded/merctac_hoodie
@@ -967,4 +1002,14 @@
 	name = "Xplore Go! Bag"
 	item_path = /obj/item/storage/backpack/merctac_backpack
 	ckeywhitelist = list("kaynite")
+
+/datum/loadout_item/suit/elysiancoat
+	name = "Bovinæ Overcoat"
+	item_path = /obj/item/clothing/suit/brownbattlecoat/elysiancoat
+	ckeywhitelist = list("courierasy")
+
+/datum/loadout_item/under/noble_enforcer
+	name = "Swashbuckler Suit"
+	item_path = /obj/item/clothing/under/rank/civilian/curator/treasure_hunter/noble_enforcer
+	ckeywhitelist = list("courierasy")
 

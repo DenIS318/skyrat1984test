@@ -1,0 +1,27 @@
+{
+<<<<<<<< HEAD:code/datums/greyscale/json_configs/fedora.json
+	"fedora_greyscale": [
+		{
+			"type": "icon_state",
+			"icon_state": "fedora_base",
+========
+	"tagged_collar": [
+		{
+			"type": "icon_state",
+			"icon_state": "thin_strip",
+>>>>>>>> novasector/master:modular_nova/modules/GAGS/nsfw/json_configs/clothing/collars/thin_tagged_collar.json
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+<<<<<<<< HEAD:code/datums/greyscale/json_configs/fedora.json
+			"icon_state": "fedora_sash",
+========
+			"icon_state": "tag",
+>>>>>>>> novasector/master:modular_nova/modules/GAGS/nsfw/json_configs/clothing/collars/thin_tagged_collar.json
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

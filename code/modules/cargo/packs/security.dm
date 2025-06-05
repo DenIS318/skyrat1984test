@@ -256,6 +256,30 @@
 	crate_name = "disabler smg crate"
 	crate_type = /obj/structure/closet/crate/secure/plasma
 
+/datum/supply_pack/security/armory/battle_rifle
+	name = "NT BR-38 Crate"
+	desc = "An experimental energy-based ballistic battle rifle. Only available to \
+		Nanotrasen stations for security purposes. DO NOT RESELL TO OUTSIDE COMPANIES. \
+		Contains three NT BR-38 rifles and three magazines containing .38 Standard."
+	cost = CARGO_CRATE_VALUE * 100
+	contains = list(
+		/obj/item/gun/ballistic/automatic/battle_rifle = 2,
+		/obj/item/ammo_box/magazine/m38 = 4,
+	)
+	crate_name = "battle rifle crate"
+
+/datum/supply_pack/security/armory/br_mag
+	name = "NT BR-38 Magazine Crate"
+	desc = "Six .38 magazines, able to fit into the NT BR-38. Contains \
+		two standard magazines, two Hot Shot magazines and two Iceblox magazines."
+	cost = CARGO_CRATE_VALUE * 7
+	contains = list(
+		/obj/item/ammo_box/magazine/m38 = 2,
+		/obj/item/ammo_box/magazine/m38/hotshot = 2,
+		/obj/item/ammo_box/magazine/m38/iceblox =2,
+	)
+	crate_name = ".38 magazine crate"
+
 /datum/supply_pack/security/armory/exileimp
 	name = "Exile Implants Crate"
 	desc = "Contains five Exile implants."
@@ -355,3 +379,15 @@
 	access_view = ACCESS_SECURITY
 	contains = list(/obj/item/clothing/glasses/sunglasses = 1)
 	crate_name = "sunglasses crate"
+
+/datum/supply_pack/security/armory/mechthermal
+	name = "Heavy Thermal Guns Crate"
+	desc = "Contains two experimental thermal cannons for use by mechs. \
+		When used simultaneously, their excess power used to heat and cool the opposing weapon, \
+		increasing the reload speed."
+	cost = CARGO_CRATE_VALUE * 25
+	contains = list(
+		/obj/item/mecha_parts/mecha_equipment/weapon/energy/thermal/cryo,
+		/obj/item/mecha_parts/mecha_equipment/weapon/energy/thermal/inferno,
+	)
+	crate_name = "thermal cannons crate"

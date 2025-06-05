@@ -17401,6 +17401,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/bloodcasino)
 "eIu" = (
+/obj/item/condom_pack,
 /turf/open/floor/iron,
 /area/station/maintenance/dorm_room)
 "eIz" = (
@@ -23355,6 +23356,7 @@
 /turf/open/floor/iron/freezer,
 /area/station/command/heads_quarters/nt_rep)
 "gon" = (
+/obj/item/storage/box/lewd_toys,
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
 "goy" = (
@@ -59195,7 +59197,7 @@
 /area/station/engineering/atmos/hallway)
 "pSV" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/cup/glass/coffee/colonial{

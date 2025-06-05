@@ -184,7 +184,7 @@
 	var/amount_of_lunatics = 0
 	var/list/lunatic_candidates = list()
 	for(var/mob/living/carbon/human/crewmate as anything in shuffle(GLOB.human_list))
-		if(QDELETED(crewmate) || isnull(crewmate.client) || isnull(crewmate.mind) || crewmate.stat > SOFT_CRIT || crewmate.can_block_magic(MAGIC_RESISTANCE_MIND))
+		if(QDELETED(crewmate) || isnull(crewmate.client) || isnull(crewmate.mind) || crewmate.stat != CONSCIOUS || crewmate.can_block_magic(MAGIC_RESISTANCE_MIND))
 			continue
 		var/turf/crewmate_turf = get_turf(crewmate)
 		var/crewmate_z = crewmate_turf?.z
@@ -213,11 +213,11 @@
 		lunatic.set_master(user.mind, user)
 		var/obj/item/clothing/neck/heretic_focus/moon_amulet/amulet = new(crewmate.drop_location())
 		var/static/list/slots = list(
-			"neck" = ITEM_SLOT_NECK,
-			"hands" = ITEM_SLOT_HANDS,
-			"backpack" = ITEM_SLOT_BACKPACK,
-			"right pocket" = ITEM_SLOT_RPOCKET,
-			"left pocket" = ITEM_SLOT_RPOCKET,
+			LOCATION_NECK,
+			LOCATION_HANDS,
+			LOCATION_RPOCKET,
+			LOCATION_LPOCKET,
+			LOCATION_BACKPACK,
 		)
 		crewmate.equip_in_one_of_slots(amulet, slots, qdel_on_fail = FALSE)
 		crewmate.emote("laugh")

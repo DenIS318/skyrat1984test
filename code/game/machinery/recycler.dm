@@ -160,7 +160,7 @@
 			continue
 
 		if (thing.resistance_flags & INDESTRUCTIBLE)
-			if (!isturf(thing.loc) && !isliving(thing.loc))
+			if (!isturf(thing.loc) && !recursive_loc_check(thing, /mob/living))
 				thing.forceMove(loc)
 			not_eaten += 1
 			continue
@@ -261,7 +261,7 @@
 		playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
 
 	if(iscarbon(living_mob))
-		if(living_mob.stat <= SOFT_CRIT)
+		if(living_mob.stat == CONSCIOUS)
 			living_mob.say("ARRRRRRRRRRRGH!!!", forced= "recycler grinding")
 		add_mob_blood(living_mob)
 
