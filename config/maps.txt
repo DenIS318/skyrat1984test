@@ -86,7 +86,7 @@ endmap
 
 map ouroboros
 	maxplayers 80
-	votable
+# SS1984 EDIT - suspected for not fixed lagging at FastProcessing - temporaly nonvotable	votable
 endmap
 
 map serenitystation
