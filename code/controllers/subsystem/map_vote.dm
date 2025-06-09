@@ -79,19 +79,26 @@ SUBSYSTEM_DEF(map_vote)
 
 	var/winner
 	var/winner_amount = 0
+	// SS1984 EDIT START
 	for(var/map in map_vote.choices)
-		if(!winner_amount)
+		var/amount_for_map = map_vote.choices[map] // Yes it completly ignores weights and all that shit
+		if (amount_for_map > winner_amount)
 			winner = map
-			winner_amount = map_vote_cache[map]
-			continue
-		if(map_vote_cache[map] <= winner_amount)
-			continue
-		winner = map
-		winner_amount = map_vote_cache[map]
-
+			winner_amount = amount_for_map
+	if (!winner)
+		winner = pick(map_vote.choices)
+	// SS1984 EDIT END
 	ASSERT(winner, "No winner found in map vote.")
 	set_next_map(config.maplist[winner])
-	var/list/messages = list("Map Selected - [span_bold(next_map_config.map_name)]")
+	// SS1984 ADDITION START
+	var/list/messages = list("Map Selected - [span_bold(next_map_config.map_name)] ([winner_amount])")
+	for(var/map in map_vote.choices)
+		if(map == winner)
+			continue // Already gonna be printed first
+		var/vote_amount = map_vote.choices[map]
+		var/datum/map_config/map_cfg = config.maplist[map]
+		messages += "[map_cfg.map_name] - [vote_amount] votes"
+	// SS1984 ADDITION END
 	// SS1984 REMOVAL START
 	// messages += "Tallies at the time of selection:"
 	// messages += tally_printout
