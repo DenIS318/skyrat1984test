@@ -975,7 +975,7 @@
 		},
 
 		"Obsessed": {
-			"cost": 20,
+			"cost": 10,
 			"scaling_cost": 10,
 			"weight": 2,
 			"required_candidates": 1,
