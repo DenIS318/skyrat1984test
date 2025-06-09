@@ -251,16 +251,19 @@ SUBSYSTEM_DEF(economy)
 		vending.reset_prices(vending.product_records, vending.coin_records + vending.hidden_records)
 
 /datum/controller/subsystem/economy/proc/inflict_moneybags(datum/bank_account/moneybags)
-	if(!moneybags)
-		return FALSE
-	var/mob/living/card_holder
-	for(var/obj/card in moneybags?.bank_cards)
-		if(isidcard(card))
-			card_holder = recursive_loc_check(card, /mob/living)
-	if(!isliving(card_holder)) //If on a living mob
-		return FALSE
-	card_holder.adjust_timed_status_effect(wait, /datum/status_effect/spotlight_light)
-	return TRUE
+	return FALSE // SS1984 ADDITION
+	// SS1984 REMOVAL START
+	// if(!moneybags)
+	// 	return FALSE
+	// var/mob/living/card_holder
+	// for(var/obj/card in moneybags?.bank_cards)
+	// 	if(isidcard(card))
+	// 		card_holder = recursive_loc_check(card, /mob/living)
+	// if(!isliving(card_holder)) //If on a living mob
+	// 	return FALSE
+	// card_holder.adjust_timed_status_effect(wait, /datum/status_effect/spotlight_light)
+	// return TRUE
+	// SS1984 REMOVAL END
 
 #undef ECON_DEPARTMENT_STEP
 #undef ECON_ACCOUNT_STEP

@@ -1,0 +1,24 @@
+From 98482513c803445c841810ff7619fc0564a524ef Mon Sep 17 00:00:00 2001
+From: denis318 <11572080+DenIS318@users.noreply.github.com>
+Date: Fri, 6 Jun 2025 18:57:17 +0500
+Subject: [PATCH] WIP fixing rebase pt4
+
+---
+ html/changelogs/archive/2025-06.yml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/html/changelogs/archive/2025-06.yml b/html/changelogs/archive/2025-06.yml
+index 4fda7d041f5..8d8d947b035 100644
+--- a/html/changelogs/archive/2025-06.yml
++++ b/html/changelogs/archive/2025-06.yml
+@@ -34,7 +34,6 @@
+       a hair tie and a hat to work
+   jjpark-kb:
+   - bugfix: fixes a bug that prevented you from picking up adamantine with tongs
+-2025-06-04:
+   Arceniu:
+   - bugfix: fixed a icon override
+   - code_imp: updated some code
+-- 
+2.43.0.windows.1
+
