@@ -201,7 +201,7 @@ GUEST_BAN
 # FORUMURL http://tgstation13.org/phpBB/index.php
 
 ## Wiki address
-WIKIURL https://skyrat.ss220.space
+WIKIURL https://skyrat.ss220.space/index.php
 
 ## Rules address
 RULESURL https://skyrat.ss220.space/index.php/Рулынерулы
