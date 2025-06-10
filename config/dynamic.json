@@ -12,7 +12,9 @@
 		"midround_heavy_lower_bound": 48000,
 		"midround_upper_bound": 63000,
 		"midround_roll_distance": 3000,
-		"low_pop_maximum_threat": 50
+		"low_pop_maximum_threat": 50,
+		"random_event_hijack_minimum": 8000,
+		"random_event_hijack_maximum": 18000
 	},
 	"Roundstart": {
 		"Traitors": {
@@ -592,7 +594,7 @@
 		},
 
 		"Clown Operatives": {
-			"cost": 60,
+			"cost": 40,
 			"scaling_cost": 10,
 			"weight": 2,
 			"required_candidates": 3,
@@ -600,13 +602,13 @@
 			"requirements": [
 				100,
 				100,
-				100,
-				90,
 				60,
 				50,
 				40,
 				30,
 				20,
+				10,
+				10,
 				10
 			],
 			"antag_cap": {
@@ -630,13 +632,13 @@
 			"requirements": [
 				100,
 				100,
-				100,
-				50,
-				50,
 				50,
 				40,
 				30,
 				20,
+				10,
+				10,
+				10,
 				10
 			],
 			"antag_cap": {
@@ -659,13 +661,13 @@
 			"requirements": [
 				100,
 				100,
-				100,
-				50,
-				50,
 				50,
 				40,
 				30,
 				20,
+				10,
+				10,
+				10,
 				10
 			],
 			"antag_cap": {
@@ -681,18 +683,19 @@
 		},
 
 		"Alien Infestation": {
-			"cost": 50,
+			"cost": 40,
 			"scaling_cost": 10,
 			"weight": 4,
+			"minimum_players": 20,
 			"required_candidates": 1,
 			"minimum_required_age": 0,
 			"requirements": [
 				70,
-				60,
-				50,
 				40,
 				30,
 				20,
+				10,
+				10,
 				10,
 				10,
 				10,
@@ -828,18 +831,18 @@
 		},
 
 		"Spiders": {
-			"cost": 50,
+			"cost": 20,
 			"scaling_cost": 10,
 			"weight": 3,
 			"required_candidates": 1,
 			"minimum_required_age": 0,
 			"requirements": [
-				100,
-				100,
-				50,
 				40,
-				30,
 				20,
+				10,
+				10,
+				10,
+				10,
 				10,
 				10,
 				10,
@@ -862,6 +865,7 @@
 			"weight": 2,
 			"required_candidates": 1,
 			"minimum_required_age": 0,
+			"minimum_players": 5,
 			"requirements": [
 				20,
 				10,
@@ -915,17 +919,17 @@
 		},
 
 		"Space Pirates": {
-			"cost": 40,
+			"cost": 30,
 			"scaling_cost": 15,
 			"weight": 2,
 			"required_candidates": 2,
 			"minimum_required_age": 0,
 			"requirements": [
 				100,
-				90,
-				40,
 				30,
 				20,
+				10,
+				10,
 				10,
 				10,
 				10,
@@ -945,20 +949,20 @@
 		},
 
 		"Dangerous Space Pirates": {
-			"cost": 60,
+			"cost": 40,
 			"scaling_cost": 20,
 			"weight": 2,
 			"required_candidates": 2,
 			"minimum_required_age": 0,
 			"requirements": [
 				100,
-				100,
-				100,
 				60,
 				50,
 				40,
 				30,
 				20,
+				10,
+				10,
 				10,
 				10
 			],
@@ -1156,6 +1160,7 @@
 			"weight": 2,
 			"required_candidates": 1,
 			"minimum_required_age": 0,
+			"minimum_players": 15,
 			"requirements": [
 				90,
 				50,

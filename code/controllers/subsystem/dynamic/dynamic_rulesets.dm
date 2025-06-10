@@ -133,9 +133,12 @@
 
 /// Sets the current threat indices and returns true if we're inside of them
 /datum/dynamic_ruleset/proc/is_valid_threat(population, threat_level)
-	pop_per_requirement = pop_per_requirement > 0 ? pop_per_requirement : SSdynamic.pop_per_requirement
-	indice_pop = min(requirements.len,round(population/pop_per_requirement)+1)
-	return threat_level >= requirements[indice_pop]
+	// SS1984 EDIT START
+	return threat_level >= get_required_threat(population, threat_level)
+	// pop_per_requirement = pop_per_requirement > 0 ? pop_per_requirement : SSdynamic.pop_per_requirement
+	// indice_pop = min(requirements.len,round(population/pop_per_requirement)+1)
+	// return threat_level >= requirements[indice_pop]
+	// SS1984 EDIT END
 
 /// When picking rulesets, if dynamic picks the same one multiple times, it will "scale up".
 /// However, doing this blindly would result in lowpop rounds (think under 10 people) where over 80% of the crew is antags!

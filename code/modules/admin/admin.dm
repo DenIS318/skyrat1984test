@@ -192,9 +192,9 @@ ADMIN_VERB(spawn_cargo, R_SPAWN, "Spawn Cargo", "Spawn a cargo crate.", ADMIN_CA
 			else if (forced == RULESET_FORCE_ENABLED)
 				explanation = " - Failed spawn conditions"
 			else if (!rule.is_valid_population(pop_count))
-				explanation = " - Invalid player count"
+				explanation = " - Invalid player count (minimum: [rule.minimum_players])" // SS1984 EDIT
 			else if (!rule.is_valid_threat(pop_count, threat_level))
-				explanation = " - Insufficient threat"
+				explanation = " - Insufficient threat (minimum: [rule.get_required_threat(pop_count, threat_level)])" // SS1984 EDIT
 			else
 				explanation = " - Failed spawn conditions"
 		else if (forced == RULESET_FORCE_ENABLED)
