@@ -924,6 +924,7 @@
 			"weight": 2,
 			"required_candidates": 2,
 			"minimum_required_age": 0,
+			"minimum_players": 10,
 			"requirements": [
 				100,
 				30,
@@ -954,6 +955,7 @@
 			"weight": 2,
 			"required_candidates": 2,
 			"minimum_required_age": 0,
+			"minimum_players": 15,
 			"requirements": [
 				100,
 				60,
