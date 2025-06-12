@@ -390,6 +390,7 @@
 			"weight": 2,
 			"required_candidates": 1,
 			"minimum_required_age": 0,
+			"minimum_players": 5,
 			"requirements": [
 				10,
 				10,
