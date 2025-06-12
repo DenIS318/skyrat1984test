@@ -14,7 +14,9 @@
 		"midround_roll_distance": 3000,
 		"low_pop_maximum_threat": 50,
 		"random_event_hijack_minimum": 8000,
-		"random_event_hijack_maximum": 18000
+		"random_event_hijack_maximum": 18000,
+		"increase_interval": 20,
+		"crew_coefficient": 20
 	},
 	"Roundstart": {
 		"Traitors": {

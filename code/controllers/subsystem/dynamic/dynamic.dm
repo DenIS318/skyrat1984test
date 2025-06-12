@@ -227,6 +227,7 @@ SUBSYSTEM_DEF(dynamic)
 	else
 		dat += "Midround: [DisplayTimeText(next_injection - world.time)] <a href='byond://?src=[text_ref(src)];[HrefToken()];injectmid=1'>\[Now!\]</a><BR>"
 
+	dat += get_progressive_admin_panel(dat)// SS1984 ADDITION
 	var/datum/browser/browser = new(usr, "gamemode_panel", "Game Mode Panel", 500, 500)
 	browser.set_content(dat.Join())
 	browser.open()

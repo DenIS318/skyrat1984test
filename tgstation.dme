@@ -9166,4 +9166,5 @@
 #include "modular_ss220\modules\extra_tips\datums\mind.dm"
 #include "modular_ss220\modules\extra_tips\mob\dead\new_player\new_player.dm"
 #include "modular_ss220\modules\dynamic_tweaks\dynamic_tweaks.dm"
+#include "modular_ss220\modules\dynamic_tweaks\dynamic_progressive.dm"
 // END_INCLUDE
