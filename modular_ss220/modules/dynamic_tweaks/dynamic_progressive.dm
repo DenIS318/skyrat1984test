@@ -46,7 +46,7 @@ SUBSYSTEM_DEF(progressive_dynamic)
 	Destroy()
 
 /datum/controller/subsystem/progressive_dynamic/fire()
-	if (!GLOB.dynamic_progressive_enabled || generated_threat_by_progressive_dynamic >= max_generated_threat || !SSdynamic || !SSticker?.current_state != GAME_STATE_PLAYING)
+	if (!GLOB.dynamic_progressive_enabled || generated_threat_by_progressive_dynamic >= max_generated_threat || !SSdynamic || !SSticker || SSticker.current_state != GAME_STATE_PLAYING)
 		return
 
 	var/time_in_deciseconds = STATION_TIME_PASSED()
