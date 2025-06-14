@@ -8,8 +8,18 @@
 	var/toggle_command_bold = TRUE
 
 /datum/nttc_configuration/proc/retrieve_relevant_job(speaker_source, obj/item/card/id/id_card)
-	var/job_at_card = id_card ? id_card?.assignment : null
-	if (job_at_card)
+	var/job_at_card
+	if (id_card)
+		if (id_card.trim && id_card.trim.assignment)
+			job_at_card = id_card.trim.assignment
+		else
+			job_at_card = id_card.assignment
+	if (job_at_card) // could be null at this moment
+		if (!ishuman(speaker_source))
+			return job_at_card
+		var/mob/living/carbon/human_speaker = speaker_source
+		if (human_speaker.name == "Unknown") // Something like infiltrator mod or for admin spawn
+			return "Unknown"
 		return job_at_card
 
 	if (speaker_source) // Handle stuff that don't have cards
