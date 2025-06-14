@@ -61,18 +61,20 @@ SUBSYSTEM_DEF(progressive_dynamic)
 			continue
 		if (checked_mob.stat == DEAD || is_centcom_level(checked_mob.z) || !checked_mob.client)
 			continue
-		if(checked_mob.mind.special_role) // oh no, obsessed HOS is not contributing to station the same way, as heretic engineer...
+		if(checked_mob.mind.special_role)
 			continue
+		if (ishuman(checked_mob))
+			var/mob/living/carbon/human/human_mob = checked_mob
+			if (human_mob.has_trauma_type(/datum/brain_trauma/special/obsessed)) // oh no, obsessed HOS is not contributing to station the same way, as heretic engineer...
+				continue
 		// HIGHER PRIORITY CHECKS GOES FIRST, SO HEADS AND ETC ARE SKIPPED IF MOB IN SECURITY
 		if(checked_mob.mind.assigned_role?.departments_list?.Find(/datum/job_department/security))
 			sec_amount++
 			continue
-		if(checked_mob.mind.assigned_role?.departments_list?.Find(/datum/job_department/central_command))
+		if(checked_mob.mind.assigned_role?.departments_list?.Find(/datum/job_department/command))
 			head_amount++
 			continue
-		if(checked_mob.mind.assigned_role?.departments_list?.Find(/datum/job_department/command))
-			crew_amount++
-			continue
+		crew_amount++ // So technically someone who was brought to station like some ghost role still count as crew, it's a feature
 
 	var/overall_power = calculate_station_power(sec_amount, head_amount, crew_amount)
 	var/threat_increase = calculate_threat_increase(time_in_deciseconds, overall_power)
