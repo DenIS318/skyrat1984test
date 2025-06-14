@@ -9181,4 +9181,5 @@
 #include "modular_ss220\modules\extra_tips\mob\dead\new_player\new_player.dm"
 #include "modular_ss220\modules\dynamic_tweaks\dynamic_tweaks.dm"
 #include "modular_ss220\modules\dynamic_tweaks\dynamic_progressive.dm"
+#include "modular_ss220\modules\galactic_market_return\galactic_market_config.dm"
 // END_INCLUDE
