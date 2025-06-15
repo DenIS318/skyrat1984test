@@ -4,24 +4,23 @@ on:
   - pull_request_target
 jobs:
   dreamchecker:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node
+      - name: Setup part 1 (Node)
         uses: ./.github/actions/setup_node
-      - name: Setup .NET SDK
+      - name: Setup part 2 (.NET SDK)
         uses: actions/setup-dotnet@v4.2.0
         with:
           dotnet-version: 9.x
-      - name: Install Tools
+      - name: Setup part 3 (Install Tools)
         run: |
           pip3 install setuptools
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
-          bash tools/ci/install_ripgrep.sh
           tools/bootstrap/python -c ''
-      - name: Give Linters A Go
+      - name: Setup part 4 (Give Linters A Go)
         id: linter-setup
         run: ":"
       - name: Check Define Sanity
