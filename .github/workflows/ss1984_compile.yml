@@ -28,8 +28,16 @@ jobs:
       run: |
         pip3 install setuptools
         tools/bootstrap/python -c ''
-    - name: Setup part 5 (Give Linters A Go)
+    - name: Setup part 5 (Install BYOND)
+      run: tools/ci/install_byond.sh STABLE
+    - name: Setup part 6 (Give Linters A Go)
       id: linter-setup
       run: ":"
-    - name: Compile
+    - name: Compile with OpenDream
+      if: steps.linter-setup.conclusion == 'success' && !cancelled()
       run: ./DMCompiler_linux-x64/DMCompiler tgstation.dme --suppress-unimplemented --version=516.1662 --define=CIBUILDING | bash tools/ci/annotate_od.sh
+    - name: Compile with DM
+      if: steps.linter-setup.conclusion == 'success' && !cancelled()
+      run: |
+        source $HOME/BYOND/byond/bin/byondsetup
+        tools/ci/dm.sh -DCIBUILDING tgstation.dme
