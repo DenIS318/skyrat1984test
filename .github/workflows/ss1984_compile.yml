@@ -30,7 +30,11 @@ jobs:
         tools/bootstrap/python -c ''
     - name: Setup part 5 (Install BYOND)
       run: tools/ci/install_byond.sh STABLE
-    - name: Setup part 6 (Give Linters A Go)
+    - name: Setup part 6 (Install Dreamluau)
+      run: tools/ci/install_dreamluau.sh
+    - name: Setup part 7 (Install Rust)
+      run: tools/ci/install_rust_g.sh
+    - name: Setup part 8 (Give Linters A Go)
       id: linter-setup
       run: ":"
     - name: Compile with OpenDream
