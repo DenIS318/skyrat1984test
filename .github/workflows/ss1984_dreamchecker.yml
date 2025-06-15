@@ -1,5 +1,5 @@
 # Creates an entry in html/changelogs automatically, to eventually be compiled by compile_changelogs
-name: SS1984: DreamChecker
+name: SS1984 DreamChecker
 on:
   - pull_request_target
 jobs:
