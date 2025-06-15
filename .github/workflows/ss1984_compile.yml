@@ -32,4 +32,4 @@ jobs:
       id: linter-setup
       run: ":"
     - name: Compile
-      run: ./DMCompiler_linux-x64/DMCompiler tgstation.dme --suppress-unimplemented --define=CIBUILDING | bash tools/ci/annotate_od.sh
+      run: ./DMCompiler_linux-x64/DMCompiler tgstation.dme --suppress-unimplemented --version=516.1662 --define=CIBUILDING | bash tools/ci/annotate_od.sh
