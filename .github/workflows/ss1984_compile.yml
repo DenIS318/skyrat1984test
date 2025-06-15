@@ -1,63 +1,35 @@
-# Creates an entry in html/changelogs automatically, to eventually be compiled by compile_changelogs
 name: SS1984 Compile
 on:
   - pull_request_target
 jobs:
   compile:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 10
 
     steps:
     - uses: actions/checkout@v4
-    - name: Restore SpacemanDMM cache
-      uses: actions/cache@v4
-      with:
-        path: ~/SpacemanDMM
-        key: ${{ runner.os }}-spacemandmm-${{ hashFiles('dependencies.sh') }}
-        restore-keys: |
-          ${{ runner.os }}-spacemandmm-
-    - name: Setup Node
+      with: # to make it work on pull requests
+        ref: ${{github.event.pull_request.head.ref}}
+        repository: ${{github.event.pull_request.head.repo.full_name}}
+    - name: Setup part 1 (Node)
       uses: ./.github/actions/setup_node
-      with:
-        restore-yarn-cache: true
-    - name: Restore Bootstrap cache
-      uses: actions/cache@v4
-      with:
-        path: tools/bootstrap/.cache
-        key: ${{ runner.os }}-bootstrap-${{ hashFiles('tools/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-bootstrap-
-    - name: Restore Rust cache
-      uses: actions/cache@v4
-      with:
-        path: ~/.cargo
-        key: ${{ runner.os }}-rust-${{ hashFiles('tools/ci/ci_dependencies.sh')}}
-        restore-keys: |
-          ${{ runner.os }}-rust-
-    - name: Restore Cutter cache
-      uses: actions/cache@v4
-      with:
-        path: tools/icon_cutter/cache
-        key: ${{ runner.os }}-cutter-${{ hashFiles('dependencies.sh') }}
-    - name: Setup .NET SDK
+    - name: Setup part 2 (.NET SDK)
       uses: actions/setup-dotnet@v4.2.0
       with:
         dotnet-version: 9.x
-    - name: Install OpenDream
+    - name: Setup part 3 (Install OpenDream)
       uses: robinraju/release-downloader@v1.12
       with:
         repository: "OpenDreamProject/OpenDream"
         tag: "latest"
         fileName: "DMCompiler_linux-x64.tar.gz"
         extract: true
-    - name: Install Tools
+    - name: Setup part 4 (Install Tools)
       run: |
         pip3 install setuptools
-        bash tools/ci/install_spaceman_dmm.sh dreamchecker
-        bash tools/ci/install_ripgrep.sh
         tools/bootstrap/python -c ''
-    - name: Give Linters A Go
+    - name: Setup part 5 (Give Linters A Go)
       id: linter-setup
       run: ":"
-    - name: Run OpenDream
+    - name: Compile
       run: ./DMCompiler_linux-x64/DMCompiler tgstation.dme --suppress-unimplemented --define=CIBUILDING | bash tools/ci/annotate_od.sh
