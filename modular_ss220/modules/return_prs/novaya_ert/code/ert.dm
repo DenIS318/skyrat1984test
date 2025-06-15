@@ -467,11 +467,11 @@
 	return TRUE
 
 /obj/item/mod/module/ert_auto_doc/on_install()
-	//. = ..()
+	. = ..()
 	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_refill))
 
 /obj/item/mod/module/ert_auto_doc/on_uninstall(deleting)
-	//. = ..()
+	. = ..()
 	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
 
 /obj/item/mod/module/ert_auto_doc/proc/try_refill(source, mob/user, obj/item/attacking_item)
