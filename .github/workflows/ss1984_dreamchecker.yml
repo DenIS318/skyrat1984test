@@ -1,38 +1,37 @@
-# Creates an entry in html/changelogs automatically, to eventually be compiled by compile_changelogs
-name: SS1984: DreamChecker
+name: SS1984 DreamChecker
 on:
   - pull_request_target
 jobs:
   dreamchecker:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 10
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Restore SpacemanDMM cache
-      uses: actions/cache@v4
-      with:
-        path: ~/SpacemanDMM
-        key: ${{ runner.os }}-spacemandmm-${{ hashFiles('dependencies.sh') }}
-        restore-keys: |
-          ${{ runner.os }}-spacemandmm-
-    - name: Setup Node
-      uses: ./.github/actions/setup_node
-      with:
-        restore-yarn-cache: true
-    - name: Restore Bootstrap cache
-      uses: actions/cache@v4
-      with:
-        path: tools/bootstrap/.cache
-        key: ${{ runner.os }}-bootstrap-${{ hashFiles('tools/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-bootstrap-
-    - name: Install DreamChecker
-      run: |
-        pip3 install setuptools
-        bash tools/ci/install_spaceman_dmm.sh dreamchecker
-        tools/bootstrap/python -c ''
-    - name: Run DreamChecker
-      shell: bash
-      run: ~/dreamchecker 2>&1 | bash tools/ci/annotate_dm.sh
+      - uses: actions/checkout@v4
+        with: # to make it work on pull requests
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+      - name: Setup part 1 (Node)
+        uses: ./.github/actions/setup_node
+      - name: Setup part 2 (.NET SDK)
+        uses: actions/setup-dotnet@v4.2.0
+        with:
+          dotnet-version: 9.x
+      - name: Setup part 3 (Install Tools)
+        run: |
+          pip3 install setuptools
+          bash tools/ci/install_spaceman_dmm.sh dreamchecker
+          tools/bootstrap/python -c ''
+      - name: Setup part 4 (Give Linters A Go)
+        id: linter-setup
+        run: ":"
+      - name: Check Define Sanity
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: tools/bootstrap/python -m define_sanity.check
+      - name: Check Trait Validity
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: tools/bootstrap/python -m trait_validity.check
+      - name: Run DreamChecker
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        shell: bash
+        run: ~/dreamchecker 2>&1 | bash tools/ci/annotate_dm.sh
