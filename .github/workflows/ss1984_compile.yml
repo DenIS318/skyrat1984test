@@ -1,5 +1,5 @@
 # Creates an entry in html/changelogs automatically, to eventually be compiled by compile_changelogs
-name: SS1984: Compile
+name: SS1984 Compile
 on:
   - pull_request_target
 jobs:
