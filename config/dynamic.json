@@ -5,7 +5,7 @@
 		"latejoin_delay_max": 9000,
 		"threat_curve_centre": 1,
 		"threat_curve_width": 3,
-		"roundstart_split_curve_centre": 2,
+		"roundstart_split_curve_centre": 1,
 		"roundstart_split_curve_width": 1,
 		"midround_lower_bound": 3000,
 		"midround_light_upper_bound": 16000,
@@ -316,7 +316,7 @@
 		},
 
 		"Nuclear Emergency": {
-			"cost": 60,
+			"cost": 50,
 			"scaling_cost": 10,
 			"weight": 3,
 			"required_candidates": 3,
