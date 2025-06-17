@@ -2,4 +2,4 @@
 	pop_per_requirement = pop_per_requirement > 0 ? pop_per_requirement : SSdynamic.pop_per_requirement
 	indice_pop = min(requirements.len,round(population/pop_per_requirement)+1)
 	return requirements[indice_pop]
-	// this should compile fine, lets check it 2
+	this should not compile, lets check
