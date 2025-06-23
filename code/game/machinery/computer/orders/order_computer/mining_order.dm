@@ -24,7 +24,7 @@
 		CATEGORY_PKA,
 	)
 	blackbox_key = "mining"
-	announcement_line = "A shaft miner has ordered equipment which will arrive on the cargo shuttle! Please make sure it gets to them as soon as possible!"
+	announcement_line = "Шахта заказал оборудование, которое прибудет на грузовом шаттле! Пожалуйста, убедитесь, что оно доставлено им как можно скорее!"
 
 /obj/machinery/computer/order_console/mining/Initialize(mapload)
 	. = ..()

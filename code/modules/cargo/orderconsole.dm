@@ -480,8 +480,8 @@
 /datum/aas_config_entry/cargo_orders_announcement
 	name = "Cargo Alert: New Orders"
 	announcement_lines_map = list(
-		"Single Order" = "A new order has been requested.",
-		"Multiple Orders" = "%AMOUNT orders have been requested.",
+		"Single Order" = "Был запрошен новый заказ.",
+		"Multiple Orders" = "%AMOUNT новых заказов было запрошено.",
 	)
 	vars_and_tooltips_map = list(
 		"AMOUNT" = "will be replaced wuth number of orders.",

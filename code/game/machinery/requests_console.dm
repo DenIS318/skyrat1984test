@@ -418,9 +418,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/requests_console/auto_name, 30)
 /datum/aas_config_entry/rc_emergency
 	name = "RC Alert: Emergency"
 	announcement_lines_map = list(
-		"Security" = "Security emergency in %LOCATION!!!",
-		"Engineering" = "Engineering emergency in %LOCATION!!!",
-		"Medical" = "Medical emergency in %LOCATION!!!",
+		"Security" = "Срочный запрос СБ В %LOCATION!!!",
+		"Engineering" = "Срочный запрос ИНЖЕНЕРОВ В %LOCATION!!!",
+		"Medical" = "Срочный запрос МЕДИКОВ В %LOCATION!!!",
 	)
 	vars_and_tooltips_map = list(
 		"LOCATION" = "will be replaced with the department name",

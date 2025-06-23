@@ -1912,7 +1912,7 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 /datum/aas_config_entry/vendomat_age_control
 	name = "Security Alert: Underaged Substance Abuse"
 	announcement_lines_map = list(
-		"Message" = "SECURITY ALERT: %PERSON recorded attempting to purchase %PRODUCT in %LOCATION. Please watch for substance abuse." // NOVA EDIT CHANGE - Original: "Message" = "SECURITY ALERT: Underaged crewmember %PERSON recorded attempting to purchase %PRODUCT in %LOCATION by %VENDOR. Please watch for substance abuse."
+		"Message" = "ПРЕДУПРЕЖДЕНИЕ БЕЗОПАСНОСТИ: %PERSON зафиксирован при попытке купить %PRODUCT в %LOCATION. Пожалуйста, следите за злоупотреблением психоактивными веществами." // NOVA EDIT CHANGE - Original: "Message" = "SECURITY ALERT: Underaged crewmember %PERSON recorded attempting to purchase %PRODUCT in %LOCATION by %VENDOR. Please watch for substance abuse."
 	)
 	vars_and_tooltips_map = list(
 		"PERSON" = "will be replaced with the name of the crewmember",
