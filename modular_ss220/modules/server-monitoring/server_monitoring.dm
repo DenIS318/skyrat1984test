@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(server_monitoring)
 	name = "Server Monitoring"
 	flags = SS_BACKGROUND
-	wait = 30 SECONDS // Default wait time before fire() invoked, should be set to increase_interval during setup
+	wait = 30 SECONDS // Default wait time before fire() invoked
 
 /datum/controller/subsystem/server_monitoring/Initialize()
 	if (!CONFIG_GET(flag/compatible_to_server_monitoring) || !CONFIG_GET(string/server_monitoring_filesave_path))
