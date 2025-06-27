@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(server_monitoring)
 	wait = 30 SECONDS // Default wait time before fire() invoked, should be set to increase_interval during setup
 
 /datum/controller/subsystem/server_monitoring/Initialize()
-	if (!CONFIG_GET(flag/compatible_to_server_monitoring) || !CONFIG_GET(flag/server_monitoring_filesave_path))
+	if (!CONFIG_GET(flag/compatible_to_server_monitoring) || !CONFIG_GET(string/server_monitoring_filesave_path))
 		return SS_INIT_FAILURE // it's ok, server just not configured to use it
 
 	return SS_INIT_SUCCESS
