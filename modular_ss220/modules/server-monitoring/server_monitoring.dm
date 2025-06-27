@@ -11,7 +11,7 @@ SUBSYSTEM_DEF(server_monitoring)
 
 /datum/controller/subsystem/server_monitoring/fire()
 	var/datum/json_savefile/savefile
-	savefile.path = CONFIG_GET(flag/server_monitoring_filesave_path)
+	savefile.path = CONFIG_GET(string/server_monitoring_filesave_path)
 	var/map_name = SSmapping.current_map?.map_name // don't even try to exploit it with VV, it's validated on monitoring server anyway
 	if (!map_name)
 		map_name = "?"

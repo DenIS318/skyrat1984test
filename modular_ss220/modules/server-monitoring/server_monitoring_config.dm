@@ -1,3 +1,3 @@
 /datum/config_entry/flag/compatible_to_server_monitoring
 
-/datum/config_entry/flag/server_monitoring_filesave_path
+/datum/config_entry/string/server_monitoring_filesave_path
