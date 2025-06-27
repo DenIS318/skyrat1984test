@@ -2,6 +2,7 @@ SUBSYSTEM_DEF(server_monitoring)
 	name = "Server Monitoring"
 	flags = SS_BACKGROUND
 	wait = 30 SECONDS // Default wait time before fire() invoked
+	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 
 /datum/controller/subsystem/server_monitoring/Initialize()
 	if (!CONFIG_GET(flag/compatible_to_server_monitoring) || !CONFIG_GET(string/server_monitoring_filesave_path))
@@ -10,8 +11,10 @@ SUBSYSTEM_DEF(server_monitoring)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/server_monitoring/fire()
-	var/datum/json_savefile/savefile
-	savefile.path = CONFIG_GET(string/server_monitoring_filesave_path)
+	var/fpath = CONFIG_GET(string/server_monitoring_filesave_path)
+	if (!fpath)
+		return
+	var/datum/json_savefile/savefile = new /datum/json_savefile(fpath)
 	var/map_name = SSmapping.current_map?.map_name // don't even try to exploit it with VV, it's validated on monitoring server anyway
 	if (!map_name)
 		map_name = "?"
