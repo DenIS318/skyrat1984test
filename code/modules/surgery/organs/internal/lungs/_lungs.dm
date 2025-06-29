@@ -852,7 +852,7 @@
 		var/do_i_cough = SPT_PROB((damage < high_threshold) ? 2.5 : 5, seconds_per_tick) // between : past high
 		if(do_i_cough)
 			owner.emote("cough")
-	if(organ_flags & ORGAN_FAILING && owner.stat == CONSCIOUS)
+	if(organ_flags & ORGAN_FAILING && owner.stat <= SOFT_CRIT) // SS1984 EDIT, original: if(organ_flags & ORGAN_FAILING && owner.stat == CONSCIOUS)
 		owner.visible_message(span_danger("[owner] grabs [owner.p_their()] throat, struggling for breath!"), span_userdanger("You suddenly feel like you can't breathe!"))
 		failed = TRUE
 
