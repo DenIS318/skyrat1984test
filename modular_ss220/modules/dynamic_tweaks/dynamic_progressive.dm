@@ -74,6 +74,9 @@ SUBSYSTEM_DEF(progressive_dynamic)
 		if(checked_mob.mind.assigned_role?.departments_list?.Find(/datum/job_department/command))
 			head_amount++
 			continue
+		// No not-crew (ghost roles) or unassigned (at mind, not at card) roles
+		if (!checked_mob.mind.assigned_role || !(checked_mob.mind.assigned_role.job_flags & JOB_CREW_MEMBER))
+			continue
 		crew_amount++ // So technically someone who was brought to station like some ghost role still count as crew, it's a feature
 
 	var/overall_power = calculate_station_power(sec_amount, head_amount, crew_amount)
