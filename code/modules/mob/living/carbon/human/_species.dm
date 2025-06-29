@@ -605,6 +605,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		return
 	if(HAS_TRAIT(H, TRAIT_NOBREATH) && (H.health < H.crit_threshold) && !HAS_TRAIT(H, TRAIT_NOCRITDAMAGE))
 		H.adjustBruteLoss(0.5 * seconds_per_tick)
+	// SS1984 ADDITION START
+	if (H.stat == SOFT_CRIT)
+		H.adjust_stutter(1 SECONDS * seconds_per_tick) // should keep slutter always (almost, based on lags)
+		if (prob(3 * seconds_per_tick))
+			H.Paralyze(4 SECONDS)
+	// SS1984 ADDITION END
 
 /datum/species/proc/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self = FALSE, ignore_equipped = FALSE, indirect_action = FALSE)
 	if(no_equip_flags & slot && !(I.is_mod_shell_component() && (modsuit_slot_exceptions & slot))) // NOVA EDIT ADDITION - ORIGINAL: if(no_equip_flags & slot)
