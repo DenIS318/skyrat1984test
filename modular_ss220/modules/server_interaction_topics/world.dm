@@ -1,6 +1,6 @@
 /world/Topic(T, addr, master, key)
 	// So it's basically to silent continue execution in ALL cases when our requirements are not satisfied
-	if (!T || !addr || !master || !key)
+	if (!T || !addr)
 		return ..(T, addr, master, key)
 
 	if (!CONFIG_GET(flag/compatible_to_server_interaction))
@@ -14,20 +14,37 @@
 	if (!required_key)
 		return ..(T, addr, master, key)
 
-	var/decoded_server_key = RUSTG_CALL(RUST_G, "decode_sha512")(required_key)
-	if (!decoded_server_key)
-		return ..(T, addr, master, key) // that's weird, but lets not spam logs
-
-	var/decoded_client_key = RUSTG_CALL(RUST_G, "decode_sha512")(key)
-	if (!decoded_client_key || decoded_client_key != decoded_server_key)
+	// Ok so at this point we actually need to decode what we received
+	var/list/params = params2list(T)
+	if (!params)
 		return ..(T, addr, master, key)
 
-	// if someone beaten this protection, congrats, would be good if you tell how
+	var/json = params["topic"] // should match at client app
+	if (!json)
+		return ..(T, addr, master, key)
+
+	var/list/topic_parameters = json_decode(json)
+	if(!topic_parameters)
+		return ..(T, addr, master, key)
+
+	var/key_received = topic_parameters["key"]
+	if (!key_received || key_received != required_key)
+		return ..(T, addr, master, key)
+
+	var/code_received = topic_parameters["code"]
+	if (!code_received)
+		return ..(T, addr, master, key)
+
+	var/list/args_received = topic_parameters["arguments"] // could be null
+
 	// Ok it seems that its valid topic, or at least we assume it at that point
-	handle_custom_server_to_server_topic(T, addr)
+	// First lets go the original way
+	. = ..(T, addr, master, key)
 
-	// always return to allow further execution
-	return ..(T, addr, master, key)
+	var/response = handle_custom_server_to_server_topic(code_received, args_received)
+	if (.) // Give original return value priority if it's not null
+		return .
+	return response
 
-/world/proc/handle_custom_server_to_server_topic(T, addr) // to be overriden by other modules
+/world/proc/handle_custom_server_to_server_topic(code_received, list/args_received) // to be overriden by other modules
 	log_topic("Please override handle_custom_server_to_server_topic proc with your logic if you use that system. Don't call base method")

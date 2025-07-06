@@ -1,27 +1,21 @@
-#define server_to_server_topic_data_separator ";"
+#define CODE_INVALID 0
+#define CODE_TEST 1
+#define CODE_INVOKE 2
 
-/world/handle_custom_server_to_server_topic(T, addr)
-	var/list/arguments = splittext(T, server_to_server_topic_data_separator)
-	if (arguments.len < 1)
-		return
-	var/cmd = arguments[0]
-	if (!cmd)
-		return
-
-	log_topic("addr is [addr]");
-	var/to_respond = handle_custom_command(cmd, arguments)
-	if (!to_respond)
-		world.Export("http://[addr]/?command=ack")
-		return
-
-	world.Export("http://127.0.0.1:5001/?command=round_start&testkey=testvalue")
+/world/handle_custom_server_to_server_topic(code_received, list/args_received)
+	var/result_msg = handle_custom_command(code_received, args_received)
+	if (!result_msg)
+		return "Ok"
+	return result_msg
 
 /world/proc/handle_custom_command(cmd, list/arguments)
 	switch (cmd)
-		if ("test")
+		if (CODE_INVALID) // aka invalid
+			return "Invalid, yet received"
+		if (CODE_TEST) // aka test
 			log_topic("test")
 			return
-		if ("notest")
+		if (CODE_INVOKE) // aka invoke
 			return
 		else
-			return
+			return "Invalid code"
