@@ -7,3 +7,6 @@
   DenIS318:
   - bugfix: Now shuttles building shouldn't freeze server and throw runtime instead
       (could happen in some cases before)
+2025-07-07:
+  Arceniu:
+  - balance: now need only 1 iron instead of 15 to perform synth revive
