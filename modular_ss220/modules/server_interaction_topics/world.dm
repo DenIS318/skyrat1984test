@@ -1,4 +1,6 @@
 /world/Topic(T, addr, master, key)
+	if (IsAdminAdvancedProcCall()) // imagine someone will actually try to exploit it that way and spoof ip
+		return
 	// So it's basically to silent continue execution in ALL cases when our requirements are not satisfied
 	if (!T || !addr)
 		return ..(T, addr, master, key)
