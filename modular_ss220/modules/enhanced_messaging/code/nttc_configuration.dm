@@ -10,10 +10,19 @@
 /datum/nttc_configuration/proc/retrieve_relevant_job(speaker_source, obj/item/card/id/id_card, get_custom_jobname)
 	var/job_at_card
 	if (id_card)
-		if (!get_custom_jobname && id_card.trim && id_card.trim.assignment)
-			job_at_card = id_card.trim.assignment
+		if (istype(id_card, /obj/item/card/id/advanced/chameleon))
+			// chameleon-card case
+			var/obj/item/card/id/advanced/chameleon/chameleon_card = id_card
+			if (!get_custom_jobname && chameleon_card.trim_assignment_override)
+				job_at_card = chameleon_card.trim_assignment_override
+			else
+				job_at_card = chameleon_card.assignment
 		else
-			job_at_card = id_card.assignment
+			// non-chameleon case
+			if (!get_custom_jobname && id_card.trim && id_card.trim.assignment)
+				job_at_card = id_card.trim.assignment
+			else
+				job_at_card = id_card.assignment
 	if (job_at_card) // could be null at this moment
 		if (!ishuman(speaker_source))
 			return job_at_card
