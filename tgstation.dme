@@ -9216,4 +9216,7 @@
 #include "modular_ss220\modules\server_interaction_topics\server_interaction_config.dm"
 #include "modular_ss220\modules\server_interaction_topics\world.dm"
 #include "modular_ss220\modules\server_interaction_topics\server_interaction_topics_handle.dm"
+#include "modular_ss220\modules\add_memory\mob.dm"
+#include "modular_ss220\modules\add_memory\general_custom_memory.dm"
+#include "modular_ss220\modules\add_memory\mind.dm"
 // END_INCLUDE
