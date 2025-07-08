@@ -11,6 +11,10 @@
   Arceniu:
   - balance: now need only 1 iron instead of 15 to perform synth revive
 2025-07-08:
+  Arceniu:
+  - bugfix: fixed a minor tarkon card issues
+  - qol: interdyne shuttle now cannot be used without ip/ds-2 access, interdyne ghost
+      role modsuit now need access to activate
   DenIS318:
   - config: Dynamic increase rulesets scaling cost
   - config: Dynamic increase rulesets threat consumed (mainly in roundstart)
@@ -21,3 +25,8 @@
   - rscadd: Add Note button for IC tab, which lets you write some temporal info for
       round as "memories"
   - qol: Allow select same map at map-vote
+  - qol: Navigate now shows you path even if you don't have access
+  - qol: Navigation max range increased to 255 (whole station zlevel)
+  - qol: Navigate now shows all APC areas on station (Fore Primary Hallway, Robotics,
+      Ordnance Lab, Xenobiology Maintenance and so on), instead of only predefined
+      landmarks (like Research). Finally, he found Brig Maintenance.

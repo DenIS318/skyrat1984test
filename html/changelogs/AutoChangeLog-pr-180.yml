@@ -1,4 +1,0 @@
-author: "Arceniu"
-delete-after: True
-changes:
-  - qol: "interdyne shuttle now cannot be used without ip/ds-2 access, interdyne ghost role modsuit now need access to activate"

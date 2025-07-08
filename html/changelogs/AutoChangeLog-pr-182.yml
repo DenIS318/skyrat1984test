@@ -1,6 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - qol: "Navigate now shows you path even if you don't have access"
-  - qol: "Navigation max range increased to 255 (whole station zlevel)"
-  - qol: "Navigate now shows all APC areas on station (Fore Primary Hallway, Robotics, Ordnance Lab, Xenobiology Maintenance and so on), instead of only predefined landmarks (like Research). Finally, he found Brig Maintenance."
