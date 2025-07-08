@@ -394,6 +394,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 		// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
 		if(!quiet)
+			// SS1984 ADDITION START
+			// imagine someone doing some "secret" ghost roles and forgot to setup channel, this is why it's here
+			if (!occupant_job_radio || occupant_job_radio == RADIO_CHANNEL_COMMON)
+				var/datum/job/relative_job = mob_occupant.mind?.assigned_role
+				if (!relative_job || istype(relative_job, /datum/job/ghost_role)) // ghost roles or not assigned
+					occupant_job_radio = control_computer.announcement_channel // use machinery's used channel instead
+			// SS1984 ADDITION END
 			control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, occupant_departments_bitflags, occupant_job_radio)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
