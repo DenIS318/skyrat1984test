@@ -13,6 +13,7 @@
 	access = list(ACCESS_SYNDICATE, ACCESS_SYNDICATE_IP, ACCESS_SYNDICATE_LEADER, ACCESS_ROBOTICS)
 
 /obj/item/mod/control/pre_equipped/interdyne/nerfed
+	locked = 1
 	req_one_access = list(ACCESS_SYNDICATE_IP, ACCESS_SYNDICATE_DS)
 
 /obj/machinery/computer/shuttle/interdyne_cargo
