@@ -9220,4 +9220,6 @@
 #include "modular_ss220\modules\add_memory\general_custom_memory.dm"
 #include "modular_ss220\modules\add_memory\mind.dm"
 #include "modular_ss220\modules\modular_navigation\modular_navigation.dm"
+#include "modular_ss220\modules\interlink_navigation_show\interlink_navigation.dm"
+#include "modular_ss220\modules\interlink_navigation_show\mind.dm"
 // END_INCLUDE
