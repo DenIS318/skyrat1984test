@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - qol: "Now shows navigation at interlink for players with < 10 hours played on server"

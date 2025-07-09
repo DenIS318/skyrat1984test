@@ -30,3 +30,6 @@
   - qol: Navigate now shows all APC areas on station (Fore Primary Hallway, Robotics,
       Ordnance Lab, Xenobiology Maintenance and so on), instead of only predefined
       landmarks (like Research). Finally, he found Brig Maintenance.
+2025-07-09:
+  DenIS318:
+  - qol: Now shows navigation at interlink for players with < 10 hours played on server
