@@ -37,3 +37,6 @@
   - bugfix: updated oldstation oil and blood spawners path
   DenIS318:
   - qol: Now shows navigation at interlink for players with < 10 hours played on server
+2025-07-10:
+  Arceniu:
+  - qol: nasavoid now protect from radiation like old time ago
