@@ -45,3 +45,5 @@
   - bugfix: AI now correctly die when receiving 200 damage
   - bugfix: Interlink navigation tip for begginers now should work even when shuttle
       departed to station
+  - rscadd: 'Secure closets and crates can be hacked now with tools. Follow order:
+      screwdriver => wirecutter => multitool. There is a chance to fail on each step.'
