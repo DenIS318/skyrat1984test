@@ -29,16 +29,23 @@
 
 	var/list/consoles = SSmachines.get_machines_by_type(/obj/machinery/computer/shuttle/arrivals)
 	for(var/obj/machinery/computer/shuttle/arrivals/iter_console as anything in consoles)
-		var/area/rel_area = get_area(iter_console)
-		if(istype(rel_area, /area/centcom/interlink) || istype(rel_area, /area/shuttle/arrival))
+		if(is_centcom_level(iter_console?.loc.z))
 			continue
 		consoles -= iter_console
 
 	if (!consoles || consoles.len != 1)
-		log_runtime("failed to find single shuttle console to station in interlink")
+		// ok so probably shuttle flied to station and not on interlink right now, lets check for recall console
+		consoles = SSmachines.get_machines_by_type(/obj/machinery/computer/shuttle/arrivals/recall)
+		for(var/obj/machinery/computer/shuttle/arrivals/recall/iter_console as anything in consoles)
+			if(is_centcom_level(iter_console?.loc.z))
+				continue
+			consoles -= iter_console
+
+	if (!consoles || consoles.len != 1)
+		log_runtime("failed to find single shuttle console to station in interlink, no recall consoles found or there are more than one")
 		return
 
-	var/obj/machinery/computer/shuttle/arrivals/console = consoles[1] // byond indexing from 1...
+	var/atom/console = consoles[1] // byond indexing from 1..., can be both /arrivals or /arrivals/recall
 	var/atom/navigate_target = console.loc
 
 	if (!navigate_target)
