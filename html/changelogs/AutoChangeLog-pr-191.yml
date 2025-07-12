@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscadd: "Secure closets and crates can be hacked now with tools. Follow order: screwdriver => wirecutter => multitool. There is a chance to fail on each step."
