@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "Interlink navigation tip for begginers now should work even when shuttle departed to station"
