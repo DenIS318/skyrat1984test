@@ -9222,4 +9222,7 @@
 #include "modular_ss220\modules\modular_navigation\modular_navigation.dm"
 #include "modular_ss220\modules\interlink_navigation_show\interlink_navigation.dm"
 #include "modular_ss220\modules\interlink_navigation_show\mind.dm"
+#include "modular_ss220\modules\hacking_secure_storages\secure_storage_hacking_defines.dm"
+#include "modular_ss220\modules\hacking_secure_storages\secure_closets.dm"
+#include "modular_ss220\modules\hacking_secure_storages\secure.dm"
 // END_INCLUDE
