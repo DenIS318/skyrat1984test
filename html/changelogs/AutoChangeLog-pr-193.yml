@@ -1,0 +1,11 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "Taser no longer apply tased status effect (no slowdown)"
+  - balance: "Taser no longer drain cell energy and stamina after hit target"
+  - balance: "Taser stamina damage 35 => 15"
+  - balance: "Taser delay between shots 0 => 15 ticks (~0.75 seconds)"
+  - balance: "Taser range 5 => 7"
+  - balance: "Taser paralyze 0 => 0.2 seconds (kind of microstun or ranged disarm)"
+  - balance: "Taser energy cost reduced, 5 => 15 shots with default battery"
+  - rscdel: "Taser no longer shows visual beam effect (by default)"
