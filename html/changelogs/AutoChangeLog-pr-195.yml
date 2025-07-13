@@ -1,0 +1,7 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscadd: "Security roles (exclude detective and department guards) spawn with Security Voucher"
+  - rscadd: "Security Voucher can be used on SecTech to get Taser or Sol Pistol with non-lethal ammo"
+  - rscadd: "Added security vouchers to Warden's closet"
+  - rscadd: "Security vouchers can be purchased at cargo"
