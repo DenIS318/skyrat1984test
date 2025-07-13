@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - balance: "Stunprod knockdown time 1.5 seconds => 1 tick (~0.05 seconds). There's still time after knockdown received to get up regardless of knockdown_time)"
-  - balance: "Stunprod size HUGE => NORMAL (can fit in backpack now)"
