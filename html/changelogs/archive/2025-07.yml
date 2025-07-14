@@ -69,3 +69,9 @@
 2025-07-14:
   Arceniu:
   - balance: rebalanced nerve staple quirk- synth now cant have it
+  DenIS318:
+  - map: 'Added autolathes to engineering, brig, research at maps: Delta, Meta, Tram,
+      Icebox'
+  - map: Added 10 glass and 10 iron near added autolathes
+  - map: Moved cargo autolathe, so it can be accesed if cargo open window to it
+  - map: Security autolathe is hacked by default
