@@ -1,0 +1,7 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - map: "Added autolathes to engineering, brig, research at maps: Delta, Meta, Tram, Icebox"
+  - map: "Added 10 glass and 10 iron near added autolathes"
+  - map: "Moved cargo autolathe, so it can be accesed if cargo open window to it"
+  - map: "Security autolathe is hacked by default"
