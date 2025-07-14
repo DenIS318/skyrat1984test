@@ -6396,6 +6396,10 @@
 	},
 /obj/item/book/manual/wiki/research_and_development,
 /obj/item/toy/figure/scientist,
+/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
 /turf/open/floor/iron,
 /area/station/science/lab)
 "bCc" = (
@@ -7566,9 +7570,8 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
 "bPj" = (
-/obj/machinery/rnd/production/techfab/department/cargo,
-/obj/effect/turf_decal/stripes/box,
 /obj/effect/turf_decal/tile/brown/half/contrasted,
+/obj/machinery/rnd/production/techfab/department/cargo,
 /turf/open/floor/iron,
 /area/station/cargo/office)
 "bPv" = (
@@ -14625,6 +14628,19 @@
 "dzw" = (
 /turf/closed/wall/r_wall,
 /area/station/security/brig)
+"dzP" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
+	id = "rndlab1";
+	name = "Research and Development Shutter"
+	},
+/obj/machinery/autolathe,
+/obj/machinery/door/window/left/directional/north{
+	req_access = list("science");
+	name = "Research Autolathe"
+	},
+/turf/open/floor/plating,
+/area/station/science/lab)
 "dzQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/poddoor/massdriver_ordnance,
@@ -22277,6 +22293,7 @@
 	name = "Research Lab Desk";
 	req_access = list("science")
 	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/science/lab)
 "fwi" = (
@@ -42080,6 +42097,15 @@
 	dir = 4
 	},
 /area/station/commons/fitness/recreation)
+"kpg" = (
+/obj/machinery/door/window/left/directional/south{
+	req_access = list("cargo");
+	name = "Cargo Autolathe"
+	},
+/obj/machinery/autolathe,
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron,
+/area/station/cargo/office)
 "kpj" = (
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
@@ -46559,6 +46585,7 @@
 	},
 /obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/autolathe/hacked,
 /turf/open/floor/iron,
 /area/station/security/lockers)
 "lyx" = (
@@ -50544,6 +50571,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/yellow,
+/obj/machinery/autolathe,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
@@ -61023,6 +61051,11 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/table/reinforced,
+/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
 /turf/open/floor/iron,
 /area/station/security/lockers)
 "phX" = (
@@ -74501,6 +74534,11 @@
 	},
 /obj/structure/sign/warning/engine_safety/directional/south,
 /obj/effect/turf_decal/tile/yellow/half/contrasted,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
+/obj/structure/table/reinforced,
+/obj/item/stack/sheet/iron/ten,
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "svc" = (
@@ -81760,7 +81798,6 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/funeral)
 "ujD" = (
-/obj/machinery/autolathe,
 /obj/effect/turf_decal/tile/brown/anticorner/contrasted{
 	dir = 8
 	},
@@ -132956,7 +132993,7 @@ uwi
 xVd
 bwE
 lmC
-qlp
+dzP
 yiE
 veR
 hnq
@@ -138551,7 +138588,7 @@ hqK
 jPk
 rve
 djt
-pas
+kpg
 kUn
 djq
 qQE

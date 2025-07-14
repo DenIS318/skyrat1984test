@@ -9363,6 +9363,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
 	},
+/obj/machinery/autolathe,
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
 "cgX" = (
@@ -14687,6 +14688,7 @@
 /area/station/service/library)
 "dYe" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/autolathe/hacked,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/lockers)
 "dYm" = (
@@ -20331,6 +20333,19 @@
 /obj/structure/ladder,
 /turf/open/openspace/airless,
 /area/station/asteroid)
+"gfE" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	name = "Research and Development Shutter";
+	id = "rndlab1"
+	},
+/obj/machinery/autolathe,
+/obj/machinery/door/window/right/directional/north{
+	name = "Research Autolathe";
+	req_access = list("science")
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
+/area/station/science/lab)
 "gfK" = (
 /turf/closed/wall/r_wall,
 /area/station/security/execution/education)
@@ -31233,6 +31248,15 @@
 	},
 /turf/open/floor/carpet,
 /area/station/service/chapel/monastery)
+"kcd" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/autolathe,
+/obj/machinery/door/window/left/directional/south{
+	req_access = list("cargo");
+	name = "Cargo Autolathe"
+	},
+/turf/open/floor/iron,
+/area/station/cargo/office)
 "kce" = (
 /obj/effect/turf_decal/tile/neutral/tram,
 /obj/effect/spawner/random{
@@ -31825,7 +31849,6 @@
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "kkq" = (
-/obj/machinery/autolathe,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
@@ -32348,6 +32371,10 @@
 	pixel_x = -6;
 	pixel_y = 10
 	},
+/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
 "ktb" = (
@@ -32591,6 +32618,10 @@
 /obj/machinery/recharger,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
+/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/lockers)
 "kzq" = (
@@ -41558,6 +41589,10 @@
 /obj/item/flatpack{
 	board = /obj/item/circuitboard/machine/flatpacker
 	},
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
+/obj/item/stack/sheet/iron/ten,
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "nDX" = (
@@ -182656,7 +182691,7 @@ cwG
 sFc
 cwG
 ccj
-vYl
+kcd
 tRT
 cbH
 kMc
@@ -183193,7 +183228,7 @@ aHQ
 aIv
 aHQ
 nUy
-rHj
+gfE
 aJG
 uOx
 aKA
