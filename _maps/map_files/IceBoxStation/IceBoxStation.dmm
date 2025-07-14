@@ -5342,7 +5342,6 @@
 /area/station/hallway/secondary/entry)
 "bvr" = (
 /obj/machinery/light_switch/directional/west,
-/obj/machinery/autolathe,
 /turf/open/floor/iron,
 /area/station/cargo/office)
 "bvw" = (
@@ -7604,11 +7603,14 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "cah" = (
-/obj/machinery/status_display/supply{
-	pixel_x = -32
+/obj/machinery/autolathe,
+/obj/machinery/door/window/left/directional/east{
+	name = "Cargo Autolathe";
+	req_access = list("cargo")
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron,
-/area/station/cargo/lobby)
+/area/station/cargo/office)
 "cax" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
@@ -9752,6 +9754,11 @@
 	dir = 4
 	},
 /obj/item/radio/intercom/directional/north,
+/obj/structure/table/reinforced,
+/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
 /turf/open/floor/iron/smooth_edge,
 /area/station/security/lockers)
 "cFr" = (
@@ -28781,6 +28788,7 @@
 /area/station/engineering/atmos)
 "igB" = (
 /obj/machinery/firealarm/directional/west,
+/obj/machinery/autolathe/hacked,
 /turf/open/floor/glass,
 /area/station/security/lockers)
 "igG" = (
@@ -59375,6 +59383,10 @@
 	pixel_x = -4;
 	pixel_y = -7
 	},
+/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
 /turf/open/floor/iron/white/side{
 	dir = 10
 	},
@@ -75839,6 +75851,19 @@
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
+"vzA" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
+	id = "rnd";
+	name = "Research Lab Shutters"
+	},
+/obj/machinery/autolathe,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("science");
+	name = "Research Autolathe"
+	},
+/turf/open/floor/plating,
+/area/station/hallway/primary/starboard)
 "vzD" = (
 /turf/closed/wall,
 /area/station/maintenance/starboard/aft)
@@ -81869,6 +81894,10 @@
 /obj/item/multitool{
 	pixel_x = 8
 	},
+/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "xpw" = (
@@ -82686,6 +82715,7 @@
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/entry)
 "xAn" = (
+/obj/machinery/autolathe,
 /turf/open/floor/iron/dark,
 /area/station/engineering/lobby)
 "xAs" = (
@@ -239245,7 +239275,7 @@ uuP
 aGF
 uuP
 gam
-qQo
+cah
 lmv
 uuP
 tue
@@ -239502,7 +239532,7 @@ vlL
 qxQ
 eBe
 hnC
-cah
+qmi
 aSh
 ycQ
 nZh
@@ -263399,7 +263429,7 @@ eKl
 pxL
 lso
 hDb
-qWn
+vzA
 xZA
 dVt
 gHY

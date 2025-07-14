@@ -1059,11 +1059,16 @@
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hos)
 "asT" = (
-/obj/effect/spawner/structure/window,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/obj/machinery/door/firedoor,
+/obj/machinery/autolathe,
+/obj/machinery/door/window/left/directional/east{
+	name = "Cargo Autolathe";
+	req_access = list("cargo")
+	},
+/turf/open/floor/iron,
 /area/station/cargo/lobby)
 "atf" = (
 /obj/structure/table/glass,
@@ -2829,6 +2834,10 @@
 /obj/item/folder/yellow{
 	pixel_y = 1;
 	pixel_x = 2
+	},
+/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/glass{
+	amount = 10
 	},
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
@@ -6861,6 +6870,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/light/directional/west,
+/obj/machinery/autolathe/hacked,
 /turf/open/floor/iron/dark,
 /area/station/security/lockers)
 "cvv" = (
@@ -28602,6 +28612,10 @@
 	network = list("ss13","rd")
 	},
 /obj/effect/turf_decal/trimline/purple/filled/warning,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
+/obj/item/stack/sheet/iron/ten,
 /turf/open/floor/iron,
 /area/station/science/lab)
 "jRZ" = (
@@ -30751,6 +30765,20 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/central)
+"kDQ" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "rndlab2";
+	name = "Secondary Research and Development Shutter"
+	},
+/obj/machinery/autolathe,
+/obj/machinery/door/window/right/directional/west{
+	req_access = list("science");
+	name = "Research Autolathe"
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/plating,
+/area/station/science/lab)
 "kDS" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -36700,6 +36728,10 @@
 /obj/structure/cable,
 /obj/machinery/light_switch/directional/west,
 /obj/machinery/power/apc/auto_name/directional/west,
+/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/glass{
+	amount = 10
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/lockers)
 "mMl" = (
@@ -52804,7 +52836,6 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
-/obj/machinery/autolathe,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "smG" = (
@@ -54087,6 +54118,7 @@
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 1
 	},
+/obj/machinery/autolathe,
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
 "sKJ" = (
@@ -100941,7 +100973,7 @@ uCq
 mvR
 dyw
 mJT
-dyw
+kDQ
 dyw
 mvR
 kFC
