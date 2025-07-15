@@ -83,3 +83,4 @@
       still no option to get specific access related to Blueshield/Consultant
   - config: Disabled autotransfer vote cap. Shuttle no longer auto-calls after 4 shuttle
       votes even when selected continue playing
+  - bugfix: DNR revival typo "target.p_theyre()"
