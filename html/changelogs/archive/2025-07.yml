@@ -75,3 +75,6 @@
   - map: Added 10 glass and 10 iron near added autolathes
   - map: Moved cargo autolathe, so it can be accesed if cargo open window to it
   - map: Security autolathe is hacked by default
+2025-07-15:
+  Arceniu:
+  - rscadd: synth again have Hydraulic Leak-separated from blooddeficiency
