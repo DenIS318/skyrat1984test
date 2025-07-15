@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - balance: "Now all cards can have infinite amount of wildcard accesses. There's still no option to get specific access related to Blueshield/Consultant"

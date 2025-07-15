@@ -78,3 +78,8 @@
 2025-07-15:
   Arceniu:
   - rscadd: synth again have Hydraulic Leak-separated from blooddeficiency
+  DenIS318:
+  - balance: Now all cards can have infinite amount of wildcard accesses. There's
+      still no option to get specific access related to Blueshield/Consultant
+  - config: Disabled autotransfer vote cap. Shuttle no longer auto-calls after 4 shuttle
+      votes even when selected continue playing
