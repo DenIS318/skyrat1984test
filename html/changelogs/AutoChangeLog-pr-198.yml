@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - config: "Disabled autotransfer vote cap. Shuttle no longer auto-calls after 4 shuttle votes even when selected continue playing"
