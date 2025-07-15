@@ -9238,4 +9238,6 @@
 #include "modular_ss220\modules\security_vouchers\machinery\vending\vending.dm"
 #include "modular_ss220\modules\security_vouchers\security_voucher_supplypack.dm"
 #include "modular_ss220\modules\security_vouchers\security_voucher.dm"
+#include "modular_ss220\modules\infinite_access_slots\infinite_access_slots_config.dm"
+#include "modular_ss220\modules\infinite_access_slots\cards_ids.dm"
 // END_INCLUDE

@@ -19,3 +19,6 @@ AUTO_CRYO_SSD_MIN 25
 
 # Uncomment to allow send to galactic market as it was forbidden by nova
 ALLOW_GALACTIC_MARKET_SELL
+
+# Uncomment to allow all cards regardless of their type (platinum, gold, silver...) to have infinity wildcard slots
+INFINITE_ACCESS_SLOTS
