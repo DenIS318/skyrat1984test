@@ -1,5 +1,5 @@
 import { sortBy } from 'common/collections';
-import { Button, Flex, Section, Tabs } from 'tgui-core/components';
+import { Button, Flex, Section, Stack, Tabs } from 'tgui-core/components'; // SS1984 ADDITION: Added "Stack" import
 
 import { useSharedState } from '../../backend';
 
@@ -148,40 +148,52 @@ export const FormatWildcards = (props) => {
   }
 
   return (
-    <Tabs>
-      {showBasic && (
-        <Tabs.Tab
-          selected={selectedWildcard === 'None'}
-          onClick={() => setWildcardTab('None')}
-        >
-          Trim:
-          <br />
-          {basicUsed + '/' + basicMax}
-        </Tabs.Tab>
-      )}
-
-      {Object.keys(wildcardSlots).map((wildcard) => {
-        const wcObj = wildcardSlots[wildcard];
-        let wcLimit = wcObj.limit;
-        const wcUsage = wcObj.usage.length;
-        const wcLeft = wcLimit - wcUsage;
-        if (wcLeft < 0) {
-          wcLimit = '∞';
-        }
-        const wcLeftStr = `${wcUsage}/${wcLimit}`;
-        return (
+    <Stack align="horizontal"> {/* SS1984 ADDITION*/}
+      <Tabs>
+        {showBasic && (
           <Tabs.Tab
-            key={wildcard}
-            selected={selectedWildcard === wildcard}
-            onClick={() => setWildcardTab(wildcard)}
+            selected={selectedWildcard === 'None'}
+            onClick={() => setWildcardTab('None')}
           >
-            {wildcard + ':'}
+            Trim:
             <br />
-            {wcLeftStr}
+            {basicUsed + '/' + basicMax}
           </Tabs.Tab>
-        );
-      })}
-    </Tabs>
+        )}
+
+        {Object.keys(wildcardSlots).map((wildcard) => {
+          const wcObj = wildcardSlots[wildcard];
+          let wcLimit = wcObj.limit;
+          const wcUsage = wcObj.usage.length;
+          const wcLeft = wcLimit - wcUsage;
+          if (wcLeft < 0) {
+            wcLimit = '∞';
+          }
+          const wcLeftStr = `${wcUsage}/${wcLimit}`;
+          return (
+            <Tabs.Tab
+              key={wildcard}
+              selected={selectedWildcard === wildcard}
+              onClick={() => setWildcardTab(wildcard)}
+            >
+              {wildcard + ':'}
+              <br />
+              {wcLeftStr}
+            </Tabs.Tab>
+          );
+        })}
+      </Tabs>
+      <Button
+        icon="check">
+          Select All
+      </Button>
+      <Button.Confirm
+        confirmContent="Are you sure?"
+        icon="close">
+          Deselect All
+      </Button.Confirm>
+      {/* onClick={() => act('flee')} */ }
+    </Stack> // SS1984 ADDITION
   );
 };
 
