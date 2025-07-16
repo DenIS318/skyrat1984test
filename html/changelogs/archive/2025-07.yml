@@ -84,3 +84,10 @@
   - config: Disabled autotransfer vote cap. Shuttle no longer auto-calls after 4 shuttle
       votes even when selected continue playing
   - bugfix: DNR revival typo "target.p_theyre()"
+2025-07-16:
+  Arceniu:
+  - rscadd: Added platinum, gold and CentCom id card to cargo
+  DenIS318:
+  - qol: Select/Deselect all access buttons added to ID computer. Now you can select/deselect
+      all acceses visible in console at Trim/All tabs (not by department). To get
+      full access, you need to use "select all" button at BOTH "Trim" and "All" tabs
