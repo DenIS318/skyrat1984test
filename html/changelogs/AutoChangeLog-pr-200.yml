@@ -1,0 +1,4 @@
+author: "Arceniu"
+delete-after: True
+changes:
+  - rscadd: "Added platinum, gold and CentCom id card to cargo"
