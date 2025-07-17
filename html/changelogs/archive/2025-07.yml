@@ -91,3 +91,6 @@
   - qol: Select/Deselect all access buttons added to ID computer. Now you can select/deselect
       all acceses visible in console at Trim/All tabs (not by department). To get
       full access, you need to use "select all" button at BOTH "Trim" and "All" tabs
+2025-07-17:
+  Arceniu:
+  - rscadd: Added new craftable modsuit(alternative hand made safeguard mod)
