@@ -191,7 +191,7 @@ export const FormatWildcards = (props) => {
       {/* SS1984 ADDITION START */}
       <Button
         onClick={() =>
-          extraActions("select_all", accesses)
+          extraActions("select_all", accesses, selectedWildcard)
         }
         height="80%"
         icon="check">
@@ -199,7 +199,7 @@ export const FormatWildcards = (props) => {
       </Button>
       <Button.Confirm
         onClick={() =>
-          extraActions("deselect_all", accesses)
+          extraActions("deselect_all", accesses, selectedWildcard)
         }
         height="80%"
         confirmContent="Are you sure?"
