@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "Select All button at ID computer is now should work correctly when infinity access slots is disabled"
-  - qol: "Less chat and log spam on fail to add access using \"Select All\""

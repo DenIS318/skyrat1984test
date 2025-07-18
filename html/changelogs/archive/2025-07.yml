@@ -99,3 +99,8 @@
       slots for this round (if not started yet) or next round (if round already started)
   - admin: Infinity access slots is config-locked now from VV. Use added button instead
   - admin: Debugging tab at "Secrets" reduced buttons vertical size
+2025-07-18:
+  DenIS318:
+  - bugfix: Select All button at ID computer is now should work correctly when infinity
+      access slots is disabled
+  - qol: Less chat and log spam on fail to add access using "Select All"
