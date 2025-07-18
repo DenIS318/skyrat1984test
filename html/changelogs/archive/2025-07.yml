@@ -226,3 +226,4 @@
       access slots is disabled
   - qol: Less chat and log spam on fail to add access using "Select All"
   - bugfix: Fixed threesome balaclavas icons
+  - rscdel: Revert "makes the holster module unable to hold bulky guns"

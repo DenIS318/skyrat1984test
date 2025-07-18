@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscdel: "Revert \"makes the holster module unable to hold bulky guns\""
