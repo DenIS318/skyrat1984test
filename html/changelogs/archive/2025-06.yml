@@ -943,9 +943,9 @@
   Ben10Omintrix:
   - bugfix: 50 minebots no longer crash the server
   DATA-xPUNGED:
-  - qol: "With Nanotrasen's brand new Auto-Seats\u2122, late crew members will now\
-      \ automatically unbuckle from their seats when the arrival shuttle arrives at\
-      \ the destination!"
+  - qol: With Nanotrasen's brand new Auto-Seats™, late crew members will now
+       automatically unbuckle from their seats when the arrival shuttle arrives at
+       the destination!
   - bugfix: Leaving your seat too early on a shuttle with a knockdown force will now
       properly immobilize and knockdown you as intended.
   EnterTheJake:
@@ -1050,6 +1050,5 @@
   - bugfix: Phazon fire punches now properly deal damage, rather than make a funny
       fire special effect and doing literally nothing at all.
   - bugfix: Projectiles can once again embed targets that are armoured.
-2025-06-30:
   DenIS318:
   - bugfix: Mentors now can see LOOC
