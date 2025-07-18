@@ -252,7 +252,7 @@ SUBSYSTEM_DEF(player_ranks)
 		return nova_star_controller
 
 	// SS1984 ADDITION START
-	if(rank_title == "Veteran")
+	if(rank_title == "veteran")
 		return nova_star_controller
 	// SS1984 ADDITION END
 	CRASH("Invalid player_rank_controller \"[rank_title || "*null*"]\" used in get_controller_for_group()!")
