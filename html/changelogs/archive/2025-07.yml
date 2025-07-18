@@ -227,3 +227,5 @@
   - qol: Less chat and log spam on fail to add access using "Select All"
   - bugfix: Fixed threesome balaclavas icons
   - rscdel: Revert "makes the holster module unable to hold bulky guns"
+  - balance: Heads now can become antags (CE, RD, CMO, QM, HOP) by dynamic
+  - config: Synth humans can no longer be drafted to become changelings by dynamic
