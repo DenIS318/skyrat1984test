@@ -118,6 +118,8 @@
 		balloon_alert(src, "navigation path created")
 
 /mob/living/proc/shine_navigation()
+	if (!client) // SS1984 ADDITION
+		return // SS1984 ADDITION
 	for(var/i in 1 to length(client.navigation_images))
 		if(!length(client.navigation_images))
 			return
