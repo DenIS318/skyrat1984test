@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - config: "Synth humans can no longer be drafted to become changelings by dynamic"
