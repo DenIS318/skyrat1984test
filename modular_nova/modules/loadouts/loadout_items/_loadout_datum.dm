@@ -119,7 +119,8 @@
 
 	if(nova_stars_only && !SSplayer_ranks.is_nova_star(client))
 		if(client && !silent)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a Nova star!"))
+			// SS1984 REMOVAL to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a Nova star!"))
+			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a Veteran!")) // SS1984 ADDITION
 		return FALSE
 
 	if(LAZYLEN(ckeywhitelist) && !(client?.ckey in ckeywhitelist))

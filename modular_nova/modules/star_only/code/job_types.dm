@@ -1,5 +1,5 @@
 /datum/job/clown
-	nova_stars_only = TRUE
+	// SS1984 REMOVAL nova_stars_only = TRUE
 
 /datum/job/mime
-	nova_stars_only = TRUE
+	// SS1984 REMOVAL nova_stars_only = TRUE

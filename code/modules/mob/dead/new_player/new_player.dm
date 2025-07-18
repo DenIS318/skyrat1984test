@@ -125,7 +125,7 @@
 			return "[jobtitle] is already filled to capacity."
 		//NOVA EDIT ADDITION
 		if(JOB_NOT_NOVA_STAR)
-			return "You need to be Nova star to join as [jobtitle]."
+			return "You need to be Veteran to join as [jobtitle]." // SS1984 EDIT, original: return "You need to be Nova star to join as [jobtitle]."
 		if(JOB_UNAVAILABLE_QUIRK)
 			return "[jobtitle] is restricted due to your selected quirks."
 		if(JOB_UNAVAILABLE_LANGUAGE)

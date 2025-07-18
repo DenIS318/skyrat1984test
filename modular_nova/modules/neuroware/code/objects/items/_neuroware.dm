@@ -133,9 +133,11 @@
 	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC))
 		balloon_alert(user, "synthetic brain required!")
 		return
-	if(is_lewd && !(target.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))
-		balloon_alert(user, "installation failed!")
-		return
+	// SS1984 REMOVAL START
+	// if(is_lewd && !(target.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))
+	// 	balloon_alert(user, "installation failed!")
+	// 	return
+	// SS1984 REMOVAL END
 
 	if(target != user)
 		target.visible_message(

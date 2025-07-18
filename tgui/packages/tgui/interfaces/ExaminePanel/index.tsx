@@ -127,7 +127,7 @@ export function ExaminePanel(props) {
                       title="OOC Notes"
                       preserveWhitespace
                       buttons={
-                        { /* SS1984 REMOVAL <> */ }
+                        // SS1984 REMOVAL <>
                           <Button
                             selected={oocNotesIndex === 'SFW'}
                             bold={oocNotesIndex === 'SFW'}
@@ -137,19 +137,19 @@ export function ExaminePanel(props) {
                           >
                             SFW
                           </Button>
-                          { /* SS1984 REMOVAL START
-                          <Button
-                            selected={oocNotesIndex === 'NSFW'}
-                            disabled={!ooc_notes_nsfw}
-                            bold={oocNotesIndex === 'NSFW'}
-                            onClick={() => setOocNotesIndex('NSFW')}
-                            textAlign="center"
-                            minWidth="60px"
-                          >
-                            NSFW
-                          </Button>
-                          SS1984 REMOVAL END */ }
-                        { /* SS1984 REMOVAL </> */ }
+                          // SS1984 REMOVAL START
+                          // <Button
+                          //   selected={oocNotesIndex === 'NSFW'}
+                          //   disabled={!ooc_notes_nsfw}
+                          //   bold={oocNotesIndex === 'NSFW'}
+                          //   onClick={() => setOocNotesIndex('NSFW')}
+                          //   textAlign="center"
+                          //   minWidth="60px"
+                          // >
+                          //   NSFW
+                          // </Button>
+                          // </>
+                          // SS1984 REMOVAL END
                       }
                     >
                       {!!nova_star_status && (
