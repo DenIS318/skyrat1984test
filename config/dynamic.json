@@ -168,6 +168,9 @@
 			"restricted_roles": [
 				"Cyborg",
 				"AI"
+			],
+			"restricted_species": [
+				"/datum/species/synthetic"
 			]
 		},
 
@@ -1513,6 +1516,9 @@
 			"restricted_roles": [
 				"Cyborg",
 				"AI"
+			],
+			"restricted_species": [
+				"/datum/species/synthetic"
 			]
 		}
 	}
