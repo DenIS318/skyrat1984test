@@ -61,6 +61,8 @@
 
 /datum/bodypart_overlay/augment/generate_icon_cache()
 	. = ..()
+	if (!implant) // SS1984 ADDITION
+		return // SS1984 ADDITION
 	. += implant.get_overlay_state()
 
 /datum/bodypart_overlay/augment/get_overlay(layer, obj/item/bodypart/limb)
