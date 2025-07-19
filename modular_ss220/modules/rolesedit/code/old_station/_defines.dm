@@ -37,6 +37,10 @@ GLOBAL_LIST_EMPTY(safes)
 			add_raw_text(default_raw_text)
 	update_appearance()
 
+
+/obj/item/folder/biscuit/confidential/safe_code
+	name = "ID safe code biscuit card"
+
 //charlie bridge safe and code
 /obj/structure/safe/floor/charlie_captain
 	number_of_tumblers = 3
@@ -45,6 +49,10 @@ GLOBAL_LIST_EMPTY(safes)
 /obj/item/paper/paperslip/corporate/fluff/safe_code/charlie_safe
 	name = "emergency bridge safe code"
 	owner = "charlie"
+
+/obj/item/folder/biscuit/confidential/safe_code/charlie_safe
+	name = "Charlie Station ID safe code biscuit card"
+	contained_slip = /obj/item/paper/paperslip/corporate/fluff/safe_code/charlie_safe
 
 // suits and armor datums
 
