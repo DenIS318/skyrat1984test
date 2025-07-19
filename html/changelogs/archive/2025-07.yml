@@ -229,3 +229,16 @@
   - rscdel: Revert "makes the holster module unable to hold bulky guns"
   - balance: Heads now can become antags (CE, RD, CMO, QM, HOP) by dynamic
   - config: Synth humans can no longer be drafted to become changelings by dynamic
+2025-07-19:
+  Arceniu:
+  - rscadd: Added "box" for safe code paper at oldstation
+  - map: slighly changed oldstation
+  DenIS318:
+  - server: 'disabled station roundstart traits: late arrivals, random spawns, hangover,
+      blackout, rev trash, birthday'
+  - bugfix: Replaced &nbsp; and &ensp; in UI and text. If there's anywhere displays
+      {''} please report to coder
+  - config: Random laws for AI enabled
+  - config: Job's estimation no longer shown
+  - config: Roundstart asimov laws slighty changed (to be more default)
+  - config: Some other small changes

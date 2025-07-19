@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - server: "disabled station roundstart traits: late arrivals, random spawns, hangover, blackout, rev trash, birthday"

@@ -1,7 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - config: "Random laws for AI enabled"
-  - config: "Job's estimation no longer shown"
-  - config: "Roundstart asimov laws slighty changed (to be more default)"
-  - config: "Some other small changes"
