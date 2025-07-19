@@ -20,6 +20,33 @@
 	var/fires_without_panic = 100
 	var/fires_without_panic_counter = 0
 
+/datum/controller/subsystem/liquids/vv_edit_var(var_name, var_value)
+	switch (var_name)
+		// panic
+		if ("evaporation_chance_panic")
+			return FALSE
+		if ("evaporation_process_required_panic")
+			return FALSE
+		if ("required_fire_process_panic")
+			return FALSE
+		if ("group_decay_time_panic")
+			return FALSE
+		// default
+		if ("evaporation_chance_default")
+			return FALSE
+		if ("evaporation_process_required_default")
+			return FALSE
+		if ("required_fire_process_default")
+			return FALSE
+		if ("group_decay_time_default")
+			return FALSE
+		// allowed
+		if ("liquid_panic_cost_threshold")
+			if (var_value > 1000 || var_value < 1)
+				return FALSE
+			return ..()
+	..()
+
 /datum/controller/subsystem/liquids/fire(resumed = FALSE)
 	if (cost < liquid_panic_cost_threshold)
 		evaporation_chance_current = evaporation_chance_default
