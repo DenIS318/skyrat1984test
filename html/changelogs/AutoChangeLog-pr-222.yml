@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - bugfix: "fixed {''} at dynamic-generated text (primary on round-end)"
