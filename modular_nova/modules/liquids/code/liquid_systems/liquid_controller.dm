@@ -63,7 +63,7 @@ SUBSYSTEM_DEF(liquids)
 				LG.dirty = FALSE
 			else if(!LG.amount_of_active_turfs)
 				LG.decay_counter++
-				if(LG.decay_counter >= LIQUID_GROUP_DECAY_TIME)
+				if(LG.decay_counter >= group_decay_time_actual) // SS1984 EDIT, original: if(LG.decay_counter >= LIQUID_GROUP_DECAY_TIME)
 					//Perhaps check if any turfs in here can spread before removing it? It's not unlikely they would
 					LG.break_group()
 			if(MC_TICK_CHECK)
