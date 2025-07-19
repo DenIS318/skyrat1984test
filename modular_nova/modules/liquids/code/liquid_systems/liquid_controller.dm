@@ -84,10 +84,10 @@ SUBSYSTEM_DEF(liquids)
 
 	if(run_type == SSLIQUIDS_RUN_TYPE_EVAPORATION)
 		evaporation_counter++
-		if(evaporation_counter >= REQUIRED_EVAPORATION_PROCESSES)
+		if(evaporation_counter >= evaporation_process_required_current) // SS1984 EDIT, original: if(evaporation_counter >= REQUIRED_EVAPORATION_PROCESSES)
 			for(var/t in evaporation_queue)
 				var/turf/T = t
-				if(prob(EVAPORATION_CHANCE))
+				if(prob(evaporation_chance_current)) // SS1984 EDIT, original: if(prob(EVAPORATION_CHANCE))
 					T.liquids.process_evaporation()
 				if(MC_TICK_CHECK)
 					break
@@ -97,7 +97,7 @@ SUBSYSTEM_DEF(liquids)
 
 	if(run_type == SSLIQUIDS_RUN_TYPE_FIRE)
 		fire_counter++
-		if(fire_counter >= REQUIRED_FIRE_PROCESSES)
+		if(fire_counter >= required_fire_process_actual) // SS1984 EDIT, original: if(fire_counter >= REQUIRED_FIRE_PROCESSES)
 			for(var/t in processing_fire)
 				var/turf/T = t
 				T.liquids.process_fire()
