@@ -242,3 +242,4 @@
   - config: Job's estimation no longer shown
   - config: Roundstart asimov laws slighty changed (to be more default)
   - config: Some other small changes
+  - bugfix: Liquid abuse should no longer freeze server as much as it was before

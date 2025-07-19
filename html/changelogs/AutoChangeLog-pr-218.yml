@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "Liquid abuse should no longer freeze server as much as it was before"
