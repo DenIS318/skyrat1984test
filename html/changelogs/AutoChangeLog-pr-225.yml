@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "techfabs, autolathes, ore silos fixed UI display &times;"
-  - bugfix: "admin beaker panel UI fixed {''}"

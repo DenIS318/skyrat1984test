@@ -250,3 +250,6 @@
 2025-07-21:
   Arceniu:
   - rscadd: Added new custom bank console
+  DenIS318:
+  - bugfix: techfabs, autolathes, ore silos fixed UI display &times;
+  - bugfix: admin beaker panel UI fixed {''}
