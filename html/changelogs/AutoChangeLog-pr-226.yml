@@ -1,6 +1,0 @@
-author: "Arceniu"
-delete-after: True
-changes:
-  - rscadd: "Added head of staff traits and more to ntr(cmd bank card, door remote, staff highlighting, upgraded headset)"
-  - image: "modified ntr headset"
-  - code_imp: "NTR headset now have all(almost) station channels, NTR now can give access to janitor's keys, NTR now spawns with their door remote and cmd budget card"

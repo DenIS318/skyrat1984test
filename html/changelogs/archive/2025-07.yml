@@ -253,3 +253,13 @@
   DenIS318:
   - bugfix: techfabs, autolathes, ore silos fixed UI display &times;
   - bugfix: admin beaker panel UI fixed {''}
+2025-07-23:
+  Arceniu:
+  - rscadd: Added head of staff traits and more to ntr(cmd bank card, door remote,
+      staff highlighting, upgraded headset)
+  - image: modified ntr headset
+  - code_imp: NTR headset now have all(almost) station channels, NTR now can give
+      access to janitor's keys, NTR now spawns with their door remote and cmd budget
+      card
+  DenIS318:
+  - bugfix: Admin secrets UI fixed
