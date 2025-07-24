@@ -263,3 +263,6 @@
       card
   DenIS318:
   - bugfix: Admin secrets UI fixed
+2025-07-24:
+  DenIS318:
+  - bugfix: Modsuit UI fixed
