@@ -9304,4 +9304,5 @@
 #include "modular_ss220\disabled_station_traits\negative_traits.dm"
 #include "modular_ss220\disabled_station_traits\positive_traits.dm"
 #include "modular_ss220\modules\liquid_controller_lagwatcher\liquid_controller.dm"
+#include "modular_ss220\modules\security_minor_1984\security.dm"
 // END_INCLUDE
