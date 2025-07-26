@@ -303,6 +303,11 @@
 			//we have points
 			if(points)
 				user_id_card.registered_account.mining_points += points
+				// SS1984 ADDITION START
+				if (istype(user_id_card, /obj/item/card/id/advanced/prisoner))
+					var/obj/item/card/id/advanced/prisoner/worn_prisoner_id = user_id_card
+					worn_prisoner_id.points += points
+				// SS1984 ADDITION END
 				points = 0
 				return TRUE
 
