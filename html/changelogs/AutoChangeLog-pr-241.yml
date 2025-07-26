@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - map: "Labor shuttle no longer stays bolted after travel"
