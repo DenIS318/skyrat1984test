@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - server: "Disable bot language malfunction, machine language malfunction station traits"
