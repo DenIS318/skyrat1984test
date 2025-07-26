@@ -277,3 +277,14 @@
   - qol: Microfusion cell with self-charging attachment now automatically discharges
       itself when inserting to MCR rifle (without attachment still require manual
       discharge by pressing Z or whatever bind you have)
+  - code_imp: Now minerals spawn instead of boulders in gulag
+  - bugfix: Select All on id computer no longer adds non-valid access, preventing
+      abusing centcomm acceses
+  - rscadd: Ore machine now adds points to prisoner card
+  - map: Added ore redemption machines to labor camps on all maps
+  - bugfix: Labor claim console UI fix &apos
+  - rscadd: Gulag teleporter now equips radio headset to prisoner
+  - rscadd: Ore Redemption at labor camp automatically link to station silo
+  - rscadd: Mining ore-redemptions can link to station ore silo (away levels still
+      can't)
+  - map: Labor shuttle no longer stays bolted after travel

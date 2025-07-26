@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "Select All on id computer no longer adds non-valid access, preventing abusing centcomm acceses"
