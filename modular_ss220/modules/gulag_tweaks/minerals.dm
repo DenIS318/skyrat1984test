@@ -11,9 +11,10 @@
 		/obj/item/stack/ore/uranium = 5,
 		/turf/closed/mineral/gibtonite = 4,
 	)
+
 /turf/closed/mineral/random/labormineral/volcanic/mineral_chances()
 	return list(
-		/obj/item/stack/ore/bluespace_crystal = 1
+		/obj/item/stack/ore/bluespace_crystal = 1,
 		/obj/item/stack/ore/diamond = 1,
 		/obj/item/stack/ore/gold = 8,
 		/obj/item/stack/ore/iron = 94,
@@ -23,6 +24,7 @@
 		/obj/item/stack/ore/uranium = 3,
 		/turf/closed/mineral/gibtonite = 2,
 	)
+
 /turf/closed/mineral/random/labormineral/ice/mineral_chances()
 	return list(
 		/obj/item/stack/ore/bluespace_crystal = 1,
