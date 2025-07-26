@@ -288,3 +288,5 @@
   - rscadd: Mining ore-redemptions can link to station ore silo (away levels still
       can't)
   - map: Labor shuttle no longer stays bolted after travel
+  - server: Disable bot language malfunction, machine language malfunction station
+      traits
