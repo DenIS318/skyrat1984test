@@ -270,3 +270,10 @@
   DenIS318:
   - bugfix: quantum console UI &quit;
   - image: quantum console sprite now shows with keyboard
+2025-07-26:
+  DenIS318:
+  - qol: Prisoner card goal max now can be set up to 999999
+  - rscadd: Radio headset to prisoner lockers
+  - qol: Microfusion cell with self-charging attachment now automatically discharges
+      itself when inserting to MCR rifle (without attachment still require manual
+      discharge by pressing Z or whatever bind you have)
