@@ -42,6 +42,7 @@
 	var/datum/techweb/stored_research
 	/// Linkage to the ORM silo
 	var/datum/component/remote_materials/materials
+	var/force_connect_to_silo = FALSE // SS1984 ADDITION
 
 /obj/machinery/mineral/ore_redemption/offstation
 	circuit = /obj/item/circuitboard/machine/ore_redemption/offstation
@@ -62,6 +63,7 @@
 	materials = AddComponent( \
 		/datum/component/remote_materials, \
 		mapload, \
+		force_connect = force_connect_to_silo, \
 		mat_container_signals = local_signals \
 	)
 

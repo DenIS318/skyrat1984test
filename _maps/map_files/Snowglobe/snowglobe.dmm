@@ -51322,7 +51322,7 @@
 /area/station/service/bar)
 "nJm" = (
 /obj/machinery/light/directional/west,
-/obj/machinery/mineral/ore_redemption,
+/obj/machinery/mineral/ore_redemption/gulag_autolink,
 /turf/open/floor/iron/smooth_edge{
 	dir = 8
 	},
