@@ -76207,7 +76207,7 @@
 /area/station/maintenance/department/medical/central)
 "vER" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/mineral/ore_redemption,
+/obj/machinery/mineral/ore_redemption/gulag_autolink,
 /turf/open/floor/iron,
 /area/mine/laborcamp)
 "vEU" = (

@@ -9306,4 +9306,6 @@
 #include "modular_ss220\modules\liquid_controller_lagwatcher\liquid_controller.dm"
 #include "modular_ss220\modules\security_minor_1984\security.dm"
 #include "modular_ss220\modules\gulag_tweaks\minerals.dm"
+#include "modular_ss220\modules\gulag_tweaks\machine_redemption.dm"
+#include "modular_ss220\modules\gulag_tweaks\remote_materials.dm"
 // END_INCLUDE
