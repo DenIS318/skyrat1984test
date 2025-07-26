@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - code_imp: "Now minerals spawn instead of boulders in gulag"
