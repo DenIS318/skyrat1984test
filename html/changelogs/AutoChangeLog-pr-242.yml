@@ -1,0 +1,5 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscadd: "Ore Redemption at labor camp automatically link to station silo"
+  - rscadd: "Mining ore-redemptions can link to station ore silo (away levels still can't)"
