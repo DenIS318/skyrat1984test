@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - qol: "Microfusion cell with self-charging attachment now automatically discharges itself when inserting to MCR rifle (without attachment still require manual discharge by pressing Z or whatever bind you have)"
