@@ -9311,5 +9311,5 @@
 #include "modular_ss220\modules\gulag_tweaks\machine_redemption.dm"
 #include "modular_ss220\modules\gulag_tweaks\remote_materials.dm"
 #include "modular_ss220\modules\security_minor_1984\brigdoors.dm"
-#include "modular_ss220\modules\security_minor_1984\brid_cell_aas_config_entries.dm
+#include "modular_ss220\modules\security_minor_1984\brid_cell_aas_config_entries.dm"
 // END_INCLUDE

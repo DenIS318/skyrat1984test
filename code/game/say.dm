@@ -214,7 +214,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if (!nttc) // very weird if it's not exist, as it built-in to announcer
 		return "[namepart]"
 
-	return compose_ntts_job(raw_message, namepart, announcer, job, job_custom_name, speaker_source)
+	return nttc.compose_ntts_job(raw_message, namepart, announcer, job, job_custom_name, speaker_source)
 // SS1984 EDIT END
 
 /**

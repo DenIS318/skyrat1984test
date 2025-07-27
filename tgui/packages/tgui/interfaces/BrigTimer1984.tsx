@@ -21,7 +21,7 @@ type Data = {
   spns: string[];
 };
 
-export const BrigTimerNew = (props) => {
+export const BrigTimer1984 = (props) => {
   const { act, data } = useBackend<Data>();
 
   // Copy occupant to nameText, but we will override it later if timing is true

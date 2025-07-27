@@ -76,7 +76,7 @@
 		return PROCESS_KILL
 
 	if(REALTIMEOFDAY - activation_time >= timer_duration) // NOVA EDIT CHANGE: original was world.time
-		timer_end() // open doors, reset timer, clear status screen
+		timer_end_full() // open doors, reset timer, clear status screen
 	update_content()
 
 /**
@@ -105,8 +105,8 @@
 	if(!prisoner_name || !prisoner_charge || !prisoner_time)
 		return FALSE
 
-	timeset(prisoner_time * 60)
-	occupant = prisoner_name
+	timeset(prisoner_time * 60) // to seconds
+	prison_occupant = prisoner_name
 	crimes = prisoner_charge
 	prisoner_name = null
 	prisoner_charge = null
@@ -255,7 +255,7 @@
 			user.investigate_log("has started [id]'s timer of [time_left(seconds = TRUE)] seconds", INVESTIGATE_RECORDS)
 			user.log_message("has started [id]'s timer of [time_left(seconds = TRUE)] seconds", LOG_ATTACK)
 		if("stop")
-			if (!timer_end(forced = TRUE)) // SS1984 ADDITION
+			if (!timer_end_full(forced = TRUE)) // SS1984 ADDITION
 				return FALSE // SS1984 ADDITION
 			user.investigate_log("has stopped [id]'s timer of [time_left(seconds = TRUE)] seconds", INVESTIGATE_RECORDS)
 			user.log_message("has stopped [id]'s timer of [time_left(seconds = TRUE)] seconds", LOG_ATTACK)
@@ -307,7 +307,7 @@
 	for(var/area_type in grey_tide_areas)
 		if(!istype(get_area(src), area_type))
 			continue
-		timer_end(forced = TRUE)
+		grey_tide_open()
 
 /datum/aas_config_entry/brig_cell_release_announcement
 	name = "Security Alert: Cell Timer Expired"

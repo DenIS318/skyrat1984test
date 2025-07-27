@@ -7,3 +7,9 @@
 	while(length(t) < u)
 		t = "0[t]"
 	return t
+
+//Take a value in seconds and returns a string of minutes and seconds in the format X minute(s) and X seconds.
+/proc/seconds_to_time(seconds as num)
+	var/numSeconds = seconds % 60
+	var/numMinutes = (seconds - numSeconds) / 60
+	return "[numMinutes] [numMinutes > 1 ? "minutes" : "minute"] and [numSeconds] seconds"

@@ -7,6 +7,7 @@
 		"CELL" = "will be replaced with the cell name.",
 		"RELEASER" = "will be replaced with the name of releaser.",
 	)
+
 /datum/aas_config_entry/brig_cell_restart
 	name = "Security Alert: Cell Timer Restart"
 	announcement_lines_map = list(
@@ -16,4 +17,18 @@
 		"OCCUPANT" = "will be replaced with the prisoner name.",
 		"USER" = "will be replaced with door timer's user name.",
 		"REASON" = "will be replaced with issued reason.",
+	)
+
+/datum/aas_config_entry/brig_cell_incarcerated
+	name = "Security Alert: Incarcerated"
+	announcement_lines_map = list(
+		"Message" = "Заключенный %OCCUPANT (%OCCUPANTRANK) был приговорен на %TIME минут за нарушения: %CRIMES. Приговоривший - %USERRANK %USER.",
+	)
+	vars_and_tooltips_map = list(
+		"OCCUPANT" = "will be replaced with the prisoner name.",
+		"OCCUPANTRANK" = "will be replaced with prisoner's rank in manifest - if exists, unknown otherwise.",
+		"TIME" = "will be replaced with sentence time.",
+		"CRIMES" = "will be replaced with issued crimes.",
+		"USERRANK" = "will be replaced with issuer card's rank.",
+		"USER" = "will be replaced with issuer name.",
 	)
