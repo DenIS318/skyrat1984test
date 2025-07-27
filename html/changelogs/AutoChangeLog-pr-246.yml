@@ -1,0 +1,4 @@
+author: "Arceniu"
+delete-after: True
+changes:
+  - code_imp: "ntr now have obj/item/clothing/glasses/hud/security/sunglasses/black"
