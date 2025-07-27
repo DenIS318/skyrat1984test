@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "Job estimation now doesn't show when disabled in config"
-  - qol: "Admins (non-deadminned) still can see job estimations"

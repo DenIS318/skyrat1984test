@@ -290,3 +290,10 @@
   - map: Labor shuttle no longer stays bolted after travel
   - server: Disable bot language malfunction, machine language malfunction station
       traits
+2025-07-27:
+  Arceniu:
+  - code_imp: ntr now have obj/item/clothing/glasses/hud/security/sunglasses/black
+  DenIS318:
+  - bugfix: Total Admins Ready is no longer shows mentors, no longer 3/2 admins ready
+  - bugfix: Job estimation now doesn't show when disabled in config
+  - qol: Admins (non-deadminned) still can see job estimations
