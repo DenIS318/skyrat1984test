@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - bugfix: "Total Admins Ready is no longer shows mentors, no longer 3/2 admins ready"
