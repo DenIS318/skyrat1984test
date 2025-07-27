@@ -209,3 +209,15 @@
 	departament_access = ACCESS_CENT_GENERAL
 	radio_channel = RADIO_CHANNEL_CENTCOM
 
+/obj/structure/closet/secure_closet/nanotrasen_consultant/PopulateContents()
+	new /obj/item/storage/backpack/satchel/leather(src)
+	new /obj/item/clothing/neck/petcollar(src)
+	new /obj/item/pet_carrier(src)
+	new /obj/item/clothing/suit/armor/vest(src)
+	new /obj/item/computer_disk/command/captain(src)
+	new /obj/item/radio/headset/heads/nanotrasen_consultant/alt(src)
+	new /obj/item/radio/headset/heads/nanotrasen_consultant(src)
+	new /obj/item/storage/photo_album/personal(src)
+	new /obj/item/bedsheet/centcom(src)
+	new /obj/item/storage/bag/garment/nanotrasen_consultant(src)
+	new /obj/item/mod/control/pre_equipped/corporate_official(src)
