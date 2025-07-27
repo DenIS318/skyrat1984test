@@ -124,7 +124,7 @@
 	jobtype = /datum/job/nanotrasen_consultant
 
 	belt = /obj/item/modular_computer/pda/nanotrasen_consultant
-	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/black
 	ears = /obj/item/radio/headset/heads/nanotrasen_consultant/alt
 	gloves = /obj/item/clothing/gloves/combat/naval/nanotrasen_consultant/black
 	uniform =  /obj/item/clothing/under/rank/nanotrasen_consultant
