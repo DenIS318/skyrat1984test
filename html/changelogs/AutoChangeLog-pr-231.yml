@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "Flashbangs no longer stun/knockdown in 1 tile ignoring protection (still works if detonated in backpack/at same tile)"
