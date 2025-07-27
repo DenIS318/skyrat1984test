@@ -293,7 +293,11 @@
 2025-07-27:
   Arceniu:
   - code_imp: ntr now have obj/item/clothing/glasses/hud/security/sunglasses/black
+  - rscadd: Added new corporate modsuit to nanotrasen representative
+  - code_imp: Added corporate modsuit to nanotrasen rep locker
   DenIS318:
   - bugfix: Total Admins Ready is no longer shows mentors, no longer 3/2 admins ready
   - bugfix: Job estimation now doesn't show when disabled in config
   - qol: Admins (non-deadminned) still can see job estimations
+  - balance: Flashbangs no longer stun/knockdown in 1 tile ignoring protection (still
+      works if detonated in backpack/at same tile)
