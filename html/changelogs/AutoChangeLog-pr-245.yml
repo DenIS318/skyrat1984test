@@ -1,0 +1,5 @@
+author: "Arceniu"
+delete-after: True
+changes:
+  - rscadd: "Added new corporate modsuit to nanotrasen representative"
+  - code_imp: "Added corporate modsuit to nanotrasen rep locker"
