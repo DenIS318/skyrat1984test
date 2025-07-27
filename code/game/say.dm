@@ -192,8 +192,8 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 	messagepart = " <span class='message'>[messagepart]</span></span>"
 	// SS1984 EDIT START
-	var/job = nttc ? nttc.retrieve_relevant_job(speaker_source, id_card, FALSE) : null
-	var/job_custom_name = nttc ? nttc.retrieve_relevant_job(speaker_source, id_card, TRUE) : null // so we getting both custom and non-custom
+	var/job = nttc ? retrieve_relevant_job(speaker_source, id_card, FALSE) : null
+	var/job_custom_name = nttc ? retrieve_relevant_job(speaker_source, id_card, TRUE) : null // so we getting both custom and non-custom
 	var/job_part = compose_job(speaker, raw_message, radio_freq, namepart, announcer, job, job_custom_name, speaker_source)
 	if (radio_freq && nttc && nttc.toggle_command_bold)
 		var/show_bold = job && (job in GLOB.nttc_highlight_jobs)
@@ -214,7 +214,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if (!nttc) // very weird if it's not exist, as it built-in to announcer
 		return "[namepart]"
 
-	return nttc.compose_ntts_job(raw_message, namepart, announcer, job, job_custom_name, speaker_source)
+	return compose_ntts_job(raw_message, namepart, announcer, job, job_custom_name, speaker_source)
 // SS1984 EDIT END
 
 /**

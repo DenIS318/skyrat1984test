@@ -634,6 +634,8 @@
 #include "code\__HELPERS\~nova_helpers\level_traits.dm"
 #include "code\__HELPERS\~nova_helpers\logging.dm"
 #include "code\__HELPERS\~nova_helpers\unsorted.dm"
+#include "modular_ss220\modules\enhanced_messaging\__HELPERS\job_helper.dm"
+#include "modular_ss220\modules\security_minor_1984\__HELPERS\text.dm"
 #include "code\_globalvars\_regexes.dm"
 #include "code\_globalvars\admin.dm"
 #include "code\_globalvars\arcade.dm"
@@ -9308,4 +9310,6 @@
 #include "modular_ss220\modules\gulag_tweaks\minerals.dm"
 #include "modular_ss220\modules\gulag_tweaks\machine_redemption.dm"
 #include "modular_ss220\modules\gulag_tweaks\remote_materials.dm"
+#include "modular_ss220\modules\security_minor_1984\brigdoors.dm"
+#include "modular_ss220\modules\security_minor_1984\brid_cell_aas_config_entries.dm
 // END_INCLUDE
