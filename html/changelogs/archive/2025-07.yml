@@ -301,3 +301,7 @@
   - qol: Admins (non-deadminned) still can see job estimations
   - balance: Flashbangs no longer stun/knockdown in 1 tile ignoring protection (still
       works if detonated in backpack/at same tile)
+2025-07-28:
+  Arceniu:
+  - bugfix: fixed a ntr paper dispenser module carbon button
+  - bugfix: fixed a ntr modsuit complexity
