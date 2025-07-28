@@ -91,6 +91,10 @@
 
 	var/disp1 = name
 	var/disp2 = "[add_leading(num2text((time_left / 60) % 60), 2, "0")]:[add_leading(num2text(time_left % 60), 2, "0")]"
+	// SS1984 ADDITION START
+	if (time_left == 3600 && disp2 == "00:00")
+		disp2 = "60:00"
+	// SS1984 ADDITION END
 	set_messages(disp1, disp2)
 
 /**
