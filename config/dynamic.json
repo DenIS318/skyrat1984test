@@ -560,6 +560,7 @@
 			"scaling_cost": 10,
 			"weight": 5,
 			"required_candidates": 1,
+			"minimum_players": 5,
 			"minimum_required_age": 0,
 			"requirements": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
 			"required_enemies": [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
@@ -661,6 +662,7 @@
 			"scaling_cost": 15,
 			"weight": 2,
 			"required_candidates": 1,
+			"minimum_players": 20,
 			"minimum_required_age": 0,
 			"requirements": [
 				100,
@@ -691,6 +693,7 @@
 			"scaling_cost": 10,
 			"weight": 2,
 			"required_candidates": 3,
+			"minimum_players": 30,
 			"minimum_required_age": 0,
 			"requirements": [
 				100,
@@ -722,6 +725,7 @@
 			"scaling_cost": 101,
 			"weight": 2,
 			"required_candidates": 3,
+			"minimum_players": 30,
 			"minimum_required_age": 0,
 			"requirements": [
 				100,
@@ -1126,6 +1130,7 @@
 			"scaling_cost": 10,
 			"weight": 2,
 			"required_candidates": 1,
+			"minimum_players": 5,
 			"minimum_required_age": 0,
 			"requirements": [
 				10,
@@ -1157,6 +1162,7 @@
 			"scaling_cost": 16,
 			"weight": 2,
 			"required_candidates": 1,
+			"minimum_players": 5,
 			"minimum_required_age": 0,
 			"requirements": [
 				100,
@@ -1342,6 +1348,7 @@
 			"scaling_cost": 10,
 			"weight": 4,
 			"required_candidates": 1,
+			"minimum_players": 5,
 			"minimum_required_age": 0,
 			"requirements": [
 				10,
@@ -1447,6 +1454,7 @@
 			"scaling_cost": 12,
 			"weight": 3,
 			"required_candidates": 1,
+			"minimum_players": 10,
 			"minimum_required_age": 0,
 			"requirements": [
 				100,
@@ -1497,6 +1505,7 @@
 			"scaling_cost": 12,
 			"weight": 2,
 			"required_candidates": 1,
+			"minimum_players": 10,
 			"minimum_required_age": 0,
 			"requirements": [
 				100,
