@@ -269,7 +269,7 @@
 				return
 			if(ishuman(human_or_ghost_user))
 				var/mob/living/carbon/human/human_user = human_or_ghost_user
-				if(human_user.stat || human_user == src) //|| !human_user.canmove || human_user.restrained()) Fluff: Sechuds have eye-tracking technology and sets 'arrest' to people that the wearer looks and blinks at.
+				if(human_user.stat > SOFT_CRIT) // SS1984 EDIT, original: if(human_user.stat || human_user == src) //|| !human_user.canmove || human_user.restrained()) Fluff: Sechuds have eye-tracking technology and sets 'arrest' to people that the wearer looks and blinks at.
 					return   //Non-fluff: This allows sec to set people to arrest as they get disarmed or beaten
 			// Checks the user has security clearence before allowing them to change arrest status via hud, comment out to enable all access
 				var/obj/item/clothing/glasses/hud/security/user_glasses = human_user.glasses
