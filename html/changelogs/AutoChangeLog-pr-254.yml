@@ -1,0 +1,6 @@
+author: "Arceniu"
+delete-after: True
+changes:
+  - rscadd: "Added new prison headset and encryption key"
+  - map: "Changed permabrig closets to the same, but with prison headset"
+  - code_imp: "Added prison frequency"
