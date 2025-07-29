@@ -327,7 +327,7 @@
 				if (!found_name)
 					found_name = "Unknown"
 
-				var/datum/crime/new_crime = new(author = "SecHUD", details = "Set status from [target_record.wanted_status] to [new_status] by [found_name] [found_rank ? "([found_rank])" : ""]. Comment: [reason_text]")
+				var/datum/crime/new_crime = new(author = "SecHUD", details = "Set status from [target_record.wanted_status] to [new_status] by [found_name][found_rank ? " ([found_rank])" : ""]. Comment: [reason_text]")
 				target_record.crimes += new_crime
 				investigate_log("SecHUD status change to [target_record.name] by [key_name(human_user)]. Comment: [reason_text]", INVESTIGATE_RECORDS)
 				// SS1984 ADDITION END
