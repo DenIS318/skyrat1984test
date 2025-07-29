@@ -19366,7 +19366,7 @@
 /turf/open/floor/iron/grimy,
 /area/station/security/prison/work)
 "fvO" = (
-/obj/structure/closet/secure_closet/brig,
+/obj/structure/closet/secure_closet/brig/permanent,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/smooth,
 /area/station/security/execution/transfer)
@@ -36824,7 +36824,7 @@
 /turf/open/floor/engine,
 /area/station/engineering/atmos/hfr_room)
 "kyu" = (
-/obj/structure/closet/secure_closet/brig,
+/obj/structure/closet/secure_closet/brig/permanent,
 /turf/open/floor/iron/smooth,
 /area/station/security/execution/transfer)
 "kyy" = (
