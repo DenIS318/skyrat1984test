@@ -550,7 +550,7 @@
 			]
 		},
 		"Quiet": {
-			"cost": 0.000001
+			"cost": 0.1
 		}
 	},
 
@@ -562,6 +562,7 @@
 			"required_candidates": 1,
 			"minimum_required_age": 0,
 			"requirements": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+			"required_enemies": [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 24
 			},
@@ -600,6 +601,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 2, 1, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 50
 			},
@@ -672,6 +674,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 2, 2, 1, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 24
 			},
@@ -701,6 +704,7 @@
 				20,
 				10
 			],
+			"required_enemies": [ 3, 3, 3, 2, 1, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 15,
 				"offset": 1
@@ -731,6 +735,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 3, 3, 2, 1, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 15,
 				"offset": 1
@@ -761,6 +766,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 3, 3, 2, 1, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 25
 			},
@@ -790,6 +796,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 3, 3, 2, 1, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 25
 			},
@@ -821,6 +828,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 2, 1, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 12,
 				"offset": 1
@@ -852,6 +860,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 2, 1, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 24
 			},
@@ -882,6 +891,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 3, 3, 2, 1, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 99
 			},
@@ -912,6 +922,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 2, 1, 1, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 20,
 				"offset": 1
@@ -943,6 +954,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 3, 3, 2, 1, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 25
 			},
@@ -973,6 +985,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 12
 			},
@@ -1003,6 +1016,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 24
 			},
@@ -1062,6 +1076,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 2, 1, 0, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 15,
 				"offset": 2
@@ -1093,6 +1108,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 2, 1, 0, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 15,
 				"offset": 3
@@ -1123,6 +1139,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 10
 			},
@@ -1153,6 +1170,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 2, 2, 1, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 20
 			},
@@ -1183,6 +1201,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 10
 			},
@@ -1213,6 +1232,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 2, 1, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 24
 			},
@@ -1242,6 +1262,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 2, 1, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 99
 			},
@@ -1271,6 +1292,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 2, 1, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 99
 			},
@@ -1301,6 +1323,7 @@
 				10,
 				10
 			],
+			"required_enemies": [ 3, 2, 1, 0, 0, 0, 0, 0, 0, 0 ],
 			"antag_cap": {
 				"denominator": 18
 			},
