@@ -305,13 +305,31 @@
 				// 	investigate_log("SecHUD auto-crime | Added to [target_record.name] by [key_name(human_user)]", INVESTIGATE_RECORDS)
 				// SS1984 REMOVAL END
 				// SS1984 ADDITION START
-				var/reason_text = tgui_input_text(usr, "Reason:", "Specify reason", "", MAX_DESC_LEN, encode = FALSE)
+				var/reason_text = tgui_input_text(usr, "Comment:", "Add comment", "", MAX_DESC_LEN, encode = FALSE)
 				if(!reason_text)
-					to_chat(usr, "<span class='warning'>Reason field is required.</span>")
-					return
-				var/datum/crime/new_crime = new(author = human_user, details = reason_text)
+					reason_text = "" // it's valid
+
+				var/id_card
+				var/found_rank
+				var/found_name
+				var/obj/item/id_slot = human_user.get_item_by_slot(ITEM_SLOT_ID)
+				if(id_slot)
+					id_card = id_slot?.GetID()
+				if (id_card)
+					var/retrieved_job = retrieve_relevant_job(usr, id_card, TRUE)
+					if (!retrieved_job)
+						retrieved_job = retrieve_relevant_job(usr, id_card, FALSE)
+					if (retrieved_job)
+						found_rank = retrieved_job
+					var/obj/item/card/id/id_card_casted = id_card
+					if (id_card_casted)
+						found_name = id_card_casted.registered_name
+				if (!found_name)
+					found_name = "Unknown"
+
+				var/datum/crime/new_crime = new(author = "SecHUD", details = "Set status from [target_record.wanted_status] to [new_status] by [found_name] [found_rank ? "([found_rank])" : ""]. Comment: [reason_text]")
 				target_record.crimes += new_crime
-				investigate_log("SecHUD status change to [target_record.name] by [key_name(human_user)]. Specified reason: [reason_text]", INVESTIGATE_RECORDS)
+				investigate_log("SecHUD status change to [target_record.name] by [key_name(human_user)]. Comment: [reason_text]", INVESTIGATE_RECORDS)
 				// SS1984 ADDITION END
 
 				// SS1984 REMOVAL investigate_log("has been set from [target_record.wanted_status] to [new_status] via HUD by [key_name(human_user)].", INVESTIGATE_RECORDS)
