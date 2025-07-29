@@ -298,12 +298,23 @@
 				if(!new_status || !target_record || !human_user.canUseHUD() || !HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
 					return
 
-				if(new_status == WANTED_ARREST)
-					var/datum/crime/new_crime = new(author = human_user, details = "Set by SecHUD.")
-					target_record.crimes += new_crime
-					investigate_log("SecHUD auto-crime | Added to [target_record.name] by [key_name(human_user)]", INVESTIGATE_RECORDS)
+				// SS1984 REMOVAL START
+				// if(new_status == WANTED_ARREST)
+				// 	var/datum/crime/new_crime = new(author = human_user, details = "Set by SecHUD.")
+				// 	target_record.crimes += new_crime
+				// 	investigate_log("SecHUD auto-crime | Added to [target_record.name] by [key_name(human_user)]", INVESTIGATE_RECORDS)
+				// SS1984 REMOVAL END
+				// SS1984 ADDITION START
+				var/reason_text = tgui_input_text(usr, "Reason:", "Specify reason", "", MAX_DESC_LEN, encode = FALSE)
+				if(!reason_text)
+					to_chat(usr, "<span class='warning'>Reason field is required.</span>")
+					return
+				var/datum/crime/new_crime = new(author = human_user, details = reason_text)
+				target_record.crimes += new_crime
+				investigate_log("SecHUD status change to [target_record.name] by [key_name(human_user)]. Specified reason: [reason_text]", INVESTIGATE_RECORDS)
+				// SS1984 ADDITION END
 
-				investigate_log("has been set from [target_record.wanted_status] to [new_status] via HUD by [key_name(human_user)].", INVESTIGATE_RECORDS)
+				// SS1984 REMOVAL investigate_log("has been set from [target_record.wanted_status] to [new_status] via HUD by [key_name(human_user)].", INVESTIGATE_RECORDS)
 				target_record.wanted_status = new_status
 				update_matching_security_huds(target_record.name)
 				return
