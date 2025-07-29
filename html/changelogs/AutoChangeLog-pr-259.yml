@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscadd: "Now during changing security status with SecHUD comment can be added. Automatically adds all such actions it to crime history"
