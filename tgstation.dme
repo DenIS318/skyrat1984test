@@ -9287,6 +9287,7 @@
 #include "modular_ss220\modules\hacking_secure_storages\secure_storage_hacking_defines.dm"
 #include "modular_ss220\modules\hacking_secure_storages\secure_closets.dm"
 #include "modular_ss220\modules\hacking_secure_storages\secure.dm"
+#include "modular_ss220\modules\hacking_secure_storages\abandoned_crates.dm"
 #include "modular_ss220\modules\balance-1984\baton.dm"
 #include "modular_ss220\modules\balance-1984\stun.dm"
 #include "modular_ss220\modules\sol_pistol_incapacitator\magazines.dm"
