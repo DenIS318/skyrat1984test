@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscadd: "Abandoned crates no longer can be hacked using screwdriver-multitool-wirecutter"

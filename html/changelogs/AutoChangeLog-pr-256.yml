@@ -1,7 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - config: "All midround antag rulesets except sentient disease and borers now require at least 1 enemy (security/heads) for lowpop. Some rulesets require more than 1."
-  - config: "Midround antags rulesets now require at least 5 players, for which they didn't required already. This includes: Syndicate Sleeper, Obsessed. And relevant latejoins. If you want such antagonists at all - you need at least 1 security (captain would fit as well)"
-  - config: "Changes for minimum players for other rulesets, such as nuclear assault, wizard, etc..."
-  - config: "Quiet ruleset now cost 0.1 threat instead of 0.00001..."

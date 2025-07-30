@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscadd: "Now you can see/set security notes/status and other records on yourself if you have relevant HUD."
-  - bugfix: "Now can correctly set status/some other HUD related actions during softcrit"

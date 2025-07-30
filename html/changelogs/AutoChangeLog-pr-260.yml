@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscdel: "revert Nova's Max message length 2048 -> 1024 (as it is in TG)"

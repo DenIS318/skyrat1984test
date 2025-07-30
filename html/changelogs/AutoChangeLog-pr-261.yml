@@ -1,7 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscadd: "Added handgun shoulder holster, works similar as MOD Shoulder Holster, but attaches to suit"
-  - rscadd: "Added hotkey for attachable shoulder holster (H by default)"
-  - rscadd: "Shoulder holster is added to all security weapon kits (hybrid taser kit, sol pistol...)"
-  - rscadd: "Shoulder holster added to biogenerator craft for 200 biomaterial"
