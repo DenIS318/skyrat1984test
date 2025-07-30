@@ -9304,6 +9304,7 @@
 #include "modular_ss220\modules\infinite_access_slots\infinite_access_slots_config.dm"
 #include "modular_ss220\modules\infinite_access_slots\cards_ids.dm"
 #include "modular_ss220\modules\access_console_buttons\card.dm"
+#include "modular_ss220\modules\access_console_buttons\cards_ids.dm"
 #include "modular_ss220\modules\infinite_access_slots\secrets.dm"
 #include "modular_ss220\modules\infinite_access_slots\id_access.dm"
 #include "modular_ss220\modules\upstream-fixes-icons\breath.dm"
