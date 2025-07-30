@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - config: "Dynamic rulesets now should correctly work based on enemies per threat, most rulesets require at least 1 enemy (security/captain)"
