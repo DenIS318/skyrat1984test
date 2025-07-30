@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - bugfix: "Agent card \"select all\" and \"deselect all\" buttons now should correctly work"
