@@ -9317,4 +9317,8 @@
 #include "modular_ss220\modules\gulag_tweaks\remote_materials.dm"
 #include "modular_ss220\modules\security_minor_1984\brigdoors.dm"
 #include "modular_ss220\modules\security_minor_1984\brid_cell_aas_config_entries.dm"
+#include "modular_ss220\modules\security_minor_1984\shoulder_holsters\shoulder_holster.dm"
+#include "modular_ss220\modules\security_minor_1984\shoulder_holsters\accessory_actions.dm"
+#include "modular_ss220\modules\security_minor_1984\shoulder_holsters\human_keybindings.dm"
+#include "modular_ss220\modules\security_minor_1984\shoulder_holsters\biogenerator_designs.dm"
 // END_INCLUDE
