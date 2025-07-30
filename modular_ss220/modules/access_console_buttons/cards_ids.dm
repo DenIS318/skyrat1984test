@@ -10,7 +10,7 @@
 				var/list/accesses_department = department["accesses"]
 				for(var/access_data in accesses_department)
 					var/access_type = access_data["ref"]
-					if (access_type in access || !(access_type in target_card.access))
+					if ((access_type in access) || !(access_type in target_card.access))
 						continue
 					if (!add_access(list(access_type), wildcardTab))
 						continue // don't spam excess logs and errors to client
