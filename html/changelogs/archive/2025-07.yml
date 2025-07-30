@@ -348,3 +348,5 @@
   - bugfix: Now can correctly set status/some other HUD related actions during softcrit
   - bugfix: Agent card "select all" and "deselect all" buttons now should correctly
       work
+  - config: Dynamic rulesets now should correctly work based on enemies per threat,
+      most rulesets require at least 1 enemy (security/captain)
