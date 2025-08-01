@@ -3,7 +3,7 @@
 	candidates = living_players
 	for(var/mob/living/candidate in candidates)
 		var/client/candidate_client = GET_CLIENT(candidate)
-		if (!candidate || !candidate.mind) // Are they connected?
+		if (!candidate_client || !candidate.mind) // Are they connected?
 			candidates -= candidate
 			continue
 
