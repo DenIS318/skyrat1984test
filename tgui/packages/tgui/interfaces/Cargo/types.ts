@@ -20,6 +20,7 @@ export type CargoData = {
   requestonly: BooleanLike;
   self_paid: BooleanLike;
   supplies: Record<string, SupplyCategory>;
+  current_plasma_cost: number; // SS1984 ADDITION
 };
 
 export type SupplyCategory = {
