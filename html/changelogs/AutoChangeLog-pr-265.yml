@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "Hunter slug damage multiplier for compatible targets 5=>4, base damage still 20"
