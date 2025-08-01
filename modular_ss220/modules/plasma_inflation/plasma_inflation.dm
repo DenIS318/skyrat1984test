@@ -48,7 +48,7 @@ SUBSYSTEM_DEF(plasma_inflation)
 	if (recovery_start_price <= 0)// zero div
 		recovery_start_price = 000000001
 
-	current_price = recovery_start_price * ((default_plasma_price / recovery_start_price) ** (current_time / default_plasma_price))
+	current_price = recovery_start_price * ((default_plasma_price / recovery_start_price) ** (current_time / recovery_time))
 
 /datum/controller/subsystem/plasma_inflation/proc/sell_plasma(quantity)
 	if (!isnum(quantity) || quantity < 1)
