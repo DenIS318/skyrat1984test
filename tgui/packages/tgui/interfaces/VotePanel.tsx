@@ -37,6 +37,7 @@ type ActiveVote = {
   question: string | null;
   timeRemaining: number;
   displayStatistics: boolean;
+  choicesHighlight: string[] | null; // SS1984 ADDITION
   choices: Option[];
   countMethod: number;
 };
@@ -237,6 +238,27 @@ const VotersList = (props) => {
 const ChoicesPanel = (props) => {
   const { act, data } = useBackend<Data>();
   const { currentVote, user } = data;
+  // SS1984 ADDITION START
+  const highlightNames = currentVote.choicesHighlight;
+  if (highlightNames && highlightNames.length > 0) {
+    // Make highlighted options bold
+    currentVote.choices.forEach(option => {
+      if (highlightNames.includes(option.name)) {
+        option.name = `<b>${option.name}</b>`; // Wrap with markdown bold syntax
+      }
+    });
+    // Sort, so highlighted are displayed first
+    currentVote.choices.sort((a, b) => {
+      const aHighlighted = highlightNames.includes(a.name);
+      const bHighlighted = highlightNames.includes(b.name);
+
+      if (aHighlighted === bHighlighted) {
+        return 0; // keep relative order if both highlighted or both non-highlighted
+      }
+      return aHighlighted ? -1 : 1; // highlighted option comes first
+    });
+  }
+  // SS1984 ADDITION END
 
   return (
     <Stack.Item grow>
