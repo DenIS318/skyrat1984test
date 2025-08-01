@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(plasma_inflation)
 	runlevels = RUNLEVEL_SETUP | RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 
 	// shuttle
-	var/area/whitelist_shuttle_area = /area/shuttle/supply
+	var/area/whitelist_shuttle_area = /area/shuttle/supply/cargo
 
 	// decay settings:
 	var/decay_factor = 0.01 // how fast price decays, lower = slower, in excel it's: 'k'
@@ -20,6 +20,7 @@ SUBSYSTEM_DEF(plasma_inflation)
 	var/current_price = PLASMA_DEFAULT_COST_CARGO
 	var/is_recovering = FALSE // is it currently recovering?
 	var/recovery_start_price = PLASMA_DEFAULT_COST_CARGO
+	var/quantity_sold_batch = 0
 
 /datum/controller/subsystem/plasma_inflation/Initialize()
 	if (!CONFIG_GET(flag/plasma_inflation))
@@ -28,6 +29,23 @@ SUBSYSTEM_DEF(plasma_inflation)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/plasma_inflation/fire()
+	// Part 1. Update price after batch sale
+
+	if (quantity_sold_batch > 0)
+		current_price = quantity_sold_batch * (NUM_E ** (-decay_factor * quantity_sold_batch))
+
+		if (current_price < 0) // not going negative price
+			current_price = 0
+
+		// Reset stuff
+
+		quantity_sold_batch = 0
+		current_time = 0 // reset
+		recovery_start_price = current_price // should be placed after current_price update
+		is_recovering = TRUE
+		return // not recovering at this fire
+
+	// Part 2. recover stuff
 	if (!is_recovering)
 		return
 
@@ -41,7 +59,6 @@ SUBSYSTEM_DEF(plasma_inflation)
 
 	if (current_time >= recovery_time)
 		is_recovering = FALSE
-
 		current_price = default_plasma_price
 		return
 
@@ -60,17 +77,13 @@ SUBSYSTEM_DEF(plasma_inflation)
 	if (decay_factor <= 0) // zero div
 		decay_factor = 0.000000001
 
-	var/revenue = (current_price / decay_factor) * (1 - NUM_E ** (-decay_factor * quantity))
-	current_price = quantity * (NUM_E ** (-decay_factor * quantity))
+	if (quantity_sold_batch < 0) // no negative
+		quantity_sold_batch = 0
 
-	if (current_price < 0) // not going negative price
-		current_price = 0
+	var/revenue = (current_price / decay_factor) * (NUM_E ** (-decay_factor * quantity) - NUM_E ** (-decay_factor * (quantity + quantity_sold_batch)))
+	quantity_sold_batch += quantity
 
 	if (revenue < 0) // no negative revenue
 		revenue = 0
-
-	is_recovering = TRUE
-	recovery_start_price = current_price // should be placed after current_price update
-	current_time = 0 // reset
 
 	return revenue
