@@ -48,11 +48,11 @@ SUBSYSTEM_DEF(plasma_inflation)
 	if (recovery_start_price <= 0)// zero div
 		recovery_start_price = 000000001
 
-	current_price = recovery_start_price * ((default_plasma_price / recovery_start_price) ^ (current_time / default_plasma_price))
+	current_price = recovery_start_price * ((default_plasma_price / recovery_start_price) ** (current_time / default_plasma_price))
 
-/datum/controller/subsystem/plasma_inflation/proc/sell_plasma(quantity as num)
+/datum/controller/subsystem/plasma_inflation/proc/sell_plasma(quantity)
 	if (!isnum(quantity) || quantity < 1)
-		return
+		return 0
 
 	if (recovery_time <= 0) // no negative stuff
 		recovery_time = wait
@@ -60,8 +60,8 @@ SUBSYSTEM_DEF(plasma_inflation)
 	if (decay_factor <= 0) // zero div
 		decay_factor = 0.000000001
 
-	var/revenue = current_price / decay_factor * (1 - NUM_E ^ (-decay_factor * quantity))
-	current_price = quantity * (NUM_E ^ (-decay_factor * quantity))
+	var/revenue = (current_price / decay_factor) * (1 - NUM_E ** (-decay_factor * quantity))
+	current_price = quantity * (NUM_E ** (-decay_factor * quantity))
 
 	if (current_price < 0) // not going negative price
 		current_price = 0
