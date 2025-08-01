@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "Hunter Slugs no longer deals damage twice to compatible targets"

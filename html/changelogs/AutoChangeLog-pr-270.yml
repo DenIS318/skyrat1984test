@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscadd: "Map vote now highlight recommended maps (Delta, Meta, Tram, Icebox) - these maps have up-to-date mapping"
-  - qol: "Highlighted options in vote displayed at top"

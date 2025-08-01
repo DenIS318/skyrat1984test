@@ -1,0 +1,16 @@
+2025-08-01:
+  DenIS318:
+  - balance: Kiboko grenades projectiles speed increased 0.5 => 0.9 (normal projectile
+      speed is 1.25)
+  - bugfix: NTTC at telecomms no longer works if machine is depowered/broken/EMP (comms
+      blackout count as EMP)
+  - bugfix: Hunter Slugs no longer deals damage twice to compatible targets
+  - rscadd: Map vote now highlight recommended maps (Delta, Meta, Tram, Icebox) -
+      these maps have up-to-date mapping
+  - qol: Highlighted options in vote displayed at top
+  - balance: Hunter slug damage multiplier for compatible targets 5=>4, base damage
+      still 20
+  - bugfix: SSD players no longer get considered for antag role in midround dynamic
+      rulesets
+  - balance: All simplemobs stamina slowdown reduced 3 => 2, except spiders
+  - balance: For spiders, flesh spiders stamina slowdown reduced 12 => 1
