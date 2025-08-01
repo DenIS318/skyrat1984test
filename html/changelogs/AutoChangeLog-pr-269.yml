@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - bugfix: "SSD players no longer get considered for antag role in midround dynamic rulesets"
