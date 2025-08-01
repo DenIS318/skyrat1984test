@@ -212,7 +212,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if (!radio_freq || !announcer)
 		return "[namepart]"
 	var/datum/nttc_configuration/nttc = announcer ? announcer.nttc : null
-	if (!nttc) // very weird if it's not exist, as it built-in to announcer
+	if (!nttc || (announcer.machine_stat & (BROKEN|NOPOWER|EMPED)))
 		return "[namepart]"
 
 	return nttc.compose_ntts_job(raw_message, namepart, announcer, job, job_custom_name, speaker_source)
