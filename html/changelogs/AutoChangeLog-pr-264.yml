@@ -1,0 +1,5 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "All simplemobs stamina slowdown reduced 3 => 2, except spiders"
+  - balance: "For spiders, flesh spiders stamina slowdown reduced 12 => 1"
