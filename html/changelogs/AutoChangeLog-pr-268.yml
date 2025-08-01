@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - bugfix: "NTTC at telecomms no longer works if machine is depowered/broken/EMP (comms blackout count as EMP)"
