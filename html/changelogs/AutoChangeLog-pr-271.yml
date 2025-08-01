@@ -1,0 +1,10 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscadd: "Plasma inflation mechanic for cargo. TL;DR: the more plasma you send rapidly, the less it worth."
+  - rscadd: "Plasma sells at cargo now calculate new prices & revenue by curve similar to Log2(x)"
+  - rscadd: "Plasma price recovers in 15 mins (if there's no sells, if there's any plasma cell - timer stops and start again, but from current price)"
+  - rscadd: "Current plasma cost is displayed at cargo console UI"
+  - code_imp: "Plasma inflation works only for cargo shuttle, no away ghots roles/pirates"
+  - qol: "More detailed description & formulas & graphs are attached in pull request Excel file"
+  - qol: "Example: 50 plasma worth ~3200 credits, before worth 4000. And 1000 plasma (sold rapidly) worth ~8000 credits, before worth 80000"
