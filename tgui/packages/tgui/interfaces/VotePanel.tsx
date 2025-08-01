@@ -239,24 +239,20 @@ const ChoicesPanel = (props) => {
   const { act, data } = useBackend<Data>();
   const { currentVote, user } = data;
   // SS1984 ADDITION START
-  const highlightNames = currentVote.choicesHighlight;
-  if (highlightNames && highlightNames.length > 0) {
-    // Make highlighted options bold
-    currentVote.choices.forEach(option => {
-      if (highlightNames.includes(option.name)) {
-        option.name = `<b>${option.name}</b>`; // Wrap with markdown bold syntax
-      }
-    });
-    // Sort, so highlighted are displayed first
-    currentVote.choices.sort((a, b) => {
-      const aHighlighted = highlightNames.includes(a.name);
-      const bHighlighted = highlightNames.includes(b.name);
+  if (currentVote && currentVote.choices && currentVote.choices.length > 0) {
+    const highlightNames = currentVote.choicesHighlight;
+    if (highlightNames && highlightNames.length > 0) {
+      // Sort, so highlighted are displayed first
+      currentVote.choices.sort((a, b) => {
+        const aHighlighted = highlightNames.includes(a.name);
+        const bHighlighted = highlightNames.includes(b.name);
 
-      if (aHighlighted === bHighlighted) {
-        return 0; // keep relative order if both highlighted or both non-highlighted
-      }
-      return aHighlighted ? -1 : 1; // highlighted option comes first
-    });
+        if (aHighlighted === bHighlighted) {
+          return 0; // keep relative order if both highlighted or both non-highlighted
+        }
+        return aHighlighted ? -1 : 1; // highlighted option comes first
+      });
+    }
   }
   // SS1984 ADDITION END
 
@@ -273,7 +269,14 @@ const ChoicesPanel = (props) => {
             {currentVote.choices.map((choice) => (
               <Box key={choice.name}>
                 <LabeledList.Item
-                  label={choice.name.replace(/^\w/, (c) => c.toUpperCase())}
+                  // SS1984 REMOVAL label={choice.name.replace(/^\w/, (c) => c.toUpperCase())}
+                  // SS1984 ADDITION START
+                  label={
+                    <span style={{ fontWeight: currentVote.choicesHighlight?.includes(choice.name) ? 'bold' : 'normal' }}>
+                      {choice.name.replace(/^\w/, (c) => c.toUpperCase())}
+                    </span>
+                  }
+                  // SS1984 ADDITION END
                   textAlign="right"
                   buttons={
                     <Button
@@ -320,7 +323,14 @@ const ChoicesPanel = (props) => {
             {currentVote.choices.map((choice) => (
               <Box key={choice.name}>
                 <LabeledList.Item
-                  label={choice.name.replace(/^\w/, (c) => c.toUpperCase())}
+                  // SS1984 REMOVAL label={choice.name.replace(/^\w/, (c) => c.toUpperCase())}
+                  // SS1984 ADDITION START
+                  label={
+                    <span style={{ fontWeight: currentVote.choicesHighlight?.includes(choice.name) ? 'bold' : 'normal' }}>
+                      {choice.name.replace(/^\w/, (c) => c.toUpperCase())}
+                    </span>
+                  }
+                  // SS1984 ADDITION END
                   textAlign="right"
                   buttons={
                     <Button
