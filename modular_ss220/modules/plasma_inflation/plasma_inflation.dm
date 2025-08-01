@@ -71,6 +71,7 @@ SUBSYSTEM_DEF(plasma_inflation)
 	if (!isnum(quantity) || quantity < 1)
 		return 0
 
+
 	if (recovery_time <= 0) // no negative stuff
 		recovery_time = wait
 
@@ -80,7 +81,7 @@ SUBSYSTEM_DEF(plasma_inflation)
 	if (quantity_sold_batch < 0) // no negative
 		quantity_sold_batch = 0
 
-	var/revenue = (current_price / decay_factor) * (NUM_E ** (-decay_factor * quantity) - NUM_E ** (-decay_factor * (quantity + quantity_sold_batch)))
+	var/revenue = (current_price / decay_factor) * (NUM_E ** (-decay_factor * quantity_sold_batch) - NUM_E ** (-decay_factor * (quantity_sold_batch + quantity)))
 	quantity_sold_batch += quantity
 
 	if (revenue < 0) // no negative revenue
