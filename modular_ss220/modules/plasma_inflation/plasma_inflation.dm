@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(plasma_inflation)
 	runlevels = RUNLEVEL_SETUP | RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 
 	// shuttle
-	var/area/whitelist_shuttle_area = /area/shuttle/supply/cargo
+	var/area/whitelist_shuttle_area = /area/shuttle/supply
 
 	// decay settings:
 	var/decay_factor = 0.01 // how fast price decays, lower = slower, in excel it's: 'k'
