@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "Kiboko grenades projectiles speed increased 0.5 => 0.9 (normal projectile speed is 1.25)"
