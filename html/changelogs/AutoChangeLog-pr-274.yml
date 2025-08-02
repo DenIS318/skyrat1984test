@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - map: "Armory access no longer required to open security MOD room, now it's brig access. For all supported maps (Delta, Meta, Icebox, Tram)"
