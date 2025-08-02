@@ -2217,6 +2217,15 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+"aMz" = (
+/obj/machinery/button/door/directional/west{
+	id = "Secure Storage";
+	name = "Engineering Secure Storage";
+	req_access = list("engine_equip");
+	pixel_x = 6
+	},
+/turf/closed/wall/r_wall,
+/area/station/engineering/main)
 "aMB" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /turf/open/floor/iron/dark,
@@ -110431,7 +110440,7 @@ mww
 kEs
 xsd
 uXd
-uXd
+aMz
 hnG
 hnG
 uXd
