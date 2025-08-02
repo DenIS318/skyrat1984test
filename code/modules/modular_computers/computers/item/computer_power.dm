@@ -37,7 +37,7 @@
 		set_light_on(FALSE)
 	for(var/datum/computer_file/program/programs as anything in idle_threads)
 		programs.event_powerfailure()
-	shutdown_computer(loud = FALSE)
+	shutdown_computer(loud = TRUE) // SS1984 EDIT, original: shutdown_computer(loud = FALSE)
 
 ///Takes the charge necessary from the Computer, shutting it off if it's unable to provide it.
 ///Charge depends on whether the PC is on, and what programs are running/idle on it.
