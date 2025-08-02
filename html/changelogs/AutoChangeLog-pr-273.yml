@@ -1,0 +1,5 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscdel: "Revert: making detective role more unique, by removing crew pinpointer and detective scanner from their closets, preventing abuse this by officer's. (upstream #4464)"
+  - rscadd: "Detective scanner is added to HOS closet"
