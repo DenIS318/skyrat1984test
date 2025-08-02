@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - qol: "Modular computers (PDA) now shows message when shutdown by powerloss"
-  - code_imp: "Modular computers (PDA) powerloss now triggering itself when cell charge's ends"

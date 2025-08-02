@@ -26,3 +26,19 @@
       Excel file
   - qol: 'Example: 50 plasma worth ~3200 credits, before worth 4000. And 1000 plasma
       (sold rapidly) worth ~8000 credits, before worth 80000'
+2025-08-02:
+  DenIS318:
+  - rscdel: 'Revert: making detective role more unique, by removing crew pinpointer
+      and detective scanner from their closets, preventing abuse this by officer''s.
+      (upstream #4464)'
+  - rscadd: Detective scanner is added to HOS closet
+  - qol: Modular computers (PDA) now shows message when shutdown by powerloss
+  - code_imp: Modular computers (PDA) powerloss now triggering itself when cell charge's
+      ends
+  - spellcheck: Russian human female lastnames generation
+  - map: Engineering Secure Storage button is added to all recommended maps (delta,
+      meta, icebox, tram)
+  - map: Added oxygen canister to armory on recommended maps (Delta, Meta, Icebox,
+      Tram)
+  - map: Armory access no longer required to open security MOD room, now it's brig
+      access. For all supported maps (Delta, Meta, Icebox, Tram)
