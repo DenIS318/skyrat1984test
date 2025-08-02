@@ -9338,4 +9338,5 @@
 #include "modular_ss220\modules\plasma_inflation\plasma_inflation.dm"
 #include "modular_ss220\modules\plasma_inflation\exports.dm"
 #include "modular_ss220\modules\plasma_inflation\orderconsole.dm"
+#include "modular_ss220\modules\localization_modular\ert.dm"
 // END_INCLUDE
