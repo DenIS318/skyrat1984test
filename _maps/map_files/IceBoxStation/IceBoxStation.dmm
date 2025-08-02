@@ -59923,6 +59923,16 @@
 /obj/effect/spawner/random/maintenance/no_decals/two,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/warehouse)
+"qUd" = (
+/obj/machinery/button/door/directional/west{
+	id = "engstorage";
+	name = "Engineering Secure Storage Control";
+	pixel_x = 4;
+	pixel_y = 4;
+	req_access = list("engine_equip")
+	},
+/turf/closed/wall/r_wall,
+/area/station/engineering/engine_smes)
 "qUf" = (
 /obj/machinery/firealarm/directional/east,
 /obj/item/storage/box/bodybags{
@@ -242664,7 +242674,7 @@ mNY
 yaL
 rqF
 rqF
-yaL
+qUd
 yaL
 yaL
 yaL

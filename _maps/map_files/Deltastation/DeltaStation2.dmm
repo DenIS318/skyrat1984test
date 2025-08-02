@@ -56254,6 +56254,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/funeral)
+"nVA" = (
+/obj/structure/sign/warning/secure_area,
+/obj/machinery/button/door/directional/west{
+	id = "engstorage";
+	name = "Engineering Secure Storage Control";
+	pixel_x = -8;
+	pixel_y = 8;
+	req_access = list("engine_equip")
+	},
+/turf/closed/wall/r_wall,
+/area/station/engineering/main)
 "nVB" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -124495,7 +124506,7 @@ vvH
 hcQ
 dsj
 rRD
-pgA
+nVA
 hOa
 aGo
 auD
