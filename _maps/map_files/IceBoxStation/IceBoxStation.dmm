@@ -29722,6 +29722,7 @@
 /area/station/service/bar/atrium)
 "iuS" = (
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/glass/reinforced,
 /area/station/ai_monitored/security/armory/upper)
 "ivi" = (
