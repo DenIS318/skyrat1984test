@@ -5927,16 +5927,14 @@
 /turf/open/space/openspace,
 /area/station/solars/starboard/fore)
 "aUa" = (
-/obj/structure/table/wood,
-/obj/item/book/manual/wiki/security_space_law{
-	pixel_x = -5
+/obj/structure/safe{
+	known_by = list("hos")
 	},
-/obj/item/taperecorder{
-	pixel_x = -5
-	},
-/obj/machinery/recharger{
-	pixel_y = 4
-	},
+/obj/item/gun/ballistic/revolver/mateba,
+/obj/item/ammo_box/a357,
+/obj/item/ammo_box/a357,
+/obj/item/ammo_box/a357,
+/obj/item/clothing/accessory/holster,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
 "aUb" = (
@@ -13608,17 +13606,18 @@
 /area/station/hallway/secondary/entry)
 "dFI" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/seccarts{
-	pixel_x = 3;
-	pixel_y = 2
-	},
-/obj/item/storage/box/deputy,
 /obj/item/radio/intercom/directional/west,
 /obj/machinery/button/door/directional/west{
 	name = "Emergency Blast Doors";
 	pixel_y = -8;
 	id = "HOSOffice";
 	req_access = list("hos")
+	},
+/obj/machinery/recharger{
+	pixel_y = 4
+	},
+/obj/item/paper/paperslip/corporate/fluff/safe_code{
+	owner = "hos"
 	},
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
@@ -46289,6 +46288,9 @@
 /obj/structure/table/wood,
 /obj/item/folder/red,
 /obj/item/stamp/head/hos,
+/obj/item/taperecorder{
+	pixel_x = -5
+	},
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
 "ptD" = (
@@ -66943,6 +66945,14 @@
 	pixel_x = -3;
 	pixel_y = 8;
 	start_on = 0
+	},
+/obj/item/book/manual/wiki/security_space_law{
+	pixel_x = -5
+	},
+/obj/item/storage/box/deputy,
+/obj/item/storage/box/seccarts{
+	pixel_x = 3;
+	pixel_y = 2
 	},
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
