@@ -401,7 +401,7 @@
       clear without having to log dive or use the investigate verb
   vinylspiders:
   - bugfix: 'fixed being able to alt-click to change transfer amounts for reagent
-      containers that are not supposed to have that feature (like epi-pens for example)
+      containers that are not supposed to have that feature (like epi-pens for example)'
   DenIS318:
   - qol: Prisoner card goal max now can be set up to 999999
   - rscadd: Radio headset to prisoner lockers
