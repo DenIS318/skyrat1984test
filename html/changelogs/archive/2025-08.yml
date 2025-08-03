@@ -41,6 +41,21 @@
       added to avoid confusion.
   - bugfix: Rack refactor not originally working! It does now. You can now place things
       on the shelf like intended.
+  DenIS318:
+  - rscdel: 'Revert: making detective role more unique, by removing crew pinpointer
+      and detective scanner from their closets, preventing abuse this by officer''s.
+      (upstream #4464)'
+  - rscadd: Detective scanner is added to HOS closet
+  - qol: Modular computers (PDA) now shows message when shutdown by powerloss
+  - code_imp: Modular computers (PDA) powerloss now triggering itself when cell charge's
+      ends
+  - spellcheck: Russian human female lastnames generation
+  - map: Engineering Secure Storage button is added to all recommended maps (delta,
+      meta, icebox, tram)
+  - map: Added oxygen canister to armory on recommended maps (Delta, Meta, Icebox,
+      Tram)
+  - map: Armory access no longer required to open security MOD room, now it's brig
+      access. For all supported maps (Delta, Meta, Icebox, Tram)
   EuSouAFazer:
   - map: The R&D Console and Department Protolathe have been moved from the back to
       the front desk in Catwalk
@@ -223,24 +238,16 @@
       as it should. Report any issues.
   timothymtorres:
   - bugfix: Fix martial arts gloves runtiming when destroyed while equip
-  DenIS318:
-  - rscdel: 'Revert: making detective role more unique, by removing crew pinpointer
-      and detective scanner from their closets, preventing abuse this by officer''s.
-      (upstream #4464)'
-  - rscadd: Detective scanner is added to HOS closet
-  - qol: Modular computers (PDA) now shows message when shutdown by powerloss
-  - code_imp: Modular computers (PDA) powerloss now triggering itself when cell charge's
-      ends
-  - spellcheck: Russian human female lastnames generation
-  - map: Engineering Secure Storage button is added to all recommended maps (delta,
-      meta, icebox, tram)
-  - map: Added oxygen canister to armory on recommended maps (Delta, Meta, Icebox,
-      Tram)
-  - map: Armory access no longer required to open security MOD room, now it's brig
-      access. For all supported maps (Delta, Meta, Icebox, Tram)
 2025-08-03:
   DenIS318:
   - map: Added safe to HOS office with unica-6 in it with 3 speedloaders + holster
       for all recommended maps (Delta, Meta, Icebox, Tram)
   - map: Added safe codes to HOS office for all recommended maps (Delta, Meta, Icebox,
       Tram)
+  - rscdel: Bridge Officer no longer available to station
+  - rscadd: 'Revert: Removed ''His Grace'' from the Traitor uplink. It was a chaplain
+      traitor only item that required you to consume 25 player corpses to ascend,
+      making you inmune to stuns, regen life and putting you in a timer to kill as
+      many people possible. (upstream #5777)'
+  FlufflesTheDog:
+  - bugfix: Fix some cases where subtler messages broadcast too far
