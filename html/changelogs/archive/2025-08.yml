@@ -42,3 +42,9 @@
       Tram)
   - map: Armory access no longer required to open security MOD room, now it's brig
       access. For all supported maps (Delta, Meta, Icebox, Tram)
+2025-08-03:
+  DenIS318:
+  - map: Added safe to HOS office with unica-6 in it with 3 speedloaders + holster
+      for all recommended maps (Delta, Meta, Icebox, Tram)
+  - map: Added safe codes to HOS office for all recommended maps (Delta, Meta, Icebox,
+      Tram)
