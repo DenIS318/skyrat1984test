@@ -300,7 +300,6 @@
 	car.visible_message(span_notice("[key] drops out of [car] onto the floor."))
 	return car
 
-/* NOVA EDIT REMOVAL START - DISABLED
 /datum/uplink_item/role_restricted/his_grace
 	name = "His Grace"
 	desc = "An incredibly dangerous weapon recovered from a station overcome by the grey tide. Once activated, He will thirst for blood and must be used to kill to sate that thirst. \
@@ -314,7 +313,6 @@
 	surplus = 0
 	restricted_roles = list(JOB_CHAPLAIN)
 	purchasable_from = ~UPLINK_SPY
-*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/role_restricted/concealed_weapon_bay
 	name = "Concealed Weapon Bay"
