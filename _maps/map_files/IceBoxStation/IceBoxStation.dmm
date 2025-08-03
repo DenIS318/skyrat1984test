@@ -18011,29 +18011,15 @@
 /obj/machinery/camera/directional/west{
 	c_tag = "Security - HoS Office"
 	},
-/obj/item/flashlight/lamp/green{
-	pixel_x = -6;
-	pixel_y = 16;
-	start_on = 0
-	},
-/obj/structure/table/wood,
-/obj/item/paper_bin{
-	pixel_x = 8;
-	pixel_y = 3
-	},
-/obj/item/stamp/head/hos{
-	pixel_x = 10;
-	pixel_y = 6
-	},
-/obj/machinery/recharger{
-	pixel_x = -4;
-	pixel_y = -1
-	},
 /obj/machinery/airalarm/directional/west,
-/obj/item/phone{
-	pixel_x = -9;
-	pixel_y = 7
+/obj/structure/safe{
+	known_by = list("hos")
 	},
+/obj/item/gun/ballistic/revolver/mateba,
+/obj/item/ammo_box/a357,
+/obj/item/ammo_box/a357,
+/obj/item/ammo_box/a357,
+/obj/item/clothing/accessory/holster,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hos)
 "faf" = (
@@ -54401,8 +54387,8 @@
 	pixel_y = 20
 	},
 /obj/item/taperecorder{
-	pixel_x = -5;
-	pixel_y = 1
+	pixel_x = -10;
+	pixel_y = 6
 	},
 /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
 	pixel_x = 7;
@@ -54415,6 +54401,14 @@
 /obj/structure/secure_safe/hos{
 	pixel_x = 28;
 	pixel_y = 6
+	},
+/obj/machinery/recharger{
+	pixel_x = -4;
+	pixel_y = -1
+	},
+/obj/item/paper/paperslip/corporate/fluff/safe_code{
+	owner = "hos";
+	pixel_y = 10
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/hos)
@@ -74224,6 +74218,23 @@
 	},
 /obj/item/radio/off{
 	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/stamp/head/hos{
+	pixel_x = 10;
+	pixel_y = 6
+	},
+/obj/item/paper_bin{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/item/flashlight/lamp/green{
+	pixel_x = -6;
+	pixel_y = 16;
+	start_on = 0
+	},
+/obj/item/phone{
+	pixel_x = -9;
 	pixel_y = 7
 	},
 /turf/open/floor/wood/large,
