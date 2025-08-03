@@ -1,4 +1,4 @@
-import { sortBy } from 'common/collections';
+import { sortBy } from 'es-toolkit';
 import { Button, Flex, Section, Stack, Tabs } from 'tgui-core/components'; // SS1984 ADDITION: Added "Stack" import
 
 import { useSharedState } from '../../backend';
@@ -274,10 +274,9 @@ const RegionAccessList = (props) => {
   const selectedAccess = accesses.find(
     (access) => access.name === selectedAccessName,
   );
-  const selectedAccessEntries = sortBy(
-    selectedAccess?.accesses || [],
+  const selectedAccessEntries = sortBy(selectedAccess?.accesses || [], [
     (entry) => entry.desc,
-  );
+  ]);
 
   const allWildcards = Object.keys(wildcardSlots);
   let wcAccess = {};
