@@ -9396,4 +9396,5 @@
 #include "modular_ss220\modules\plasma_inflation\exports.dm"
 #include "modular_ss220\modules\plasma_inflation\orderconsole.dm"
 #include "modular_ss220\modules\localization_modular\ert.dm"
+#include "modular_ss220\modules\upstream_disable_stuff\bridge_assistant.dm"
 // END_INCLUDE
