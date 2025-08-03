@@ -98,6 +98,7 @@
 
 	if(!sound_to_use)
 		sound_to_use = sound(get_sfx(soundin))
+	sound_to_use = get_sfx(sound_to_use) // SS1984 ADDITION
 
 	sound_to_use.wait = 0 //No queue
 	sound_to_use.channel = channel || SSsounds.random_available_channel()
