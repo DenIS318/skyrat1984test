@@ -309,17 +309,18 @@
 	name = "Pink Clown Shoes"
 	item_path = /obj/item/clothing/shoes/clown_shoes/pink
 	restricted_roles = list(JOB_CLOWN)
-=======
-/datum/loadout_item/shoes/dominaheels
-	name = "Dominant Heels"
-	item_path = /obj/item/clothing/shoes/ballet_heels/domina_heels
-	erp_item = TRUE
 
-/datum/loadout_item/shoes/latex_socks
-	name = "Latex Socks"
-	item_path = /obj/item/clothing/shoes/latex_socks
-	erp_item = TRUE
->>>>>>> 6eac741a1c9af8f4bc61d693f3268bbbca8600c1
+// SS1984 REMOVAL ERP SHOES START
+// /datum/loadout_item/shoes/dominaheels
+// 	name = "Dominant Heels"
+// 	item_path = /obj/item/clothing/shoes/ballet_heels/domina_heels
+// 	erp_item = TRUE
+
+// /datum/loadout_item/shoes/latex_socks
+// 	name = "Latex Socks"
+// 	item_path = /obj/item/clothing/shoes/latex_socks
+// 	erp_item = TRUE
+// SS1984 REMOVAL ERP SHOES END
 
 /*
 *	DONATOR

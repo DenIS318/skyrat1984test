@@ -36,7 +36,7 @@
 	desc = "It's just like one of my Japanese animes!"
 	greyscale_colors = "#942737#4A518D#EBEBEB"
 	icon = 'icons/map_icons/clothing/under/costume.dmi'
-	icon_state = "/obj/item/clothing/under/costume/seifuku"
+	icon_state = "seifuku_skirt" // SS1984 EDIT, original: icon_state = "/obj/item/clothing/under/costume/seifuku"
 	post_init_icon_state = "seifuku"
 	greyscale_config_inhand_left = /datum/greyscale_config/seifuku_inhands_left
 	greyscale_config_inhand_right = /datum/greyscale_config/seifuku_inhands_right
@@ -117,7 +117,7 @@
 	desc = "Maid in China."
 	greyscale_colors = "#494955#EEEEEE"
 	icon = 'icons/map_icons/clothing/under/costume.dmi'
-	icon_state = "/obj/item/clothing/under/costume/maid"
+	icon_state = "maid_base" // SS1984 EDIT, original: icon_state = "/obj/item/clothing/under/costume/maid"
 	post_init_icon_state = "maid"
 	greyscale_config = /datum/greyscale_config/maid
 	greyscale_config_worn = /datum/greyscale_config/maid/worn

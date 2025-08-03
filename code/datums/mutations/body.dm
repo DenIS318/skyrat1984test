@@ -14,7 +14,7 @@
 	if(SPT_PROB(0.5 * GET_MUTATION_SYNCHRONIZER(src), seconds_per_tick))
 		trigger_seizure()
 
-/datum/mutation/human/epilepsy/proc/trigger_seizure()
+/datum/mutation/epilepsy/proc/trigger_seizure()
 	if(owner.stat > SOFT_CRIT)
 		return
 	owner.visible_message(span_danger("[owner] starts having a seizure!"), span_userdanger("You have a seizure!"))

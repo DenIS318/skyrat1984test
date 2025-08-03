@@ -761,10 +761,12 @@
 *	erp_item
 */
 
-/datum/loadout_item/head/domina_cap
-	name = "Dominant Cap"
-	item_path = /obj/item/clothing/head/domina_cap
-	erp_item = TRUE
+// SS1984 REMOVAL START
+// /datum/loadout_item/head/domina_cap
+// 	name = "Dominant Cap"
+// 	item_path = /obj/item/clothing/head/domina_cap
+// 	erp_item = TRUE
+// SS1984 REMOVAL END
 
 /*
 *	DONATOR
