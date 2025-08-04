@@ -1,0 +1,15 @@
+/datum/changelog/ui_static_data()
+	. = ..()
+	if (!.)
+		return .
+	var/list/data = .
+	if (!data)
+		return .
+	if (!SSchangelog_highlight || !SSchangelog_highlight.changelog_items_ss1984)
+		return .
+	var/list/our_changelogs = list()
+	for(var/json_entry in SSchangelog_highlight.changelog_items_ss1984)
+		our_changelogs += json_entry
+	data["our_changelogs"] = our_changelogs
+
+	return data

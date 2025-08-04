@@ -322,6 +322,7 @@ export class Changelog extends Component {
                                 'Changelog__Cell--Icon',
                               ])}
                             >
+                              {/* SS1984 REMOVAL START
                               <Icon
                                 color={
                                   icons[changeType]
@@ -334,6 +335,30 @@ export class Changelog extends Component {
                                     : icons['unknown'].icon
                                 }
                               />
+                              SS1984 REMOVAL END */}
+                              {/* SS1984 ADDITION START*/}
+                              <Box inline bold verticalAlign="middle" style={{ marginRight: '1em' }}>
+                                {/* TBD <Icon
+                                  name={
+                                    icons[changeType]
+                                      ? icons[changeType].icon
+                                      : icons['unknown'].icon
+                                  }
+                                /> */}
+                                <Icon
+                                  color={
+                                    icons[changeType]
+                                      ? icons[changeType].color
+                                      : icons['unknown'].color
+                                  }
+                                  name={
+                                    icons[changeType]
+                                      ? icons[changeType].icon
+                                      : icons['unknown'].icon
+                                  }
+                                />
+                              {/* SS1984 ADDITION END*/}
+                              </Box>
                             </Table.Cell>
                             <Table.Cell className="Changelog__Cell">
                               {change[changeType]}

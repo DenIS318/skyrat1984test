@@ -261,3 +261,6 @@ tgstation.json
 
 # Ignore preload config (should be modified on server if you know what you're doing)
 /config/config_preload.txt
+
+# Ignore temp generated file for Changelog Highlight
+/tools/ss1984_changelog_highlight_generated.json
