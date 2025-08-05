@@ -118,6 +118,8 @@
 		ACCESS_CENT_CAPTAIN,
 	)
 	job = /datum/job/nanotrasen_consultant
+	big_pointer = TRUE
+	pointer_color = COLOR_CENTCOM_BLUE
 
 /datum/outfit/job/nanotrasen_consultant
 	name = "Nanotrasen Consultant"
