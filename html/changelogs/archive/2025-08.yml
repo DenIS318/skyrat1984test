@@ -251,3 +251,7 @@
       many people possible. (upstream #5777)'
   FlufflesTheDog:
   - bugfix: Fix some cases where subtler messages broadcast too far
+2025-08-05:
+  Arceniu:
+  - rscadd: NTR trim now have CentcomBlue color big pointer
+  - rscadd: Added new vendor-with sleep suits and bedsheets
