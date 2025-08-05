@@ -1,0 +1,4 @@
+author: "Arceniu"
+delete-after: True
+changes:
+  - rscadd: "NTR trim now have CentcomBlue color big pointer"
