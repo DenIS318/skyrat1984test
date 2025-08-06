@@ -15,6 +15,7 @@ import { classes } from 'tgui-core/react';
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
+import { sanitizeText } from '../sanitize'; // SS1984 ADDITION
 
 const icons = {
   add: { icon: 'check-circle', color: 'green' },
@@ -100,6 +101,7 @@ export class Changelog extends Component {
   componentDidMount() {
     const {
       data: { dates = [] },
+      our_changelogs, our_icon_html, // SS1984 ADDITION
     } = useBackend();
 
     if (dates) {
@@ -115,8 +117,14 @@ export class Changelog extends Component {
     const { data, selectedDate, selectedIndex } = this.state;
     const {
       data: { dates },
+      our_changelogs, our_icon_html, // SS1984 ADDITION
     } = useBackend();
     const { dateChoices } = this;
+    // SS1984 ADDITION START
+    const icon_sanitized = our_icon_html && {
+        __html: sanitizeText(our_icon_html),
+      };
+    // SS1984 ADDITION END
 
     const dateDropdown = dateChoices.length > 0 && (
       <Stack>
@@ -338,13 +346,7 @@ export class Changelog extends Component {
                               SS1984 REMOVAL END */}
                               {/* SS1984 ADDITION START*/}
                               <Box inline bold verticalAlign="middle" style={{ marginRight: '1em' }}>
-                                {/* TBD <Icon
-                                  name={
-                                    icons[changeType]
-                                      ? icons[changeType].icon
-                                      : icons['unknown'].icon
-                                  }
-                                /> */}
+                                <Box dangerouslySetInnerHTML={icon_sanitized} />
                                 <Icon
                                   color={
                                     icons[changeType]
