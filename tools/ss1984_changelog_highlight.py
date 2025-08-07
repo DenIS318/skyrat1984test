@@ -7,9 +7,11 @@ import os
 import re
 from collections import defaultdict
 from pathlib import Path
+from datetime import datetime, timezone
 
 # Folder containing the changelog YAML files
-CHANGELOG_FOLDER = 'html/changelogs/archive'
+CHANGELOG_ARCHIVE_FOLDER = 'html/changelogs/archive'
+CHANGELOG_ALL_FOLDER = 'html/changelogs/'
 OUTPUT_JSON_PATH = 'ss1984_changelog_highlight_generated.json'
 BOT_AUTHOR = '1984-ci-event'  # For future commit filtering if needed
 
@@ -18,7 +20,33 @@ GIT_REPO_PATH = BASE_DIR.parent  # This is platform-independent Path object
 git_repo_path_str = str(GIT_REPO_PATH)
 
 SKIP_BELOW_YEAR = 2025
+SKIP_PR_PARTIAL_ABOVE = 1000
+SKIP_PR_PARTIAL_BEFORE_DATE = "2025-06-07" # was not configured properly for entries before that date
+SKIP_PR_PARTIAL_BEFORE_DATE = datetime.fromisoformat(SKIP_PR_PARTIAL_BEFORE_DATE).replace(tzinfo=timezone.utc)
 BOT_COMMIT_MSG = "Automatic changelog compile [ci skip]"
+AUTOCHANGELOG_REGEX = re.compile(r"AutoChangeLog-pr-(\d+)\.ya?ml$")
+ARCHIVE_FILENAME_REGEX = re.compile(r'^\d{4}-\d{2}$') # match filenames like "2009-01", "2025-07", etc.
+AUTHOR_REGEX = re.compile(r'^-author:\s*"([^"]+)"')
+CHANGES_START_LINE = "-changes:"
+REGEX_START_CHANGE = re.compile(r'  - ')
+cutoff_str = "-  - "
+cutoff_str_len = len(cutoff_str)
+
+AUTOCHANGELOG_REGEX_NEW = re.compile(r'--- [ab]/html/changelogs/AutoChangeLog-pr-(\d+)\.yml')
+ARCHIVE_REGEX_NEW = re.compile(r'^\+\+\+ b/html/changelogs/archive/(\d{4}-\d{2})\.yml$')
+
+def is_archive_file(file_path: str) -> bool:
+    p = Path(file_path)
+
+    # Check path contains the archive folder segment
+    if CHANGELOG_ARCHIVE_FOLDER not in str(p.parent).replace('\\', '/'):
+        return False
+
+    # Get just the filename stem (without extension)
+    filename_stem = p.stem  # '2009-01' if filename is '2009-01.yml'
+
+    # Check filename matches YYYY-MM format
+    return ARCHIVE_FILENAME_REGEX.match(filename_stem)
 
 def extract_change_text(changes_list):
     texts = []
@@ -30,48 +58,240 @@ def extract_change_text(changes_list):
             texts.append(str(change_dict))
     return texts  # <-- return list directly instead of joining
 
+def normalize_change(change):
+    change = re.sub(r'^\s*-\s*', '', change)
+    change = re.sub(r'^(?:\S+?:\s*)', '', change)
+    change = normalize_whitespace(change)
+    return change.strip()
+
+def parse_changes(changes_str):
+    parts = [part.strip() for part in changes_str.split(' - ') if part.strip()]
+    return [normalize_change(c) for c in parts]
+
+def parse_author_and_changes(line):
+    """Parse a single author and their changes from line."""
+    m = re.match(r'^(\S+):\s+(.*)$', line.strip())
+    if not m:
+        return None, None
+    author = m.group(1)
+    changes_str = m.group(2)
+    return author, changes_str
+
+def split_multiple_authors(full_archive_string):
+    """Split multiple authors if separated by 2+ spaces or newline; else return single author list."""
+    # Heuristic: authors separated by two or more spaces or newline, but note this is heuristic only
+    pattern = re.compile(r'(\S+):\s+(.*?)(?=\s{2,}\S+:|$)', re.DOTALL)
+    matches = list(pattern.finditer(full_archive_string))
+
+    if len(matches) > 1:
+        return [(m.group(1), m.group(2).strip()) for m in matches]
+    else:
+        # No multiple authors found, treat entire string as one author block
+        author, changes_str = parse_author_and_changes(full_archive_string)
+        if author is None:
+            return []
+        return [(author, changes_str)]
+
+def extract_date_prefix(s):
+    # Extract leading date if present, format: YYYY-MM-DD:
+    m = re.match(r'^(\d{4}-\d{2}-\d{2}):\s*(.*)', s, re.DOTALL)
+    if m:
+        return m.group(1), m.group(2)
+    else:
+        return None, s  # no date found, return original string
+
+def normalize_whitespace(line):
+    # 1. Separate leading whitespace from actual content
+    leading_ws_match = re.match(r'^(\s*)(.*)$', line)
+    if not leading_ws_match:
+        return line.strip()
+    leading_ws = leading_ws_match.group(1)
+    content = leading_ws_match.group(2)
+
+    # 2. Collapse internal whitespace in content only (replace multiple spaces/tabs/newlines with a single space)
+    content = re.sub(r'\s+', ' ', content)
+
+    # 3. Remove trailing spaces (already effectively done by collapsing, but be explicit)
+    content = content.rstrip()
+
+    # 4. Recombine
+    return leading_ws + content
+
+def split_authors(s):
+    author_pattern = re.compile(
+        r'(?<!- )(\S+):\s+(.*?)(?=\s+(?<!- )\S+:|$)', re.DOTALL
+    )
+
+    return [(m.group(1), m.group(2).strip()) for m in author_pattern.finditer(s)]
+
 def get_bot_commit_diffs():
     # Get bot commit hashes touching the changelog folder
     cmd_hashes = [
         'git', '-C', git_repo_path_str, 'log',
         '--author=' + BOT_AUTHOR,
         '--pretty=format:%H',
-        '--', CHANGELOG_FOLDER
+        '--', CHANGELOG_ARCHIVE_FOLDER
     ]
     commit_hashes = subprocess.check_output(cmd_hashes, text=True).splitlines()
 
-    file_insertions = defaultdict(list)  # filepath -> list of inserted YAML chunks (per commit)
+    file_insertions = list()  # filepath -> list of inserted YAML chunks (per commit)
 
     for commit_hash in commit_hashes:
-        cmd_diff = ['git', '-C', git_repo_path_str, 'show', '-U0', '--format=', commit_hash, '--', CHANGELOG_FOLDER]
+        # Get commit date string (ISO 8601 format)
+        cmd_date = ['git', '-C', git_repo_path_str, 'show', '-s', '--format=%cI', commit_hash]
+        commit_date_str = subprocess.check_output(cmd_date, text=True).strip()
+        commit_date = datetime.fromisoformat(commit_date_str)
+
+        if (commit_date.year < SKIP_BELOW_YEAR):
+            continue
+
+        # Keep cmd_diff as originally named
+        cmd_diff = ['git', '-C', git_repo_path_str, 'show', '-U0', '--format=', commit_hash, '--', CHANGELOG_ALL_FOLDER]
         diff_text = subprocess.check_output(cmd_diff, text=True)
 
-        current_file = None
-        added_lines = []
+        #commit_file_insertions = defaultdict(list)
+
+        #added_lines = []
+        archive_files = defaultdict(list)
+        autoChangelog_files = list()
+        skip_file = True
+        author = None
+        is_changes = False
+        should_reset = True
+        is_autochangelog = False
+        autochangelog_name = None
+        archive_name = None
 
         for line in diff_text.splitlines():
-            # Detect file diff start
-            m = re.match(r'^diff --git a/(.+) b/(.+)$', line)
-            if m:
-                if current_file and added_lines:
-                    # Save previous file insertions
-                    file_insertions[current_file].append('\n'.join(added_lines))
-                    added_lines = []
-                current_file = m.group(2)  # Use b/ path (new file)
+            if should_reset:
+                skip_file = True
+                should_reset = False
+                is_autochangelog = False
+                is_changes = False
+                archive_name = None
+                autochangelog_name = None
+                author = None
+            is_autochangelog_match = AUTOCHANGELOG_REGEX_NEW.match(line)
+            if is_autochangelog_match:
+                filenumber = int(is_autochangelog_match.group(1))
+                if filenumber > SKIP_PR_PARTIAL_ABOVE and commit_date < SKIP_PR_PARTIAL_BEFORE_DATE:
+                    should_reset = True
+                else:
+                    autochangelog_name = str(filenumber)
+                    #autoChangelog_files[autochangelog_name].append(list())
+                    is_autochangelog = True
+                    skip_file = False
+                continue
+            is_archive_match = ARCHIVE_REGEX_NEW.match(line)
+            if is_archive_match:
+                archive_name = is_archive_match.group(1)
+                year_match = re.match(r"(\d{4})-\d{2}", archive_name)
+                if year_match:
+                    year = int(year_match.group(1))
+                    if year < SKIP_BELOW_YEAR:
+                        break # not valid commit, we didn't had anything below this year
+                #archive_files[archive_name].append(list())
+                skip_file = False
+                is_changes = False
+                is_autochangelog = False
+                continue
+            if (skip_file):
                 continue
 
-            # If line is insertion in diff: starts with '+', but not '+++' header line
-            if line.startswith('+') and not line.startswith('+++'):
-                added_lines.append(line[1:])  # strip '+'
-            elif line.startswith('-') or line.startswith(' '):
-                # Context or removal resets insertion buffer to avoid mixing diffs
-                if added_lines:
-                    file_insertions[current_file].append('\n'.join(added_lines))
-                    added_lines = []
+            # Now it's either autochangelog or achive
 
-        # At end of diff, save any pending inserted lines
-        if current_file and added_lines:
-            file_insertions[current_file].append('\n'.join(added_lines))
+            if not is_autochangelog and line.startswith('+') and archive_name != None:
+                # it's archive, add whole line, no filtering at all
+                cleaned_line = normalize_whitespace(line[1:])
+                archive_files[archive_name].append(cleaned_line)
+                continue
+
+            if not line.startswith('-'): # some invalid or git stuff things like delete node...
+                continue
+
+            if is_changes:
+                if not line.startswith(cutoff_str):
+                    is_changes = False
+                    continue
+                raw_line = line[1:].replace("\"", "")
+                cleaned_line = normalize_whitespace(raw_line)
+                autoChangelog_files.append(cleaned_line)
+                #existing_list = autoChangelog_files[deleted_file]
+                #existing_list.append(author + ":\n")
+            m_author = AUTHOR_REGEX.search(line)
+            if (m_author):
+                author = m_author.group(1)
+                autoChangelog_files.append("  " + author + ":")
+                continue
+            if (line == CHANGES_START_LINE):
+                is_changes = True
+                continue
+
+            # m = re.match(r'^diff --git a/(.+) b/(.+)$', line)
+            # if m:
+            #     skip_file = False
+            #     #added_lines = []
+            #     author = ""
+            #     is_changes = False
+            #     deleted_file_path = m.group(1)
+            #     deleted_file = Path(deleted_file_path).name
+            #     m_auto = AUTOCHANGELOG_REGEX.search(deleted_file)
+            #     if m_auto:
+            #         filenumber = int(m_auto.group(1))
+            #         if filenumber > SKIP_PR_PARTIAL_ABOVE and commit_date < SKIP_PR_PARTIAL_BEFORE_DATE:
+            #             skip_file = True
+            #         else:
+            #             autoChangelog_files[deleted_file] = []
+            #         continue
+            #     else:
+            #         skip_file = True
+            #     if is_archive_file(deleted_file):
+            #         archive_files.append(deleted_file)
+            #     continue
+            # if (skip_file): # might be other files in this diff_text
+            #     continue
+            # if not line.startswith('-'): # we are looking for deleted autochangelog lines
+            #     continue
+
+            #added_lines.append(line[1:])
+        for key in archive_files:
+            autochangelog_full = "".join(autoChangelog_files).strip()
+            if not autochangelog_full:
+                continue
+            full_archive_string = "".join(archive_files[key]).strip()
+
+            # Parse autochangelog author and changes (single author line expected)
+            m_auto = re.search(r'(\S+):\s+(.*)', autochangelog_full)
+            if not m_auto:
+                continue
+            author_auto = m_auto.group(1)
+            auto_changes_str = m_auto.group(2)
+            auto_changes = parse_changes(auto_changes_str)
+            if not auto_changes:
+                continue
+
+            date_str, rest = extract_date_prefix(full_archive_string)
+            author_blocks = split_authors(rest)
+
+            # Iterate and find the matching author block (or multiple if you want)
+            for author_archive, archive_changes_str in author_blocks:
+                if author_auto != author_archive:
+                    # Not this author, skip
+                    continue
+
+                archive_changes = parse_changes(archive_changes_str)
+
+                # Normalize both sets for proper comparison
+                normalized_auto = [normalize_change(c) for c in auto_changes]
+                normalized_archive = [normalize_change(c) for c in archive_changes]
+
+                if set(normalized_auto).issubset(set(normalized_archive)):
+                    file_insertions.append({
+                        'date': date_str.split('T')[0] if date_str and 'T' in date_str else date_str,
+                        'author': author_auto,
+                        'changes': normalized_auto
+                    })
+                    break  # Stop after first matching author block
 
     return file_insertions
 
@@ -80,7 +300,7 @@ def parse_full_changelogs(folder):
     full_changelogs = {}
     for root, dirs, files in os.walk(folder):
         for file in files:
-            if not file.endswith('.yml') and not file.endswith('.yaml'):
+            if not file.endswith('.yml'):
                 continue
             year_match = re.match(r"(\d{4})-\d{2}\.ya?ml$", file)
             if year_match:
@@ -102,84 +322,86 @@ def yaml_entries_from_text(yaml_text):
     except Exception:
         return None
 
-def filter_entries_by_diff_insertions(full_changelogs, file_insertions):
-    filtered_entries = []
+# def filter_entries_by_diff_insertions(full_changelogs, file_insertions):
+#     filtered_entries = []
 
-    full_changelogs_keys = set(full_changelogs.keys())
+#     full_changelogs_keys = set(full_changelogs.keys())
 
-    for file_path_raw, inserted_chunks in file_insertions.items():
-        file_path = Path(file_path_raw).as_posix()   # Convert to posix style for matching
+#     for file_path_raw, inserted_chunks in file_insertions.items():
+#         if not file_path_raw:
+#             continue  # skip invalid entries
+#         file_path = Path(file_path_raw).as_posix()   # Convert to posix style for matching
 
-        # Sometimes file_path might have a prefix (like 'html/changelogs/archive/2025-08.yml')
-        # If your full_changelogs keys are relative to 'html/changelogs/archive',
-        # extract basename or relative part accordingly, e.g.:
-        file_path_name = Path(file_path).name  # just '2025-08.yml'
+#         # Sometimes file_path might have a prefix (like 'html/changelogs/archive/2025-08.yml')
+#         # If your full_changelogs keys are relative to 'html/changelogs/archive',
+#         # extract basename or relative part accordingly, e.g.:
+#         file_path_name = Path(file_path).name  # just '2025-08.yml'
 
-        # Try exact and basename matching
-        # First try full path match, else fallback to basename match if unique
-        if file_path in full_changelogs_keys:
-            key_to_use = file_path
-        elif file_path_name in full_changelogs_keys:
-            key_to_use = file_path_name
-        else:
-            # Skip files not found in full changelogs keys
-            continue
+#         # Try exact and basename matching
+#         # First try full path match, else fallback to basename match if unique
+#         if file_path in full_changelogs_keys:
+#             key_to_use = file_path
+#         elif file_path_name in full_changelogs_keys:
+#             key_to_use = file_path_name
+#         else:
+#             # Skip files not found in full changelogs keys
+#             continue
 
-        full_yaml = full_changelogs[key_to_use]
+#         full_yaml = full_changelogs[key_to_use]
 
-        for chunk in inserted_chunks:
-            inserted_yaml = yaml_entries_from_text(chunk)
-            if not inserted_yaml:
-                # skip this invalid or empty yaml fragment
-                continue
-            if not isinstance(inserted_yaml, dict):
-                # skip if parsed YAML is not a dictionary, since you expect dict of dates
-                continue
+#         for chunk in inserted_chunks:
+#             inserted_yaml = yaml_entries_from_text(chunk)
+#             if not inserted_yaml:
+#                 # skip this invalid or empty yaml fragment
+#                 continue
+#             if not isinstance(inserted_yaml, dict):
+#                 # skip if parsed YAML is not a dictionary, since you expect dict of dates
+#                 continue
 
-            for date, authors_dict in full_yaml.items():
-                if not isinstance(authors_dict, dict):
-                    continue
-                for author, changes_list in authors_dict.items():
-                    if date in inserted_yaml and isinstance(inserted_yaml[date], dict) and author in inserted_yaml[date]:
-                        inserted_changes = inserted_yaml[date][author]
-                        if not isinstance(inserted_changes, list):
-                            continue
-                        full_changes = changes_list if isinstance(changes_list, list) else []
+#             for date, authors_dict in full_yaml.items():
+#                 if not isinstance(authors_dict, dict):
+#                     continue
+#                 for author, changes_list in authors_dict.items():
+#                     if date in inserted_yaml and isinstance(inserted_yaml[date], dict) and author in inserted_yaml[date]:
+#                         inserted_changes = inserted_yaml[date][author]
+#                         if not isinstance(inserted_changes, list):
+#                             continue
+#                         full_changes = changes_list if isinstance(changes_list, list) else []
 
-                        # Modified handling to iterate over all changes
-                        match_found = False
-                        for ic in inserted_changes:
-                            for fc in full_changes:
-                                if isinstance(ic, dict) and isinstance(fc, dict):
-                                    # Check if any value in inserted change dict matches any value in full change dict
-                                    if any(v == val for v in ic.values() for val in fc.values()):
-                                        match_found = True
-                                        break
-                            if match_found:
-                                break
+#                         # Modified handling to iterate over all changes
+#                         match_found = False
+#                         for ic in inserted_changes:
+#                             for fc in full_changes:
+#                                 if isinstance(ic, dict) and isinstance(fc, dict):
+#                                     # Check if any value in inserted change dict matches any value in full change dict
+#                                     if any(v == val for v in ic.values() for val in fc.values()):
+#                                         match_found = True
+#                                         break
+#                             if match_found:
+#                                 break
 
-                        if match_found:
-                            filtered_entries.append({
-                                'date': date,
-                                'author': author,
-                                'changes': extract_change_text(full_changes),
-                            })
-    return filtered_entries
+#                         if match_found:
+#                             filtered_entries.append({
+#                                 'date': date,
+#                                 'author': author,
+#                                 'changes': extract_change_text(full_changes),
+#                             })
+#     return filtered_entries
 
-def serialize_dates(entries):
-    for entry in entries:
-        if hasattr(entry['date'], 'isoformat'):
-            entry['date'] = entry['date'].isoformat()
-    return entries
+# def serialize_dates(entries):
+#     for entry in entries:
+#         if hasattr(entry['date'], 'isoformat'):
+#             entry['date'] = entry['date'].isoformat()
+#     return entries
 
 def main():
     file_insertions = get_bot_commit_diffs()
-    full_changelogs = parse_full_changelogs(CHANGELOG_FOLDER)
-    filtered_entries = filter_entries_by_diff_insertions(full_changelogs, file_insertions)
+    #full_changelogs = parse_full_changelogs(CHANGELOG_ARCHIVE_FOLDER)
+    #filtered_entries = filter_entries_by_diff_insertions(full_changelogs, file_insertions)
     output_path_actual = os.path.join((str(BASE_DIR)), OUTPUT_JSON_PATH)
 
-    serialized_entries = serialize_dates(filtered_entries)
-
+    #serialized_entries = serialize_dates(file_insertions)
+    serialized_entries = file_insertions
     with open(output_path_actual, 'w', encoding='utf-8') as f:
         json.dump(serialized_entries, f, indent=2, ensure_ascii=False)
 
