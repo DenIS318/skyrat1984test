@@ -255,3 +255,6 @@
   Arceniu:
   - rscadd: NTR trim now have CentcomBlue color big pointer
   - rscadd: Added new vendor-with sleep suits and bedsheets
+2025-08-06:
+  DenIS318:
+  - bugfix: Fixed issues with broken say messages + no radio on machinery
