@@ -135,7 +135,8 @@ def get_bot_commit_diffs():
     commit_hashes = subprocess.check_output(cmd_hashes, text=True).splitlines()
 
     file_insertions = list()  # filepath -> list of inserted YAML chunks (per commit)
-
+    do_print = True
+    print("START!!!")
     for commit_hash in commit_hashes:
         # Get commit date string (ISO 8601 format)
         cmd_date = ['git', '-C', git_repo_path_str, 'show', '-s', '--format=%cI', commit_hash]
@@ -149,9 +150,6 @@ def get_bot_commit_diffs():
         cmd_diff = ['git', '-C', git_repo_path_str, 'show', '-U0', '--format=', commit_hash, '--', CHANGELOG_ALL_FOLDER]
         diff_text = subprocess.check_output(cmd_diff, text=True)
 
-        #commit_file_insertions = defaultdict(list)
-
-        #added_lines = []
         archive_files = defaultdict(list)
         autoChangelog_files = list()
         skip_file = True
@@ -159,17 +157,21 @@ def get_bot_commit_diffs():
         is_changes = False
         should_reset = True
         is_autochangelog = False
-        autochangelog_name = None
         archive_name = None
 
+
         for line in diff_text.splitlines():
+            if "2025-08-02" in line:
+                do_print = False
+                print("END!!!")
+            if do_print:
+                print(line)
             if should_reset:
                 skip_file = True
                 should_reset = False
                 is_autochangelog = False
                 is_changes = False
                 archive_name = None
-                autochangelog_name = None
                 author = None
             is_autochangelog_match = AUTOCHANGELOG_REGEX_NEW.match(line)
             if is_autochangelog_match:
@@ -177,8 +179,6 @@ def get_bot_commit_diffs():
                 if filenumber > SKIP_PR_PARTIAL_ABOVE and commit_date < SKIP_PR_PARTIAL_BEFORE_DATE:
                     should_reset = True
                 else:
-                    autochangelog_name = str(filenumber)
-                    #autoChangelog_files[autochangelog_name].append(list())
                     is_autochangelog = True
                     skip_file = False
                 continue
@@ -190,7 +190,6 @@ def get_bot_commit_diffs():
                     year = int(year_match.group(1))
                     if year < SKIP_BELOW_YEAR:
                         break # not valid commit, we didn't had anything below this year
-                #archive_files[archive_name].append(list())
                 skip_file = False
                 is_changes = False
                 is_autochangelog = False
@@ -216,8 +215,6 @@ def get_bot_commit_diffs():
                 raw_line = line[1:].replace("\"", "")
                 cleaned_line = normalize_whitespace(raw_line)
                 autoChangelog_files.append(cleaned_line)
-                #existing_list = autoChangelog_files[deleted_file]
-                #existing_list.append(author + ":\n")
             m_author = AUTHOR_REGEX.search(line)
             if (m_author):
                 author = m_author.group(1)
@@ -227,33 +224,6 @@ def get_bot_commit_diffs():
                 is_changes = True
                 continue
 
-            # m = re.match(r'^diff --git a/(.+) b/(.+)$', line)
-            # if m:
-            #     skip_file = False
-            #     #added_lines = []
-            #     author = ""
-            #     is_changes = False
-            #     deleted_file_path = m.group(1)
-            #     deleted_file = Path(deleted_file_path).name
-            #     m_auto = AUTOCHANGELOG_REGEX.search(deleted_file)
-            #     if m_auto:
-            #         filenumber = int(m_auto.group(1))
-            #         if filenumber > SKIP_PR_PARTIAL_ABOVE and commit_date < SKIP_PR_PARTIAL_BEFORE_DATE:
-            #             skip_file = True
-            #         else:
-            #             autoChangelog_files[deleted_file] = []
-            #         continue
-            #     else:
-            #         skip_file = True
-            #     if is_archive_file(deleted_file):
-            #         archive_files.append(deleted_file)
-            #     continue
-            # if (skip_file): # might be other files in this diff_text
-            #     continue
-            # if not line.startswith('-'): # we are looking for deleted autochangelog lines
-            #     continue
-
-            #added_lines.append(line[1:])
         for key in archive_files:
             autochangelog_full = "".join(autoChangelog_files).strip()
             if not autochangelog_full:
@@ -322,85 +292,9 @@ def yaml_entries_from_text(yaml_text):
     except Exception:
         return None
 
-# def filter_entries_by_diff_insertions(full_changelogs, file_insertions):
-#     filtered_entries = []
-
-#     full_changelogs_keys = set(full_changelogs.keys())
-
-#     for file_path_raw, inserted_chunks in file_insertions.items():
-#         if not file_path_raw:
-#             continue  # skip invalid entries
-#         file_path = Path(file_path_raw).as_posix()   # Convert to posix style for matching
-
-#         # Sometimes file_path might have a prefix (like 'html/changelogs/archive/2025-08.yml')
-#         # If your full_changelogs keys are relative to 'html/changelogs/archive',
-#         # extract basename or relative part accordingly, e.g.:
-#         file_path_name = Path(file_path).name  # just '2025-08.yml'
-
-#         # Try exact and basename matching
-#         # First try full path match, else fallback to basename match if unique
-#         if file_path in full_changelogs_keys:
-#             key_to_use = file_path
-#         elif file_path_name in full_changelogs_keys:
-#             key_to_use = file_path_name
-#         else:
-#             # Skip files not found in full changelogs keys
-#             continue
-
-#         full_yaml = full_changelogs[key_to_use]
-
-#         for chunk in inserted_chunks:
-#             inserted_yaml = yaml_entries_from_text(chunk)
-#             if not inserted_yaml:
-#                 # skip this invalid or empty yaml fragment
-#                 continue
-#             if not isinstance(inserted_yaml, dict):
-#                 # skip if parsed YAML is not a dictionary, since you expect dict of dates
-#                 continue
-
-#             for date, authors_dict in full_yaml.items():
-#                 if not isinstance(authors_dict, dict):
-#                     continue
-#                 for author, changes_list in authors_dict.items():
-#                     if date in inserted_yaml and isinstance(inserted_yaml[date], dict) and author in inserted_yaml[date]:
-#                         inserted_changes = inserted_yaml[date][author]
-#                         if not isinstance(inserted_changes, list):
-#                             continue
-#                         full_changes = changes_list if isinstance(changes_list, list) else []
-
-#                         # Modified handling to iterate over all changes
-#                         match_found = False
-#                         for ic in inserted_changes:
-#                             for fc in full_changes:
-#                                 if isinstance(ic, dict) and isinstance(fc, dict):
-#                                     # Check if any value in inserted change dict matches any value in full change dict
-#                                     if any(v == val for v in ic.values() for val in fc.values()):
-#                                         match_found = True
-#                                         break
-#                             if match_found:
-#                                 break
-
-#                         if match_found:
-#                             filtered_entries.append({
-#                                 'date': date,
-#                                 'author': author,
-#                                 'changes': extract_change_text(full_changes),
-#                             })
-#     return filtered_entries
-
-# def serialize_dates(entries):
-#     for entry in entries:
-#         if hasattr(entry['date'], 'isoformat'):
-#             entry['date'] = entry['date'].isoformat()
-#     return entries
-
 def main():
     file_insertions = get_bot_commit_diffs()
-    #full_changelogs = parse_full_changelogs(CHANGELOG_ARCHIVE_FOLDER)
-    #filtered_entries = filter_entries_by_diff_insertions(full_changelogs, file_insertions)
     output_path_actual = os.path.join((str(BASE_DIR)), OUTPUT_JSON_PATH)
-
-    #serialized_entries = serialize_dates(file_insertions)
     serialized_entries = file_insertions
     with open(output_path_actual, 'w', encoding='utf-8') as f:
         json.dump(serialized_entries, f, indent=2, ensure_ascii=False)
