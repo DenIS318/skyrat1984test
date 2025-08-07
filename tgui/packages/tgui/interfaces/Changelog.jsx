@@ -1,4 +1,5 @@
 import dateformat from 'dateformat';
+import DOMPurify from 'dompurify'; // SS1984 ADDITION
 import yaml from 'js-yaml';
 import { Component, Fragment } from 'react';
 import {
@@ -15,7 +16,6 @@ import { classes } from 'tgui-core/react';
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { sanitizeText } from '../sanitize'; // SS1984 ADDITION
 
 const icons = {
   add: { icon: 'check-circle', color: 'green' },
@@ -54,6 +54,8 @@ export class Changelog extends Component {
       selectedIndex: 0,
     };
     this.dateChoices = [];
+    this.lookupSet = new Set(); // SS1984 ADDITION
+    this.icon_sanitized; // SS1984 ADDITION
   }
 
   setData(data) {
@@ -100,8 +102,7 @@ export class Changelog extends Component {
 
   componentDidMount() {
     const {
-      data: { dates = [] },
-      our_changelogs, our_icon_html, // SS1984 ADDITION
+      data: { dates = [], our_changelogs, our_icon_html }, // SS1984 EDIT, original: data: { dates = [] },
     } = useBackend();
 
     if (dates) {
@@ -111,20 +112,44 @@ export class Changelog extends Component {
       this.setSelectedDate(this.dateChoices[0]);
       this.getData(dates[0]);
     }
+    // SS1984 ADDITION START
+    if (our_icon_html) {
+      const sanitizeConfig = {
+        // Allow the img tag and common attributes relevant to the image
+        ALLOWED_TAGS: ['img'],
+        ALLOWED_ATTR: ['src', 'alt', 'class', 'id', 'style', 'title', 'width', 'height'],
+      };
+      const sanitized_html = DOMPurify.sanitize(our_icon_html, sanitizeConfig);
+      this.icon_sanitized = {
+        __html: sanitized_html,
+      };
+    }
+    if (our_changelogs) {
+      this.lookupSet = this.buildLookupSet(our_changelogs);
+    }
+    // SS1984 ADDITION END
   }
+
+  // SS1984 ADDITION START
+  buildLookupSet(our_changelogs) {
+    const s = new Set();
+    for (const entry of our_changelogs) {
+      const { date, author, changes } = entry;
+      if (!Array.isArray(changes)) continue;
+      for (const changeText of changes) {
+        s.add(`${date}|${author}|${changeText}`);
+      }
+    }
+    return s;
+  }
+  // SS1984 ADDITION END
 
   render() {
     const { data, selectedDate, selectedIndex } = this.state;
     const {
       data: { dates },
-      our_changelogs, our_icon_html, // SS1984 ADDITION
     } = useBackend();
     const { dateChoices } = this;
-    // SS1984 ADDITION START
-    const icon_sanitized = our_icon_html && {
-        __html: sanitizeText(our_icon_html),
-      };
-    // SS1984 ADDITION END
 
     const dateDropdown = dateChoices.length > 0 && (
       <Stack>
@@ -322,6 +347,11 @@ export class Changelog extends Component {
                     <Table>
                       {changes.map((change) => {
                         const changeType = Object.keys(change)[0];
+                        // SS1984 ADDITION START
+                        const changeText = change[changeType];
+                        const keyChangelog = `${date}|${name}|${changeText}`;
+                        const isInOurChangelogs = this.icon_sanitized && this.lookupSet.has(keyChangelog);
+                        // SS1984 ADDITION END
                         return (
                           <Table.Row key={changeType + change[changeType]}>
                             <Table.Cell
@@ -329,6 +359,13 @@ export class Changelog extends Component {
                                 'Changelog__Cell',
                                 'Changelog__Cell--Icon',
                               ])}
+                              // SS1984 ADDITION START
+                              style={
+                                isInOurChangelogs
+                                  ? { minHeight: '16px', padding: '4px', verticalAlign: 'top' }
+                                  : undefined
+                              }
+                              // SS1984 ADDITION END
                             >
                               {/* SS1984 REMOVAL START
                               <Icon
@@ -345,8 +382,13 @@ export class Changelog extends Component {
                               />
                               SS1984 REMOVAL END */}
                               {/* SS1984 ADDITION START*/}
-                              <Box inline bold verticalAlign="middle" style={{ marginRight: '1em' }}>
-                                <Box dangerouslySetInnerHTML={icon_sanitized} />
+                              <Box bold style={{ display: 'inline-flex', alignItems: 'flex-start' }}>
+                                {isInOurChangelogs && (
+                                  <Box style={{
+                                    display: 'block',
+                                    marginRight: '1em', width: '16px', height: '16px' }}
+                                    dangerouslySetInnerHTML={this.icon_sanitized} />
+                                )}
                                 <Icon
                                   color={
                                     icons[changeType]
