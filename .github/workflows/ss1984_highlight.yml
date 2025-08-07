@@ -1,18 +1,12 @@
-name: Compile changelogs
+name: Changelogs highlight SS1984
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
   workflow_dispatch:
   workflow_call:
 
 jobs:
   highlight:
     name: "Highlight SS1984 changes"
-    uses: ./.github/workflows/ss1984_highlight.yml
-    secrets: inherit
-  compile:
-    name: "Compile changelogs"
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -48,7 +42,7 @@ jobs:
       - name: "Compile"
         if: steps.value_holder.outputs.ACTIONS_ENABLED
         run: |
-          python tools/ss13_genchangelog.py html/changelogs
+          python tools/ss1984_changelog_highlight.py
 
       - name: Commit
         if: steps.value_holder.outputs.ACTIONS_ENABLED
@@ -56,8 +50,8 @@ jobs:
           git config --local user.name "1984-ci-event[bot]"
           git config --local user.email "1283078+1984-ci-event[bot]@users.noreply.github.com"
           git pull origin master
-          git add html/changelogs
-          git commit -m "Automatic changelog compile [ci skip]" -a || true
+          git add tools/ss1984_changelog_highlight_generated.json
+          git commit -m "SS1984 Automatic changelog highlight [ci skip]" -a || true
 
       - name: Generate App Token
         id: app-token-generation
