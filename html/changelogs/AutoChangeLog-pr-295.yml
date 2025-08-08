@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscadd: "Now displays cryo wake up message when spawned on cryo pod, instead of default arrival message"
