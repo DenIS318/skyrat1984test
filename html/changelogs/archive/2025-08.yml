@@ -258,3 +258,6 @@
 2025-08-06:
   DenIS318:
   - bugfix: Fixed issues with broken say messages + no radio on machinery
+2025-08-08:
+  DenIS318:
+  - qol: SS1984 changes are now hightlighted in changelogs
