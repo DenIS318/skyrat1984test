@@ -637,6 +637,7 @@
 #include "code\__HELPERS\~nova_helpers\unsorted.dm"
 #include "modular_ss220\modules\enhanced_messaging\__HELPERS\job_helper.dm"
 #include "modular_ss220\modules\security_minor_1984\__HELPERS\text.dm"
+#include "modular_ss220\modules\cryo_spawnmessages\__HELPERS_cryojoin.dm"
 #include "code\_globalvars\_regexes.dm"
 #include "code\_globalvars\admin.dm"
 #include "code\_globalvars\arcade.dm"
