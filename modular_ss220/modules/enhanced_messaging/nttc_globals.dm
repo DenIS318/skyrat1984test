@@ -2,7 +2,7 @@
 GLOBAL_LIST_INIT(nttc_jobs, list(
 	//No department
 	JOB_ASSISTANT = "radio",
-	JOB_PRISONER = "radio",
+	JOB_PRISONER = "monkey",
 	//Command
 	JOB_CAPTAIN = "comradio",
 	JOB_HEAD_OF_PERSONNEL = "comradio",
