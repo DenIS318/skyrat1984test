@@ -6,7 +6,7 @@ import os
 import re
 import warnings
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime
 from collections import defaultdict
 from collections import deque
 
@@ -28,7 +28,7 @@ AUTHOR_REGEX = re.compile(r'^-author:\s*"([^"]+)"')
 CHANGES_START_LINE = "-changes:"
 REGEX_PARTIAL_MATCHES = re.compile(r'(\w+):\x1E(.*?)(?=(?:\w+:\x1E)|$)')
 AUTOCHANGELOG_REGEX_NEW = re.compile(r'^--- a/(?!archive/)(.+)')
-cutoff_str = "-  - "
+CUTOFF_STR = "-  - "
 INDENT_AMOUNT = 2
 
 def remove_changes_after_and_date(file_insertions_old, last_commit_date_str):
@@ -210,7 +210,7 @@ def get_bot_commit_diffs(last_commit_date, file_insertions_old):
                 continue
 
             if is_changes:
-                if not line.startswith(cutoff_str):
+                if not line.startswith(CUTOFF_STR):
                     is_changes = False
                     continue
                 cleaned_line = line[1:]
