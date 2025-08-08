@@ -5,35 +5,33 @@ import yaml
 import json
 import os
 import re
-from collections import defaultdict
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime
 
 # Folder containing the changelog YAML files
 CHANGELOG_ARCHIVE_FOLDER = 'html/changelogs/archive'
 CHANGELOG_ALL_FOLDER = 'html/changelogs/'
 OUTPUT_JSON_PATH = 'ss1984_changelog_highlight_generated.json'
 BOT_AUTHOR = '1984-ci-event'  # For future commit filtering if needed
+BOT_AUTHOR_FULLNAME = '1984-ci-event[bot]'
 
 BASE_DIR = Path(__file__).resolve().parent  # Directory where your script lives
 GIT_REPO_PATH = BASE_DIR.parent  # This is platform-independent Path object
 git_repo_path_str = str(GIT_REPO_PATH)
 
 SKIP_BELOW_YEAR = 2025
-SKIP_PR_PARTIAL_ABOVE = 1000
 SKIP_PR_PARTIAL_BEFORE_DATE = "2025-06-07" # was not configured properly for entries before that date
-SKIP_PR_PARTIAL_BEFORE_DATE = datetime.fromisoformat(SKIP_PR_PARTIAL_BEFORE_DATE).replace(tzinfo=timezone.utc)
-BOT_COMMIT_MSG = "Automatic changelog compile [ci skip]"
+#BOT_COMMIT_MSG = "Automatic changelog compile [ci skip]"
 AUTOCHANGELOG_REGEX = re.compile(r"AutoChangeLog-pr-(\d+)\.ya?ml$")
 ARCHIVE_FILENAME_REGEX = re.compile(r'^\d{4}-\d{2}$') # match filenames like "2009-01", "2025-07", etc.
 AUTHOR_REGEX = re.compile(r'^-author:\s*"([^"]+)"')
 CHANGES_START_LINE = "-changes:"
 REGEX_START_CHANGE = re.compile(r'  - ')
-cutoff_str = "-  - "
-cutoff_str_len = len(cutoff_str)
-
-AUTOCHANGELOG_REGEX_NEW = re.compile(r'--- [ab]/html/changelogs/AutoChangeLog-pr-(\d+)\.yml')
+REGEX_PARTIAL_MATCHES = re.compile(r'(?:^| {2,})(\w+):\s*(.*?)(?=(?:^| {2,})\w+:|$)')
+AUTOCHANGELOG_REGEX_NEW = re.compile(r'^--- a/(.+)')
+AUTOCHANGELOG_PATH_REGEX = re.compile(r'--- a\/(.+)')
 ARCHIVE_REGEX_NEW = re.compile(r'^\+\+\+ b/html/changelogs/archive/(\d{4}-\d{2})\.yml$')
+cutoff_str = "-  - "
 
 def is_archive_file(file_path: str) -> bool:
     p = Path(file_path)
@@ -62,6 +60,8 @@ def normalize_change(change):
     change = re.sub(r'^\s*-\s*', '', change)
     change = re.sub(r'^(?:\S+?:\s*)', '', change)
     change = normalize_whitespace(change)
+    if len(change) > 0 and change[0] == '\"':
+        change = change[1:]
     return change.strip()
 
 def parse_changes(changes_str):
@@ -124,6 +124,22 @@ def split_authors(s):
 
     return [(m.group(1), m.group(2).strip()) for m in author_pattern.finditer(s)]
 
+def process_data(autoChangelog_files_prev, file_insertions, prev_date):
+    autochangelog_full = "".join(autoChangelog_files_prev).strip()
+    if not autochangelog_full:
+        return
+    all_matches = REGEX_PARTIAL_MATCHES.findall(autochangelog_full)
+
+    for (author, changes) in enumerate(all_matches, 1):
+        auto_changes = parse_changes(changes)
+        if not auto_changes:
+            return
+        file_insertions.append({
+            'date': prev_date,
+            'author': author,
+            'changes': auto_changes
+        })
+
 def get_bot_commit_diffs():
     # Get bot commit hashes touching the changelog folder
     cmd_hashes = [
@@ -134,9 +150,18 @@ def get_bot_commit_diffs():
     ]
     commit_hashes = subprocess.check_output(cmd_hashes, text=True).splitlines()
 
-    file_insertions = list()  # filepath -> list of inserted YAML chunks (per commit)
-    do_print = True
-    print("START!!!")
+    file_insertions = list()
+    last_date = None
+    prev_date = None
+
+    autoChangelog_files = list()
+    autoChangelog_files_prev = list()
+    skip_file = True
+    is_changes = False
+    last_author = None
+    was_different_data = False
+
+
     for commit_hash in commit_hashes:
         # Get commit date string (ISO 8601 format)
         cmd_date = ['git', '-C', git_repo_path_str, 'show', '-s', '--format=%cI', commit_hash]
@@ -149,119 +174,77 @@ def get_bot_commit_diffs():
         # Keep cmd_diff as originally named
         cmd_diff = ['git', '-C', git_repo_path_str, 'show', '-U0', '--format=', commit_hash, '--', CHANGELOG_ALL_FOLDER]
         diff_text = subprocess.check_output(cmd_diff, text=True)
+        formatted_date = commit_date.strftime('%Y-%m-%d')
 
-        archive_files = defaultdict(list)
-        autoChangelog_files = list()
-        skip_file = True
-        author = None
-        is_changes = False
-        should_reset = True
-        is_autochangelog = False
-        archive_name = None
-
+        if last_date != formatted_date:
+            autoChangelog_files_prev = autoChangelog_files
+            prev_date = last_date
+            autoChangelog_files = list()
+            skip_file = True
+            is_changes = False
+            last_author = None
+            was_different_data = True
+            last_date = formatted_date
+        else:
+            was_different_data = False
 
         for line in diff_text.splitlines():
-            if "2025-08-02" in line:
-                do_print = False
-                print("END!!!")
-            if do_print:
-                print(line)
-            if should_reset:
-                skip_file = True
-                should_reset = False
-                is_autochangelog = False
-                is_changes = False
-                archive_name = None
-                author = None
             is_autochangelog_match = AUTOCHANGELOG_REGEX_NEW.match(line)
             if is_autochangelog_match:
-                filenumber = int(is_autochangelog_match.group(1))
-                if filenumber > SKIP_PR_PARTIAL_ABOVE and commit_date < SKIP_PR_PARTIAL_BEFORE_DATE:
-                    should_reset = True
+                fname_match = is_autochangelog_match.group(1)
+                if fname_match:
+                    was_touched_by_bot_cmd = ["git", "log", "-1", "--diff-filter=A", "--format=%an", "--since=" + SKIP_PR_PARTIAL_BEFORE_DATE, "--", fname_match]
+                    was_touched_by_bots = subprocess.check_output(was_touched_by_bot_cmd, text=True).strip()
+                    is_our_changelog = False
+                    if was_touched_by_bots:
+                        was_touched_arr = was_touched_by_bots.splitlines()
+                        is_our_changelog = BOT_AUTHOR_FULLNAME in was_touched_arr
+                    if is_our_changelog:
+                        skip_file = False
+                        is_changes = False
+                    else:
+                        skip_file = True
                 else:
-                    is_autochangelog = True
-                    skip_file = False
+                    skip_file = True
                 continue
-            is_archive_match = ARCHIVE_REGEX_NEW.match(line)
-            if is_archive_match:
-                archive_name = is_archive_match.group(1)
-                year_match = re.match(r"(\d{4})-\d{2}", archive_name)
-                if year_match:
-                    year = int(year_match.group(1))
-                    if year < SKIP_BELOW_YEAR:
-                        break # not valid commit, we didn't had anything below this year
-                skip_file = False
-                is_changes = False
-                is_autochangelog = False
-                continue
+
             if (skip_file):
                 continue
 
-            # Now it's either autochangelog or achive
-
-            if not is_autochangelog and line.startswith('+') and archive_name != None:
-                # it's archive, add whole line, no filtering at all
-                cleaned_line = normalize_whitespace(line[1:])
-                archive_files[archive_name].append(cleaned_line)
+            if not line.startswith('-'): # some invalid or git stuff things like delete node...
                 continue
 
-            if not line.startswith('-'): # some invalid or git stuff things like delete node...
+            m_author = AUTHOR_REGEX.search(line)
+            if (m_author):
+                author = m_author.group(1)
+                if author != last_author:
+                    author_text = "  " + author + ":"
+                    autoChangelog_files.append(author_text) # don't really care about order of insertions
+                last_author = author
+                is_changes = False
                 continue
 
             if is_changes:
                 if not line.startswith(cutoff_str):
                     is_changes = False
                     continue
-                raw_line = line[1:].replace("\"", "")
-                cleaned_line = normalize_whitespace(raw_line)
+                cleaned_line = line[1:]
+                cleaned_line = normalize_change(cleaned_line)
                 autoChangelog_files.append(cleaned_line)
-            m_author = AUTHOR_REGEX.search(line)
-            if (m_author):
-                author = m_author.group(1)
-                autoChangelog_files.append("  " + author + ":")
-                continue
+
             if (line == CHANGES_START_LINE):
                 is_changes = True
                 continue
 
-        for key in archive_files:
-            autochangelog_full = "".join(autoChangelog_files).strip()
-            if not autochangelog_full:
-                continue
-            full_archive_string = "".join(archive_files[key]).strip()
 
-            # Parse autochangelog author and changes (single author line expected)
-            m_auto = re.search(r'(\S+):\s+(.*)', autochangelog_full)
-            if not m_auto:
-                continue
-            author_auto = m_auto.group(1)
-            auto_changes_str = m_auto.group(2)
-            auto_changes = parse_changes(auto_changes_str)
-            if not auto_changes:
-                continue
+        if not was_different_data:
+            continue
+        if len(autoChangelog_files_prev) < 1: # we at beginning
+            continue
+        process_data(autoChangelog_files_prev, file_insertions, prev_date)
 
-            date_str, rest = extract_date_prefix(full_archive_string)
-            author_blocks = split_authors(rest)
-
-            # Iterate and find the matching author block (or multiple if you want)
-            for author_archive, archive_changes_str in author_blocks:
-                if author_auto != author_archive:
-                    # Not this author, skip
-                    continue
-
-                archive_changes = parse_changes(archive_changes_str)
-
-                # Normalize both sets for proper comparison
-                normalized_auto = [normalize_change(c) for c in auto_changes]
-                normalized_archive = [normalize_change(c) for c in archive_changes]
-
-                if set(normalized_auto).issubset(set(normalized_archive)):
-                    file_insertions.append({
-                        'date': date_str.split('T')[0] if date_str and 'T' in date_str else date_str,
-                        'author': author_auto,
-                        'changes': normalized_auto
-                    })
-                    break  # Stop after first matching author block
+    if len(autoChangelog_files_prev) > 0:
+        process_data(autoChangelog_files_prev, file_insertions, prev_date)
 
     return file_insertions
 
