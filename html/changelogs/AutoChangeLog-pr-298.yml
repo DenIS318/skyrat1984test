@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscdel: "Dormitory vendor (CozyMate) no longer spawn on permabrig"
