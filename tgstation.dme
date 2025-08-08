@@ -9391,6 +9391,8 @@
 #include "modular_ss220\modules\security_minor_1984\detective_analyzer_closets\security.dm"
 #include "modular_ss220\modules\security_minor_1984\prisoner_spawnpoints\prisoner.dm"
 #include "modular_ss220\modules\security_minor_1984\no_permabrig_vendor\area_spawn_entries.dm"
+#include "modular_ss220\modules\security_minor_1984\forbid_loadout_prisoner\job.dm"
+#include "modular_ss220\modules\security_minor_1984\forbid_loadout_prisoner\prisoner.dm"
 #include "modular_ss220\modules\vote_highlight\vote.dm"
 #include "modular_ss220\modules\vote_highlight\map_vote.dm"
 #include "modular_ss220\modules\plasma_inflation\plasma_defines.dm"
