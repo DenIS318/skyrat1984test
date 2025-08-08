@@ -21,7 +21,7 @@ GIT_REPO_PATH = BASE_DIR.parent  # This is platform-independent Path object
 git_repo_path_str = str(GIT_REPO_PATH)
 
 SKIP_BELOW_YEAR = 2025
-SKIP_PR_PARTIAL_BEFORE_DATE = "2025-05-01" # there was nothing pushed before that to our repo by bot
+SKIP_PR_PARTIAL_BEFORE_DATE = "2025-06-05" # did not correctly setup changelogs before that data
 #BOT_COMMIT_MSG = "Automatic changelog compile [ci skip]"
 AUTOCHANGELOG_REGEX = re.compile(r"AutoChangeLog-pr-(\d+)\.ya?ml$")
 ARCHIVE_FILENAME_REGEX = re.compile(r'^\d{4}-\d{2}$') # match filenames like "2009-01", "2025-07", etc.
@@ -202,8 +202,8 @@ def get_bot_commit_diffs():
             continue
         process_data(autoChangelog_files_prev, file_insertions, prev_date)
 
-    if len(autoChangelog_files_prev) > 0:
-        process_data(autoChangelog_files_prev, file_insertions, prev_date)
+    if len(autoChangelog_files) > 0:
+        process_data(autoChangelog_files, file_insertions, last_date)
 
     return file_insertions
 

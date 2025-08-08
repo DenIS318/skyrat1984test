@@ -6,7 +6,7 @@
   LotusLadno:
   - bugfix: fixed sprites augment+, moving hands 1 pixel up
   Maximal08:
-  - bugfix: починка ert auto doc
+  - bugfix: "починка ert auto doc"
   - rscdel: Remove subtler
   OrionTheFox:
   - bugfix: fixed a broken labcoat appearing in the SciDrobe
