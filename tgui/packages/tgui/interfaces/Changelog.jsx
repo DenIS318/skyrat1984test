@@ -1,4 +1,5 @@
 import dateformat from 'dateformat';
+import DOMPurify from 'dompurify'; // SS1984 ADDITION
 import yaml from 'js-yaml';
 import { Component, Fragment } from 'react';
 import {
@@ -53,6 +54,8 @@ export class Changelog extends Component {
       selectedIndex: 0,
     };
     this.dateChoices = [];
+    this.lookupSet = new Set(); // SS1984 ADDITION
+    this.icon_sanitized; // SS1984 ADDITION
   }
 
   setData(data) {
@@ -99,7 +102,7 @@ export class Changelog extends Component {
 
   componentDidMount() {
     const {
-      data: { dates = [] },
+      data: { dates = [], our_changelogs, our_icon_html }, // SS1984 EDIT, original: data: { dates = [] },
     } = useBackend();
 
     if (dates) {
@@ -109,7 +112,37 @@ export class Changelog extends Component {
       this.setSelectedDate(this.dateChoices[0]);
       this.getData(dates[0]);
     }
+    // SS1984 ADDITION START
+    if (our_icon_html) {
+      const sanitizeConfig = {
+        // Allow the img tag and common attributes relevant to the image
+        ALLOWED_TAGS: ['img'],
+        ALLOWED_ATTR: ['src', 'alt', 'class', 'id', 'style', 'title', 'width', 'height'],
+      };
+      const sanitized_html = DOMPurify.sanitize(our_icon_html, sanitizeConfig);
+      this.icon_sanitized = {
+        __html: sanitized_html,
+      };
+    }
+    if (our_changelogs) {
+      this.lookupSet = this.buildLookupSet(our_changelogs);
+    }
+    // SS1984 ADDITION END
   }
+
+  // SS1984 ADDITION START
+  buildLookupSet(our_changelogs) {
+    const s = new Set();
+    for (const entry of our_changelogs) {
+      const { date, author, changes } = entry;
+      if (!Array.isArray(changes)) continue;
+      for (const changeText of changes) {
+        s.add(`${date}|${author}|${changeText}`);
+      }
+    }
+    return s;
+  }
+  // SS1984 ADDITION END
 
   render() {
     const { data, selectedDate, selectedIndex } = this.state;
@@ -314,6 +347,11 @@ export class Changelog extends Component {
                     <Table>
                       {changes.map((change) => {
                         const changeType = Object.keys(change)[0];
+                        // SS1984 ADDITION START
+                        const changeText = change[changeType];
+                        const keyChangelog = `${date}|${name}|${changeText}`;
+                        const isInOurChangelogs = this.icon_sanitized && this.lookupSet.has(keyChangelog);
+                        // SS1984 ADDITION END
                         return (
                           <Table.Row key={changeType + change[changeType]}>
                             <Table.Cell
@@ -321,7 +359,15 @@ export class Changelog extends Component {
                                 'Changelog__Cell',
                                 'Changelog__Cell--Icon',
                               ])}
+                              // SS1984 ADDITION START
+                              style={
+                                isInOurChangelogs
+                                  ? { minHeight: '16px', padding: '4px', verticalAlign: 'top' }
+                                  : undefined
+                              }
+                              // SS1984 ADDITION END
                             >
+                              {/* SS1984 REMOVAL START
                               <Icon
                                 color={
                                   icons[changeType]
@@ -334,6 +380,29 @@ export class Changelog extends Component {
                                     : icons['unknown'].icon
                                 }
                               />
+                              SS1984 REMOVAL END */}
+                              {/* SS1984 ADDITION START*/}
+                              <Box bold style={{ display: 'inline-flex', alignItems: 'flex-start' }}>
+                                {isInOurChangelogs && (
+                                  <Box style={{
+                                    display: 'block',
+                                    marginRight: '1em', width: '16px', height: '16px' }}
+                                    dangerouslySetInnerHTML={this.icon_sanitized} />
+                                )}
+                                <Icon
+                                  color={
+                                    icons[changeType]
+                                      ? icons[changeType].color
+                                      : icons['unknown'].color
+                                  }
+                                  name={
+                                    icons[changeType]
+                                      ? icons[changeType].icon
+                                      : icons['unknown'].icon
+                                  }
+                                />
+                              {/* SS1984 ADDITION END*/}
+                              </Box>
                             </Table.Cell>
                             <Table.Cell className="Changelog__Cell">
                               {change[changeType]}
