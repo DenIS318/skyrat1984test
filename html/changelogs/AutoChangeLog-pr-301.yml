@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - qol: "Prisoner processing console UI height 500 => 540"

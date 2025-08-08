@@ -261,3 +261,14 @@
 2025-08-08:
   DenIS318:
   - qol: SS1984 changes are now hightlighted in changelogs
+  - bugfix: Prison cell timers no longer says "NO DATA" and doesn't display admin-observer
+      names
+  - rscadd: Prisoners latejoin spawns at cryopods in permabrig, instead of appearing
+      from nowhere
+  - qol: Prisoner processing console UI height 500 => 540
+  - qol: Prisoner is now colored at NTTC radio
+  - balance: Security Voucher supply crate's amount 4 => 3
+  - rscdel: Dormitory vendor (CozyMate) no longer spawn on permabrig
+  - rscdel: Prisoners no longer spawn with any loadout, only with outfit
+  - rscadd: Now displays cryo wake up message when spawned on cryo pod, instead of
+      default arrival message

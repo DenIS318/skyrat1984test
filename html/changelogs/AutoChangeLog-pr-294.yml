@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "Prison cell timers no longer says \"NO DATA\" and doesn't display admin-observer names"

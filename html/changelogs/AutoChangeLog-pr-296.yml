@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscadd: "Prisoners latejoin spawns at cryopods in permabrig, instead of appearing from nowhere"

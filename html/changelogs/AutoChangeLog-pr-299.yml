@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscdel: "Prisoners no longer spawn with any loadout, only with outfit"
