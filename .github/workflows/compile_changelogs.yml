@@ -58,12 +58,12 @@ jobs:
       - name: Highlight Changes SS1984
         if: steps.value_holder.outputs.ACTIONS_ENABLED
         run: |
+          git pull origin master
           python tools/ss1984_changelog_highlight.py
 
       - name: Commit Highlighted Changes
         if: steps.value_holder.outputs.ACTIONS_ENABLED
         run: |
-          git pull origin master
           git add tools/ss1984_changelog_highlight_generated.json
           git commit -m "Automatic Changelog Highlight [ci skip]" -a || true
 
