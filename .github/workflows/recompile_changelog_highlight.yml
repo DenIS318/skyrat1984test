@@ -38,6 +38,11 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: "Manual checkout"
+        if: steps.value_holder.outputs.ACTIONS_ENABLED
+        run: |
+          git checkout master
+
       - name: Setup Git Config
         if: steps.value_holder.outputs.ACTIONS_ENABLED
         run: |
