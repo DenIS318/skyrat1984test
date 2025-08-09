@@ -1,12 +1,11 @@
-name: Compile changelogs
+name: Rebuild changelog highlights
 
 on:
   workflow_dispatch:
-  workflow_call:
 
 jobs:
   compile:
-    name: "Compile changelogs"
+    name: "Rebuild changelog highlights"
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -36,25 +35,15 @@ jobs:
         if: steps.value_holder.outputs.ACTIONS_ENABLED
         uses: actions/checkout@v4
         with:
-          # SS1984 EDIT, original fetch-depth: 25
-          fetch-depth: 100
+          fetch-depth: 0
           persist-credentials: false
 
-      - name: "Compile"
-        if: steps.value_holder.outputs.ACTIONS_ENABLED
-        run: |
-          python tools/ss13_genchangelog.py html/changelogs
-
-      - name: Commit
+      - name: Setup Git Config
         if: steps.value_holder.outputs.ACTIONS_ENABLED
         run: |
           git config --local user.name "1984-ci-event[bot]"
           git config --local user.email "1283078+1984-ci-event[bot]@users.noreply.github.com"
-          git pull origin master
-          git add html/changelogs
-          git commit -m "Automatic changelog compile [ci skip]" -a || true
 
-        # SS1984 ADDITION START
       - name: Highlight Changes SS1984
         if: steps.value_holder.outputs.ACTIONS_ENABLED
         run: |
@@ -66,8 +55,6 @@ jobs:
           git pull origin master
           git add tools/ss1984_changelog_highlight_generated.json
           git commit -m "Automatic Changelog Highlight [ci skip]" -a || true
-
-      # SS1984 ADDITION END
 
       - name: Generate App Token
         id: app-token-generation
