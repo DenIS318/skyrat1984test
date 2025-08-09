@@ -1,9 +1,16 @@
 [
   {
-    "date": "2025-08-06",
+    "date": "2025-08-08",
     "author": "DenIS318",
     "changes": [
-      "Fixed issues with broken say messages + no radio on machinery"
+      "Security Voucher supply crate's amount 4 => 3",
+      "Prison cell timers no longer says \"NO DATA\" and doesn't display admin-observer names",
+      "Now displays cryo wake up message when spawned on cryo pod, instead of default arrival message",
+      "Prisoners latejoin spawns at cryopods in permabrig, instead of appearing from nowhere",
+      "Dormitory vendor (CozyMate) no longer spawn on permabrig",
+      "Prisoners no longer spawn with any loadout, only with outfit",
+      "Prisoner is now colored at NTTC radio",
+      "Prisoner processing console UI height 500 => 540"
     ]
   },
   {
