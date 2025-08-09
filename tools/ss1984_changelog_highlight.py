@@ -6,7 +6,7 @@ import os
 import re
 import warnings
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 from collections import defaultdict
 from collections import deque
 
@@ -114,7 +114,10 @@ def get_bot_commit_diffs(last_commit_date, file_insertions_old):
 
     last_commit_date_str = SKIP_PR_PARTIAL_BEFORE_DATE
     if last_commit_date:
-        last_commit_date_str = last_commit_date
+        # Substract 1 day to avoid possible timezone issues
+        date_obj = datetime.strptime(last_commit_date, '%Y-%m-%d')
+        new_date_obj = date_obj - timedelta(days=1)
+        last_commit_date_str = new_date_obj.strftime('%Y-%m-%d')
 
     cmd_hashes = [
         'git', '-C', git_repo_path_str, 'log',
