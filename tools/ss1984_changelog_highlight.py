@@ -20,7 +20,6 @@ BASE_DIR = Path(__file__).resolve().parent  # Directory where your script lives
 GIT_REPO_PATH = BASE_DIR.parent  # This is platform-independent Path object
 git_repo_path_str = str(GIT_REPO_PATH)
 
-SKIP_BELOW_YEAR = 2025
 SKIP_PR_PARTIAL_BEFORE_DATE = "2025-06-05" # did not correctly setup changelogs before that data
 BOT_COMMIT_MSG = "Automatic changelog compile [ci skip]"
 AUTOCHANGELOG_REGEX = re.compile(r"AutoChangeLog-pr-(\d+)\.ya?ml$")
@@ -113,7 +112,7 @@ def process_data(autoChangelog_files_prev, file_insertions, prev_date):
 def get_bot_commit_diffs(last_commit_date, file_insertions_old):
     # Get bot commit hashes touching the changelog folder
 
-    last_commit_date_str = SKIP_BELOW_YEAR
+    last_commit_date_str = SKIP_PR_PARTIAL_BEFORE_DATE
     if last_commit_date:
         last_commit_date_str = last_commit_date
 
