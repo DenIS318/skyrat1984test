@@ -114,10 +114,7 @@ def get_bot_commit_diffs(last_commit_date, file_insertions_old):
 
     last_commit_date_str = SKIP_PR_PARTIAL_BEFORE_DATE
     if last_commit_date:
-        # Substract 1 day to avoid possible timezone issues
-        date_obj = datetime.strptime(last_commit_date, '%Y-%m-%d')
-        new_date_obj = date_obj - timedelta(days=1)
-        last_commit_date_str = new_date_obj.strftime('%Y-%m-%d')
+        last_commit_date_str = last_commit_date
 
     cmd_hashes = [
         'git', '-C', git_repo_path_str, 'log',
@@ -250,7 +247,7 @@ def try_find_last_commit_date(output_path_actual):
     if file_insertions:
         top_insert = file_insertions[0]
         if top_insert:
-            top_insert_date = top_insert ["date"]
+            top_insert_date = top_insert["date"]
             if (top_insert_date):
                 return (top_insert_date, file_insertions)
     print("WARNING: Failed to retrieve last changelog date from existing file " + output_path_actual + ", will regenerate file")
