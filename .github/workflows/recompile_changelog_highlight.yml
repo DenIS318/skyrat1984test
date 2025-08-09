@@ -44,6 +44,11 @@ jobs:
           git config --local user.name "1984-ci-event[bot]"
           git config --local user.email "1283078+1984-ci-event[bot]@users.noreply.github.com"
 
+      - name: Delete current highlights
+        if: steps.value_holder.outputs.ACTIONS_ENABLED
+        run: |
+          rm tools/ss1984_changelog_highlight.py
+
       - name: Highlight Changes SS1984
         if: steps.value_holder.outputs.ACTIONS_ENABLED
         run: |
