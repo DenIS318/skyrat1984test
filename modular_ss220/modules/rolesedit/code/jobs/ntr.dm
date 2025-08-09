@@ -120,6 +120,7 @@
 	job = /datum/job/nanotrasen_consultant
 	big_pointer = TRUE
 	pointer_color = COLOR_CENTCOM_BLUE
+	hide_in_templates = TRIM_HIDE_STATION
 
 /datum/outfit/job/nanotrasen_consultant
 	name = "Nanotrasen Consultant"
