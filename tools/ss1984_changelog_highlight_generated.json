@@ -26,7 +26,8 @@
       "Dormitory vendor (CozyMate) no longer spawn on permabrig",
       "Prisoners no longer spawn with any loadout, only with outfit",
       "Prisoner is now colored at NTTC radio",
-      "Prisoner processing console UI height 500 => 540"
+      "Prisoner processing console UI height 500 => 540",
+      "SS1984 changes are now hightlighted in changelogs"
     ]
   },
   {
