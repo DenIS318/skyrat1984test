@@ -1,6 +1,0 @@
-author: "Arceniu"
-delete-after: True
-changes:
-  - rscadd: "Returned Bridge Assistant"
-  - rscdel: "Bridge Officer now only can be summoned by admins"
-  - code_imp: "Changed bridge assistant code, separating him from Nova's Bridge Officer"

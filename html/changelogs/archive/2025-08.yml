@@ -272,3 +272,10 @@
   - rscdel: Prisoners no longer spawn with any loadout, only with outfit
   - rscadd: Now displays cryo wake up message when spawned on cryo pod, instead of
       default arrival message
+2025-08-09:
+  Arceniu:
+  - rscadd: Returned Bridge Assistant
+  - rscdel: Bridge Officer now only can be summoned by admins
+  - code_imp: Changed bridge assistant code, separating him from Nova's Bridge Officer
+  DenIS318:
+  - rscdel: Removed bridge officer from id painter and non-centcom console ID templates
