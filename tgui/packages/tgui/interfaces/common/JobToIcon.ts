@@ -12,6 +12,7 @@ const BASEICONS = {
   Bitrunner: 'gamepad',
   Botanist: 'seedling',
   'Bridge Officer': 'mug-hot', // NOVA EDIT CHANGE - ORIGINAL:  'Bridge Assistant': 'building-shield',
+  'Bridge Assistant': 'building-shield', // SS1984 Return
   Captain: 'crown',
   'Cargo Gorilla': 'paw',
   'Cargo Technician': 'box',
