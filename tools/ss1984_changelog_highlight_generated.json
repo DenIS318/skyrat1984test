@@ -1,21 +1,5 @@
 [
   {
-    "date": "2025-08-09",
-    "author": "Arceniu",
-    "changes": [
-      "Returned Bridge Assistant",
-      "Bridge Officer now only can be summoned by admins",
-      "Changed bridge assistant code, separating him from Nova's Bridge Officer"
-    ]
-  },
-  {
-    "date": "2025-08-09",
-    "author": "DenIS318",
-    "changes": [
-      "Removed bridge officer from id painter and non-centcom console ID templates"
-    ]
-  },
-  {
     "date": "2025-08-08",
     "author": "DenIS318",
     "changes": [
@@ -26,7 +10,8 @@
       "Dormitory vendor (CozyMate) no longer spawn on permabrig",
       "Prisoners no longer spawn with any loadout, only with outfit",
       "Prisoner is now colored at NTTC radio",
-      "Prisoner processing console UI height 500 => 540"
+      "Prisoner processing console UI height 500 => 540",
+      "SS1984 changes are now hightlighted in changelogs"
     ]
   },
   {
