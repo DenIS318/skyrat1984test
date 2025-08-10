@@ -279,3 +279,6 @@
   - code_imp: Changed bridge assistant code, separating him from Nova's Bridge Officer
   DenIS318:
   - rscdel: Removed bridge officer from id painter and non-centcom console ID templates
+2025-08-10:
+  DenIS318:
+  - rscdel: Gun safety no longer added to weapons
