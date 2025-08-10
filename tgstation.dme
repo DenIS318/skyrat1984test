@@ -9406,4 +9406,5 @@
 #include "modular_ss220\modules\changelog_highlight\changelog_highlight.dm"
 #include "modular_ss220\modules\changelog_highlight\changelog.dm"
 #include "modular_ss220\modules\forbid_imprint_trim\job.dm"
+#include "modular_ss220\modules\disable_upstream_stuff\safety_additions.dm"
 // END_INCLUDE
