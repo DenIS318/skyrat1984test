@@ -6,9 +6,15 @@ import os
 import re
 import warnings
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timezone
 from collections import defaultdict
 from collections import deque
+
+# For Python 3.9+, use zoneinfo; for older, use pytz if available
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    from pytz import timezone as ZoneInfo
 
 # Folder containing the changelog YAML files
 CHANGELOG_ALL_FOLDER = 'html/changelogs/'
@@ -31,9 +37,8 @@ CUTOFF_STR = "-  - "
 INDENT_AMOUNT = 2
 
 def remove_changes_after_and_date(file_insertions_old, last_commit_date_str):
-    # Convert last_commit_date from string to datetime for comparisons
-    last_commit_date = datetime.strptime(last_commit_date_str, "%Y-%m-%d")
-
+    dt_aware = datetime.fromisoformat(last_commit_date_str)
+    last_commit_date = dt_aware.replace(tzinfo=None)
     temp_deque = deque(file_insertions_old)
 
     while temp_deque:
@@ -115,11 +120,16 @@ def get_bot_commit_diffs(last_commit_date, file_insertions_old):
     last_commit_date_str = SKIP_PR_PARTIAL_BEFORE_DATE
     if last_commit_date:
         last_commit_date_str = last_commit_date
+    # Convert to full datetime at midnight UTC with offset
+    dt_utc = datetime.strptime(last_commit_date_str, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+
+    # Format ISO 8601 with offset for --since argument
+    since_arg = dt_utc.isoformat()  # e.g. "2025-08-08T00:00:00+00:00"
 
     cmd_hashes = [
         'git', '-C', git_repo_path_str, 'log',
         '--author=' + BOT_AUTHOR,
-        '--since=' + last_commit_date_str,
+        '--since=' + since_arg,
         '--pretty=format:%H',
         '--', CHANGELOG_ALL_FOLDER
     ]
@@ -173,7 +183,7 @@ def get_bot_commit_diffs(last_commit_date, file_insertions_old):
             if is_autochangelog_match:
                 fname_match = is_autochangelog_match.group(1)
                 if fname_match:
-                    was_touched_by_bot_cmd = ["git", "log", "-1", "--diff-filter=A", "--format=%an", "--since=" + last_commit_date_str, "--", fname_match]
+                    was_touched_by_bot_cmd = ["git", "log", "-1", "--diff-filter=A", "--format=%an", "--since=" + since_arg, "--", fname_match]
                     was_touched_by_bots = subprocess.check_output(was_touched_by_bot_cmd, text=True).strip()
                     is_our_changelog = False
                     if not was_touched_by_bots: # fallback
@@ -219,7 +229,8 @@ def get_bot_commit_diffs(last_commit_date, file_insertions_old):
             if (line == CHANGES_START_LINE):
                 is_changes = True
                 continue
-
+        # if (formatted_date == "2025-06-05"):
+        #     print("DEBUG: formatted is " + formatted_date + ", commit = " + commit_hash)
 
         if not was_different_data:
             continue
@@ -231,7 +242,7 @@ def get_bot_commit_diffs(last_commit_date, file_insertions_old):
         process_data(autoChangelog_files, file_insertions, last_date)
 
     if file_insertions_old:
-        cleaned_old = remove_changes_after_and_date(file_insertions_old, last_commit_date_str)
+        cleaned_old = remove_changes_after_and_date(file_insertions_old, since_arg)
         if cleaned_old:
             file_insertions = file_insertions + cleaned_old
 
