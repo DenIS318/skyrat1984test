@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscdel: "Revert: Materials value reduction (#5733)"
