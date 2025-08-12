@@ -194,4 +194,4 @@ JUNGLE_CAVE_BUDGET 2
 MISSING_WHITELIST_MESSAGE "\nThis server requires you to be whitelisted in order to be allowed to play. Apply on our Discord by simply filling the Access Request form from the #application-instructions channel under the 'Landing Zone' category. Here's the invite link: https://discord.gg/novasector"
 
 #If enabled, /human mobs will no longer occasionally blink
-#DISABLE_BLINKING
+DISABLE_BLINKING
