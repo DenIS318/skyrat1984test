@@ -83,7 +83,7 @@ export const CrewConsoleNovaBlueshield = () => {
 
 const CrewTable = (props) => {
   const { act, data } = useBackend();
-  const sensors = sortBy(data.sensors ?? [], (s) => s.ijob);
+  const sensors = sortBy(data.sensors ?? [], [(s) => s.ijob]);
   return (
     <Table cellpadding="3">
       <Table.Row>

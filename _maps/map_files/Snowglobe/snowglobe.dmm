@@ -154,9 +154,6 @@
 	pixel_y = -1;
 	pixel_x = 1
 	},
-/obj/item/airlock_painter/decal/tile{
-	pixel_y = -7
-	},
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
@@ -53912,7 +53909,7 @@
 "orp" = (
 /obj/structure/table,
 /obj/item/binoculars,
-/obj/item/airlock_painter/decal/tile{
+/obj/item/airlock_painter/decal{
 	pixel_x = -13;
 	pixel_y = 5
 	},
@@ -58009,7 +58006,7 @@
 	pixel_x = 8;
 	pixel_y = 19
 	},
-/obj/item/airlock_painter/decal/tile{
+/obj/item/airlock_painter/decal{
 	pixel_y = 1;
 	pixel_x = 0
 	},
@@ -60490,10 +60487,6 @@
 	},
 /obj/item/airlock_painter/decal{
 	pixel_y = -17;
-	pixel_x = 0
-	},
-/obj/item/airlock_painter/decal/tile{
-	pixel_y = -23;
 	pixel_x = 0
 	},
 /obj/item/storage/box/lights/mixed{
@@ -88317,7 +88310,7 @@
 	pixel_y = 3
 	},
 /obj/machinery/firealarm/directional/east,
-/obj/item/airlock_painter/decal/tile{
+/obj/item/airlock_painter/decal{
 	pixel_x = -7;
 	pixel_y = -2
 	},
@@ -89599,7 +89592,7 @@
 /obj/item/radio/intercom/directional/south,
 /obj/effect/turf_decal/trimline/yellow/line,
 /obj/structure/table,
-/obj/item/airlock_painter/decal/tile{
+/obj/item/airlock_painter/decal{
 	pixel_x = -3;
 	pixel_y = 2
 	},
