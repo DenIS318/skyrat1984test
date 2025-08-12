@@ -519,16 +519,16 @@
 	circuit = /obj/item/circuitboard/machine/smes/super
 
 /obj/machinery/power/smes/super/full
-	charge = 200 * STANDARD_BATTERY_CHARGE  // SS1984 EDIT
+	charge = 100 * STANDARD_BATTERY_CHARGE
 
 /obj/machinery/power/smes/full
-	charge = 100 * STANDARD_BATTERY_CHARGE  // SS1984 EDIT
+	charge = 50 * STANDARD_BATTERY_CHARGE
 
 /obj/machinery/power/smes/ship
 	charge = 20 * STANDARD_BATTERY_CHARGE
 
 /obj/machinery/power/smes/engineering
-	charge = 100 * STANDARD_BATTERY_CHARGE  // SS1984 EDIT, SMESES FOR ENGINE
+	charge = 50 * STANDARD_BATTERY_CHARGE // Engineering starts with some charge for singulo //sorry little one, singulo as engine is gone
 	output_level = 90 KILO WATTS
 
 /obj/machinery/power/smes/magical
