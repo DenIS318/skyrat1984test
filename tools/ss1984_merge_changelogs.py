@@ -56,21 +56,53 @@ def load_upstream_yaml(file_rel_path):
         # File not found in upstream/master or other error
         return None
 
+def normalize_entry(entry):
+    """
+    Return a new entry dict with ':cl:' suffix removed from string values.
+    Assumes entry is a dict with string values or values to preserve as-is.
+    """
+    if not isinstance(entry, dict):
+        return entry  # if entry isn't a dict, return as is
+
+    normalized = {}
+    for k, v in entry.items():
+        if not isinstance(v, str):
+            normalized[k] = v
+            continue
+        if v.endswith('\n:cl:'):
+            normalized[k] = v[:-len('\n:cl:')]
+        elif v.endswith('\n/:cl'):
+            normalized[k] = v[:-len('\n/:cl')]
+        else:
+            normalized[k] = v
+    return normalized
+
 def merge_yaml_dicts(local_dict, remote_dict):
-    merged = dict(local_dict)
+    merged = dict(local_dict)  # copy top level
+
     for date, remote_contribs in (remote_dict or {}).items():
         if date not in merged:
-            merged[date] = remote_contribs
+            # Normalize all remote entries when adding new date
+            merged[date] = {
+                contrib: [normalize_entry(e) for e in entries]
+                for contrib, entries in remote_contribs.items()
+            }
         else:
             local_contribs = merged[date]
             for contrib, remote_entries in remote_contribs.items():
                 if contrib not in local_contribs:
-                    local_contribs[contrib] = remote_entries
+                    # Normalize all remote entries assigned here too
+                    local_contribs[contrib] = [normalize_entry(e) for e in remote_entries]
                 else:
                     existing = local_contribs[contrib]
+                    normalized_existing = [normalize_entry(e) for e in existing]
+
                     for entry in remote_entries:
-                        if entry not in existing:
-                            existing.append(entry)
+                        normalized_entry = normalize_entry(entry)
+                        if normalized_entry not in normalized_existing:
+                            existing.append(normalized_entry)
+                            normalized_existing.append(normalized_entry)
+
     return merged
 
 def merge_conflicted_file(filepath):

@@ -238,10 +238,26 @@
       as it should. Report any issues.
   timothymtorres:
   - bugfix: Fix martial arts gloves runtiming when destroyed while equip
+2025-08-03:
+  DenIS318:
+  - map: Added safe to HOS office with unica-6 in it with 3 speedloaders + holster
+      for all recommended maps (Delta, Meta, Icebox, Tram)
+  - map: Added safe codes to HOS office for all recommended maps (Delta, Meta, Icebox,
+      Tram)
+  - rscdel: Bridge Officer no longer available to station
+  - rscadd: 'Revert: Removed ''His Grace'' from the Traitor uplink. It was a chaplain
+      traitor only item that required you to consume 25 player corpses to ascend,
+      making you inmune to stuns, regen life and putting you in a timer to kill as
+      many people possible. (upstream #5777)'
+  FlufflesTheDog:
+  - bugfix: Fix some cases where subtler messages broadcast too far
 2025-08-04:
   FlufflesTheDog:
   - bugfix: Fix some cases where subtler messages broadcast too far
 2025-08-05:
+  Arceniu:
+  - rscadd: NTR trim now have CentcomBlue color big pointer
+  - rscadd: Added new vendor-with sleep suits and bedsheets
   Hatterhat:
   - bugfix: Bullet hitsounds on surfaces now properly play and don't cause a runtime.
   Iajret:
@@ -275,6 +291,8 @@
   - qol: Deflating an airbag will put the airbag in your hand instead of beneath the
       window it came from
 2025-08-06:
+  DenIS318:
+  - bugfix: Fixed issues with broken say messages + no radio on machinery
   Zenitheevee:
   - balance: Plasma Batteries (For plasma guns) can now charge via heat transfer.
       Do not microwave.
@@ -432,6 +450,20 @@
   - bugfix: Fixing print request issues
   zxaber:
   - bugfix: Borg modules no longer fail to break if they were holding an item.
+2025-08-08:
+  DenIS318:
+  - qol: SS1984 changes are now hightlighted in changelogs
+  - bugfix: Prison cell timers no longer says "NO DATA" and doesn't display admin-observer
+      names
+  - rscadd: Prisoners latejoin spawns at cryopods in permabrig, instead of appearing
+      from nowhere
+  - qol: Prisoner processing console UI height 500 => 540
+  - qol: Prisoner is now colored at NTTC radio
+  - balance: Security Voucher supply crate's amount 4 => 3
+  - rscdel: Dormitory vendor (CozyMate) no longer spawn on permabrig
+  - rscdel: Prisoners no longer spawn with any loadout, only with outfit
+  - rscadd: Now displays cryo wake up message when spawned on cryo pod, instead of
+      default arrival message
 2025-08-09:
   00-Steven:
   - refactor: Refactored xenobio console item interaction and click code. Please report
@@ -455,6 +487,10 @@
   Aliceee2ch:
   - bugfix: Mechs now take a fixed amount of damage if the simplemob "charge" ability
       was used on them.
+  Arceniu:
+  - rscadd: Returned Bridge Assistant
+  - rscdel: Bridge Officer now only can be summoned by admins
+  - code_imp: Changed bridge assistant code, separating him from Nova's Bridge Officer
   BasilTamaya:
   - rscadd: The machete now has unique unwielded and wielded damage values.
   - qol: Machete now works properly and as intended.
@@ -469,6 +505,8 @@
   - bugfix: Agent IDs that have not been spawned by an uplink or on a nuke op no longer
       have infinite access slots.
   - spellcheck: Rewrote item description for Agent IDs
+  DenIS318:
+  - rscdel: Removed bridge officer from id painter and non-centcom console ID templates
   EnterTheJake:
   - balance: Wiz suit is now bio,flash proof, comes with the no slip and Hilbert dna
       module installed, slowdown was removed.
@@ -656,6 +694,8 @@
       the `map_export` admin verb
   - rscadd: Paper on noticeboards are saved when using the `map_export` admin verb
 2025-08-10:
+  DenIS318:
+  - rscdel: Gun safety no longer added to weapons
   RealWinterFrost:
   - rscadd: Gave the blueshield a modsuit paintkit
   - rscadd: Added a new 'deepspace' modsuits to replace the syndicate mod and elite
