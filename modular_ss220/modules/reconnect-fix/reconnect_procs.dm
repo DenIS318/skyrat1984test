@@ -49,4 +49,8 @@
 	spawn (60 SECONDS) {
 		client_try_reconnect(reconnect_link_text)
 	}
+	// is server deploying something?
+	spawn (90 SECONDS) {
+		client_try_reconnect(reconnect_link_text)
+	}
 	// ok looks like no server
