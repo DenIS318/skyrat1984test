@@ -1,8 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscadd: "Colored PDA manifest"
-  - rscadd: "Now shows physical status in crew manifest, according to medical records such as Active/Deceased"
-  - rscadd: "Departments are colored in PDA manifest"
-  - rscdel: "Crew manifest no longer contains any silicons (they are NOT crew)"
-  - rscdel: "Crew manifest no longer contains any \"Central Command\" (blueshield, consultant, and other such are placed in \"Command\")"
