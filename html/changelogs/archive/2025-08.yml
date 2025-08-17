@@ -760,3 +760,4 @@
   - rscdel: Crew manifest no longer contains any "Central Command" (blueshield, consultant,
       and other such are placed in "Command")
   - bugfix: Admin revive now heals scarring eyes
+  - bugfix: Reconnect after server restart most likely should always work now
