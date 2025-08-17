@@ -1,5 +1,17 @@
 [
   {
+    "date": "2025-08-17",
+    "author": "DenIS318",
+    "changes": [
+      "Admin revive now heals scarring eyes",
+      "Colored PDA manifest",
+      "Now shows physical status in crew manifest, according to medical records such as Active/Deceased",
+      "Departments are colored in PDA manifest",
+      "Crew manifest no longer contains any silicons (they are NOT crew)",
+      "Crew manifest no longer contains any \"Central Command\" (blueshield, consultant, and other such are placed in \"Command\")"
+    ]
+  },
+  {
     "date": "2025-08-12",
     "author": "DenIS318",
     "changes": [
