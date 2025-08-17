@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box, Button, Section } from 'tgui-core/components';
+import { Button, Section } from 'tgui-core/components';
 
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
-import { Manifest, ManifestTable } from './CrewManifestSS1984';
+import { CrewManifestSS1984, Manifest } from './CrewManifestSS1984';
 
 type Data = {
   manifest: Manifest;
@@ -11,7 +11,7 @@ type Data = {
 
 export const NtosCrewManifest1984 = (props) => {
   const { act, data } = useBackend<Data>();
-  const { manifest = {} as Manifest } = data ?? {};
+  const { manifest } = data;
   return (
     <NtosWindow width={500} height={480}>
       <NtosWindow.Content scrollable>
@@ -26,11 +26,7 @@ export const NtosCrewManifest1984 = (props) => {
             </Button>
           }
         >
-          {Object.entries(manifest).map(([department, group]) => (
-            <Section key={department} title={<Box>{department}</Box>}>
-                <ManifestTable group={group} department={department} />
-            </Section>
-            ))}
+          <CrewManifestSS1984 manifest={manifest} />
         </Section>
       </NtosWindow.Content>
     </NtosWindow>

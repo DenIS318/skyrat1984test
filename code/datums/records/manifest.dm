@@ -28,8 +28,8 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	// First we build up the order in which we want the departments to appear in.
 	var/list/manifest_out = list()
 	for(var/datum/job_department/department as anything in SSjob.joinable_departments)
-		// SS1984 ADDITION START, silicons ARE NOT CREW
-		if(department.department_name == DEPARTMENT_SILICON)
+		// SS1984 ADDITION START
+		if(department.department_name == DEPARTMENT_SILICON || department.department_name == DEPARTMENT_CENTRAL_COMMAND)
 			continue
 		// SS1984 ADDITION END
 		manifest_out[department.department_name] = list()
@@ -69,12 +69,12 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 				"trim" = trim,
 				"active" = active_status,  // SS1984 ADDITION
 				)
-			// SS1984 ADDITION START, treat central command (put blueshields and all that stuff to command)
+			// SS1984 ADDITION START
 			var/department_key = department.department_name
-			if(department_key == DEPARTMENT_CENTRAL_COMMAND)
-				department_key = "command"
-			if(trim == "Silicon" || department_key == "Silicon") // no silicons in CREW manifest
-				continue
+			if(trim == DEPARTMENT_SILICON || department_key == DEPARTMENT_SILICON)
+				continue // no silicons in CREW manifest
+			if(trim == DEPARTMENT_CENTRAL_COMMAND || department_key == DEPARTMENT_CENTRAL_COMMAND)
+				continue // don't show them as "central command", only to other departments (command)
 			// SS1984 ADDITION END
 			var/list/department_list = manifest_out[department_key] // SS1984 EDIT, original: var/list/department_list = manifest_out[department.department_name]
 			if(istype(job, department.department_head))
