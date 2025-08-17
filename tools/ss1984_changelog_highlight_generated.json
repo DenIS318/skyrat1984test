@@ -3,6 +3,7 @@
     "date": "2025-08-17",
     "author": "DenIS318",
     "changes": [
+      "Reconnect after server restart most likely should always work now",
       "Admin revive now heals scarring eyes",
       "Colored PDA manifest",
       "Now shows physical status in crew manifest, according to medical records such as Active/Deceased",
