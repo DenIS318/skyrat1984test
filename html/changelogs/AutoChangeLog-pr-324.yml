@@ -1,0 +1,11 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscadd: "Security officers now are assigned per department (Science, Engineering, Medical, Cargo, Service)"
+  - rscadd: "Security department preference in character preferences"
+  - rscadd: "Service Security Officer. He doesn't have it's own post and start at brig"
+  - balance: "Max amount of sec offs increased accordingly (7 => 12) to fit departments"
+  - qol: "Corrections Officer now have security sunglasses (with HUD), instead of normal sunglasses"
+  - qol: "Security Officer's assigned to department start at their posts"
+  - map: "Replaced department's guard lockers with security officer lockers"
+  - rscdel: "Department guards removed (Orderly, Bouncer, Customs Agent, Engineering Guard, Medical Guard)"
