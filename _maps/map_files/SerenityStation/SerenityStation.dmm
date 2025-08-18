@@ -15810,7 +15810,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "eDG" = (
-/obj/structure/closet/secure_closet/security/science,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
 	},
@@ -28501,7 +28501,7 @@
 /turf/open/floor/engine,
 /area/station/science/ordnance)
 "ifz" = (
-/obj/structure/closet/secure_closet/security/med,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -32074,7 +32074,7 @@
 	dir = 6
 	},
 /obj/machinery/power/apc/auto_name/directional/south,
-/obj/structure/closet/secure_closet/security/engine,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/machinery/airalarm/directional/east,
 /obj/machinery/camera/directional/east{
 	c_tag = "Engineering - Guard Post";
@@ -36672,7 +36672,7 @@
 /area/station/commons/fitness/recreation)
 "kwl" = (
 /obj/machinery/light/directional/south,
-/obj/structure/closet/secure_closet/security/service,
+/obj/structure/closet/secure_closet/security/sec,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "kwm" = (
@@ -60785,7 +60785,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 9
 	},
-/obj/structure/closet/secure_closet/security/science,
+/obj/structure/closet/secure_closet/security/sec,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/science/research)
 "rKP" = (
@@ -73067,7 +73067,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "vjq" = (
-/obj/structure/closet/secure_closet/security/cargo,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 9
