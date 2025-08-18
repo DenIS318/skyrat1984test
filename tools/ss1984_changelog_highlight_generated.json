@@ -1,5 +1,19 @@
 [
   {
+    "date": "2025-08-18",
+    "author": "DenIS318",
+    "changes": [
+      "Security officers now are assigned per department (Science, Engineering, Medical, Cargo, Service)",
+      "Security department preference in character preferences",
+      "Service Security Officer. He doesn't have it's own post and start at brig",
+      "Max amount of sec offs increased accordingly (7 => 12) to fit departments",
+      "Corrections Officer now have security sunglasses (with HUD), instead of normal sunglasses",
+      "Security Officer's assigned to department start at their posts",
+      "Replaced department's guard lockers with security officer lockers",
+      "Department guards removed (Orderly, Bouncer, Customs Agent, Engineering Guard, Medical Guard)"
+    ]
+  },
+  {
     "date": "2025-08-17",
     "author": "DenIS318",
     "changes": [
