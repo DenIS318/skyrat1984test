@@ -284,7 +284,7 @@
 /area/station/ai_monitored/security/armory)
 "agd" = (
 /obj/effect/turf_decal/tile/red/fourcorners,
-/obj/structure/closet/secure_closet/security/cargo,
+/obj/structure/closet/secure_closet/security/sec,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/supply)
 "agi" = (
@@ -33029,7 +33029,7 @@
 /area/station/hallway/primary/central)
 "luN" = (
 /obj/machinery/airalarm/directional/west,
-/obj/structure/closet/secure_closet/security/med,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/effect/turf_decal/tile/red/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
@@ -36217,7 +36217,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/greater)
 "mEG" = (
-/obj/structure/closet/secure_closet/security/engine,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/machinery/airalarm/directional/east,
 /obj/machinery/requests_console/directional/south{
 	department = "Security";
@@ -63799,7 +63799,7 @@
 /area/station/medical/abandoned)
 "vTK" = (
 /obj/item/radio/intercom/directional/west,
-/obj/structure/closet/secure_closet/security/science,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/science)

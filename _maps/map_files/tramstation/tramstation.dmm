@@ -22685,7 +22685,7 @@
 /turf/open/floor/plating,
 /area/station/medical/virology)
 "gXb" = (
-/obj/structure/closet/secure_closet/security/cargo,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/item/clothing/mask/whistle,
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
@@ -60658,7 +60658,7 @@
 /turf/open/floor/iron,
 /area/station/maintenance/tram/mid)
 "uoJ" = (
-/obj/structure/closet/secure_closet/security/science,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/item/clothing/mask/whistle,
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 6
@@ -69754,7 +69754,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
 "xzn" = (
-/obj/structure/closet/secure_closet/security/engine,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 6
 	},
@@ -70526,7 +70526,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/disposal/incinerator)
 "xOM" = (
-/obj/structure/closet/secure_closet/security/med,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/item/clothing/mask/whistle,
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 6

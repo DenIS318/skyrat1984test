@@ -48589,7 +48589,7 @@
 "jrw" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/airalarm/directional/west,
-/obj/structure/closet/secure_closet/security/cargo,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 4
 	},
@@ -55833,7 +55833,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/structure/closet/secure_closet/security/med,
+/obj/structure/closet/secure_closet/security/sec,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/medical)
 "kHl" = (
@@ -66978,7 +66978,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "mRl" = (
-/obj/structure/closet/secure_closet/security/science,
+/obj/structure/closet/secure_closet/security/sec,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/science/research)
 "mRm" = (
@@ -77436,7 +77436,7 @@
 /area/station/hallway/secondary/service)
 "oQD" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/closet/secure_closet/security/cargo,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 8
 	},
@@ -99634,7 +99634,7 @@
 /area/station/maintenance/aft/upper)
 "tcz" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/closet/secure_closet/security/engine,
+/obj/structure/closet/secure_closet/security/sec,
 /obj/machinery/camera/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/engineering)
@@ -124896,7 +124896,7 @@
 "xRw" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/north,
-/obj/structure/closet/secure_closet/security/med,
+/obj/structure/closet/secure_closet/security/sec,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "xRH" = (
