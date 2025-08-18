@@ -27,4 +27,4 @@
 		ACCESS_THEATRE,
 		ACCESS_WEAPONS,
 	)
-	template_access = list(ACCESS_CAPTAIN, ACCESS_HOP, ACCESS_CHANGE_IDS)
+	honorifics = list("Bouncer", "Officer")

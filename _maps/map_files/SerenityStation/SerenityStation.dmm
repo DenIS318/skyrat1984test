@@ -36672,7 +36672,7 @@
 /area/station/commons/fitness/recreation)
 "kwl" = (
 /obj/machinery/light/directional/south,
-/obj/structure/closet/secure_closet/security/service,
+/obj/structure/closet/secure_closet/security/sec,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "kwm" = (
