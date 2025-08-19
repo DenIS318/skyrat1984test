@@ -37,10 +37,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(mentor_client_procs(href_list))
 		return
 	//NOVA EDIT ADDITION END
-	// SS1984 ADDITION START
-	if(is_reconnect_href(href_list))
-		return
-	// SS1984 ADDITION END
 
 #ifndef TESTING
 	if (LOWER_TEXT(hsrc_command) == "_debug") //disable the integrated byond vv in the client side debugging tools since it doesn't respect vv read protections
