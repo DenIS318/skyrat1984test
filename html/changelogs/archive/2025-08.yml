@@ -774,3 +774,7 @@
   - map: Replaced department's guard lockers with security officer lockers
   - rscdel: Department guards removed (Orderly, Bouncer, Customs Agent, Engineering
       Guard, Medical Guard)
+2025-08-19:
+  DenIS318:
+  - bugfix: Huds no longer can change status from inside of bitrunning domains. Some
+      other functional is limited as well from bitrunning.
