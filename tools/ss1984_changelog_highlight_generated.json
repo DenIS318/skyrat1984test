@@ -1,5 +1,12 @@
 [
   {
+    "date": "2025-08-19",
+    "author": "DenIS318",
+    "changes": [
+      "Huds no longer can change status from inside of bitrunning domains. Some other functional is limited as well from bitrunning."
+    ]
+  },
+  {
     "date": "2025-08-18",
     "author": "DenIS318",
     "changes": [
