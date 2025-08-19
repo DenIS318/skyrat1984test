@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - bugfix: "Huds no longer can change status from inside of bitrunning domains. Some other functional is limited as well from bitrunning."
