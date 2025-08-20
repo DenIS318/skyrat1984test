@@ -36069,7 +36069,7 @@
 /turf/open/floor/iron/textured,
 /area/station/commons/storage/mining)
 "kmG" = (
-/obj/machinery/defibrillator_mount/directional/north,
+/obj/machinery/defibrillator_mount/loaded/directional/north,
 /obj/effect/turf_decal/tile/blue/full,
 /obj/machinery/light/cold/directional/north,
 /obj/machinery/stasis{
@@ -57980,7 +57980,7 @@
 /area/station/hallway/primary/central)
 "qsQ" = (
 /obj/machinery/stasis,
-/obj/machinery/defibrillator_mount/directional/north,
+/obj/machinery/defibrillator_mount/loaded/directional/north,
 /obj/effect/turf_decal/tile/blue/full,
 /turf/open/floor/iron/large,
 /area/station/medical/treatment_center)
@@ -65326,7 +65326,7 @@
 	pixel_x = 6
 	},
 /obj/item/reagent_containers/syringe,
-/obj/machinery/defibrillator_mount/directional/east,
+/obj/machinery/defibrillator_mount/loaded/directional/east,
 /obj/effect/turf_decal/tile/blue/full,
 /turf/open/floor/iron/large,
 /area/station/medical/treatment_center)

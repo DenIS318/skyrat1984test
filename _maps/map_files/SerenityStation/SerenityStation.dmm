@@ -17421,7 +17421,7 @@
 	pixel_y = -7
 	},
 /obj/structure/table/optable,
-/obj/machinery/defibrillator_mount/directional/east{
+/obj/machinery/defibrillator_mount/loaded/directional/east{
 	pixel_y = 4
 	},
 /obj/structure/cable,
@@ -27511,7 +27511,7 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "hRl" = (
 /obj/structure/table/optable,
-/obj/machinery/defibrillator_mount/directional/south,
+/obj/machinery/defibrillator_mount/loaded/directional/south,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -44115,7 +44115,7 @@
 	name = "medical bed"
 	},
 /obj/machinery/iv_drip,
-/obj/machinery/defibrillator_mount/directional/north,
+/obj/machinery/defibrillator_mount/loaded/directional/north,
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 4
 	},
@@ -44136,7 +44136,7 @@
 	dir = 1
 	},
 /obj/machinery/stasis,
-/obj/machinery/defibrillator_mount/directional/east,
+/obj/machinery/defibrillator_mount/loaded/directional/east,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 8
 	},
@@ -69531,7 +69531,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
 	},
-/obj/machinery/defibrillator_mount/directional/west,
+/obj/machinery/defibrillator_mount/loaded/directional/west,
 /obj/machinery/stasis{
 	dir = 1
 	},
@@ -72141,7 +72141,7 @@
 	name = "medical bed"
 	},
 /obj/machinery/iv_drip,
-/obj/machinery/defibrillator_mount/directional/north,
+/obj/machinery/defibrillator_mount/loaded/directional/north,
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 8
 	},
@@ -81342,7 +81342,7 @@
 	pixel_y = -7
 	},
 /obj/structure/table/optable,
-/obj/machinery/defibrillator_mount/directional/east{
+/obj/machinery/defibrillator_mount/loaded/directional/east{
 	pixel_y = 4
 	},
 /obj/structure/cable,
