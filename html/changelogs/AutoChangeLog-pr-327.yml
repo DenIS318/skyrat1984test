@@ -1,7 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - server: "Delta is now considered as \"default\" map during map-votes (matters if someone doesn't vote at all and don't have prefered map selected)"
-  - server: "When there's no votes at all during transfer vote, always \"Continue Playing\" is selected (so it won't auto-transfer when there's no players at all)"
-  - server: "Transfer vote now normally accesible to players only at periods: between 15-40 minutes of round, after 90 minutes of round"
-  - admin: "If any admin use toggle vote for transfer vote at least once, this will disable automatic toggle behaviour (15-40-90 minutes thresholds)"

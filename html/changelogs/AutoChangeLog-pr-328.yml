@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscdel: "Deleted unused client verbs, such as: \"Link Forum Account\", \"Show Map Vote Tallies\" (we don't use them at all)"
