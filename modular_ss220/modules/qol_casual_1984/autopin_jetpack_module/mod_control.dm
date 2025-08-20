@@ -1,6 +1,6 @@
 /obj/item/mod/control/pre_equipped/install(obj/item/mod/module/new_module, mob/user)
 	. = ..()
-	if (!new_module in modules) // failed to add
+	if (!(new_module in modules)) // failed to add
 		return .
 	if (!new_module || !new_module.auto_pin || !user)
 		return .
