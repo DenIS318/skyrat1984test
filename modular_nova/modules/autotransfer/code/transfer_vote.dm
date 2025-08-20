@@ -10,7 +10,6 @@
 	default_message = "Vote to initiate a transfer, forcing a shuttle call \
 		that cannot be recalled. Don't touch it unless it's not working \
 		automatically."
-
 /datum/vote/transfer_vote/toggle_votable()
 	CONFIG_SET(flag/allow_vote_transfer, !CONFIG_GET(flag/allow_vote_transfer))
 
