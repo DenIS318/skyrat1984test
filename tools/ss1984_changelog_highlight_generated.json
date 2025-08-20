@@ -1,5 +1,16 @@
 [
   {
+    "date": "2025-08-20",
+    "author": "DenIS318",
+    "changes": [
+      "Delta is now considered as \"default\" map during map-votes (matters if someone doesn't vote at all and don't have prefered map selected)",
+      "When there's no votes at all during transfer vote, always \"Continue Playing\" is selected (so it won't auto-transfer when there's no players at all)",
+      "Transfer vote now normally accesible to players only at periods: between 15-40 minutes of round, after 90 minutes of round",
+      "If any admin use toggle vote for transfer vote at least once, this will disable automatic toggle behaviour (15-40-90 minutes thresholds)",
+      "Deleted unused client verbs, such as: \"Link Forum Account\", \"Show Map Vote Tallies\" (we don't use them at all)"
+    ]
+  },
+  {
     "date": "2025-08-19",
     "author": "DenIS318",
     "changes": [
