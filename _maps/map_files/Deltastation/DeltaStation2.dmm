@@ -14459,15 +14459,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/science/lab)
-"dzQ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/poddoor/massdriver_ordnance,
-/obj/machinery/atmos_shield_gen/active{
-	dir = 1
-	},
-/obj/machinery/atmos_shield_gen/active,
-/turf/open/floor/plating/airless,
-/area/station/science/ordnance/testlab)
 "dAl" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -34759,6 +34750,7 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},
+/obj/machinery/suit_storage_unit/atmos,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/storage)
 "iEg" = (
@@ -40622,6 +40614,7 @@
 /obj/effect/turf_decal/box/red/corners{
 	dir = 8
 	},
+/obj/machinery/suit_storage_unit/atmos,
 /turf/open/floor/iron/dark/textured,
 /area/station/engineering/atmos/storage)
 "jYC" = (
@@ -56481,13 +56474,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/customs/fore)
-"nZe" = (
-/obj/structure/cable,
-/obj/effect/turf_decal/bot,
-/obj/structure/closet/secure_closet/security/sec,
-/obj/effect/turf_decal/tile/red/fourcorners,
-/turf/open/floor/iron,
-/area/station/security/checkpoint/medical/medsci)
 "nZf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -98033,14 +98019,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
-"ykj" = (
-/obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood/oil,
-/turf/open/floor/plating,
-/area/station/engineering/supermatter/room)
 "ykl" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -120157,7 +120135,7 @@ iBR
 dEL
 iBR
 gAw
-ykj
+dAl
 rsq
 qSL
 dPB
@@ -134589,7 +134567,7 @@ ndc
 sUH
 dcG
 qfi
-nZe
+brm
 brm
 qfi
 rxc
