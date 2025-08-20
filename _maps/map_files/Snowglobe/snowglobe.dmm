@@ -7438,7 +7438,7 @@
 /turf/open/floor/iron/white/smooth_half,
 /area/station/medical/virology)
 "bXb" = (
-/obj/machinery/defibrillator_mount/directional/south,
+/obj/machinery/defibrillator_mount/loaded/directional/south,
 /obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/tile/blue/half,
 /obj/structure/table/reinforced,
@@ -37941,7 +37941,7 @@
 /area/station/hallway/primary/aftporthall)
 "kcR" = (
 /obj/machinery/stasis,
-/obj/machinery/defibrillator_mount/directional/east,
+/obj/machinery/defibrillator_mount/loaded/directional/east,
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/treatment_center)
@@ -39388,7 +39388,7 @@
 /turf/open/floor/plating,
 /area/station/cargo/storage)
 "kvj" = (
-/obj/machinery/defibrillator_mount/directional/south,
+/obj/machinery/defibrillator_mount/loaded/directional/south,
 /obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/tile/blue/half,
 /obj/structure/table/reinforced,

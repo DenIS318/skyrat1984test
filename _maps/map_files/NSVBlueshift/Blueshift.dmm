@@ -6595,7 +6595,7 @@
 /obj/structure/bed/medical/anchored{
 	dir = 1
 	},
-/obj/machinery/defibrillator_mount/directional/south,
+/obj/machinery/defibrillator_mount/loaded/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "bpn" = (
@@ -16125,7 +16125,7 @@
 /turf/open/floor/iron,
 /area/station/maintenance/department/medical/central)
 "dcr" = (
-/obj/machinery/defibrillator_mount/directional/east,
+/obj/machinery/defibrillator_mount/loaded/directional/east,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/theatre)
 "dcJ" = (
@@ -18445,7 +18445,7 @@
 /area/station/hallway/primary/upper)
 "dAK" = (
 /obj/machinery/iv_drip,
-/obj/machinery/defibrillator_mount/directional/north,
+/obj/machinery/defibrillator_mount/loaded/directional/north,
 /obj/machinery/stasis{
 	dir = 4
 	},
@@ -33742,7 +33742,7 @@
 /area/station/maintenance/department/medical)
 "gwk" = (
 /obj/machinery/iv_drip,
-/obj/machinery/defibrillator_mount/directional/south,
+/obj/machinery/defibrillator_mount/loaded/directional/south,
 /obj/machinery/stasis{
 	dir = 4
 	},
@@ -45986,7 +45986,7 @@
 /obj/structure/bed/medical/anchored{
 	dir = 1
 	},
-/obj/machinery/defibrillator_mount/directional/north,
+/obj/machinery/defibrillator_mount/loaded/directional/north,
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
@@ -72542,7 +72542,7 @@
 	},
 /area/station/hallway/primary/central)
 "nWC" = (
-/obj/machinery/defibrillator_mount/directional/south,
+/obj/machinery/defibrillator_mount/loaded/directional/south,
 /obj/machinery/light/directional/south,
 /obj/structure/table/optable,
 /turf/open/floor/iron,
@@ -113396,7 +113396,7 @@
 /turf/open/floor/engine/o2,
 /area/station/engineering/atmos)
 "vGH" = (
-/obj/machinery/defibrillator_mount/directional/north,
+/obj/machinery/defibrillator_mount/loaded/directional/north,
 /obj/machinery/light/directional/north,
 /obj/structure/table/optable,
 /turf/open/floor/iron,

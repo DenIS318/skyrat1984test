@@ -20252,7 +20252,7 @@
 /turf/open/floor/iron,
 /area/station/security/brig)
 "hgu" = (
-/obj/machinery/defibrillator_mount/directional/south,
+/obj/machinery/defibrillator_mount/loaded/directional/south,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/light/cold/directional/south,
 /obj/structure/bed/medical,
@@ -23591,7 +23591,7 @@
 /obj/machinery/stasis{
 	dir = 4
 	},
-/obj/machinery/defibrillator_mount/directional/north,
+/obj/machinery/defibrillator_mount/loaded/directional/north,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/white,
@@ -53534,7 +53534,7 @@
 /area/station/cargo/storage)
 "sAv" = (
 /obj/machinery/stasis,
-/obj/machinery/defibrillator_mount/directional/north,
+/obj/machinery/defibrillator_mount/loaded/directional/north,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/white,

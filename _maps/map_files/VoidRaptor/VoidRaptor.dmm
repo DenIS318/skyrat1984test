@@ -1724,7 +1724,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/starboard/fore)
 "ayV" = (
-/obj/machinery/defibrillator_mount/directional/west,
+/obj/machinery/defibrillator_mount/loaded/directional/west,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/stasis{
 	dir = 4
@@ -38117,7 +38117,7 @@
 /area/station/medical/medbay/lobby)
 "kMs" = (
 /obj/machinery/stasis,
-/obj/machinery/defibrillator_mount/directional/east,
+/obj/machinery/defibrillator_mount/loaded/directional/east,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/effect/turf_decal/box/blue,
 /turf/open/floor/iron/freezer,
@@ -44128,7 +44128,7 @@
 	pixel_y = -7
 	},
 /obj/effect/turf_decal/tile/blue/full,
-/obj/machinery/defibrillator_mount/directional/east{
+/obj/machinery/defibrillator_mount/loaded/directional/east{
 	pixel_y = 4
 	},
 /obj/effect/turf_decal/box/red,
@@ -65809,7 +65809,7 @@
 	name = "Privacy Shutters Control";
 	pixel_y = -7
 	},
-/obj/machinery/defibrillator_mount/directional/east{
+/obj/machinery/defibrillator_mount/loaded/directional/east{
 	pixel_y = 4
 	},
 /obj/effect/turf_decal/box/red,
