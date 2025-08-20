@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - map: "Replaced almost all empty defibs on all maps/templates with initially loaded defibs"

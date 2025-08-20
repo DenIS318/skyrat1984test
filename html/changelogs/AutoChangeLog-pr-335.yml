@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "Loaded defibs at maps now properly shows attached defib overlay"

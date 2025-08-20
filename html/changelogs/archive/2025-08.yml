@@ -794,3 +794,9 @@
       (not for fully hand-crafted MODs)
   - server: Disable unathi from roundstart races. Use lizardperson instead
   - rscadd: Added 3 Ion Jetpack modules to engivend's premium with cost 400 per each
+  - map: Added 2 more atmos MODsuits storage units to all recommended maps (Delta,
+      Meta, Tram, Icebox). Now it's 3 in total.
+  - map: Replaced almost all empty defibs on all maps/templates with initially loaded
+      defibs
+  - rscadd: Health analyzer (basic) is added to autolathe designs
+  - bugfix: Loaded defibs at maps now properly shows attached defib overlay
