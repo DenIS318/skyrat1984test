@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - qol: "Ion Jetpack module is now auto-pinned on insert to pre-equipped MODsuits (not for fully hand-crafted MODs)"

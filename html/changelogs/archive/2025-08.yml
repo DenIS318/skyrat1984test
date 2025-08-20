@@ -790,3 +790,7 @@
       disable automatic toggle behaviour (15-40-90 minutes thresholds)
   - rscdel: 'Deleted unused client verbs, such as: "Link Forum Account", "Show Map
       Vote Tallies" (we don''t use them at all)'
+  - qol: Ion Jetpack module is now auto-pinned on insert to pre-equipped MODsuits
+      (not for fully hand-crafted MODs)
+  - server: Disable unathi from roundstart races. Use lizardperson instead
+  - rscadd: Added 3 Ion Jetpack modules to engivend's premium with cost 400 per each

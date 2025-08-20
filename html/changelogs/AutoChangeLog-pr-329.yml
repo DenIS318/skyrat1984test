@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - server: "Disable unathi from roundstart races. Use lizardperson instead"
