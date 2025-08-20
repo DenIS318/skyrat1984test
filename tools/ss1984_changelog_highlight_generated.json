@@ -3,6 +3,9 @@
     "date": "2025-08-20",
     "author": "DenIS318",
     "changes": [
+      "Disable unathi from roundstart races. Use lizardperson instead",
+      "Added 3 Ion Jetpack modules to engivend's premium with cost 400 per each",
+      "Ion Jetpack module is now auto-pinned on insert to pre-equipped MODsuits (not for fully hand-crafted MODs)",
       "Delta is now considered as \"default\" map during map-votes (matters if someone doesn't vote at all and don't have prefered map selected)",
       "When there's no votes at all during transfer vote, always \"Continue Playing\" is selected (so it won't auto-transfer when there's no players at all)",
       "Transfer vote now normally accesible to players only at periods: between 15-40 minutes of round, after 90 minutes of round",
