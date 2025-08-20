@@ -9428,5 +9428,4 @@
 #include "modular_ss220\modules\crew_manifest_colored\crewmanifest.dm"
 #include "modular_ss220\modules\fixes_minor_1984\no_bitrun_huduse\human.dm"
 #include "modular_ss220\modules\votes_stuff\transfer_vote.dm"
-#include "modular_ss220\modules\votes_stuff\restart_vote.dm"
 // END_INCLUDE

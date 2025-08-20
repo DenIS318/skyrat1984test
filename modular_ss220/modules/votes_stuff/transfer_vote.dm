@@ -6,6 +6,10 @@
 #define EARLY_VOTE_FORBID_AFTER_THRESHOLD 40 MINUTES
 #define LATE_VOTE_ALLOW_THRESHOLD 90 MINUTES
 
+#define EARLY_VOTE_FORBID_BEFORE_THRESHOLD_IN_MINS (EARLY_VOTE_FORBID_BEFORE_THRESHOLD) / (1 MINUTES)
+#define EARLY_VOTE_FORBID_AFTER_THRESHOLD_IN_MINS (EARLY_VOTE_FORBID_AFTER_THRESHOLD) / (1 MINUTES)
+#define LATE_VOTE_ALLOW_THRESHOLD_IN_MINS (LATE_VOTE_ALLOW_THRESHOLD) / (1 MINUTES)
+
 /datum/vote/transfer_vote
 	var/any_admin_changed_toggle = FALSE
 
@@ -13,12 +17,20 @@
 	. = ..()
 	any_admin_changed_toggle = TRUE
 
-/datum/vote/transfer_vote/can_be_initiated(forced)
+/datum/vote/transfer_vote/can_be_initiated(forced = FALSE)
+	. = ..()
+	if (. != VOTE_AVAILABLE)
+		return . // original message
+	var/available_vote = TRUE
 	if (!any_admin_changed_toggle)
-		CONFIG_SET(flag/allow_vote_map, get_available_at_time())
-	return ..()
+		available_vote = get_available_at_time() || forced
+	if (available_vote)
+		return VOTE_AVAILABLE
+	return "This vote is only accesible after [EARLY_VOTE_FORBID_BEFORE_THRESHOLD_IN_MINS] minutes round time, however after [EARLY_VOTE_FORBID_AFTER_THRESHOLD_IN_MINS] minutes it will be disabled. But, once [LATE_VOTE_ALLOW_THRESHOLD_IN_MINS] minutes is passed, vote is enabled again."
 
 /datum/vote/transfer_vote/proc/get_available_at_time()
+	if (!SSticker || !Master || !Master.current_runlevel != RUNLEVEL_GAME)
+		return FALSE
 	var/ticks_passed = STATION_TIME_PASSED()
 	if (ticks_passed < EARLY_VOTE_FORBID_BEFORE_THRESHOLD)
 		return FALSE // someone didn't rolled antag or something like nuke ops mode?
@@ -30,12 +42,12 @@
 	. = ..()
 
 	if (!choices || choices.len < 1)
-		return CHOICE_CONTINUE
+		return list(CHOICE_CONTINUE)
 
 	var/total_votes = 0
 	for(var/option in choices)
 		total_votes += choices[option]
 	if (total_votes < 1)
-		return CHOICE_CONTINUE
+		return list(CHOICE_CONTINUE)
 
 	return .
