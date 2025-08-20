@@ -3,6 +3,10 @@
     "date": "2025-08-20",
     "author": "DenIS318",
     "changes": [
+      "Health analyzer (basic) is added to autolathe designs",
+      "Added 2 more atmos MODsuits storage units to all recommended maps (Delta, Meta, Tram, Icebox). Now it's 3 in total.",
+      "Replaced almost all empty defibs on all maps/templates with initially loaded defibs",
+      "Loaded defibs at maps now properly shows attached defib overlay",
       "Disable unathi from roundstart races. Use lizardperson instead",
       "Added 3 Ion Jetpack modules to engivend's premium with cost 400 per each",
       "Ion Jetpack module is now auto-pinned on insert to pre-equipped MODsuits (not for fully hand-crafted MODs)",
