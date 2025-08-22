@@ -18,6 +18,7 @@ SUBSYSTEM_DEF(plasma_inflation)
 	// markets
 
 	var/list/markets_per_name = list()
+	var/list/dry_checkpoints_quantity_per_market = list()
 
 /datum/controller/subsystem/plasma_inflation/Initialize()
 	if (!CONFIG_GET(flag/plasma_inflation))
@@ -35,18 +36,30 @@ SUBSYSTEM_DEF(plasma_inflation)
 			continue
 		market.update_market()
 
-/datum/controller/subsystem/plasma_inflation/proc/sell_plasma(quantity, market_name, dry_run = FALSE)
+/datum/controller/subsystem/plasma_inflation/proc/sell_plasma(quantity, market_name)
 	var/datum/plasma_inflation_market/market = get_market(market_name)
 	if (!market)
 		log_runtime("Market is null after get_market(), market_name = [market_name]")
 		return 0
-	return market.sell(quantity, dry_run)
+	return market.sell(quantity)
 
 /datum/controller/subsystem/plasma_inflation/proc/get_market(market_name)
 	if (!market_name || length(market_name) < 1)
-		market_name = "blackmarket"
+		market_name = EXPORT_MARKET_BLACKMARKET
 	var/datum/plasma_inflation_market/market = markets_per_name[market_name]
 	if (!market)
 		market = new /datum/plasma_inflation_market()
 		markets_per_name[market_name] = market
 	return market
+
+/datum/controller/subsystem/plasma_inflation/proc/update_dry(dry_run, is_start)
+	if (!dry_run)
+		return
+	for(var/market_name in markets_per_name)
+		var/datum/plasma_inflation_market/market = markets_per_name[market_name]
+		if (!market)
+			continue
+		if (is_start)
+			dry_checkpoints_quantity_per_market[market] = market.quantity_sold_batch
+		else
+			market.quantity_sold_batch = dry_checkpoints_quantity_per_market[market]

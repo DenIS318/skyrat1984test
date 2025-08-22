@@ -45,7 +45,7 @@
 
 	current_price = recovery_start_price * ((SSplasma_inflation.default_plasma_price / recovery_start_price) ** (current_time / SSplasma_inflation.recovery_time))
 
-/datum/plasma_inflation_market/proc/sell(quantity, dry_run = FALSE)
+/datum/plasma_inflation_market/proc/sell(quantity)
 	if (!isnum(quantity) || quantity < 1)
 		return 0
 
@@ -59,8 +59,7 @@
 		quantity_sold_batch = 0
 
 	var/revenue = (current_price / SSplasma_inflation.decay_factor) * (NUM_E ** (-SSplasma_inflation.decay_factor * quantity_sold_batch) - NUM_E ** (-SSplasma_inflation.decay_factor * (quantity_sold_batch + quantity)))
-	if (!dry_run)
-		quantity_sold_batch += quantity
+	quantity_sold_batch += quantity
 
 	if (revenue < 0) // no negative revenue
 		revenue = 0
