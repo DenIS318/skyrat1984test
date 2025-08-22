@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - bugfix: "Now transfer vote properly count non-voters as \"Continue playing\" as other votes does"
