@@ -1,0 +1,7 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "Dynamic no longer counts non-station roles as \"Alive\" for rulesets population"
+  - bugfix: "Dynamic rolling no longer counts SSD/disconnected players as \"Alive\""
+  - code_imp: "Example how Dynamic count alive players now: 1 secoff, 1 disconnected crew, 1 SSD crew, 2 normal crew, 1 dead crew, and 1 non-station role (tarkon) = 3 alive players, antags normally start from 5 population (including 1 security/captain). The same principes applying to \"enemies\" selection, such when calculating amount of alive security/heads (for revs)"
+  - admin: "Alive Players in dynamic panel now shows how much it count as \"Alive\" for rolling (no ghost roles... etc.). This might differ from other admin panels (it's should be that way)"
