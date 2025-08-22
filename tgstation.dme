@@ -9422,6 +9422,7 @@
 #include "modular_ss220\modules\changelog_highlight\changelog.dm"
 #include "modular_ss220\modules\forbid_imprint_trim\job.dm"
 #include "modular_ss220\modules\disable_upstream_stuff\safety_additions.dm"
+#include "modular_ss220\modules\disable_upstream_stuff\no_default_nif_examine\nifs.dm"
 #include "modular_ss220\modules\extended_smes\machine_circuitboards.dm"
 #include "modular_ss220\modules\extended_smes\smes.dm"
 #include "modular_ss220\modules\upstream-fixes\scarring_rejuve\human_helpers.dm"
