@@ -1,0 +1,5 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "Plasma inflation now works for ghostroles markets same way, as it does for station cargo. Interdyne and DS-2 market are shared. Total 5 markets: station, interdyne+ds, tarkon, pirates, \"blackmarket\" (when it doesn't fit any of others)"
+  - qol: "Plasma inflation is calculated during predict value on ghostroles pads (can view how much you will get from plasma before sending it)"
