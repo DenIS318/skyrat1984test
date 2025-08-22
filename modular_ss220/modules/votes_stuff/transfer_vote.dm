@@ -39,9 +39,7 @@
 	return ticks_passed < EARLY_VOTE_FORBID_AFTER_THRESHOLD || ticks_passed > LATE_VOTE_ALLOW_THRESHOLD
 
 /datum/vote/transfer_vote/get_vote_result(list/non_voters)
-	. = ..()
-
-	if (!choices || choices.len < 1)
+	if (!choices || length(choices) < 1 || length(GLOB.player_list) < 1)
 		return list(CHOICE_CONTINUE)
 
 	var/total_votes = 0
@@ -50,4 +48,8 @@
 	if (total_votes < 1)
 		return list(CHOICE_CONTINUE)
 
-	return .
+	if(!CONFIG_GET(flag/default_no_vote) && choices)
+		// Default no votes will add non-voters to "Continue Playing"
+		choices[CHOICE_CONTINUE] += length(non_voters)
+
+	return ..()
