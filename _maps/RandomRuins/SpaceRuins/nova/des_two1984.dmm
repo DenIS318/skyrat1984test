@@ -7444,7 +7444,7 @@
 	icon_screen = "syndishuttle";
 	light_color = "#FA8282";
 	name = "syndicate cargo shuttle terminal";
-	possible_destinations = "interdyne_cargo_home;interdyne_cargo_away;interdyne_cargo_custom;whiteship_home";
+	possible_destinations = "interdyne_cargo_home;interdyne_cargo_away;interdyne_cargo_custom";
 	req_access = list("syndicate");
 	shuttleId = "interdyne_cargo"
 	},
