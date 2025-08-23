@@ -1,5 +1,26 @@
 [
   {
+    "date": "2025-08-23",
+    "author": "DenIS318",
+    "changes": [
+      "Removed NIFsoft default examine text (\"There's a certain spark to their eyes.\"). You need to set it manually if you want it to appear (more than 6 characters)",
+      "Now transfer vote properly count non-voters as \"Continue playing\" as other votes does",
+      "Dynamic no longer counts non-station roles as \"Alive\" for rulesets population",
+      "Dynamic rolling no longer counts SSD/disconnected players as \"Alive\"",
+      "Example how Dynamic count alive players now: 1 secoff, 1 disconnected crew, 1 SSD crew, 2 normal crew, 1 dead crew, and 1 non-station role (tarkon) = 3 alive players, antags normally start from 5 population (including 1 security/captain). The same principes applying to \"enemies\" selection, such when calculating amount of alive security/heads (for revs)",
+      "Alive Players in dynamic panel now shows how much it count as \"Alive\" for rolling (no ghost roles... etc.). This might differ from other admin panels (it's should be that way)",
+      "Plasma inflation now works for ghostroles markets same way, as it does for station cargo. Interdyne and DS-2 market are shared. Total 5 markets: station, interdyne+ds, tarkon, pirates, \"blackmarket\" (when it doesn't fit any of others)",
+      "Plasma inflation is calculated during predict value on ghostroles pads (can view how much you will get from plasma before sending it)",
+      "Mutadone pills added to NanoDrug",
+      "Atmos techs now start with engineering skillchip",
+      "Syndicate research server is added to DS-2. It's have it's own techweb separated from station. Interdyne is also gain researches from it (in case they build R&D)",
+      "Spare Syndicate R&D server circuit added to DS-2 vault safe",
+      "Ghostroles such as Tarkon, DS-2, Interdyne no longer have destination to station docks",
+      "Tarkon instead of station can fly to Deep Space by using camera console (in case it was spawned)",
+      "Tarkon remote now can fly to any custom location and back to tarkon port (unique feature for tarkon shuttle only)"
+    ]
+  },
+  {
     "date": "2025-08-20",
     "author": "DenIS318",
     "changes": [
