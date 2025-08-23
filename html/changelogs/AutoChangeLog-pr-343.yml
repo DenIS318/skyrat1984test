@@ -1,0 +1,5 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscadd: "Syndicate research server is added to DS-2. It's have it's own techweb separated from station. Interdyne is also gain researches from it (in case they build R&D)"
+  - rscadd: "Spare Syndicate R&D server circuit added to DS-2 vault safe"
