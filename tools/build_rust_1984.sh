@@ -2,7 +2,8 @@
 
 REPO_URL="https://github.com/skyrat1984test/rust-skyrat-1984.git"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TARGET_DIR="$SCRIPT_DIR/../RUST_REMOTE"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+TARGET_DIR="$PROJECT_ROOT/RUST_REMOTE"
 
 # Check if folder exists
 if [ -d "$TARGET_DIR" ]; then
@@ -27,8 +28,8 @@ if ! command -v rustup >/dev/null 2>&1; then
 fi
 
 # Copy files from ../RUST/*.* to $TARGET_DIR/src/RUST_1984/
-SRC_DIR="$SCRIPT_DIR/../RUST"
-DEST_DIR="$TARGET_DIR/src/RUST_1984"
+SRC_DIR="$PROJECT_ROOT/RUST"
+DEST_DIR="$PROJECT_ROOT/RUST_REMOTE/src/RUST_1984"
 
 mkdir -p "$DEST_DIR"
 
@@ -55,5 +56,5 @@ else
 fi
 
 rustup target add i686-unknown-linux-gnu
-cargo build --release --target i686-pc-windows-msvc
+cargo build --release --target i686-unknown-linux-gnu
 exit 0
