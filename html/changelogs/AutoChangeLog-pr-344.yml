@@ -1,0 +1,6 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "Ghostroles such as Tarkon, DS-2, Interdyne no longer have destination to station docks"
+  - balance: "Tarkon instead of station can fly to Deep Space by using camera console (in case it was spawned)"
+  - rscadd: "Tarkon remote now can fly to any custom location and back to tarkon port (unique feature for tarkon shuttle only)"
