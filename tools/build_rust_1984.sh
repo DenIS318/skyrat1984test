@@ -56,5 +56,13 @@ else
 fi
 
 rustup target add i686-unknown-linux-gnu
-cargo build --release --target i686-unknown-linux-gnu
+cargo build --release --target i686-unknown-linux-gnu --target-dir $PROJECT_ROOT --bin librust_g.so
+chmod +x librust_g.so
+
+if command -v rsync >/dev/null 2>&1; then
+    rsync -a "$PROJECT_ROOT/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/"
+else
+    cp -f "$PROJECT_ROOT/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/librust_g.so"
+fi
+
 exit 0

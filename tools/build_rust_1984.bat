@@ -31,4 +31,11 @@ xcopy "%~dp0\..\RUST\*.*" "%TARGET_DIR%\src\RUST_1984\" /E /I /Y /q
 
 rustup target add i686-pc-windows-msvc
 cargo build --release --target i686-pc-windows-msvc
+
+xcopy "%TARGET_DIR%\target\i686-pc-windows-msvc\release\rust_g.dll" "%~dp0\.." /Y /q
+IF %ERRORLEVEL% NEQ 0 (
+    ECHO Failed to copy rust_g.dll
+    exit 103
+)
+
 exit /b 0
