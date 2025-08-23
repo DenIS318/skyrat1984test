@@ -70,6 +70,7 @@ else
     cp -f "$PROJECT_ROOT/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/librust_g.so"
 fi
 
+cd $PROJECT_ROOT
 chmod +x librust_g.so
 
 exit 0
