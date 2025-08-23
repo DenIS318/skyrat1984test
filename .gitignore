@@ -261,3 +261,12 @@ tgstation.json
 
 # Ignore preload config (should be modified on server if you know what you're doing)
 /config/config_preload.txt
+
+# Ignore remote files
+/RUST_REMOTE
+
+# Ignore local builded files
+rust_g.dll
+rust_g64.dll
+librust_g.so
+librust_g64.so
