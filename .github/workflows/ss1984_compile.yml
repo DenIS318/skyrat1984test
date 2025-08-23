@@ -36,6 +36,7 @@ jobs:
       uses: Swatinem/rust-cache@v2.8.0
       with:
         workspaces: RUST_REMOTE
+        cache-all-crates: true
     - name: Setup part 8 (Give Linters A Go)
       id: linter-setup
       run: ":"
