@@ -49,16 +49,19 @@ set -x
 if ! [ -x "$has_sudo" ]; then
     dpkg --add-architecture i386
     apt-get update
+    apt-get install gcc-multilib
     apt-get install zlib1g-dev:i386
 else
     sudo dpkg --add-architecture i386
     sudo apt-get update
+    sudo apt-get install gcc-multilib
     sudo apt-get install zlib1g-dev:i386
 fi
 
 cd $TARGET_DIR
 
 rustup target add i686-unknown-linux-gnu
+export PKG_CONFIG_ALLOW_CROSS=1
 cargo build --release --target i686-unknown-linux-gnu
 
 if command -v rsync >/dev/null 2>&1; then
