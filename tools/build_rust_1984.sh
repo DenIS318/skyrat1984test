@@ -56,14 +56,17 @@ else
     sudo apt-get install zlib1g-dev:i386
 fi
 
+cd $TARGET_DIR
+
 rustup target add i686-unknown-linux-gnu
 cargo build --release --target i686-unknown-linux-gnu
-chmod +x librust_g.so
 
 if command -v rsync >/dev/null 2>&1; then
     rsync -a --mkpath "$PROJECT_ROOT/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/"
 else
     cp -f "$PROJECT_ROOT/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/librust_g.so"
 fi
+
+chmod +x librust_g.so
 
 exit 0
