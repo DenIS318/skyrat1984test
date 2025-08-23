@@ -27,7 +27,7 @@ if ! command -v rustup >/dev/null 2>&1; then
     fi
 fi
 
-# Copy files from ../RUST/*.* to $TARGET_DIR/src/RUST_1984/
+# copy files
 SRC_DIR="$PROJECT_ROOT/RUST"
 DEST_DIR="$PROJECT_ROOT/RUST_REMOTE/src/RUST_1984"
 
@@ -35,7 +35,7 @@ mkdir -p "$DEST_DIR"
 
 # Use rsync or cp -r
 if command -v rsync >/dev/null 2>&1; then
-    rsync -a "$SRC_DIR/" "$DEST_DIR/"
+    rsync -a --mkpath "$SRC_DIR/" "$DEST_DIR/"
 else
     cp -r "$SRC_DIR/"* "$DEST_DIR/"
 fi
@@ -56,11 +56,11 @@ else
 fi
 
 rustup target add i686-unknown-linux-gnu
-cargo build --release --target i686-unknown-linux-gnu --target-dir $PROJECT_ROOT --bin librust_g.so
+cargo build --release --target i686-unknown-linux-gnu
 chmod +x librust_g.so
 
 if command -v rsync >/dev/null 2>&1; then
-    rsync -a "$PROJECT_ROOT/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/"
+    rsync -a --mkpath "$PROJECT_ROOT/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/"
 else
     cp -f "$PROJECT_ROOT/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/librust_g.so"
 fi
