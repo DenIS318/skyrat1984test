@@ -1,0 +1,6 @@
+author: "Arceniu"
+delete-after: True
+changes:
+  - rscadd: "Upgraded blueshield medkit to fix synth"
+  - bugfix: "fixed some lost blueshield edits"
+  - refactor: "blueshield now have 1984 modularity instead of offs code edit"
