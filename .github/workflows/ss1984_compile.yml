@@ -13,7 +13,14 @@ jobs:
         repository: ${{github.event.pull_request.head.repo.full_name}}
     - name: Setup part 1 (Bun)
       uses: ./.github/actions/setup_bun
+    - name: Setup part 1.5 (.Net SDK CACHE)
+      id: cache-dotnet
+      uses: actions/cache@v4
+      with:
+        key: ${{ runner.os }}-dotnet-9.x
+        restore-keys: ${{ runner.os }}-dotnet-9.x
     - name: Setup part 2 (.NET SDK)
+      if: ${{ steps.cache-dotnet.outputs.cache-hit != 'true' }}
       uses: actions/setup-dotnet@v4.2.0
       with:
         dotnet-version: 9.x

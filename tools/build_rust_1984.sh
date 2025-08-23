@@ -14,9 +14,10 @@ else
     mkdir -p "$TARGET_DIR"
     cd "$TARGET_DIR"
     echo "Cloning remote..."
-    git clone "$REPO_URL" .
+    git clone $REPO_URL .
 fi
 
+cd $PROJECT_ROOT
 
 if ! command -v rustup >/dev/null 2>&1; then
     echo '"rustup" command was not found. Trying to auto-install...'
@@ -31,7 +32,7 @@ fi
 SRC_DIR="$PROJECT_ROOT/RUST"
 DEST_DIR="$PROJECT_ROOT/RUST_REMOTE/src/RUST_1984"
 
-mkdir -p "$DEST_DIR"
+mkdir -p $DEST_DIR
 
 # Use rsync or cp -r
 if command -v rsync >/dev/null 2>&1; then
