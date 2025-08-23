@@ -800,3 +800,36 @@
       defibs
   - rscadd: Health analyzer (basic) is added to autolathe designs
   - bugfix: Loaded defibs at maps now properly shows attached defib overlay
+2025-08-23:
+  DenIS318:
+  - balance: 'Plasma inflation now works for ghostroles markets same way, as it does
+      for station cargo. Interdyne and DS-2 market are shared. Total 5 markets: station,
+      interdyne+ds, tarkon, pirates, "blackmarket" (when it doesn''t fit any of others)'
+  - qol: Plasma inflation is calculated during predict value on ghostroles pads (can
+      view how much you will get from plasma before sending it)
+  - rscadd: Mutadone pills added to NanoDrug
+  - balance: Dynamic no longer counts non-station roles as "Alive" for rulesets population
+  - bugfix: Dynamic rolling no longer counts SSD/disconnected players as "Alive"
+  - code_imp: 'Example how Dynamic count alive players now: 1 secoff, 1 disconnected
+      crew, 1 SSD crew, 2 normal crew, 1 dead crew, and 1 non-station role (tarkon)
+      = 3 alive players, antags normally start from 5 population (including 1 security/captain).
+      The same principes applying to "enemies" selection, such when calculating amount
+      of alive security/heads (for revs)'
+  - admin: Alive Players in dynamic panel now shows how much it count as "Alive" for
+      rolling (no ghost roles... etc.). This might differ from other admin panels
+      (it's should be that way)
+  - rscadd: Atmos techs now start with engineering skillchip
+  - balance: Ghostroles such as Tarkon, DS-2, Interdyne no longer have destination
+      to station docks
+  - balance: Tarkon instead of station can fly to Deep Space by using camera console
+      (in case it was spawned)
+  - rscadd: Tarkon remote now can fly to any custom location and back to tarkon port
+      (unique feature for tarkon shuttle only)
+  - rscadd: Syndicate research server is added to DS-2. It's have it's own techweb
+      separated from station. Interdyne is also gain researches from it (in case they
+      build R&D)
+  - rscadd: Spare Syndicate R&D server circuit added to DS-2 vault safe
+  - qol: Removed NIFsoft default examine text ("There's a certain spark to their eyes.").
+      You need to set it manually if you want it to appear (more than 6 characters)
+  - bugfix: Now transfer vote properly count non-voters as "Continue playing" as other
+      votes does

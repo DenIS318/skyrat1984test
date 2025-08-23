@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - qol: "Removed NIFsoft default examine text (\"There's a certain spark to their eyes.\"). You need to set it manually if you want it to appear (more than 6 characters)"
