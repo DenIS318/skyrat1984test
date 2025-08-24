@@ -28,18 +28,7 @@ if ! command -v rustup >/dev/null 2>&1; then
     fi
 fi
 
-# copy files
 SRC_DIR="$PROJECT_ROOT/RUST"
-DEST_DIR="$PROJECT_ROOT/RUST_REMOTE/src/RUST_1984"
-
-mkdir -p $DEST_DIR
-
-# Use rsync or cp -r
-if command -v rsync >/dev/null 2>&1; then
-    rsync -a --mkpath "$SRC_DIR/" "$DEST_DIR/"
-else
-    cp -r "$SRC_DIR/"* "$DEST_DIR/"
-fi
 
 set +e
 has_sudo="$(command -v sudo)"
@@ -58,19 +47,19 @@ else
     sudo apt-get install zlib1g-dev:i386
 fi
 
-cd $TARGET_DIR
+cd $SRC_DIR
 
 rustup target add i686-unknown-linux-gnu
 export PKG_CONFIG_ALLOW_CROSS=1
 cargo build --release --target i686-unknown-linux-gnu
 
 if command -v rsync >/dev/null 2>&1; then
-    rsync -a --mkpath "$PROJECT_ROOT/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/"
+    rsync -a --mkpath "$SRC_DIR/target/i686-unknown-linux-gnu/release/librust-1984.so" "$PROJECT_ROOT/"
 else
-    cp -f "$PROJECT_ROOT/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/librust_g.so"
+    cp -f "$SRC_DIR/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust-1984.so" "$PROJECT_ROOT/librust-1984.so"
 fi
 
 cd $PROJECT_ROOT
-chmod +x librust_g.so
+chmod +x librust-1984.so
 
 exit 0

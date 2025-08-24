@@ -27,14 +27,14 @@ IF %ERRORLEVEL% NEQ 0 (
     exit 102
 )
 
-xcopy "%~dp0\..\RUST\*.*" "%TARGET_DIR%\src\RUST_1984\" /E /I /Y /q
+cd "%~dp0\..\RUST"
 
 rustup target add i686-pc-windows-msvc
 cargo build --release --target i686-pc-windows-msvc
 
-xcopy "%TARGET_DIR%\target\i686-pc-windows-msvc\release\rust_g.dll" "%~dp0\.." /Y /q
+xcopy "%~dp0\..\RUST\target\i686-pc-windows-msvc\release\rust-1984.dll" "%~dp0\.." /Y /q
 IF %ERRORLEVEL% NEQ 0 (
-    ECHO Failed to copy rust_g.dll
+    ECHO Failed to copy rust-1984.dll
     exit 103
 )
 

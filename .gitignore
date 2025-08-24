@@ -265,6 +265,9 @@ tgstation.json
 # Ignore remote files
 /RUST_REMOTE
 
+# Ignore generated cargo stuff
+/RUST/target
+
 # Ignore local builded files
 rust_g.dll
 rust_g64.dll

@@ -214,6 +214,7 @@
 #include "code\__DEFINES\rotation.dm"
 #include "code\__DEFINES\roundend.dm"
 #include "code\__DEFINES\rust_g.dm"
+#include "modular_ss220\modules\rust_g_custom\__DEFINES\rust_defines.dm"
 #include "code\__DEFINES\rust_g_overrides.dm"
 #include "code\__DEFINES\say.dm"
 #include "code\__DEFINES\screentips.dm"
@@ -9445,4 +9446,5 @@
 #include "modular_ss220\modules\ghostroles_stuff\ds2_interdyne_shared\machine_circuits.dm"
 #include "modular_ss220\modules\ghostroles_stuff\ds2_interdyne_shared\interdyne_ds2_rnd.dm"
 #include "modular_ss220\modules\ghostroles_stuff\shuttles_stuff\shuttles.dm"
+#include "modular_ss220\modules\rust_g_custom\test.dm"
 // END_INCLUDE
