@@ -8,8 +8,9 @@ TARGET_DIR="$PROJECT_ROOT/RUST_REMOTE"
 # Check if folder exists
 if [ -d "$TARGET_DIR" ]; then
     cd "$TARGET_DIR"
-    echo "Pulling and checking if need to update remote..."
-    git pull $REPO_URL master --allow-unrelated-histories --no-rebase
+    echo "Fetching and force checkout to origin..."
+    git fetch origin master
+    git checkout -f master
 else
     mkdir -p "$TARGET_DIR"
     cd "$TARGET_DIR"

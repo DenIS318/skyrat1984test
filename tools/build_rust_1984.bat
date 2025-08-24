@@ -6,8 +6,9 @@ set TARGET_DIR="%~dp0\..\RUST_REMOTE"
 REM Check if folder exists (order is important)
 if exist %TARGET_DIR% (
     cd %TARGET_DIR%
-    echo Pulling and checking if need to update remote...
-    git pull %REPO_URL% master --allow-unrelated-histories --no-rebase
+    echo Fetching and force checkout to origin...
+    git fetch origin master
+    git checkout -f master
 )
 if not exist %TARGET_DIR% (
     mkdir %TARGET_DIR%
