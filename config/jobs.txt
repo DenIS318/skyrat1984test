@@ -70,6 +70,7 @@ Warden=1,1
 Detective=2,2
 Security Officer=6,6
 Corrections Officer=2,1
+Security Medic=1,1
 
 
 # Silicons

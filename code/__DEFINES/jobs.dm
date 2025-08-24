@@ -72,6 +72,7 @@
 #define JOB_SECURITY_OFFICER_SUPPLY "Cargo Security Officer"
 #define JOB_SECURITY_OFFICER_SERVICE "Service Security Officer" // SS1984 ADDITION
 #define JOB_CORRECTIONS_OFFICER "Corrections Officer" // NOVA EDIT ADDITION
+#define JOB_SECURITY_MEDIC "Security Medic" //SS1984 ADD
 //Engineering
 #define JOB_STATION_ENGINEER "Station Engineer"
 #define JOB_ATMOSPHERIC_TECHNICIAN "Atmospheric Technician"
