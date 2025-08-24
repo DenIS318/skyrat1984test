@@ -1,5 +1,16 @@
 [
   {
+    "date": "2025-08-24",
+    "author": "Arceniu",
+    "changes": [
+      "Upgraded blueshield medkit to fix synth",
+      "fixed some lost blueshield edits",
+      "blueshield now have 1984 modularity instead of offs code edit",
+      "fixed a some runtimes in DS2/IP/PT job accounts",
+      "returned jackets to ds2"
+    ]
+  },
+  {
     "date": "2025-08-23",
     "author": "DenIS318",
     "changes": [
