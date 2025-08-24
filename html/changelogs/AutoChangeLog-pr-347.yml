@@ -1,5 +1,0 @@
-author: "Arceniu"
-delete-after: True
-changes:
-  - bugfix: "fixed a some runtimes in DS2/IP/PT job accounts"
-  - map: "returned jackets to ds2"

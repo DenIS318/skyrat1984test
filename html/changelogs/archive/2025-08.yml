@@ -833,3 +833,10 @@
       You need to set it manually if you want it to appear (more than 6 characters)
   - bugfix: Now transfer vote properly count non-voters as "Continue playing" as other
       votes does
+2025-08-24:
+  Arceniu:
+  - bugfix: fixed a some runtimes in DS2/IP/PT job accounts
+  - map: returned jackets to ds2
+  - rscadd: Upgraded blueshield medkit to fix synth
+  - bugfix: fixed some lost blueshield edits
+  - refactor: blueshield now have 1984 modularity instead of offs code edit
