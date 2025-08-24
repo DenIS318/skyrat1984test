@@ -39,13 +39,13 @@ set -x
 if ! [ -x "$has_sudo" ]; then
     dpkg --add-architecture i386
     apt-get update
-    apt-get install gcc-multilib
-    apt-get install zlib1g-dev:i386
+    apt-get install -y gcc-multilib
+    apt-get install -y zlib1g-dev:i386
 else
     sudo dpkg --add-architecture i386
     sudo apt-get update
-    sudo apt-get install gcc-multilib
-    sudo apt-get install zlib1g-dev:i386
+    sudo apt-get -y install gcc-multilib
+    sudo apt-get -y install zlib1g-dev:i386
 fi
 
 export PKG_CONFIG_ALLOW_CROSS=1
