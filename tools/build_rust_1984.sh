@@ -20,21 +20,23 @@ fi
 
 cd $PROJECT_ROOT
 
-if ! command -v rustup >/dev/null 2>&1; then
+set +e
+has_rust="$(command -v rustup)"
+has_sudo="$(command -v sudo)"
+set -e
+set -x
+
+if ! [ -x "$has_rust" ]; then
     echo '"rustup" command was not found. Trying to auto-install...'
     curl https://sh.rustup.rs -sSf | sh
-    if ! command -v rustup >/dev/null 2>&1; then
+    has_rust="$(command -v rustup)"
+    if ! [ -x "$has_rust" ]; then
         echo 'failed to auto-install rustup, try install manually https://doc.rust-lang.org/stable/cargo/getting-started/installation.html'
         exit 102
     fi
 fi
 
 SRC_DIR="$PROJECT_ROOT/RUST"
-
-set +e
-has_sudo="$(command -v sudo)"
-set -e
-set -x
 
 if ! [ -x "$has_sudo" ]; then
     dpkg --add-architecture i386
