@@ -9435,6 +9435,8 @@
 #include "modular_ss220\modules\upstream-fixes\scarring_rejuve\human_helpers.dm"
 #include "modular_ss220\modules\crew_manifest_colored\crewmanifest.dm"
 #include "modular_ss220\modules\fixes_minor_1984\no_bitrun_huduse\human.dm"
+#include "modular_ss220\modules\votes_stuff\transfer_vote.dm"
+#include "modular_ss220\modules\votes_stuff\autotransfer.dm"
 #include "modular_ss220\modules\qol_casual_1984\engivend_jetpacks\modules_general.dm"
 #include "modular_ss220\modules\qol_casual_1984\engivend_jetpacks\engivend.dm"
 #include "modular_ss220\modules\qol_casual_1984\autopin_jetpack_module\modules_general.dm"
