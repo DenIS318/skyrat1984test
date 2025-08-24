@@ -35,8 +35,8 @@ jobs:
     - name: Cache RUST_REMOTE folder
       uses: actions/cache@v4
       with:
-        path: RUST_REMOTE  # The folder to cache
-        key: rust_remote-${{ runner.os }}-${{ hashFiles('Cargo.lock') }} # Unique key for the cache
+        path: RUST_REMOTE # folder to cache
+        key: rust_remote-${{ runner.os }}-${{ hashFiles('Cargo.lock') }} # key for the cache
         restore-keys: |
           rust_remote-${{ runner.os }}-
     - name: Setup part 7 (Rust Cache)
