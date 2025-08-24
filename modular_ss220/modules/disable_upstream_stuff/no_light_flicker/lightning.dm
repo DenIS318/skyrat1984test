@@ -1,4 +1,4 @@
-/obj/machinery/light/proc/start_flickering()
+/obj/machinery/light/start_flickering()
 	return
 
 /obj/machinery/light/Initialize(mapload = TRUE)
