@@ -27,10 +27,17 @@ IF %ERRORLEVEL% NEQ 0 (
     exit 102
 )
 
+cd %TARGET_DIR%
+
+rustup target add i686-pc-windows-msvc
+cargo build --release --target i686-pc-windows-msvc
+
 cd "%~dp0\..\RUST"
 
 rustup target add i686-pc-windows-msvc
 cargo build --release --target i686-pc-windows-msvc
+
+cd "%~dp0\.."
 
 xcopy "%~dp0\..\RUST\target\i686-pc-windows-msvc\release\rust-1984.dll" "%~dp0\.." /Y /q
 IF %ERRORLEVEL% NEQ 0 (

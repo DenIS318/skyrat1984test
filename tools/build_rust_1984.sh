@@ -47,11 +47,18 @@ else
     sudo apt-get install zlib1g-dev:i386
 fi
 
+export PKG_CONFIG_ALLOW_CROSS=1
+cd $TARGET_DIR
+
+rustup target add i686-unknown-linux-gnu
+cargo build --release --target i686-unknown-linux-gnu
+
 cd $SRC_DIR
 
 rustup target add i686-unknown-linux-gnu
-export PKG_CONFIG_ALLOW_CROSS=1
 cargo build --release --target i686-unknown-linux-gnu
+
+cd $PROJECT_ROOT
 
 if command -v rsync >/dev/null 2>&1; then
     rsync -a --mkpath "$SRC_DIR/target/i686-unknown-linux-gnu/release/librust-1984.so" "$PROJECT_ROOT/"
