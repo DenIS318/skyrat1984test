@@ -24,7 +24,7 @@ if ! command -v rustup >/dev/null 2>&1; then
     curl https://sh.rustup.rs -sSf | sh
     if ! command -v rustup >/dev/null 2>&1; then
         echo 'failed to auto-install rustup, try install manually https://doc.rust-lang.org/stable/cargo/getting-started/installation.html'
-        exit 1
+        exit 102
     fi
 fi
 
@@ -53,20 +53,52 @@ cd $TARGET_DIR
 rustup target add i686-unknown-linux-gnu
 cargo build --release --target i686-unknown-linux-gnu
 
+if [ ! $? -eq 0 ]; then
+  echo "Failed to build original rust"
+  exit 104
+fi
+
 cd $SRC_DIR
 
 rustup target add i686-unknown-linux-gnu
 cargo build --release --target i686-unknown-linux-gnu
 
-cd $PROJECT_ROOT
+if [ ! $? -eq 0 ]; then
+  echo "Failed to build modular rust 1984"
+  exit 105
+fi
+
+exec 200>"$PROJECT_ROOT/librust_g.so"
+if ! flock -n 200; then
+  echo "librust_g.so is currently locked. Trying to kill dreamdaemon."
+  pkill dreamdaemon
+fi
 
 if command -v rsync >/dev/null 2>&1; then
-    rsync -a --mkpath "$SRC_DIR/target/i686-unknown-linux-gnu/release/librust-1984.so" "$PROJECT_ROOT/"
+    rsync -a --mkpath "$TARGET_DIR/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/"
 else
-    cp -f "$SRC_DIR/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust-1984.so" "$PROJECT_ROOT/librust-1984.so"
+    cp -f "$TARGET_DIR/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_g.so" "$PROJECT_ROOT/librust_g.so"
+fi
+
+if [ ! $? -eq 0 ]; then
+  echo "Failed to copy original librust_g.so"
+  exit 106
 fi
 
 cd $PROJECT_ROOT
-chmod +x librust-1984.so
+
+if command -v rsync >/dev/null 2>&1; then
+    rsync -a --mkpath "$SRC_DIR/target/i686-unknown-linux-gnu/release/librust_1984.so" "$PROJECT_ROOT/"
+else
+    cp -f "$SRC_DIR/RUST_REMOTE/target/i686-unknown-linux-gnu/release/librust_1984.so" "$PROJECT_ROOT/librust_1984.so"
+fi
+
+if [ ! $? -eq 0 ]; then
+  echo "Failed to copy librust_1984.so"
+  exit 107
+fi
+
+cd $PROJECT_ROOT
+chmod +x librust_1984.so
 
 exit 0

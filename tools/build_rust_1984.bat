@@ -32,17 +32,38 @@ cd %TARGET_DIR%
 rustup target add i686-pc-windows-msvc
 cargo build --release --target i686-pc-windows-msvc
 
+IF %ERRORLEVEL% NEQ 0 (
+    ECHO Failed to build original rust
+    exit 104
+)
+
+2>nul (call >> "%~dp0\..\rust_g.dll") || (
+    ECHO rust_g.dll is currently locked. Trying to kill dreamdaemon.exe...
+    taskkill /IM dreamdaemon.exe /F
+)
+
+xcopy "%TARGET_DIR%\target\i686-pc-windows-msvc\release\rust_g.dll" "%~dp0\.." /Y /q
+IF %ERRORLEVEL% NEQ 0 (
+    ECHO Failed to copy original rust_g.dll
+    exit 105
+)
+
 cd "%~dp0\..\RUST"
 
 rustup target add i686-pc-windows-msvc
 cargo build --release --target i686-pc-windows-msvc
 
+IF %ERRORLEVEL% NEQ 0 (
+    ECHO Failed to build modular rust 1984
+    exit 106
+)
+
 cd "%~dp0\.."
 
-xcopy "%~dp0\..\RUST\target\i686-pc-windows-msvc\release\rust-1984.dll" "%~dp0\.." /Y /q
+xcopy "%~dp0\..\RUST\target\i686-pc-windows-msvc\release\rust_1984.dll" "%~dp0\.." /Y /q
 IF %ERRORLEVEL% NEQ 0 (
-    ECHO Failed to copy rust-1984.dll
-    exit 103
+    ECHO Failed to copy rust_1984.dll
+    exit 107
 )
 
 exit /b 0
