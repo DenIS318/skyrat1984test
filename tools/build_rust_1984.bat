@@ -7,7 +7,7 @@ REM Check if folder exists (order is important)
 if exist %TARGET_DIR% (
     cd %TARGET_DIR%
     echo Pulling and checking if need to update remote...
-    git pull --merge %REPO_URL%
+    git pull --no-rebase %REPO_URL%
 )
 if not exist %TARGET_DIR% (
     mkdir %TARGET_DIR%

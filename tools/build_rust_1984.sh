@@ -9,7 +9,7 @@ TARGET_DIR="$PROJECT_ROOT/RUST_REMOTE"
 if [ -d "$TARGET_DIR" ]; then
     cd "$TARGET_DIR"
     echo "Pulling and checking if need to update remote..."
-    git pull --merge $REPO_URL
+    git pull --no-rebase $REPO_URL
 else
     mkdir -p "$TARGET_DIR"
     cd "$TARGET_DIR"
