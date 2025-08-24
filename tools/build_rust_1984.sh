@@ -9,7 +9,7 @@ TARGET_DIR="$PROJECT_ROOT/RUST_REMOTE"
 if [ -d "$TARGET_DIR" ]; then
     cd "$TARGET_DIR"
     echo "Pulling and checking if need to update remote..."
-    git pull https://github.com/skyrat1984test/rust-skyrat-1984.git
+    git pull --merge $REPO_URL
 else
     mkdir -p "$TARGET_DIR"
     cd "$TARGET_DIR"
