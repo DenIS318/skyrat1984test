@@ -38,7 +38,7 @@ fi
 
 SRC_DIR="$PROJECT_ROOT/RUST"
 
-if ! dpkg -s gcc-multilib &>/dev/null || ! dpkg -s zlib1g-dev &>/dev/null; then
+if ! dpkg -s gcc-multilib &>/dev/null || ! dpkg -s zlib1g-dev:i386 &>/dev/null; then
   # Either gcc-multilib or zlib1g-dev is NOT installed
   if ! [ -x "$has_sudo" ]; then
     dpkg --add-architecture i386
