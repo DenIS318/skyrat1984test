@@ -1,6 +1,14 @@
 [
   {
     "date": "2025-08-24",
+    "author": "DenIS318",
+    "changes": [
+      "Disabled automatic light flickering (from explosions and other stuff). Should result in better perfomance",
+      "Disable autotransfer vote when there's no players"
+    ]
+  },
+  {
+    "date": "2025-08-24",
     "author": "Arceniu",
     "changes": [
       "Upgraded blueshield medkit to fix synth",

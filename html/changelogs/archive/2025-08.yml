@@ -840,3 +840,7 @@
   - rscadd: Upgraded blueshield medkit to fix synth
   - bugfix: fixed some lost blueshield edits
   - refactor: blueshield now have 1984 modularity instead of offs code edit
+  DenIS318:
+  - qol: Disable autotransfer vote when there's no players
+  - rscdel: Disabled automatic light flickering (from explosions and other stuff).
+      Should result in better perfomance
