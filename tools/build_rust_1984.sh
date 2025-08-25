@@ -38,16 +38,19 @@ fi
 
 SRC_DIR="$PROJECT_ROOT/RUST"
 
-if ! [ -x "$has_sudo" ]; then
+if ! dpkg -s gcc-multilib &>/dev/null || ! dpkg -s zlib1g-dev &>/dev/null; then
+  # Either gcc-multilib or zlib1g-dev is NOT installed
+  if ! [ -x "$has_sudo" ]; then
     dpkg --add-architecture i386
     apt-get update
     apt-get install -y gcc-multilib
     apt-get install -y zlib1g-dev:i386
-else
-    sudo dpkg --add-architecture i386
-    sudo apt-get update
-    sudo apt-get -y install gcc-multilib
-    sudo apt-get -y install zlib1g-dev:i386
+  else
+      sudo dpkg --add-architecture i386
+      sudo apt-get update
+      sudo apt-get -y install gcc-multilib
+      sudo apt-get -y install zlib1g-dev:i386
+  fi
 fi
 
 export PKG_CONFIG_ALLOW_CROSS=1
