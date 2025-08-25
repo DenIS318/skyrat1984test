@@ -844,3 +844,9 @@
   - qol: Disable autotransfer vote when there's no players
   - rscdel: Disabled automatic light flickering (from explosions and other stuff).
       Should result in better perfomance
+2025-08-25:
+  DenIS318:
+  - bugfix: Added sprite to toy turret kit for request console (instead of ERROR)
+  - bugfix: Fixed double-equip outfit items for ghost role spawners
+  - bugfix: Adminwho for non-admins players no longer shows no-admins info, when there
+      are admins
