@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - balance: "Max Health is reduced from 135 to 100 (so now in soft crit you can sustain up to 200 damage before falling to hard crit, instead of 270). However keep in mind, that health is tied to bodyparts damage, so it's not always exactly 100 health for softcrit, with 100 brute damage there might be \"5\" health, instead of 0. TL;DR One extra hit almost always would be be required."
