@@ -9450,4 +9450,6 @@
 #include "modular_ss220\modules\ghostroles_stuff\ds2_interdyne_shared\interdyne_ds2_rnd.dm"
 #include "modular_ss220\modules\ghostroles_stuff\shuttles_stuff\shuttles.dm"
 #include "modular_ss220\modules\rust_g_custom\test.dm"
+#include "modular_ss220\modules\admin_stuff\man_up\admin.dm"
+#include "modular_ss220\modules\admin_stuff\man_up\adminhelp.dm"
 // END_INCLUDE
