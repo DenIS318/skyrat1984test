@@ -1144,6 +1144,15 @@
   - bugfix: Fixed a runtime in climbing hooks when you would try to climb down.
   DaxDupont:
   - spellcheck: The crew is no longer encouranged to assist in repairs.
+  DenIS318:
+  - admin: Man Up response for a-tickets
+  - rscadd: 'Revert "Removes the Justice mech (TG #92486)"'
+  - rscdel: Revert "NT/E "Laevateinn" - a magnetic .38 revolver (Nova №5947)"
+  - balance: Max Health is reduced from 135 to 100 (so now in soft crit you can sustain
+      up to 200 damage before falling to hard crit, instead of 270). However keep
+      in mind, that health is tied to bodyparts damage, so it's not always exactly
+      100 health for softcrit, with 100 brute damage there might be "5" health, instead
+      of 0. TL;DR One extra hit almost always would be be required.
   DresserOnFire:
   - bugfix: Wanted posters now correctly return to your inventory if you move while
       placing them

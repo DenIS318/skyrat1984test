@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscadd: "Revert \"Removes the Justice mech (TG #92486)\""
-  - rscdel: "Revert \"NT/E \"Laevateinn\" - a magnetic .38 revolver (Nova №5947)\""
