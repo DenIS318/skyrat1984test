@@ -31,7 +31,7 @@ jobs:
           - 3306
         options: --health-cmd="mariadb-admin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Restore BYOND from Cache
         uses: ./.github/actions/restore_or_install_byond
         with:

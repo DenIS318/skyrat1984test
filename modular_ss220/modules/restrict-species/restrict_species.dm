@@ -1,3 +1,4 @@
+/* TODO: REWORK LATER FOR NEW DYNAMIC
 /datum/dynamic_ruleset
 	var/list/restricted_species = list()
 
@@ -19,3 +20,4 @@
 		var/species_text_path = "[species_type]"
 		if (species_text_path in restricted_species)
 			candidates -= candidate_player
+*/

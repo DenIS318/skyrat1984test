@@ -1,3 +1,4 @@
+/* TODO: REWORK LATER FOR NEW DYNAMIC
 #define PROGRESSIVE_DYNAMIC_TITLE "\[Progressive Dynamic\]"
 
 // If enabled, all these additions will work
@@ -166,3 +167,4 @@ SUBSYSTEM_DEF(progressive_dynamic)
 		log_dynamic("[gameTimestamp()]: [PROGRESSIVE_DYNAMIC_TITLE]: Disabling progressive threat updates due to generated [generated_threat_by_progressive_dynamic] out of allowed [max_generated_threat]")
 		can_fire = FALSE // Temporaly disable fire(), admins still can VV generated_threat_by_progressive_dynamic or max_generated_threat (look at vv_edit_var)
 
+*/
