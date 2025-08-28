@@ -432,16 +432,16 @@
 /datum/action/proc/is_action_active(atom/movable/screen/movable/action_button/current_button)
 	return FALSE
 
-/datum/action/proc/begin_creating_bind(mob/user)
-	if(!user != owner)
+/datum/action/proc/begin_creating_bind(atom/movable/screen/movable/action_button/current_button, mob/user)
+	if(!current_button || user != owner)
 		return
 	if(!isnull(full_key))
 		full_key = null
-		update_button_status(src)
+		update_button_status(current_button)
 		return
 	full_key = tgui_input_keycombo(user, "Please bind a key for this action.")
 	full_key = convert_ru_key_to_en_key(full_key) // SS1984 ADDITION
-	update_button_status(src)
+	update_button_status(current_button)
 
 /datum/action/proc/keydown(mob/source, key, client/client, full_key)
 	SIGNAL_HANDLER
