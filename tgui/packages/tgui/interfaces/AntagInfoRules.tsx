@@ -1,3 +1,4 @@
+/* SS1984 REMOVAL START
 // THIS IS A NOVA SECTOR UI FILE
 import { Stack } from 'tgui-core/components';
 
@@ -264,3 +265,4 @@ export const Rules = (props) => {
       );
   }
 };
+SS1984 REMOVAL END */
