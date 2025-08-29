@@ -1,6 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscadd: "Minimal enemies (security/captain/blueshield/consultant) is added back to new dynamic"
-  - config: "Set minimal enemies to similar values as it was before, but based on dynamic tier"
-  - bugfix: "Head of Staff (non-mindshield like Captain, Consultant) can now really become antags"
