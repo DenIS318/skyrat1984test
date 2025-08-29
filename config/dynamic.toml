@@ -161,6 +161,7 @@ blacklisted_roles = [
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 1
 
 ["Latejoin Heretic"]
 weight = 5
@@ -169,6 +170,9 @@ blacklisted_roles = []
 repeatable_weight_decrease = 1
 repeatable = 1
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 2
+# same for higher tiers
 
 ["Latejoin Changeling"]
 weight = 3
@@ -180,6 +184,9 @@ restricted_species = [
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 2
+# same for higher tiers
 
 ["Latejoin Revolution"]
 weight = 1
@@ -188,9 +195,13 @@ blacklisted_roles = []
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 3
+min_enemies.3 = 2
+# same for higher tiers
 
 ["Spiders"]
-weight.1 = 0
+weight.1 = 1
 weight.2 = 2
 weight.3 = 2
 weight.4 = 2
@@ -201,6 +212,7 @@ min_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 1
 
 ["Light Pirates"]
 weight = 3
@@ -212,6 +224,9 @@ max_antag_cap.offset = 2
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 2
+min_enemies.2 = 1
+# same for higher tiers
 
 ["Heavy Pirates"]
 weight = 3
@@ -223,6 +238,9 @@ max_antag_cap.offset = 2
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 2
+min_enemies.2 = 1
+# same for higher tiers
 
 ["Midround Wizard"]
 weight.1 = 0
@@ -236,6 +254,10 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 3
+min_enemies.3 = 2
+# same for higher tiers
 
 ["Midround Nukeops"]
 weight.1 = 0
@@ -250,6 +272,10 @@ min_antag_cap.offset = 1
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 4
+min_enemies.2 = 3
+min_enemies.3 = 2
+# same for higher tiers
 
 ["Midround Clownops"]
 weight = 0
@@ -261,6 +287,10 @@ min_antag_cap.offset = 1
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 4
+min_enemies.2 = 3
+min_enemies.3 = 2
+# same for higher tiers
 
 ["Blob"]
 weight.1 = 0
@@ -274,6 +304,9 @@ max_antag_cap = 1
 repeatable_weight_decrease = 3
 repeatable = 1
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 2
+# same for higher tiers
 
 ["Xenomorph"]
 weight.1 = 0
@@ -287,6 +320,9 @@ max_antag_cap = 2
 repeatable_weight_decrease = 3
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 2
+# same for higher tiers
 
 ["Nightmare"]
 weight = 5
@@ -297,6 +333,7 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 2
 
 ["Space Dragon"]
 weight.1 = 0
@@ -310,6 +347,7 @@ max_antag_cap = 1
 repeatable_weight_decrease = 3
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 2
 
 ["Abductors"]
 weight = 3
@@ -320,6 +358,7 @@ min_antag_cap = 2
 repeatable_weight_decrease = 3
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 1
 
 ["Space Ninja"]
 weight.1 = 0
@@ -333,6 +372,10 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 3
+min_enemies.3 = 2
+# same for higher tiers
 
 ["Revenant"]
 weight = 3
@@ -343,6 +386,7 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 1
 
 ["Midround Changeling"]
 weight = 3
@@ -356,6 +400,9 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 2
+# same for higher tiers
 
 ["Paradox Clone"]
 weight = 5
@@ -366,6 +413,7 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 1
 
 ["Voidwalker"]
 weight = 4
@@ -376,6 +424,7 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 2
 
 ["Fugitives"]
 weight = 3
@@ -386,6 +435,7 @@ max_antag_cap = 4
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 2
 
 ["Morph"]
 weight = 2
@@ -396,6 +446,7 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 1
 
 ["Slaughter Demon"]
 weight = 2
@@ -406,6 +457,7 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 1
 
 ["Drifting Contractors"]
 weight = 7
@@ -416,16 +468,18 @@ max_antag_cap = 1
 repeatable_weight_decrease = 4
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 1
 
 ["Cortical Borers"]
 weight = 3
-min_pop = 0
+min_pop = 1
 blacklisted_roles = []
 min_antag_cap = 1
 # max_antag_cap = min_antag_cap
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 0 # monkeystation is real
 
 ["Marauders"]
 weight.1 = 3
@@ -439,6 +493,7 @@ min_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 2
 
 ["Midround Traitor"]
 weight = 8
@@ -447,6 +502,7 @@ blacklisted_roles = []
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 1
 
 ["Midround Malfunctioning AI"]
 weight.1 = 0
@@ -458,6 +514,7 @@ blacklisted_roles = []
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 2
 
 ["Blob Infection"]
 weight.1 = 0
@@ -469,6 +526,9 @@ blacklisted_roles = []
 repeatable_weight_decrease = 3
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 2
+# same for higher tiers
 
 ["Midround Obsessed"]
 weight.1 = 5
@@ -480,6 +540,7 @@ blacklisted_roles = []
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 1
 
 ["Mutant Infestation"]
 weight = 0
@@ -490,6 +551,9 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 2
+# same for higher tiers
 
 ["Roundstart Traitor"]
 weight = 10
@@ -500,6 +564,7 @@ max_antag_cap.denominator = 10
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 1
 
 ["Roundstart Malfunctioning AI"]
 weight.1 = 0
@@ -513,6 +578,7 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 2
 
 ["Roundstart Blood Brothers"]
 weight = 5
@@ -523,6 +589,7 @@ max_antag_cap.denominator = 30
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 2
 
 ["Roundstart Changeling"]
 weight = 3
@@ -536,6 +603,9 @@ max_antag_cap.denominator = 15
 repeatable_weight_decrease = 1
 repeatable = 1
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 2
+# same for higher tiers
 
 ["Roundstart Heretics"]
 weight = 6
@@ -546,6 +616,9 @@ max_antag_cap.denominator = 15
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 2
+# same for higher tiers
 
 ["Roundstart Wizard"]
 weight.1 = 0
@@ -559,6 +632,10 @@ max_antag_cap = 1
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 3
+min_enemies.2 = 3
+min_enemies.3 = 2
+# same for higher tiers
 
 ["Roundstart Blood Cult"]
 weight.1 = 0
@@ -573,6 +650,10 @@ min_antag_cap.offset = 3
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 4
+min_enemies.2 = 3
+min_enemies.3 = 2
+# same for higher tiers
 
 ["Roundstart Nukeops"]
 weight.1 = 0
@@ -598,6 +679,10 @@ min_antag_cap.offset = 1
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 4
+min_enemies.2 = 3
+min_enemies.3 = 2
+# same for higher tiers
 
 ["Roundstart Revolution"]
 weight.1 = 0
@@ -611,6 +696,10 @@ max_antag_cap = 3
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies.1 = 4
+min_enemies.2 = 3
+min_enemies.3 = 2
+# same for higher tiers
 
 ["Roundstart Spies"]
 weight.1 = 2
@@ -625,6 +714,7 @@ min_antag_cap.offset = 1
 repeatable_weight_decrease = 2
 repeatable = 1
 minimum_required_age = 0
+min_enemies = 1
 
 ["Extended"]
 weight = 0
@@ -635,6 +725,7 @@ min_antag_cap = 0
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 0
 
 ["Meteor"]
 weight = 0
@@ -645,6 +736,7 @@ min_antag_cap = 0
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 0
 
 ["Nations"]
 weight = 0
@@ -655,3 +747,4 @@ min_antag_cap = 0
 repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
+min_enemies = 0

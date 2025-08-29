@@ -737,6 +737,13 @@ SUBSYSTEM_DEF(dynamic)
 				data += "min_pop.[i] = [ruleset.min_pop[i]]\n"
 		else
 			data += "min_pop = [ruleset.min_pop || 0]\n"
+		// SS1984 ADDITION START
+		if(islist(ruleset.min_enemies))
+			for(var/i in 1 to length(ruleset.min_enemies))
+				data += "min_enemies.[i] = [ruleset.min_enemies[i]]\n"
+		else
+			data += "min_enemies = [ruleset.min_enemies || 0]\n"
+		// SS1984 ADDITION END
 		if(length(ruleset.blacklisted_roles))
 			data += "blacklisted_roles = \[\n"
 			for(var/i in ruleset.blacklisted_roles)
