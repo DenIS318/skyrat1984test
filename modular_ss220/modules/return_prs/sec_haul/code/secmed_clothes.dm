@@ -23,16 +23,17 @@
 	worn_icon = 'modular_ss220/modules/return_prs/sec_haul/icons/labcoatworn.dmi'
 	blood_overlay_type = "armor"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	armor_type = /datum/armor/security_medic_suit
+	armor_type = /datum/armor/security_medic_coat
 
-/datum/armor/security_medic_suit
-	melee = 35
-	bullet = 30
-	laser = 30
-	energy = 40
+/datum/armor/security_medic_coat
+	melee = 20
+	bullet = 15
+	laser = 20
+	energy = 30
 	bomb = 25
-	fire = 50
-	acid = 50
+	fire = 60
+	acid = 60
+	bio = 60
 	wound = 10
 
 /obj/item/clothing/suit/toggle/labcoat/security_medic/Initialize(mapload)
@@ -56,7 +57,7 @@
 	worn_icon_state = "secmed_vest"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	allowed = list(/obj/item/analyzer, /obj/item/stack/medical, /obj/item/dnainjector, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/syringe, /obj/item/reagent_containers/hypospray, /obj/item/healthanalyzer, /obj/item/flashlight, /obj/item/reagent_containers/cup/bottle, /obj/item/reagent_containers/cup/beaker, /obj/item/reagent_containers/applicator/pill, /obj/item/storage/pill_bottle, /obj/item/paper, /obj/item/melee/baton/telescopic, /obj/item/soap, /obj/item/tank/internals/emergency_oxygen, /obj/item/gun, /obj/item/storage/medkit)
-	armor_type = /datum/armor/security_medic_suit
+	armor_type = /datum/armor/suit_armor
 	unique_reskin = null
 
 /obj/item/clothing/suit/hazardvest/security_medic/blue
