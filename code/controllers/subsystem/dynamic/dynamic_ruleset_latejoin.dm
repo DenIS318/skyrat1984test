@@ -80,6 +80,9 @@
 	var/heads_necessary = 3
 
 /datum/dynamic_ruleset/latejoin/revolution/can_be_selected()
+	. = ..()// SS1984 ADDITION
+	if (!.)
+		return .
 	if(GLOB.revolution_handler)
 		return FALSE
 	var/head_check = 0
