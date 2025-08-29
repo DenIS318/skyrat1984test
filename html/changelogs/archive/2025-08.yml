@@ -1380,3 +1380,5 @@
       tier
   - bugfix: Head of Staff (non-mindshield like Captain, Consultant) can now really
       become antags
+  - bugfix: Singulo no longer invisible
+  - bugfix: Whisper and italics text now properly shown in runechat
