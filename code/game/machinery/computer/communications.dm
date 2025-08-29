@@ -961,7 +961,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 				"Attention crew, it appears that someone on your station has hijacked your telecommunications and broadcasted an unknown signal.",
 				"[command_name()] High-Priority Update",
 			)
-			var/max_number_of_sleepers = clamp(round(length(GLOB.alive_player_list) / 40), 1, 3)
+			var/max_number_of_sleepers = clamp(round(SSdynamic ? SSdynamic.get_population_for_dynamic_rolling(GLOB.alive_player_list) : length(GLOB.alive_player_list) / 40), 1, 3) // SS1984 EDIT, original: var/max_number_of_sleepers = clamp(round(length(GLOB.alive_player_list) / 40), 1, 3)
 			if(!SSdynamic.force_run_midround(/datum/dynamic_ruleset/midround/from_living/traitor, forced_max_cap = max_number_of_sleepers))
 				SSdynamic.queue_ruleset(/datum/dynamic_ruleset/latejoin/traitor)
 

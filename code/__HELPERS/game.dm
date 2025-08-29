@@ -167,6 +167,8 @@
 			var/mob/dead/observer/ghost_player = player_mob
 			if(ghost_player.started_as_observer) // Exclude people who started as observers
 				continue
+		if (alive_check && SSdynamic && !SSdynamic.is_mob_considered_as_valid(player_mob, player_mob.client, allow_ghost = FALSE)) // SS1984 ADDITION
+			continue // SS1984 ADDITION
 		active_players += player_mob
 	return active_players
 
