@@ -48,6 +48,17 @@
 /obj/item/clothing/suit/toggle/labcoat/security_medic/blue
 	icon_state = "secmed_labcoat_blue"
 
+/datum/armor/security_medic_hazardvest
+	melee = 20
+	bullet = 10
+	laser = 30
+	energy = 40
+	bomb = 25
+	fire = 50
+	acid = 50
+	bio = 20
+	wound = 15
+
 /obj/item/clothing/suit/hazardvest/security_medic
 	name = "security medic vest"
 	desc = "A lightweight vest worn by the Security Medic."
@@ -57,8 +68,12 @@
 	worn_icon_state = "secmed_vest"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	allowed = list(/obj/item/analyzer, /obj/item/stack/medical, /obj/item/dnainjector, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/syringe, /obj/item/reagent_containers/hypospray, /obj/item/healthanalyzer, /obj/item/flashlight, /obj/item/reagent_containers/cup/bottle, /obj/item/reagent_containers/cup/beaker, /obj/item/reagent_containers/applicator/pill, /obj/item/storage/pill_bottle, /obj/item/paper, /obj/item/melee/baton/telescopic, /obj/item/soap, /obj/item/tank/internals/emergency_oxygen, /obj/item/gun, /obj/item/storage/medkit)
-	armor_type = /datum/armor/suit_armor
+	armor_type = /datum/armor/security_medic_hazardvest
 	unique_reskin = null
+	cold_protection = CHEST|GROIN
+	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
+	heat_protection = CHEST|GROIN
+	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 
 /obj/item/clothing/suit/hazardvest/security_medic/blue
 	icon_state = "secmed_vest_blue"
