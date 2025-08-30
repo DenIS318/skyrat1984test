@@ -27,7 +27,6 @@ SUBSYSTEM_DEF(server_monitoring)
 	var/round_time = "[world.time > MIDNIGHT_ROLLOVER ? "[round(world.time/MIDNIGHT_ROLLOVER)]:[gameTimestamp(wtime=world.time)]" : gameTimestamp(wtime=world.time)]"
 	if (!round_time)
 		round_time = "?"
-	log_runtime("round_time = [round_time]")
 
 	savefile.set_entry("OnlineTotal", GLOB.clients.len)
 	savefile.set_entry("OnlineAdminStuff", adminstuff_count)
