@@ -3,6 +3,7 @@
     "date": "2025-08-30",
     "author": "DenIS318",
     "changes": [
+      "cargo ui plasmacost is shown at express console interface & pda intreface",
       "Round Timer no longer start with something like 23:55:00... Instead from 00:00:00",
       "Round Timer no longer jumps back to 00:00:00 once round start, round timer is calculated since start of server",
       "Actual Round Timer is removed from status display, since Round Timer is actually \"actual\" now",
