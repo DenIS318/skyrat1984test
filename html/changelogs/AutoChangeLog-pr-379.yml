@@ -1,6 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "Round Timer no longer start with something like 23:55:00... Instead from 00:00:00"
-  - bugfix: "Round Timer no longer jumps back to 00:00:00 once round start, round timer is calculated since start of server"
-  - rscdel: "Actual Round Timer is removed from status display, since Round Timer is actually \"actual\" now"

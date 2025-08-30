@@ -1,7 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscadd: "Progressive Dynamic is reworked and added back"
-  - rscadd: "Progressive Dynamic now increase current dynamic tier level once certain amount of threat, based on how much non-antag alive security/heads/crew alive the same way, as it was before. Simple: if nothing happens for long (especially the longer shift) and you have alive security, dynamic level could be raised"
-  - qol: "Once dynamic level is raised by progressive dynamic, a report is sent to communications console and announced"
-  - admin: "New progressive dynamic UI added to Dynamic Panel"

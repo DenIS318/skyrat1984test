@@ -1382,3 +1382,19 @@
       become antags
   - bugfix: Singulo no longer invisible
   - bugfix: Whisper and italics text now properly shown in runechat
+2025-08-30:
+  DenIS318:
+  - rscadd: Progressive Dynamic is reworked and added back
+  - rscadd: 'Progressive Dynamic now increase current dynamic tier level once certain
+      amount of threat, based on how much non-antag alive security/heads/crew alive
+      the same way, as it was before. Simple: if nothing happens for long (especially
+      the longer shift) and you have alive security, dynamic level could be raised'
+  - qol: Once dynamic level is raised by progressive dynamic, a report is sent to
+      communications console and announced
+  - admin: New progressive dynamic UI added to Dynamic Panel
+  - bugfix: Round Timer no longer start with something like 23:55:00... Instead from
+      00:00:00
+  - bugfix: Round Timer no longer jumps back to 00:00:00 once round start, round timer
+      is calculated since start of server
+  - rscdel: Actual Round Timer is removed from status display, since Round Timer is
+      actually "actual" now
