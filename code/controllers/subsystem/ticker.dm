@@ -145,7 +145,7 @@ SUBSYSTEM_DEF(ticker)
 		GLOB.syndicate_code_response_regex = codeword_match
 
 	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * (1 SECONDS))
-	round_start_time = start_at // May be changed later, but prevents the time from jumping back when the round actually starts
+	// SS1984 REMOVAL round_start_time = start_at // May be changed later, but prevents the time from jumping back when the round actually starts
 	if(CONFIG_GET(flag/randomize_shift_time))
 		gametime_offset = rand(0, 23) * (1 HOURS)
 	else if(CONFIG_GET(flag/shift_time_realtime))
