@@ -14,6 +14,9 @@
 	switch(action)
 		if ("progressive_dynamic_toggle")
 			GLOB.dynamic_progressive_enabled = !GLOB.dynamic_progressive_enabled
+			var/msg = "[key_name_admin(ui.user)] [GLOB.dynamic_progressive_enabled ? "Enabled" : "Disabled"] progressive dynamic."
+			message_admins(msg)
+			log_admin(msg)
 			return TRUE
 		if ("progressive_dynamic_vv")
 			ui.user?.client?.debug_variables(SSprogressive_dynamic)

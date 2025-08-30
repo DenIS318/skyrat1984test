@@ -112,6 +112,39 @@ function readableRulesesetCategory(ruleset_category: string): string {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 }
+// SS1984 ADDITON START
+const ProgressiveDynamicPanel = () => {
+  const { data, act } = useBackend<Data>();
+  const { progressive_dynamic_enabled, } = data;
+
+  return (
+    <LabeledList.Item label="Progressive Dynamic">
+      <Stack direction="row" align="center">
+        <Stack.Item>
+          <Box>
+            <span>
+              Progressive Dynamic: {progressive_dynamic_enabled ? <span style={{ color: '#00ff00' }}>Enabled</span> : <span style={{ color: '#ff0000' }}>Disabled</span>}
+            </span>
+          </Box>
+        </Stack.Item>
+        <Stack.Item ml={1}>
+          <Button onClick={() => act('progressive_dynamic_toggle')}>
+            {progressive_dynamic_enabled ? "Disable" : "Enable"}
+          </Button>
+        </Stack.Item>
+        <Stack.Item ml={1}>
+          <Button
+            tooltip="Open VV window for progressive dynamic"
+            onClick={() => act('progressive_dynamic_vv')}
+          >
+            (VV)
+          </Button>
+        </Stack.Item>
+      </Stack>
+    </LabeledList.Item>
+  );
+}
+// SS1984 ADDITION END
 
 const StatusPanel = () => {
   const { data, act } = useBackend<Data>();
@@ -132,7 +165,6 @@ const StatusPanel = () => {
     heavy_chance_maxxed,
     latejoin_chance_maxxed,
     next_dynamic_tick,
-    progressive_dynamic_enabled, // SS1984 ADDITION
   } = data;
 
   if (!current_tier) {
@@ -141,6 +173,7 @@ const StatusPanel = () => {
         <LabeledList.Item label="Current Tier">
           <Button onClick={() => act('set_tier')}>(Click to set)</Button>
         </LabeledList.Item>
+        <ProgressiveDynamicPanel /> {/* SS1984 ADDITION */}
       </LabeledList>
     );
   }
@@ -376,28 +409,7 @@ const StatusPanel = () => {
           </LabeledList.Item>
         </>
       )}
-      {/* SS1984 ADDITION START */}
-      <LabeledList>
-        <LabeledList.Item>
-          <span>Progressive Dynamic: {progressive_dynamic_enabled ? <span style={{ color: '#00ff00' }}>Enabled</span> : <span style={{ color: '#ff0000' }}>Disabled</span>} </span>
-          {
-            <Button
-              onClick={() => act('progressive_dynamic_toggle')}
-            >
-              {progressive_dynamic_enabled ? "Disable" : "Enable"}
-            </Button>
-          }
-          {
-            <Button
-              tooltip="Open VV window for progressive dynamic"
-              onClick={() => act('progressive_dynamic_vv')}
-            >
-              (VV)
-            </Button>
-          }
-        </LabeledList.Item>
-      </LabeledList>
-      {/* SS1984 ADDITION END */}
+      <ProgressiveDynamicPanel /> {/* SS1984 ADDITION */}
     </LabeledList>
   );
 };
