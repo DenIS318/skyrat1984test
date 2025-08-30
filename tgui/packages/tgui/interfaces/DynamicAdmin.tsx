@@ -68,6 +68,7 @@ type Data = {
   latejoin_chance_maxxed: BooleanLike;
   next_dynamic_tick: number;
   antag_events_enabled: BooleanLike;
+  progressive_dynamic_enabled: BooleanLike; // SS1984 ADDITION
 };
 
 function formatTime(seconds: number): string {
@@ -131,6 +132,7 @@ const StatusPanel = () => {
     heavy_chance_maxxed,
     latejoin_chance_maxxed,
     next_dynamic_tick,
+    progressive_dynamic_enabled, // SS1984 ADDITION
   } = data;
 
   if (!current_tier) {
@@ -374,6 +376,28 @@ const StatusPanel = () => {
           </LabeledList.Item>
         </>
       )}
+      {/* SS1984 ADDITION START */}
+      <LabeledList>
+        <LabeledList.Item>
+          <span>Progressive Dynamic: {progressive_dynamic_enabled ? <span style={{ color: '#00ff00' }}>Enabled</span> : <span style={{ color: '#ff0000' }}>Disabled</span>} </span>
+          {
+            <Button
+              onClick={() => act('progressive_dynamic_toggle')}
+            >
+              {progressive_dynamic_enabled ? "Disable" : "Enable"}
+            </Button>
+          }
+          {
+            <Button
+              tooltip="Open VV window for progressive dynamic"
+              onClick={() => act('progressive_dynamic_vv')}
+            >
+              (VV)
+            </Button>
+          }
+        </LabeledList.Item>
+      </LabeledList>
+      {/* SS1984 ADDITION END */}
     </LabeledList>
   );
 };

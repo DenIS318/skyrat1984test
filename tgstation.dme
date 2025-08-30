@@ -9337,6 +9337,7 @@
 #include "modular_ss220\modules\dynamic_tweaks\dynamic.dm"
 #include "modular_ss220\modules\dynamic_tweaks\dynamic_ruleset.dm"
 #include "modular_ss220\modules\dynamic_tweaks\dynamic_progressive.dm"
+#include "modular_ss220\modules\dynamic_tweaks\dynamic_admin.dm"
 #include "modular_ss220\modules\galactic_market_return\galactic_market_config.dm"
 #include "modular_ss220\modules\lag-watcher\lag_watcher.dm"
 #include "modular_ss220\modules\server-monitoring\server_monitoring_config.dm"
