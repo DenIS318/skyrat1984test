@@ -101,18 +101,20 @@ SUBSYSTEM_DEF(progressive_dynamic)
 	if (required_threat_to_raise_one_lvl.len < 1)
 		log_runtime("required_threat_to_raise_one_lvl is empty!")
 		return
-	if (SSdynamic.current_tier.tier >= required_threat_to_raise_one_lvl.len)
+	if (SSdynamic.current_tier.tier >= required_threat_to_raise_one_lvl.len) // as we comparing length here, don't using tier index, instead it's value assuming its something like 0-4
+		// tbh it already should be disabled, but for safety checking it
 		return
-	var/required_threat_to_raise_actual = required_threat_to_raise_one_lvl[SSdynamic.current_tier.tier]
+	var/tier_index = SSdynamic.current_tier.tier + 1 // indexing start from 1, it's list in form like: 1 = 15...
+	var/required_threat_to_raise_actual = required_threat_to_raise_one_lvl[tier_index]
 	if (generated_threat_by_progressive_dynamic < required_threat_to_raise_actual)
 		return
-	var/new_tier_num = SSdynamic.current_tier.tier + 1
+	var/new_tier_num = tier_index // so it was tier '0' but with index 1. So now we seeking for tier '1' (just use index)
 	var/datum/dynamic_tier/found_new_tier
 	for(var/datum/dynamic_tier/tier_datum as anything in subtypesof(/datum/dynamic_tier))
 		if(tier_datum.tier == new_tier_num)
 			found_new_tier = tier_datum
 			break
-	if (found_new_tier)
+	if (!found_new_tier)
 		log_runtime("Failed to find tier with num [new_tier_num]!")
 		return
 
