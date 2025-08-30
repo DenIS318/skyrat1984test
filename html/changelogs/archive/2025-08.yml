@@ -1398,3 +1398,4 @@
       is calculated since start of server
   - rscdel: Actual Round Timer is removed from status display, since Round Timer is
       actually "actual" now
+  - bugfix: cargo ui plasmacost is shown at express console interface & pda intreface
