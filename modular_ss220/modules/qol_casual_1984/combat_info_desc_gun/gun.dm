@@ -2,7 +2,7 @@
 	var/obj/item/ammo_casing/old_chambered = new_chambered
 	chambered = new_chambered
 	if (isnull(chambered))
-		if (!isnull(old_chambered.was_chambered_at))
+		if (!isnull(old_chambered) && !isnull(old_chambered.was_chambered_at))
 			old_chambered.was_chambered_at.Destroy()
 		return
 	if (!isnull(chambered.was_chambered_at))

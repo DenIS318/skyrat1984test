@@ -93,7 +93,7 @@
 			// grab the damage multiplier
 			proj_damage_mult = our_gun.projectile_damage_multiplier
 		// SS1984 ADDITION START
-		if(!isnull(our_box.was_chambered_at) && isgun(our_box.was_chambered_at))
+		if(!isnull(our_box.was_chambered_at) && isweakref(our_box.was_chambered_at))
 			was_chambered_at_shared = our_box.was_chambered_at
 		// SS1984 ADDITION END
 	// if not, are we just in a gun e.g. chambered
