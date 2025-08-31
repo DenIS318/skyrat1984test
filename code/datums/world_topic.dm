@@ -265,35 +265,23 @@
 	.["security_level"] = SSsecurity_level.get_current_level_as_text()
 	.["round_duration"] = SSticker ? round((world.time-SSticker.round_start_time)/10) : 0
 
-/datum/world_topic/playerlist_ext
-	keyword = "playerlist_ext"
-	require_comms_key = TRUE
+/datum/world_topic/create_news_channel/proc/create_channel(list/input)
+	LAZYREMOVE(timers, input["timer_id"])
+	message_admins("[input["author_ckey"]] has crated a cross-sector newscaster channel titled \"[input["message"]]\"")
+	GLOB.news_network.create_feed_channel(input["message"], input["author"], input["desc"], locked = TRUE, receiving_cross_sector = TRUE)
 
-/datum/world_topic/playerlist_ext/Run(list/input)
-	. = list()
-	var/list/players = list()
-	var/list/disconnected_observers = list()
+/datum/world_topic/create_news_article
+	keyword = "create_news_article"
 
-	for(var/mob/M in GLOB.dead_mob_list)
-		if(!M.ckey)
-			continue
-		if (M.client)
-			continue
-		var/ckey = ckey(M.ckey)
-		disconnected_observers[ckey] = ckey
+/datum/world_topic/create_news_article/Run(list/input)
+	var/msg = input["msg"]
+	var/author = input["author"]
+	var/author_key = input["author_ckey"]
+	var/channel_name = input["message"]
 
-	for(var/client/C as anything in GLOB.clients)
-		var/ckey = C.ckey
-		players[ckey] = ckey
-		. += ckey
+	var/datum/feed_channel/chosen_channel = GLOB.news_network.network_channels_by_name[channel_name]
+	if(isnull(chosen_channel)) // No channel with a matching name, abort
+		return
 
-	for(var/mob/M in GLOB.alive_mob_list)
-		if(!M.ckey)
-			continue
-		var/ckey = ckey(M.ckey)
-		if(players[ckey])
-			continue
-		if(disconnected_observers[ckey])
-			continue
-		players[ckey] = ckey
-		. += ckey
+	message_admins(span_adminnotice("Incoming cross-sector newscaster article by [author_key] in channel [channel_name]."))
+	GLOB.news_network.submit_article(msg, author, channel_name)
