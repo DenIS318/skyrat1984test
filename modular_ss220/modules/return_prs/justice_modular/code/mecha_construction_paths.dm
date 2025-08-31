@@ -1,3 +1,6 @@
+/datum/component/construction/unordered/mecha_chassis
+	var/icon_for_spawn_result = 'icons/mob/rideables/mech_construction.dmi'
+
 //Justice
 /datum/component/construction/unordered/mecha_chassis/justice
 	result = /datum/component/construction/mecha/justice
@@ -8,13 +11,12 @@
 		/obj/item/mecha_parts/part/justice_left_leg,
 		/obj/item/mecha_parts/part/justice_right_leg
 	)
+	icon_for_spawn_result = 'modular_ss220/modules/return_prs/justice_modular/icons/mech_construction.dmi'
 
-/datum/component/construction/unordered/mecha_chassis/justice/spawn_result()
-	. = ..()
+/datum/component/construction/unordered/mecha_chassis/update_parent()
 	var/atom/parent_atom = parent
-	if (parent)
-		parent_atom.icon = 'modular_ss220/modules/return_prs/justice_modular/icons/mech_construction.dmi'
-	return .
+	if (parent_atom)
+		parent_atom.icon = 'modular_ss220/modules/return_prs/justice_modular/icons/mech_construct.dmi'
 
 /datum/component/construction/mecha/justice
 	result = /obj/vehicle/sealed/mecha/justice

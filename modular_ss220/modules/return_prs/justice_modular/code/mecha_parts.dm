@@ -3,6 +3,8 @@
 /obj/item/mecha_parts/chassis/justice
 	name = "\improper Justice chassis"
 	construct_type = /datum/component/construction/unordered/mecha_chassis/justice
+	icon = 'modular_ss220/modules/return_prs/justice_modular/icons/mech_construct.dmi'
+	icon_state = "justice_chassic"
 
 /obj/item/mecha_parts/part/justice_torso
 	name="\improper Justice torso"
