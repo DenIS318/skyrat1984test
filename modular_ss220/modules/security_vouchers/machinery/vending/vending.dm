@@ -1,4 +1,4 @@
-/obj/machinery/vending/security/attackby(obj/item/attack_item, mob/living/user, list/modifiers, list/attack_modifiers)
+/obj/machinery/vending/security/loadingAttempt(obj/item/inserted_item, mob/user)
 	if(istype(attack_item, /obj/item/security_voucher))
 		add_fingerprint(user)
 		update_last_used(user)
@@ -39,5 +39,5 @@
 				new path(box)
 		if(Adjacent(user))
 			user.put_in_hands(box, ignore_animation = FALSE)
-		return TRUE // no after attack things and base implementation
+		return TRUE // no base calling should be done
 	return ..()
