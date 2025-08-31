@@ -730,7 +730,7 @@ export const DynamicAdmin = () => {
     <Window
       title="Dynamic Admin Panel"
       width={currentTab === TABS.Rulesets ? 800 : 500}
-      height={currentTab === TABS.Rulesets ? 600 : 400}
+      height={currentTab === TABS.Rulesets ? 600 : 500} // SS1984 EDIT, original: height={currentTab === TABS.Rulesets ? 600 : 400}
     >
       <Window.Content>
         <Section
