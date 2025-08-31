@@ -37,3 +37,36 @@
 		keys += C.key
 
 	return json_encode(keys)
+
+/datum/world_topic/playerlist_ext
+	keyword = "playerlist_ext"
+	require_comms_key = TRUE
+
+/datum/world_topic/playerlist_ext/Run(list/input)
+	. = list()
+	var/list/players = list()
+	var/list/disconnected_observers = list()
+
+	for(var/mob/M in GLOB.dead_mob_list)
+		if(!M.ckey)
+			continue
+		if (M.client)
+			continue
+		var/ckey = ckey(M.ckey)
+		disconnected_observers[ckey] = ckey
+
+	for(var/client/C as anything in GLOB.clients)
+		var/ckey = C.ckey
+		players[ckey] = ckey
+		. += ckey
+
+	for(var/mob/M in GLOB.alive_mob_list)
+		if(!M.ckey)
+			continue
+		var/ckey = ckey(M.ckey)
+		if(players[ckey])
+			continue
+		if(disconnected_observers[ckey])
+			continue
+		players[ckey] = ckey
+		. += ckey
