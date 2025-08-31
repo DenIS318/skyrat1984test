@@ -150,7 +150,7 @@
 		return
 	if (!magazine)
 		magazine = new spawn_magazine_type(src)
-		magazine.set_chambered(src) // SS1984 ADDITION
+		magazine.set_chamber_source(src) // SS1984 ADDITION
 		if(!istype(magazine, accepted_magazine_type))
 			CRASH("[src] spawned with a magazine type that isn't allowed by its accepted_magazine_type!")
 	if(bolt_type == BOLT_TYPE_STANDARD || internal_magazine) //Internal magazines shouldn't get magazine + 1.
@@ -452,7 +452,7 @@
 		return FALSE
 	if(user.transferItemToLoc(AM, src))
 		magazine = AM
-		magazine.set_chambered(src) // SS1984 ADDITION
+		magazine.set_chamber_source(src) // SS1984 ADDITION
 		if (display_message)
 			balloon_alert(user, "[magazine_wording] loaded")
 		if (magazine.ammo_count())
@@ -844,7 +844,7 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 		if(!spawn_magazine_type)
 			return
 		magazine = new spawn_magazine_type(src)
-		magazine.set_chambered(src) // SS1984 ADDITION
+		magazine.set_chamber_source(src) // SS1984 ADDITION
 	chamber_round()
 	update_appearance()
 
