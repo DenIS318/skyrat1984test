@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - admin: "Dynamic admin panel height increased in tabs that are not rulesets from 400 to 500"
