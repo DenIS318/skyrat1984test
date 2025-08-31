@@ -1891,6 +1891,10 @@
   zxaber:
   - rscadd: AIs now get an alert when a new (non-syndicate) AI is brought online.
 2025-08-31:
+  DenIS318:
+  - qol: Now once casing left from gun that had custom projectile damage modifier,
+      it's combat information displays info relative to previous gun. Also shows for
+      normal modifier as well
   OrbisAnima:
   - rscadd: The flatpacked series now include the Solar panel material variants, these
       variants produce more power but require better materials so they are more expensive.
