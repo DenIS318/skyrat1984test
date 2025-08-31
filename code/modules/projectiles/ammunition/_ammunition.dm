@@ -83,7 +83,7 @@
 	var/proj_damage_mult = 1
 	if(!ispath(exam_proj) || pellets == 0)
 		return
-
+	var/datum/weakref/was_chambered_at_shared = was_chambered_at // SS1984 ADDITION
 	// are we in an ammo box?
 	if(isammobox(loc))
 		var/obj/item/ammo_box/our_box = loc
@@ -92,6 +92,10 @@
 			var/obj/item/gun/our_gun = our_box.loc
 			// grab the damage multiplier
 			proj_damage_mult = our_gun.projectile_damage_multiplier
+		// SS1984 ADDITION START
+		if(!isnull(our_box.was_chambered_at) && isgun(our_box.was_chambered_at))
+			was_chambered_at_shared = our_box.was_chambered_at
+		// SS1984 ADDITION END
 	// if not, are we just in a gun e.g. chambered
 	else if(isgun(loc))
 		var/obj/item/gun/our_gun = loc
@@ -104,7 +108,7 @@
 	var/was_chambered_desc = ""
 	var/dmg_desc_normal_stamina_text = "" // we need both stamina and normal, can't just append to was_chambered_desc as it would affect both at once
 	var/dmg_desc_normal_text = ""
-	var/obj/item/gun/was_chambered_at_gun = isnull(was_chambered_at) ? null : was_chambered_at.resolve()
+	var/obj/item/gun/was_chambered_at_gun = isnull(was_chambered_at_shared) ? null : was_chambered_at_shared.resolve()
 	if (!isnull(was_chambered_at_gun) && isgun(was_chambered_at_gun))
 		proj_damage_mult = was_chambered_at_gun.projectile_damage_multiplier
 		if (proj_damage_mult != 1)
