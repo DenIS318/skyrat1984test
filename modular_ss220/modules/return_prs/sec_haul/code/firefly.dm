@@ -3,7 +3,7 @@
 */
 /obj/item/gun/ballistic/automatic/pistol/firefly
 	name = "\improper P-92 pistol"
-	desc = "A simple sidearm made by Armadyne's Medical Directive, with a heavy front for weak wrists. A small warning label on the back says it's not fit for surgical work, and chambered for 9x25mm."
+	desc = "A simple sidearm made by Armadyne's Medical Directive, with a heavy front for weak wrists. Due to the lightweight structure, bullets fired from this pistol have less stopping power. A small warning label on the back says it's not fit for surgical work, and chambered for 9x25mm."
 	icon = 'modular_ss220/modules/return_prs/sec_haul/icons/guns.dmi'
 	righthand_file = 'modular_ss220/modules/return_prs/sec_haul/icons/inhands/righthand.dmi'
 	lefthand_file = 'modular_ss220/modules/return_prs/sec_haul/icons/inhands/lefthand.dmi'
