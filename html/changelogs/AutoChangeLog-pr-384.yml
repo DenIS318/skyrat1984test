@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - rscadd: "Justice mech code & icons moved to modular. So now it can be constructed again"
-  - bugfix: "Fixed errors related to justice that arise due to removal justice from TG"

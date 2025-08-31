@@ -1,4 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - bugfix: "ID computer login fixed errors on Nova's security levels (such as Orange and so on)"

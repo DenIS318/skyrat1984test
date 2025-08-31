@@ -1895,6 +1895,14 @@
   - qol: Now once casing left from gun that had custom projectile damage modifier,
       it's combat information displays info relative to previous gun. Also shows for
       normal modifier as well
+  - rscadd: Justice mech code & icons moved to modular. So now it can be constructed
+      again
+  - bugfix: Fixed errors related to justice that arise due to removal justice from
+      TG
+  - bugfix: ID computer login fixed errors on Nova's security levels (such as Orange
+      and so on)
+  - admin: Dynamic admin panel height increased in tabs that are not rulesets from
+      400 to 500
   OrbisAnima:
   - rscadd: The flatpacked series now include the Solar panel material variants, these
       variants produce more power but require better materials so they are more expensive.
