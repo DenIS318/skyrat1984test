@@ -9,6 +9,7 @@
 	name = "\improper Justice"
 	desc = "Black and red syndicate mech designed for execution orders. \
 		For safety reasons, the syndicate advises against standing too close."
+	icon = 'modular_ss220/modules/return_prs/justice_modular/icons/mecha.dmi'
 	icon_state = "justice"
 	base_icon_state = "justice"
 	movedelay = MOVEDELAY_IDLE
@@ -727,7 +728,7 @@
 
 /obj/effect/justice_engine
 	name = "engine core"
-	icon = 'icons/effects/effects.dmi'
+	icon = 'modular_ss220/modules/return_prs/justice_modular/icons/effects.dmi'
 	icon_state = "justice_engine_deactive"
 	base_icon_state = "justice_engine"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -750,7 +751,7 @@
 	update_appearance(UPDATE_ICON_STATE)
 
 /atom/movable/screen/justice_charge_arrow
-	icon = 'icons/effects/96x96.dmi'
+	icon = 'modular_ss220/modules/return_prs/justice_modular/icons/96x96.dmi'
 	name = "justice charge arrow"
 	icon_state = "justice_charge_arrow"
 	pixel_x = -32
