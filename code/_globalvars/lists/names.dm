@@ -6,6 +6,7 @@ GLOBAL_LIST_INIT(commando_names, world.file2list(convert_to_localized_path("deat
 GLOBAL_LIST_INIT(cyberauth_names, world.file2list(convert_to_localized_path("cyberauth.txt")))
 GLOBAL_LIST_INIT(ethereal_names, world.file2list(convert_to_localized_path("ethereal.txt")))
 GLOBAL_LIST_INIT(first_names_female, world.file2list(convert_to_localized_path("first_female.txt")))
+GLOBAL_LIST_INIT(last_names_female, world.file2list(convert_to_localized_path("last_female.txt")))
 GLOBAL_LIST_INIT(first_names_male, world.file2list(convert_to_localized_path("first_male.txt")))
 GLOBAL_LIST_INIT(first_names, world.file2list(convert_to_localized_path("first.txt")))
 GLOBAL_LIST_INIT(golem_names, world.file2list(convert_to_localized_path("golem.txt")))

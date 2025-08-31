@@ -70,3 +70,19 @@
 			continue
 		players[ckey] = ckey
 		. += ckey
+
+/datum/world_topic/status2
+	keyword = "status2"
+
+/datum/world_topic/status2/Run(list/input)
+	. = list()
+	.["mode"] = "dynamic"
+	.["respawn"] = config ? !!CONFIG_GET(flag/allow_respawn) : FALSE
+	.["enter"] = !LAZYACCESS(SSlag_switch.measures, DISABLE_NON_OBSJOBS)
+	.["roundtime"] = gameTimestamp()
+	.["listed"] = GLOB.hub_visibility
+	.["players"] = GLOB.clients.len
+	.["ticker_state"] = SSticker.current_state
+	.["mapname"] = SSmapping.current_map?.map_name || "Loading..."
+	.["security_level"] = SSsecurity_level.get_current_level_as_text()
+	.["round_duration"] = SSticker ? round((world.time-SSticker.round_start_time)/10) : 0
