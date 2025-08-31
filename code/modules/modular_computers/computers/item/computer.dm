@@ -1091,17 +1091,17 @@
 		if(SEC_LEVEL_EPSILON, SEC_LEVEL_GAMMA)
 			return ALERT_RELEVANCY_PERTINENT
 		if(SEC_LEVEL_AMBER, SEC_LEVEL_FEDERAL)
-			if(ACCESS_SECURITY in stored_id.access)
+			if(ACCESS_SECURITY in stored_id?.access) // SS1984 EDIT, original: if(ACCESS_SECURITY in stored_id.access)
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
 		if(SEC_LEVEL_VIOLET)
-			if(ACCESS_MEDICAL in stored_id.access)
+			if(ACCESS_MEDICAL in stored_id?.access) // SS1984 EDIT, original: if(ACCESS_MEDICAL in stored_id.access)
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
 		if(SEC_LEVEL_ORANGE)
-			if(ACCESS_ENGINEERING in stored_id.access)
+			if(ACCESS_ENGINEERING in stored_id?.access) // SS1984 EDIT, original: if(ACCESS_ENGINEERING in stored_id.access)
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
