@@ -1,5 +1,5 @@
 /obj/machinery/vending/security/loadingAttempt(obj/item/inserted_item, mob/user)
-	if(istype(attack_item, /obj/item/security_voucher))
+	if(istype(inserted_item, /obj/item/security_voucher))
 		add_fingerprint(user)
 		update_last_used(user)
 
@@ -22,11 +22,11 @@
 		var/weapon_kit = input(user, "Select a weaponary kit.") as null|anything in available_kits
 		if(!weapon_kit)
 			return
-		if(!Adjacent(user) || QDELETED(attack_item) || attack_item.loc != user)
+		if(!Adjacent(user) || QDELETED(inserted_item) || inserted_item.loc != user)
 			return
 
 		playsound(get_turf(src), 'sound/machines/machine_vend.ogg', 50, TRUE)
-		qdel(attack_item)
+		qdel(inserted_item)
 		sleep(0.5 SECONDS)
 
 		var/obj/item/storage/box/security/box = new(get_turf(src))
