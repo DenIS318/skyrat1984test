@@ -7114,6 +7114,12 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/station/service/bar/atrium)
+"bSz" = (
+/obj/structure/fence{
+	dir = 8
+	},
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "bSH" = (
 /obj/effect/landmark/start/hangover,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -83997,7 +84003,6 @@
 "xMn" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/holopad,
-/obj/structure/closet/secure_closet/security_medic,
 /turf/open/floor/iron/white/textured,
 /area/station/security/medical)
 "xMq" = (
@@ -243581,7 +243586,7 @@ gka
 uMs
 tkU
 utC
-fPc
+bSz
 tkU
 utC
 utC
@@ -256940,7 +256945,7 @@ iAf
 iAf
 iAf
 utC
-fPc
+bSz
 utC
 utC
 utC
@@ -258736,7 +258741,7 @@ utC
 utC
 utC
 utC
-fPc
+bSz
 tkU
 utC
 tkU
@@ -259250,7 +259255,7 @@ tkU
 utC
 tkU
 fri
-fPc
+bSz
 utC
 utC
 utC
@@ -259507,7 +259512,7 @@ tkU
 utC
 tkU
 utC
-fPc
+bSz
 tkU
 tkU
 utC
@@ -260278,7 +260283,7 @@ utC
 utC
 tkU
 tkU
-fPc
+bSz
 utC
 utC
 tkU
@@ -260535,7 +260540,7 @@ tkU
 utC
 utC
 tkU
-fPc
+bSz
 utC
 utC
 tkU
@@ -261049,7 +261054,7 @@ utC
 utC
 utC
 utC
-fPc
+bSz
 tkU
 utC
 utC
