@@ -1,0 +1,18 @@
+2025-09-02:
+  DenIS318:
+  - bugfix: Now if species doesnt have custom basic emotes sounds, then it use human
+      sounds
+  - rscadd: Handgun holster is added to detective closet
+  - balance: Taser mode is now available at advanced energy gun
+  - qol: Free flip for everyone. No longer requires any traits to be done without
+      delay
+  - rscadd: Basic Health Analyzer is now default at medbay equipment technode (spawn
+      in med techfab) from start
+  - balance: Max Size of species reduced 1.5 -> 1.2. This includes settings in editor
+      and quirks. Admins can still set it higher manually.
+  - balance: Oversized quirk size reduced 2.0 -> 1.5
+  FlufflesTheDog:
+  - bugfix: Fix missing opfor/ghost/respawn buttons on the escape menu.
+  OrionTheFox:
+  - bugfix: fixed RPED icons disappearing when applying upgrades (they now use TG's
+      updated icons)

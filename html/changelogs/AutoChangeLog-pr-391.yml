@@ -1,5 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - balance: "Max Size of species reduced 1.5 -> 1.2. This includes settings in editor and quirks. Admins can still set it higher manually."
-  - balance: "Oversized quirk size reduced 2.0 -> 1.5"
