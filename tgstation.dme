@@ -9495,4 +9495,5 @@
 #include "modular_ss220\modules\rust_g_custom\test.dm"
 #include "modular_ss220\modules\admin_stuff\man_up\admin.dm"
 #include "modular_ss220\modules\admin_stuff\man_up\adminhelp.dm"
+#include "modular_ss220\modules\emote_sounds\emotes.dm"
 // END_INCLUDE
