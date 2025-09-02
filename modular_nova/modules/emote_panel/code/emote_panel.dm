@@ -256,24 +256,24 @@
 
 // code\modules\mob\emote.dm
 /mob/proc/emote_flip()
-	set name = "| Flip |"
+	set name = "| Кувырок |" // SS1984 EDIT
 	set category = "Emotes"
 	usr.emote("flip", intentional = TRUE)
 
 /mob/proc/emote_spin()
-	set name = "| Spin |"
+	set name = "| Крутиться |" // SS1984 EDIT
 	set category = "Emotes"
 	usr.emote("spin", intentional = TRUE)
 
 // code\modules\mob\living\emote.dm
 
 /mob/living/proc/emote_blush()
-	set name = "~ Blush"
+	set name = "~ Краснеть" // SS1984 EDIT
 	set category = "Emotes"
 	usr.emote("blush", intentional = TRUE)
 
 /mob/living/proc/emote_bow()
-	set name = "~ Bow"
+	set name = "~ Поклониться" // SS1984 EDIT
 	set category = "Emotes"
 	usr.emote("bow", intentional = TRUE)
 
