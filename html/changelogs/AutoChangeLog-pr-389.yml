@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - rscadd: "Basic Health Analyzer is now default at medbay equipment technode (spawn in med techfab) from start"
