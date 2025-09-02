@@ -1,5 +1,18 @@
 [
   {
+    "date": "2025-09-02",
+    "author": "DenIS318",
+    "changes": [
+      "Basic Health Analyzer is now default at medbay equipment technode (spawn in med techfab) from start",
+      "Taser mode is now available at advanced energy gun",
+      "Max Size of species reduced 1.5 -> 1.2. This includes settings in editor and quirks. Admins can still set it higher manually.",
+      "Oversized quirk size reduced 2.0 -> 1.5",
+      "Handgun holster is added to detective closet",
+      "Now if species doesnt have custom basic emotes sounds, then it use human sounds",
+      "Free flip for everyone. No longer requires any traits to be done without delay"
+    ]
+  },
+  {
     "date": "2025-08-31",
     "author": "DenIS318",
     "changes": [
