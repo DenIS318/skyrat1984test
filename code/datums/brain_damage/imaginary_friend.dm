@@ -314,8 +314,8 @@
 	if(params && message_param)
 		msg = select_param(user, params)
 
+	msg = genderize_decode(user, msg) // SS1984 ADDITION
 	msg = replace_pronoun(user, msg)
-
 	if(!msg)
 		return TRUE
 
