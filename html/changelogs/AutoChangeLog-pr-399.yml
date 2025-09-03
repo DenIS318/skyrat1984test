@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - bugfix: "Replaces most game font usages to MS Serif to fix cyrillic issues"
