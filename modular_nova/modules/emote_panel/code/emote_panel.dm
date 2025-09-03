@@ -98,60 +98,62 @@
 	all_emotes += human_emotes
 
 	// modular_nova\modules\emotes\code\emote.dm
-	var/static/list/nova_living_emotes = list(
-		/mob/living/proc/emote_peep,
-		/mob/living/proc/emote_peep2,
-		/mob/living/proc/emote_snap,
-		/mob/living/proc/emote_snap2,
-		/mob/living/proc/emote_snap3,
-		/mob/living/proc/emote_awoo,
-		/mob/living/proc/emote_nya,
-		/mob/living/proc/emote_weh,
-		/mob/living/proc/emote_mothsqueak,
-		/mob/living/proc/emote_mousesqueak,
-		/mob/living/proc/emote_merp,
-		/mob/living/proc/emote_bark,
-		/mob/living/proc/emote_squish,
-		/mob/living/proc/emote_meow,
-		/mob/living/proc/emote_hiss1,
-		/mob/living/proc/emote_chitter,
-		/mob/living/proc/emote_snore,
-		/mob/living/proc/emote_clap,
-		/mob/living/proc/emote_clap1,
-		/mob/living/proc/emote_headtilt,
-		/mob/living/proc/emote_blink2,
-		/mob/living/proc/emote_rblink,
-		/mob/living/proc/emote_squint,
-		/mob/living/proc/emote_smirk,
-		/mob/living/proc/emote_eyeroll,
-		/mob/living/proc/emote_huff,
-		/mob/living/proc/emote_etwitch,
-		/mob/living/proc/emote_clear,
-		/mob/living/proc/emote_bawk,
-		/mob/living/proc/emote_caw,
-		/mob/living/proc/emote_caw2,
-		/mob/living/proc/emote_whistle,
-		/mob/living/proc/emote_blep,
-		/mob/living/proc/emote_bork,
-		/mob/living/proc/emote_hoot,
-		/mob/living/proc/emote_growl,
-		/mob/living/proc/emote_woof,
-		/mob/living/proc/emote_baa,
-		/mob/living/proc/emote_baa2,
-		/mob/living/proc/emote_wurble,
-		/mob/living/proc/emote_rattle,
-		/mob/living/proc/emote_cackle,
-		/mob/living/proc/emote_warble,
-		/mob/living/proc/emote_trills,
-		/mob/living/proc/emote_rpurr,
-		/mob/living/proc/emote_purr,
-		/mob/living/proc/emote_moo,
-		/mob/living/proc/emote_honk1,
-		/mob/living/proc/emote_mggaow,
-		/mob/living/proc/emote_mrrp,
-		/mob/living/proc/emote_prbt
-	)
-	all_emotes += nova_living_emotes
+	// SS1984 REMOVAL START
+	// var/static/list/nova_living_emotes = list(
+	// 	/mob/living/proc/emote_peep,
+	// 	/mob/living/proc/emote_peep2,
+	// 	/mob/living/proc/emote_snap,
+	// 	/mob/living/proc/emote_snap2,
+	// 	/mob/living/proc/emote_snap3,
+	// 	/mob/living/proc/emote_awoo,
+	// 	/mob/living/proc/emote_nya,
+	// 	/mob/living/proc/emote_weh,
+	// 	/mob/living/proc/emote_mothsqueak,
+	// 	/mob/living/proc/emote_mousesqueak,
+	// 	/mob/living/proc/emote_merp,
+	// 	/mob/living/proc/emote_bark,
+	// 	/mob/living/proc/emote_squish,
+	// 	/mob/living/proc/emote_meow,
+	// 	/mob/living/proc/emote_hiss1,
+	// 	/mob/living/proc/emote_chitter,
+	// 	/mob/living/proc/emote_snore,
+	// 	/mob/living/proc/emote_clap,
+	// 	/mob/living/proc/emote_clap1,
+	// 	/mob/living/proc/emote_headtilt,
+	// 	/mob/living/proc/emote_blink2,
+	// 	/mob/living/proc/emote_rblink,
+	// 	/mob/living/proc/emote_squint,
+	// 	/mob/living/proc/emote_smirk,
+	// 	/mob/living/proc/emote_eyeroll,
+	// 	/mob/living/proc/emote_huff,
+	// 	/mob/living/proc/emote_etwitch,
+	// 	/mob/living/proc/emote_clear,
+	// 	/mob/living/proc/emote_bawk,
+	// 	/mob/living/proc/emote_caw,
+	// 	/mob/living/proc/emote_caw2,
+	// 	/mob/living/proc/emote_whistle,
+	// 	/mob/living/proc/emote_blep,
+	// 	/mob/living/proc/emote_bork,
+	// 	/mob/living/proc/emote_hoot,
+	// 	/mob/living/proc/emote_growl,
+	// 	/mob/living/proc/emote_woof,
+	// 	/mob/living/proc/emote_baa,
+	// 	/mob/living/proc/emote_baa2,
+	// 	/mob/living/proc/emote_wurble,
+	// 	/mob/living/proc/emote_rattle,
+	// 	/mob/living/proc/emote_cackle,
+	// 	/mob/living/proc/emote_warble,
+	// 	/mob/living/proc/emote_trills,
+	// 	/mob/living/proc/emote_rpurr,
+	// 	/mob/living/proc/emote_purr,
+	// 	/mob/living/proc/emote_moo,
+	// 	/mob/living/proc/emote_honk1,
+	// 	/mob/living/proc/emote_mggaow,
+	// 	/mob/living/proc/emote_mrrp,
+	// 	/mob/living/proc/emote_prbt
+	// )
+	// all_emotes += nova_living_emotes
+	// SS1984 REMOVAL END
 
 	// code\modules\mob\living\brain\emote.dm
 	var/static/list/brain_emotes = list(
@@ -172,40 +174,44 @@
 	all_emotes += alien_emotes
 
 	// modular_nova\modules\emotes\code\synth_emotes.dm
-	var/static/list/synth_emotes = list(
-		/mob/living/proc/emote_dwoop,
-		/mob/living/proc/emote_yes,
-		/mob/living/proc/emote_no,
-		/mob/living/proc/emote_boop,
-		/mob/living/proc/emote_buzz,
-		/mob/living/proc/emote_beep,
-		/mob/living/proc/emote_beep2,
-		/mob/living/proc/emote_buzz2,
-		/mob/living/proc/emote_chime,
-		/mob/living/proc/emote_honk,
-		/mob/living/proc/emote_ping,
-		/mob/living/proc/emote_sad,
-		/mob/living/proc/emote_warn,
-		/mob/living/proc/emote_slowclap
-	)
-	all_emotes += synth_emotes
-	var/static/list/allowed_species_synth = list(
-		/datum/species/synthetic
-	)
+	// SS1984 REMOVAL START
+	// var/static/list/synth_emotes = list(
+	// 	/mob/living/proc/emote_dwoop,
+	// 	/mob/living/proc/emote_yes,
+	// 	/mob/living/proc/emote_no,
+	// 	/mob/living/proc/emote_boop,
+	// 	/mob/living/proc/emote_buzz,
+	// 	/mob/living/proc/emote_beep,
+	// 	/mob/living/proc/emote_beep2,
+	// 	/mob/living/proc/emote_buzz2,
+	// 	/mob/living/proc/emote_chime,
+	// 	/mob/living/proc/emote_honk,
+	// 	/mob/living/proc/emote_ping,
+	// 	/mob/living/proc/emote_sad,
+	// 	/mob/living/proc/emote_warn,
+	// 	/mob/living/proc/emote_slowclap
+	// )
+	// all_emotes += synth_emotes
+	// var/static/list/allowed_species_synth = list(
+	// 	/datum/species/synthetic
+	// )
+	// SS1984 REMOVAL END
 
 	// modular_nova\modules\emotes\code\additionalemotes\overlay_emote.dm
-	var/static/list/nova_living_emotes_overlay = list(
-		/mob/living/proc/emote_sweatdrop,
-		/mob/living/proc/emote_exclaim,
-		/mob/living/proc/emote_question,
-		/mob/living/proc/emote_realize,
-		/mob/living/proc/emote_annoyed,
-		/mob/living/proc/emote_glasses
-	)
-	all_emotes += nova_living_emotes_overlay
+	// SS1984 REMOVAL START
+	// var/static/list/nova_living_emotes_overlay = list(
+	// 	/mob/living/proc/emote_sweatdrop,
+	// 	/mob/living/proc/emote_exclaim,
+	// 	/mob/living/proc/emote_question,
+	// 	/mob/living/proc/emote_realize,
+	// 	/mob/living/proc/emote_annoyed,
+	// 	/mob/living/proc/emote_glasses
+	// )
+	// all_emotes += nova_living_emotes_overlay
+	// SS1984 REMOVAL END
 
 	// modular_nova\modules\emotes\code\additionalemotes\turf_emote.dm
-	all_emotes += /mob/living/proc/emote_mark_turf
+	// SS1984 REMOVAL all_emotes += /mob/living/proc/emote_mark_turf
 
 	// Clearing all emotes before applying new ones
 	verbs -= all_emotes
@@ -225,12 +231,14 @@
 			available_emotes += mob_emotes
 		if(isliving(src))
 			available_emotes += living_emotes
-			available_emotes += nova_living_emotes
-			available_emotes += nova_living_emotes_overlay
-			available_emotes += /mob/living/proc/emote_mark_turf
+			// SS1984 REMOVAL START
+			// available_emotes += nova_living_emotes
+			// available_emotes += nova_living_emotes_overlay
+			// available_emotes += /mob/living/proc/emote_mark_turf
 			// Checking if should apply Synth emotes
-			if(HAS_TRAIT(src, TRAIT_SILICON_EMOTES_ALLOWED))
-				available_emotes += synth_emotes
+			// if(HAS_TRAIT(src, TRAIT_SILICON_EMOTES_ALLOWED))
+			// 	available_emotes += synth_emotes
+			// SS1984 REMOVAL END
 		if(iscarbon(src))
 			available_emotes += carbon_emotes
 		if(ishuman(src))

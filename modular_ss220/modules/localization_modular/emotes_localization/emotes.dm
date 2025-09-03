@@ -60,7 +60,7 @@
 	message_larva = "с тошнотворным шипением выдыха%(ет,ют)% воздух и пада%(ет,ют)% на пол..."
 	message_monkey = "изда%(ёт,ют)% тихий визг, пада%(ет,ют)% и переста%(ёт,ют)% двигаться..."
 	message_animal_or_basic = "переста%(ёт,ют)% двигаться..."
-	mesage_mime = "цепене%(ет,ют)% и расслабля%(ет,ют)%ся, %(его,её,его,их)% взгляд становится пустым и безжизненным..."
+	message_mime = "цепене%(ет,ют)% и расслабля%(ет,ют)%ся, %(его,её,его,их)% взгляд становится пустым и безжизненным..."
 
 /datum/emote/living/drool
 	name = "нести чепуху"
@@ -171,7 +171,7 @@
 	name = "кричать"
 	message = "крич%(ит,ат)%!"
 	message_mime = "делает вид, что крич%(ит,ат)%!"
-	message_simple = "скул%(ит,ят)%."
+	message_animal_or_basic = "скул%(ит,ят)%."
 	message_alien = "рыч%(ит,ат)%!"
 
 /datum/emote/living/scream/select_message_type(mob/user, message, intentional)
@@ -202,7 +202,7 @@
 /datum/emote/living/sit
 	name = "сесть"
 	message = "сад%(ит,ят)%ся."
-	mesage_mime = "сад%(ит,ят)%ся."
+	message_mime = "сад%(ит,ят)%ся."
 
 /datum/emote/living/smile
 	name = "улыбаться"
@@ -223,7 +223,7 @@
 	name = "храпеть"
 	message = "храп%(ит,ят)%."
 	message_mime = "крепко сп%(ит,ят)%."
-	message_simple = "вороча%(ет,ют)%ся во сне."
+	message_animal_or_basic = "вороча%(ет,ют)%ся во сне."
 	message_robot = "вход%(ит,ят)% в спящий режим..."
 
 /datum/emote/living/stare
@@ -313,7 +313,7 @@
 	name = "ругаться"
 	message = "руга%(ет,ют)%ся!"
 	message_mime = "дела%(ет,ют)% непристойный жест!"
-	message_simple = "изда%(ёт,ют)% сердитый шум!"
+	message_animal_or_basic = "изда%(ёт,ют)% сердитый шум!"
 
 /datum/emote/living/carbon/whistle
 	name = "свистеть"
