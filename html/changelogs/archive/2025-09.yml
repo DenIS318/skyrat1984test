@@ -25,3 +25,5 @@
   - rscdel: Nova's Emotes+ panel disalbed (still can use /Me for it)
   - rscdel: Nova's Silicon emotes disabled (still can use /Me for it)
   - bugfix: Eyelids now shown even if blinking is disabled
+  - qol: PDA no longer lose charge when in recharger (no infinity charging)
+  - bugfix: Replaces most game font usages to MS Serif to fix cyrillic issues
