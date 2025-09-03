@@ -1,8 +1,0 @@
-author: "DenIS318"
-delete-after: True
-changes:
-  - spellcheck: "Localized all basic emotions (some alien emotions/in emote panel and so on might still be not localized)"
-  - spellcheck: "Emotes in emote panel localized"
-  - spellcheck: "Emotes now can use nouns based on gender"
-  - rscdel: "Nova's Emotes+ panel disalbed (still can use /Me for it)"
-  - rscdel: "Nova's Silicon emotes disabled (still can use /Me for it)"
