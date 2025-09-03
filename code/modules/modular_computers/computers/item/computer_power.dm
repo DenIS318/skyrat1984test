@@ -55,6 +55,10 @@
 			power_usage += (open_programs.power_cell_use / 2)
 
 	var/old_charge = internal_cell?.charge // SS1984 ADDITION
+	// SS1984 ADDITION START - no lose power in charger
+	if (loc && istype(loc, /obj/machinery/recharger))
+		power_usage = 0
+	// SS1984 ADDITION END
 	if(use_energy(power_usage * seconds_per_tick))
 		if (internal_cell && internal_cell.charge <= 0 && old_charge != internal_cell.charge) // SS1984 ADDITION
 			power_failure() // SS1984 ADDITION
