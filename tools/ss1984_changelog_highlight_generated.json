@@ -3,6 +3,8 @@
     "date": "2025-09-03",
     "author": "DenIS318",
     "changes": [
+      "PDA no longer lose charge when in recharger (no infinity charging)",
+      "Replaces most game font usages to MS Serif to fix cyrillic issues",
       "Eyelids now shown even if blinking is disabled",
       "Localized all basic emotions (some alien emotions/in emote panel and so on might still be not localized)",
       "Emotes in emote panel localized",
