@@ -274,8 +274,8 @@
 
 /datum/emote/living/wave
 	name = "махать рукой"
-	message = "маш%(ет,ут)%.."
-	message_mime = "маш%(ет,ут)%.."
+	message = "маш%(ет,ут)%."
+	message_mime = "маш%(ет,ут)%."
 
 /datum/emote/living/whimper
 	name = "хныкать"
