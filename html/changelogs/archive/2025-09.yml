@@ -24,3 +24,4 @@
   - spellcheck: Emotes now can use nouns based on gender
   - rscdel: Nova's Emotes+ panel disalbed (still can use /Me for it)
   - rscdel: Nova's Silicon emotes disabled (still can use /Me for it)
+  - bugfix: Eyelids now shown even if blinking is disabled
