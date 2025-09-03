@@ -1,5 +1,16 @@
 [
   {
+    "date": "2025-09-03",
+    "author": "DenIS318",
+    "changes": [
+      "Localized all basic emotions (some alien emotions/in emote panel and so on might still be not localized)",
+      "Emotes in emote panel localized",
+      "Emotes now can use nouns based on gender",
+      "Nova's Emotes+ panel disalbed (still can use /Me for it)",
+      "Nova's Silicon emotes disabled (still can use /Me for it)"
+    ]
+  },
+  {
     "date": "2025-09-02",
     "author": "DenIS318",
     "changes": [
@@ -10,6 +21,20 @@
       "Handgun holster is added to detective closet",
       "Now if species doesnt have custom basic emotes sounds, then it use human sounds",
       "Free flip for everyone. No longer requires any traits to be done without delay"
+    ]
+  },
+  {
+    "date": "2025-09-02",
+    "author": "FlufflesTheDog",
+    "changes": [
+      "Fix missing opfor/ghost/respawn buttons on the escape menu."
+    ]
+  },
+  {
+    "date": "2025-09-02",
+    "author": "OrionTheFox",
+    "changes": [
+      "fixed RPED icons disappearing when applying upgrades (they now use TG's updated icons)"
     ]
   },
   {
