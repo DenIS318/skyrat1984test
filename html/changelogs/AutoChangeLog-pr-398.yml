@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - qol: "PDA no longer lose charge when in recharger (no infinity charging)"
