@@ -6,8 +6,7 @@
 	message = "is strumming the air and headbanging like a safari chimp."
 	hands_use_check = TRUE
 
-//NOVA EDIT REMOVAL BEGIN - EMOTES - (Moved to modular_nova/modules/emotes/code/emotes.dm as /datum/emote/living/clap)
-/*
+// SS1984 REVERT OF NOVA REMOVAL START
 /datum/emote/living/carbon/clap
 	key = "clap"
 	key_third_person = "claps"
@@ -26,8 +25,7 @@
 		'sound/mobs/humanoids/human/clap/clap3.ogg',
 		'sound/mobs/humanoids/human/clap/clap4.ogg',
 	)
-*/
-//NOVA EDIT REMOVAL END
+// SS1984 REVERT OF NOVA REMOVAL END
 
 /datum/emote/living/carbon/crack
 	key = "crack"
@@ -238,11 +236,3 @@
 	message = "hisses!"
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 	vary = TRUE
-
-/datum/emote/living/carbon/hiss/get_sound(mob/living/carbon/user)
-	. = ..()
-	if(!istype(user))
-		return
-	if(isalien(user))
-		return SFX_HISS
-	return user.dna.species.get_hiss_sound()

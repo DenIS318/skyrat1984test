@@ -1,10 +1,9 @@
-/datum/emote/living/sigh
-	name = "вздохнуть"
-	message = "вздыха%(ет,ют)%."
-	message_mime = "кажется вздыха%(ет,ют)%."
+// code\modules\mob\living\emote.dm
 
 /datum/emote/living/taunt
-	message = "taunts!"
+	name = "насмехаться"
+	message = "насмеха%(ет,ют)%ся"
+	message_mime = "кажется насмеха%(ет,ют)%ся."
 
 /datum/emote/living/blush
 	name = "краснеть"
@@ -12,7 +11,9 @@
 	message = "красне%(ет,ют)%."
 
 /datum/emote/living/sing_tune
-	message = "sings a tune."
+	name = "напевать"
+	message = "напева%(ет,ют)%."
+	message_mime = "шевел%(ет,ют)% губами."
 
 /datum/emote/living/bow
 	name = "поклониться"
@@ -20,759 +21,572 @@
 	message_param = "кланя%(ет,ют)%ся %t."
 	message_mime = "кланя%(ет,ют)%ся."
 
-// /datum/emote/living/burp
-// 	message = "burps."
-// 	message_mime = "acts out a burp."
-
-// /datum/emote/living/choke
-// 	message = "chokes!"
-// 	message_mime = "chokes silently!"
-
-// /datum/emote/living/cross
-// 	message = "crosses their arms."
-
-// /datum/emote/living/chuckle
-// 	message = "chuckles."
-// 	message_mime = "acts out chuckling."
-
-// /datum/emote/living/collapse
-// 	key = "collapse"
-// 	key_third_person = "collapses"
-// 	message = "collapses!"
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-// /datum/emote/living/collapse/run_emote(mob/user, params, type_override, intentional)
-// 	. = ..()
-// 	if(isliving(user))
-// 		var/mob/living/living = user
-// 		living.Unconscious(4 SECONDS)
-
-// /datum/emote/living/dance
-// 	key = "dance"
-// 	key_third_person = "dances"
-// 	message = "dances around happily."
-// 	hands_use_check = TRUE
-
-// /datum/emote/living/deathgasp
-// 	key = "deathgasp"
-// 	key_third_person = "deathgasps"
-// 	message = "seizes up and falls limp, their eyes dead and lifeless..."
-// 	message_robot = "shudders violently for a moment before falling still, its eyes slowly darkening."
-// 	message_AI = "screeches, its screen flickering as its systems slowly halt."
-// 	message_alien = "lets out a waning guttural screech, and collapses onto the floor..."
-// 	message_larva = "lets out a sickly hiss of air and falls limply to the floor..."
-// 	message_monkey = "lets out a faint chimper as it collapses and stops moving..."
-// 	message_animal_or_basic = "stops moving..."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE | EMOTE_IMPORTANT
-// 	cooldown = (15 SECONDS)
-// 	stat_allowed = HARD_CRIT
-
-// /datum/emote/living/deathgasp/run_emote(mob/living/user, params, type_override, intentional)
-// 	if(!is_type_in_typecache(user, mob_type_allowed_typecache))
-// 		return
-// 	var/custom_message = user.death_message
-// 	if(custom_message)
-// 		message_animal_or_basic = custom_message
-// 	. = ..()
-// 	message_animal_or_basic = initial(message_animal_or_basic)
-// 	if(!user.can_speak() || user.getOxyLoss() >= 50)
-// 		return //stop the sound if oxyloss too high/cant speak
-// 	var/mob/living/carbon/carbon_user = user
-// 	// For masks that give unique death sounds
-// 	if(istype(carbon_user) && isclothing(carbon_user.wear_mask) && carbon_user.wear_mask.unique_death)
-// 		playsound(carbon_user, carbon_user.wear_mask.unique_death, 200, TRUE, TRUE)
-// 		return
-// 	if(user.death_sound)
-// 		playsound(user, user.death_sound, 200, TRUE, TRUE)
-
-// /datum/emote/living/drool
-// 	key = "drool"
-// 	key_third_person = "drools"
-// 	message = "drools."
-
-// /datum/emote/living/faint
-// 	key = "faint"
-// 	key_third_person = "faints"
-// 	message = "faints."
-
-// /datum/emote/living/faint/run_emote(mob/user, params, type_override, intentional)
-// 	. = ..()
-// 	if(isliving(user))
-// 		var/mob/living/living = user
-// 		living.SetSleeping(20 SECONDS)
-
-// /datum/emote/living/flap
-// 	key = "flap"
-// 	key_third_person = "flaps"
-// 	message = "flaps their wings."
-// 	hands_use_check = TRUE
-// 	var/wing_time = 0.35 SECONDS
-
-// /datum/emote/living/flap/run_emote(mob/user, params, type_override, intentional)
-// 	. = ..()
-// 	if(!ishuman(user))
-// 		return
-// 	var/mob/living/carbon/human/human_user = user
-// 	var/obj/item/organ/wings/wings = human_user.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
-
-// 	// play a flapping noise if the wing has this implemented
-// 	if(!istype(wings))
-// 		return
-// 	wings.make_flap_sound(human_user)
-
-// 	// open/close functional wings
-// 	var/obj/item/organ/wings/functional/wings_functional = wings
-// 	if(!istype(wings_functional))
-// 		return
-// 	var/open = FALSE
-// 	if(wings_functional.wings_open)
-// 		open = TRUE
-// 		wings_functional.close_wings()
-// 	else
-// 		wings_functional.open_wings()
-// 	addtimer(CALLBACK(wings_functional, open ? TYPE_PROC_REF(/obj/item/organ/wings/functional, open_wings) : TYPE_PROC_REF(/obj/item/organ/wings/functional, close_wings)), wing_time)
-
-// /datum/emote/living/flap/aflap
-// 	key = "aflap"
-// 	key_third_person = "aflaps"
-// 	name = "flap (Angry)"
-// 	message = "flaps their wings ANGRILY!"
-// 	hands_use_check = TRUE
-// 	wing_time = 10
-
-// /datum/emote/living/frown
-// 	key = "frown"
-// 	key_third_person = "frowns"
-// 	message = "frowns."
-
-// /datum/emote/living/gag
-// 	key = "gag"
-// 	key_third_person = "gags"
-// 	message = "gags."
-// 	message_mime = "gags silently."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-// /datum/emote/living/gasp
-// 	key = "gasp"
-// 	key_third_person = "gasps"
-// 	message = "gasps!"
-// 	message_mime = "gasps silently!"
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-// 	stat_allowed = HARD_CRIT
-
-// /datum/emote/living/gasp/get_sound(mob/living/user)
-// 	if(HAS_MIND_TRAIT(user, TRAIT_MIMING))
-// 		return
-// 	if(!ishuman(user))
-// 		return
-
-// 	var/mob/living/carbon/human/human_user = user
-// 	if(human_user.gender == FEMALE) // NOVA EDIT CHANGE - ORIGINAL: if(human_user.physique == FEMALE)
-// 		return pick(
-// 			'sound/mobs/humanoids/human/gasp/gasp_female1.ogg',
-// 			'sound/mobs/humanoids/human/gasp/gasp_female2.ogg',
-// 			'sound/mobs/humanoids/human/gasp/gasp_female3.ogg',
-// 			)
-// 	return pick(
-// 		'sound/mobs/humanoids/human/gasp/gasp_male1.ogg',
-// 		'sound/mobs/humanoids/human/gasp/gasp_male2.ogg',
-// 		)
-
-// /datum/emote/living/gasp/shock
-// 	key = "gaspshock"
-// 	key_third_person = "gaspsshock"
-// 	name = "gasp (Shock)"
-// 	message = "gasps in shock!"
-// 	message_mime = "gasps in silent shock!"
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-// 	stat_allowed = SOFT_CRIT
-
-// /datum/emote/living/giggle
-// 	key = "giggle"
-// 	key_third_person = "giggles"
-// 	message = "giggles."
-// 	message_mime = "giggles silently!"
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-// /datum/emote/living/glare
-// 	key = "glare"
-// 	key_third_person = "glares"
-// 	message = "glares."
-// 	message_param = "glares at %t."
-
-// /datum/emote/living/grin
-// 	key = "grin"
-// 	key_third_person = "grins"
-// 	message = "grins."
-
-// /datum/emote/living/groan
-// 	key = "groan"
-// 	key_third_person = "groans"
-// 	message = "groans!"
-// 	message_mime = "appears to groan!"
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-// /datum/emote/living/grimace
-// 	key = "grimace"
-// 	key_third_person = "grimaces"
-// 	message = "grimaces."
-
-// /datum/emote/living/kiss
-// 	key = "kiss"
-// 	key_third_person = "kisses"
-// 	cooldown = 3 SECONDS
-
-// /datum/emote/living/kiss/run_emote(mob/living/user, params, type_override, intentional)
-// 	. = ..()
-// 	var/kiss_type = /obj/item/hand_item/kisser
-
-// 	if(HAS_TRAIT(user, TRAIT_GARLIC_BREATH))
-// 		kiss_type = /obj/item/hand_item/kisser/french
-
-// 	if(HAS_TRAIT(user, TRAIT_CHEF_KISS))
-// 		kiss_type = /obj/item/hand_item/kisser/chef
-
-// 	if(HAS_TRAIT(user, TRAIT_SYNDIE_KISS))
-// 		kiss_type = /obj/item/hand_item/kisser/syndie
-
-// 	if(HAS_TRAIT(user, TRAIT_KISS_OF_DEATH))
-// 		kiss_type = /obj/item/hand_item/kisser/death
-
-// 	var/datum/action/cooldown/ink_spit/ink_action = locate() in user.actions
-// 	if(ink_action?.IsAvailable())
-// 		kiss_type = /obj/item/hand_item/kisser/ink
-// 	else
-// 		ink_action = null
-
-// 	var/obj/item/kiss_blower = new kiss_type(user)
-// 	if(user.put_in_hands(kiss_blower))
-// 		to_chat(user, span_notice("You ready your kiss-blowing hand."))
-// 		ink_action?.StartCooldown()
-// 		return
-
-// 	qdel(kiss_blower)
-// 	to_chat(user, span_warning("You're incapable of blowing a kiss in your current state."))
-
-// /datum/emote/living/laugh
-// 	key = "laugh"
-// 	key_third_person = "laughs"
-// 	message = "laughs."
-// 	message_mime = "laughs silently!"
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-// 	specific_emote_audio_cooldown = 8 SECONDS
-// 	vary = TRUE
-
-// /datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional, params)
-// 	return ..() && user.can_speak(allow_mimes = TRUE)
-
-// /datum/emote/living/laugh/get_sound(mob/living/carbon/human/user)
-// 	if(!istype(user))
-// 		return
-// 	return user.dna.species.get_laugh_sound(user)
-
-// /datum/emote/living/look
-// 	key = "look"
-// 	key_third_person = "looks"
-// 	message = "looks."
-// 	message_param = "looks at %t."
-
-// /datum/emote/living/nod
-// 	key = "nod"
-// 	key_third_person = "nods"
-// 	message = "nods."
-// 	message_param = "nods at %t."
-
-// /datum/emote/living/point
-// 	key = "point"
-// 	key_third_person = "points"
-// 	message = "points."
-// 	message_param = "points at %t."
-// 	cooldown = 1 SECONDS
-// 	// don't put hands use check here, everything is handled in run_emote
-
-// /datum/emote/living/point/run_emote(mob/user, params, type_override, intentional)
-// 	message_param = initial(message_param) // reset
-// 	if(iscarbon(user))
-// 		var/mob/living/carbon/our_carbon = user
-// 		if(our_carbon.usable_hands <= 0 || user.incapacitated & INCAPABLE_RESTRAINTS || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
-// 			if(our_carbon.usable_legs > 0)
-// 				var/one_leg = FALSE
-// 				var/has_shoes = our_carbon.get_item_by_slot(ITEM_SLOT_FEET)
-// 				if(our_carbon.usable_legs == 1)
-// 					one_leg = TRUE
-// 				var/success_prob = 65
-// 				if(HAS_TRAIT(our_carbon, TRAIT_FREERUNNING))
-// 					success_prob += 35
-// 				if(one_leg)
-// 					success_prob -= 40
-// 				if(prob(success_prob))
-// 					message_param = "[one_leg ? "jumps into the air and " : ""]points at %t with their [has_shoes ? "leg" : "toes"]!"
-// 				else
-// 					message_param = "[one_leg ? "jumps into the air and " : ""]tries to point at %t with their [has_shoes ? "leg" : "toes"], falling down in the process!"
-// 					our_carbon.Paralyze(2 SECONDS)
-// 				TIMER_COOLDOWN_START(user, "point_verb_emote_cooldown", 1 SECONDS)
-// 			else
-// 				if(our_carbon.get_organ_slot(ORGAN_SLOT_EYES))
-// 					message_param = "gives a meaningful glance at %t!"
-// 					TIMER_COOLDOWN_START(src, "point_verb_emote_cooldown", 1.5 SECONDS)
-// 				else
-// 					if(our_carbon.get_organ_slot(ORGAN_SLOT_TONGUE))
-// 						message_param = "motions their tongue towards %t!"
-// 						TIMER_COOLDOWN_START(src, "point_verb_emote_cooldown", 2 SECONDS)
-// 					else
-// 						message_param = "[span_userdanger("bumps [user.p_their()] head on the ground")] trying to motion towards %t."
-// 						our_carbon.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
-// 						playsound(user, 'sound/effects/glass/glassbash.ogg', 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-// 						TIMER_COOLDOWN_START(src, "point_verb_emote_cooldown", 2.5 SECONDS)
-// 	return ..()
-
-// /datum/emote/living/sneeze
-// 	key = "sneeze"
-// 	key_third_person = "sneezes"
-// 	message = "sneezes."
-// 	message_mime = "acts out an exaggerated silent sneeze."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-// 	vary = TRUE
-
-// /datum/emote/living/sneeze/get_sound(mob/living/carbon/human/user)
-// 	if(!istype(user))
-// 		return
-// 	return user.dna.species.get_sneeze_sound(user)
-
-// /datum/emote/living/cough
-// 	key = "cough"
-// 	key_third_person = "coughs"
-// 	message = "coughs!"
-// 	message_mime = "acts out an exaggerated cough!"
-// 	vary = TRUE
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE | EMOTE_RUNECHAT
-
-// /datum/emote/living/cough/can_run_emote(mob/user, status_check = TRUE , intentional, params)
-// 	return !HAS_TRAIT(user, TRAIT_SOOTHED_THROAT) && ..()
-
-// /datum/emote/living/cough/get_sound(mob/living/carbon/human/user)
-// 	if(!istype(user))
-// 		return
-// 	return user.dna.species.get_cough_sound(user)
-
-
-// /datum/emote/living/pout
-// 	key = "pout"
-// 	key_third_person = "pouts"
-// 	message = "pouts."
-// 	message_mime = "pouts silently."
-
-// /datum/emote/living/scream
-// 	key = "scream"
-// 	key_third_person = "screams"
-// 	message = "screams!"
-// 	message_mime = "acts out a scream!"
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-// 	mob_type_blacklist_typecache = list(/mob/living/brain, /mob/living/carbon/human)
-// 	sound_wall_ignore = TRUE
-
-// /datum/emote/living/scream/run_emote(mob/user, params, type_override, intentional = FALSE)
-// 	if(!intentional && HAS_TRAIT(user, TRAIT_ANALGESIA))
-// 		return
-// 	return ..()
-
-// /datum/emote/living/scream/select_message_type(mob/user, message, intentional)
-// 	. = ..()
-// 	if(!intentional && isanimal_or_basicmob(user))
-// 		return "makes a loud and pained whimper."
-
-// /datum/emote/living/scowl
-// 	key = "scowl"
-// 	key_third_person = "scowls"
-// 	message = "scowls."
-
-// /datum/emote/living/shake
-// 	key = "shake"
-// 	key_third_person = "shakes"
-// 	message = "shakes their head."
-
-// /datum/emote/living/shiver
-// 	key = "shiver"
-// 	key_third_person = "shiver"
-// 	message = "shivers."
-
-// #define SHIVER_LOOP_DURATION (1 SECONDS)
-// /datum/emote/living/shiver/run_emote(mob/living/user, params, type_override, intentional)
-// 	. = ..()
-
-// 	animate(user, pixel_w = 1, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_PARALLEL)
-// 	for(var/i in 1 to SHIVER_LOOP_DURATION / (0.2 SECONDS)) //desired total duration divided by the iteration duration to give the necessary iteration count
-// 		animate(pixel_w = -2, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_CONTINUE)
-// 		animate(pixel_w = 2, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_CONTINUE)
-// 	animate(pixel_w = -1, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE)
-// #undef SHIVER_LOOP_DURATION
-
-// /datum/emote/living/sigh
-// 	key = "sigh"
-// 	key_third_person = "sighs"
-// 	message = "sighs."
-// 	message_mime = "acts out an exaggerated silent sigh."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-// 	vary = TRUE
-
-// /datum/emote/living/sigh/run_emote(mob/living/user, params, type_override, intentional)
-// 	. = ..()
-// 	if(!ishuman(user))
-// 		return
-// 	var/image/emote_animation = image('icons/mob/human/emote_visuals.dmi', user, "sigh")
-// 	flick_overlay_global(emote_animation, GLOB.clients, 2.0 SECONDS)
-
-// /datum/emote/living/sigh/get_sound(mob/living/carbon/human/user)
-// 	if(!istype(user))
-// 		return
-// 	return user.dna.species.get_sigh_sound(user)
-
-// /datum/emote/living/sit
-// 	key = "sit"
-// 	key_third_person = "sits"
-// 	message = "sits down."
-
-// /datum/emote/living/smile
-// 	key = "smile"
-// 	key_third_person = "smiles"
-// 	message = "smiles."
-
-// /datum/emote/living/smug
-// 	key = "smug"
-// 	key_third_person = "smugs"
-// 	message = "grins smugly."
-
-// /datum/emote/living/sniff
-// 	key = "sniff"
-// 	key_third_person = "sniffs"
-// 	message = "sniffs."
-// 	message_mime = "sniffs silently."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-// 	vary = TRUE
-
-// /datum/emote/living/sniff/get_sound(mob/living/carbon/human/user)
-// 	if(!istype(user))
-// 		return
-// 	return user.dna.species.get_sniff_sound(user)
-
-// /datum/emote/living/snore
-// 	key = "snore"
-// 	key_third_person = "snores"
-// 	message = "snores."
-// 	message_mime = "sleeps soundly."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-// 	stat_allowed = UNCONSCIOUS
-
-// // eventually we want to give species their own "snoring" sounds
-// /datum/emote/living/snore/get_sound(mob/living/carbon/human/user)
-// 	if(!istype(user))
-// 		return
-// 	return user.dna.species.get_snore_sound(user)
-
-// /datum/emote/living/stare
-// 	key = "stare"
-// 	key_third_person = "stares"
-// 	message = "stares."
-// 	message_param = "stares at %t."
-
-// /datum/emote/living/strech
-// 	key = "stretch"
-// 	key_third_person = "stretches"
-// 	message = "stretches their arms."
-
-// /datum/emote/living/sulk
-// 	key = "sulk"
-// 	key_third_person = "sulks"
-// 	message = "sulks down sadly."
-
-// /datum/emote/living/surrender
-// 	key = "surrender"
-// 	key_third_person = "surrenders"
-// 	message = "puts their hands on their head and falls to the ground, they surrender%s!"
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-// /datum/emote/living/surrender/run_emote(mob/user, params, type_override, intentional)
-// 	. = ..()
-// 	if(isliving(user))
-// 		var/mob/living/living = user
-// 		living.Paralyze(20 SECONDS)
-// 		living.remove_status_effect(/datum/status_effect/grouped/surrender)
-
-// /datum/emote/living/sway
-// 	key = "sway"
-// 	key_third_person = "sways"
-// 	message = "sways around dizzily."
-
-// /datum/emote/living/sway/run_emote(mob/living/user, params, type_override, intentional)
-// 	. = ..()
-
-// 	animate(user, pixel_w = 2, time = 0.5 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_PARALLEL)
-// 	for(var/i in 1 to 2)
-// 		animate(pixel_w = -6, time = 1.0 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_CONTINUE)
-// 		animate(pixel_w = 6, time = 1.0 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_CONTINUE)
-// 	animate(pixel_w = -2, time = 0.5 SECONDS, flags = ANIMATION_RELATIVE)
-
-// /datum/emote/living/tilt
-// 	key = "tilt"
-// 	key_third_person = "tilts"
-// 	message = "tilts their head to the side."
-
-// /datum/emote/living/tremble
-// 	key = "tremble"
-// 	key_third_person = "trembles"
-// 	message = "trembles!"
-
-// #define TREMBLE_LOOP_DURATION (4.4 SECONDS)
-// /datum/emote/living/tremble/run_emote(mob/living/user, params, type_override, intentional)
-// 	. = ..()
-
-// 	animate(user, pixel_w = 2, time = 0.2 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_PARALLEL)
-// 	for(var/i in 1 to TREMBLE_LOOP_DURATION / (0.4 SECONDS)) //desired total duration divided by the iteration duration to give the necessary iteration count
-// 		animate(pixel_w = -4, time = 0.2 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_CONTINUE)
-// 		animate(pixel_w = 4, time = 0.2 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_CONTINUE)
-// 	animate(pixel_w = -2, time = 0.2 SECONDS, flags = ANIMATION_RELATIVE)
-// #undef TREMBLE_LOOP_DURATION
-
-// /datum/emote/living/twitch
-// 	key = "twitch"
-// 	key_third_person = "twitches"
-// 	message = "twitches violently."
-
-// /datum/emote/living/twitch/run_emote(mob/living/user, params, type_override, intentional)
-// 	. = ..()
-
-// 	animate(user, pixel_w = 1, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_PARALLEL)
-// 	animate(pixel_w = -2, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE)
-// 	animate(time = 0.1 SECONDS)
-// 	animate(pixel_w = 2, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE)
-// 	animate(pixel_w = -1, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE)
-
-// /datum/emote/living/twitch_s
-// 	key = "twitch_s"
-// 	name = "twitch (Slight)"
-// 	message = "twitches."
-
-// /datum/emote/living/twitch_s/run_emote(mob/living/user, params, type_override, intentional)
-// 	. = ..()
-
-// 	animate(user, pixel_w = -1, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_PARALLEL)
-// 	animate(pixel_w = 1, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE)
-
-// /datum/emote/living/wave
-// 	key = "wave"
-// 	key_third_person = "waves"
-// 	message = "waves."
-
-// /datum/emote/living/whimper
-// 	key = "whimper"
-// 	key_third_person = "whimpers"
-// 	message = "whimpers."
-// 	message_mime = "appears hurt."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-// /datum/emote/living/wsmile
-// 	key = "wsmile"
-// 	key_third_person = "wsmiles"
-// 	name = "smile (Weak)"
-// 	message = "smiles weakly."
-
-// /// The base chance for your yawn to propagate to someone else if they're on the same tile as you
-// #define YAWN_PROPAGATE_CHANCE_BASE 0 // NOVA EDIT - Group yawn no more - ORIGINAL: #define YAWN_PROPAGATE_CHANCE_BASE 20
-// /// The amount the base chance to propagate yawns falls for each tile of distance
-// #define YAWN_PROPAGATE_CHANCE_DECAY 4
-
-// /datum/emote/living/yawn
-// 	key = "yawn"
-// 	key_third_person = "yawns"
-// 	message = "yawns."
-// 	message_mime = "acts out an exaggerated silent yawn."
-// 	message_robot = "symphathetically yawns."
-// 	message_AI = "symphathetically yawns."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-// 	cooldown = 5 SECONDS
-
-// /datum/emote/living/yawn/run_emote(mob/user, params, type_override, intentional)
-// 	. = ..()
-// 	if(!isliving(user))
-// 		return
-
-// 	if(TIMER_COOLDOWN_FINISHED(user, COOLDOWN_YAWN_PROPAGATION))
-// 		TIMER_COOLDOWN_START(user, COOLDOWN_YAWN_PROPAGATION, cooldown * 3)
-
-// 	var/mob/living/carbon/carbon_user = user
-// 	if(istype(carbon_user) && ((carbon_user.wear_mask?.flags_inv & HIDEFACE) || carbon_user.head?.flags_inv & HIDEFACE))
-// 		return // if your face is obscured, skip propagation
-
-// 	var/propagation_distance = user.client ? 5 : 2 // mindless mobs are less able to spread yawns
-
-// 	for(var/mob/living/iter_living in view(user, propagation_distance))
-// 		if(IS_DEAD_OR_INCAP(iter_living) || TIMER_COOLDOWN_RUNNING(iter_living, COOLDOWN_YAWN_PROPAGATION))
-// 			continue
-
-// 		var/dist_between = get_dist(user, iter_living)
-// 		var/recently_examined = FALSE // if you yawn just after someone looks at you, it forces them to yawn as well. Tradecraft!
-
-// 		if(iter_living.client)
-// 			var/examine_time = LAZYACCESS(iter_living.client?.recent_examines, user)
-// 			if(examine_time && (world.time - examine_time < YAWN_PROPAGATION_EXAMINE_WINDOW))
-// 				recently_examined = TRUE
-
-// 		if(!recently_examined && !prob(YAWN_PROPAGATE_CHANCE_BASE - (YAWN_PROPAGATE_CHANCE_DECAY * dist_between)))
-// 			continue
-
-// 		var/yawn_delay = rand(0.2 SECONDS, 0.7 SECONDS) * dist_between
-// 		addtimer(CALLBACK(src, PROC_REF(propagate_yawn), iter_living), yawn_delay)
-
-// /// This yawn has been triggered by someone else yawning specifically, likely after a delay. Check again if they don't have the yawned recently trait
-// /datum/emote/living/yawn/proc/propagate_yawn(mob/user)
-// 	if(!istype(user) || TIMER_COOLDOWN_RUNNING(user, COOLDOWN_YAWN_PROPAGATION))
-// 		return
-// 	user.emote("yawn")
-
-// #undef YAWN_PROPAGATE_CHANCE_BASE
-// #undef YAWN_PROPAGATE_CHANCE_DECAY
-
-// /datum/emote/living/gurgle
-// 	key = "gurgle"
-// 	key_third_person = "gurgles"
-// 	message = "makes an uncomfortable gurgle."
-// 	message_mime = "gurgles silently and uncomfortably."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-// /datum/emote/living/custom
-// 	key = "me"
-// 	key_third_person = "custom"
-// 	message = null
-
-// /datum/emote/living/custom/can_run_emote(mob/user, status_check, intentional, params)
-// 	. = ..()
-// 	if(!. || !intentional)
-// 		return FALSE
-
-// 	if(!isnull(user.ckey) && is_banned_from(user.ckey, "Emote"))
-// 		to_chat(user, span_boldwarning("You cannot send custom emotes (banned)."))
-// 		return FALSE
-
-// 	if(QDELETED(user))
-// 		return FALSE
-
-// 	if(user.client && user.client.prefs.muted & MUTE_IC)
-// 		to_chat(user, span_boldwarning("You cannot send IC messages (muted)."))
-// 		return FALSE
-
-// /datum/emote/living/custom/proc/emote_is_valid(mob/user, input)
-// 	// We're assuming clientless mobs custom emoting is something codebase-driven and not player-driven.
-// 	// If players ever get the ability to force clientless mobs to emote, we'd need to reconsider this.
-// 	if(!user.client)
-// 		return TRUE
-
-// 	if(CAN_BYPASS_FILTER(user))
-// 		return TRUE
-
-// 	var/static/regex/stop_bad_mime = regex(@"says|exclaims|yells|asks")
-// 	if(stop_bad_mime.Find(input, 1, 1))
-// 		to_chat(user, span_danger("Invalid emote."))
-// 		return FALSE
-
-// 	var/list/filter_result = is_ic_filtered(input)
-
-// 	if(filter_result)
-// 		to_chat(user, span_warning("That emote contained a word prohibited in IC emotes! Consider reviewing the server rules."))
-// 		to_chat(user, span_warning("\"[input]\""))
-// 		REPORT_CHAT_FILTER_TO_USER(user, filter_result)
-// 		log_filter("IC Emote", input, filter_result)
-// 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, LOWER_TEXT(config.ic_filter_regex.match))
-// 		return FALSE
-
-// 	filter_result = is_soft_ic_filtered(input)
-
-// 	if(filter_result)
-// 		if(tgui_alert(user,"Your emote contains \"[filter_result[CHAT_FILTER_INDEX_WORD]]\". \"[filter_result[CHAT_FILTER_INDEX_REASON]]\", Are you sure you want to emote it?", "Soft Blocked Word", list("Yes", "No")) != "Yes")
-// 			SSblackbox.record_feedback("tally", "soft_ic_blocked_words", 1, LOWER_TEXT(config.soft_ic_filter_regex.match))
-// 			log_filter("Soft IC Emote", input, filter_result)
-// 			return FALSE
-
-// 		message_admins("[ADMIN_LOOKUPFLW(user)] has passed the soft filter for emote \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Emote: \"[input]\"")
-// 		log_admin_private("[key_name(user)] has passed the soft filter for emote \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" they may be using a disallowed term. Emote: \"[input]\"")
-// 		SSblackbox.record_feedback("tally", "passed_soft_ic_blocked_words", 1, LOWER_TEXT(config.soft_ic_filter_regex.match))
-// 		log_filter("Soft IC Emote (Passed)", input, filter_result)
-
-// 	return TRUE
-
-// /datum/emote/living/custom/get_message_flags(intentional)
-// 	. = ..()
-// 	return .|WITH_EMPHASIS_MESSAGE
-
-// /datum/emote/living/custom/proc/get_custom_emote_from_user()
-// 	return stripped_multiline_input(usr, "Choose an emote to display.", "Me" , null, MAX_MESSAGE_LEN) // NOVA EDIT CHANGE - ORIGINAL : return copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)
-
-// /datum/emote/living/custom/proc/get_custom_emote_type_from_user()
-// 	var/type = input("Is this a visible or hearable emote?") as null|anything in list("Visible", "Hearable", "Both")
-
-// 	switch(type)
-// 		if("Visible")
-// 			return EMOTE_VISIBLE
-// 		if("Hearable")
-// 			return EMOTE_AUDIBLE
-// 		if("Both")
-// 			return EMOTE_VISIBLE | EMOTE_AUDIBLE
-// 		else
-// 			tgui_alert(usr,"Unable to use this emote, must be either hearable or visible.")
-// 			return FALSE
-
-// /datum/emote/living/custom/run_emote(mob/user, params, type_override = null, intentional = FALSE)
-// 	var/our_message = params ? params : get_custom_emote_from_user()
-
-// 	if(!emote_is_valid(user, our_message))
-// 		return FALSE
-
-// 	if(type_override)
-// 		emote_type = type_override
-
-// 	if(!params)
-// 		var/user_emote_type = get_custom_emote_type_from_user()
-
-// 		if(!user_emote_type)
-// 			return FALSE
-
-// 		emote_type = user_emote_type
-
-// 	message = our_message
-// 	. = ..()
-
-// 	///Reset the message and emote type after it's run.
-// 	message = null
-// 	emote_type = EMOTE_VISIBLE
-
-// /datum/emote/living/custom/replace_pronoun(mob/user, message)
-// 	return message
-
-// /datum/emote/living/inhale
-// 	key = "inhale"
-// 	key_third_person = "inhales"
-// 	message = "breathes in."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-// /datum/emote/living/exhale
-// 	key = "exhale"
-// 	key_third_person = "exhales"
-// 	message = "breathes out."
-// 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-
-// /datum/emote/living/swear
-// 	key = "swear"
-// 	key_third_person = "swears"
-// 	message = "says a swear word!"
-// 	message_mime = "makes a rude gesture!"
-// 	emote_type = EMOTE_AUDIBLE
-
-// /datum/emote/living/carbon/whistle
-// 	key = "whistle"
-// 	key_third_person = "whistles"
-// 	message = "whistles."
-// 	message_mime = "whistles silently!"
-// 	vary = TRUE
-// 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
-
-// /datum/emote/living/carbon/whistle/get_sound(mob/living/user)
-// 	return 'sound/mobs/humanoids/human/whistle/whistle1.ogg'
+/datum/emote/living/burp
+	name = "отрыгнуть"
+	message = "отрыгива%(ет,ют)%."
+	message_mime = "довольно противно открыва%(ет,ют)% рот."
+
+/datum/emote/living/choke
+	name = "подавиться"
+	message = "подавил%(ся,ась,ось,ись)%!"
+	message_mime = "отчаянно хвата%(ет,ют)%ся за горло!"
+
+/datum/emote/living/cross
+	name = "скрестить руки"
+	message = "скрещива%(ет,ют)% руки."
+	message_mime = "скрещива%(ет,ют)% руки."
+
+/datum/emote/living/chuckle
+	name = "посмеиваться"
+	message = "посмеива%(ет,ют)%ся."
+	message_mime = "тихо посмеива%(ет,ют)%ся."
+
+/datum/emote/living/collapse
+	name = "потерять сознание"
+	message = "пада%(ет,ют)% без сознания!"
+	message_mime = "пада%(ет,ют)% без сознания!"
+
+/datum/emote/living/dance
+	name = "танцевать"
+	message = "радостно танцу%(ет,ют)%."
+	message_mime = "радостно танцу%(ет,ют)%."
+
+/datum/emote/living/deathgasp
+	name = "предсмертный вздох"
+	message = "цепене%(ет,ют)% и расслабля%(ет,ют)%ся, %(его,её,его,их)% взгляд становится пустым и безжизненным..."
+	message_robot = "на мгновение вздрагива%(ет,ют)% и замира%(ет,ют)%, %(его,её,его,их)% глаза медленно темнеют..."
+	message_AI = "скрип%(ит,ят)% и мерца%(ет,ют)% экраном, пока %(его,её,его,их)% системы медленно отключаются..."
+	message_alien = "изда%(ёт,ют)% тихий гортанный звук, зелёная кровь пузырится из %(его,её,его,их)% пасти..."
+	message_larva = "с тошнотворным шипением выдыха%(ет,ют)% воздух и пада%(ет,ют)% на пол..."
+	message_monkey = "изда%(ёт,ют)% тихий визг, пада%(ет,ют)% и переста%(ёт,ют)% двигаться..."
+	message_animal_or_basic = "переста%(ёт,ют)% двигаться..."
+	mesage_mime = "цепене%(ет,ют)% и расслабля%(ет,ют)%ся, %(его,её,его,их)% взгляд становится пустым и безжизненным..."
+
+/datum/emote/living/drool
+	name = "нести чепуху"
+	message = "нес%(ёт,ут)% чепуху."
+	message_mime = "нес%(ёт,ут)% чепуху."
+
+/datum/emote/living/faint
+	name = "упасть в обморок"
+	message = "пада%(ет,ют)% в обморок."
+	message_mime = "пада%(ет,ют)% в обморок."
+
+/datum/emote/living/flap
+	name = "махать крыльями"
+	message = "маш%(ет,ут)% крыльями."
+	message_mime = "маш%(ет,ут)% крыльями."
+
+/datum/emote/living/flap/aflap
+	name = "агрессивно махать крыльями"
+	message = "агрессивно маш%(ет,ут)% крыльями."
+	message_mime = "агрессивно маш%(ет,ут)% крыльями."
+
+/datum/emote/living/frown
+	name = "хмуриться"
+	message = "хмур%(ит,ят)%ся."
+	message_mime = "хмур%(ит,ят)%ся."
+
+/datum/emote/living/gag
+	name = "выворачивать наизнанку"
+	message = "выворачивает."
+	message_mime = "кажется выворачивает."
+
+/datum/emote/living/gasp
+	name = "задыхаться"
+	message = "задыхается!"
+	message_mime = "тихо задыхается!"
+
+/datum/emote/living/gasp/shock
+	name = "задыхаться от шока"
+	message = "задыхается от шока!"
+	message_mime = "тихо задыхается от шока!"
+
+/datum/emote/living/giggle
+	name = "хихикать"
+	message = "хихика%(ет,ют)%."
+	message_mime = "тихо хихика%(ет,ют)%."
+
+/datum/emote/living/glare
+	name = "свирепо смотреть"
+	message = "свирепо смотр%(ит,ят)%."
+	message_mime = "свирепо смотр%(ит,ят)%."
+	message_param = "свирепо смотр%(ит,ят)% на %t."
+
+/datum/emote/living/grin
+	name = "скалиться в улыбке"
+	message = "скал%(ит,ят)%ся в улыбке."
+	message_mime = "скал%(ит,ят)%ся в улыбке."
+
+/datum/emote/living/groan
+	name = "болезненно вздохнуть"
+	message = "болезненно вздыха%(ет,ют)%."
+	message_mime = "как будто болезненно вздыха%(ет,ют)%."
+
+/datum/emote/living/grimace
+	name = "изобразить гримасу"
+	message = "гримаснича%(ет,ют)%."
+	message_mime = "гримаснича%(ет,ют)%."
+
+/datum/emote/living/kiss
+	name = "воздушный поцелуй"
+
+/datum/emote/living/laugh
+	name = "смеяться"
+	message = "сме%(ёт,ют)%ся."
+	message_mime = "бесшумно сме%(ёт,ют)%ся."
+
+/datum/emote/living/look
+	name = "смотреть"
+	message = "смотр%(ит,ят)%."
+	message_mime = "смотр%(ит,ят)%."
+	message_param = "смотр%(ит,ят)%. на %t."
+
+/datum/emote/living/nod
+	name = "кивать"
+	message = "кива%(ет,ют)%."
+	message_param = "кива%(ет,ют)% в сторону %t."
+
+/datum/emote/living/point
+	name = "указывать"
+	message = "указыва%(ет,ют)%."
+	message_param = "указыва%(ет,ют)% на %t."
+
+/datum/emote/living/sneeze
+	name = "чихать"
+	message = "чиха%(ет,ют)%."
+	message_mime = "бесшумно чиха%(ет,ют)%."
+
+/datum/emote/living/cough
+	name = "кашлять"
+	message = "кашля%(ет,ют)%!"
+	message_mime = "кажется кашля%(ет,ют)%!"
+
+/datum/emote/living/pout
+	name = "надуть губы"
+	message = "надува%(ет,ют)% губы."
+	message_mime = "надува%(ет,ют)% губы."
+
+/datum/emote/living/scream
+	name = "кричать"
+	message = "крич%(ит,ат)%!"
+	message_mime = "делает вид, что крич%(ит,ат)%!"
+	message_simple = "скул%(ит,ят)%."
+	message_alien = "рыч%(ит,ат)%!"
+
+/datum/emote/living/scream/select_message_type(mob/user, message, intentional)
+	. = ..()
+	if(!intentional && isanimal_or_basicmob(user))
+		return "издает громкий всхлип."
+
+/datum/emote/living/scowl
+	name = "мрачно смотреть"
+	message = "мрачно смотр%(ит,ят)%."
+	message_mime = "мрачно смотр%(ит,ят)%."
+
+/datum/emote/living/shake
+	name = "трясти головой"
+	message = "тряс%(ёт,ут)% головой."
+	message_mime = "тряс%(ёт,ут)% головой."
+
+/datum/emote/living/shiver
+	name = "дрожать"
+	message = "дрож%(ит,ат)%."
+	message_mime = "дрож%(ит,ат)%."
+
+/datum/emote/living/sigh
+	name = "вздохнуть"
+	message = "вздыха%(ет,ют)%."
+	message_mime = "кажется вздыха%(ет,ют)%."
+
+/datum/emote/living/sit
+	name = "сесть"
+	message = "сад%(ит,ят)%ся."
+	mesage_mime = "сад%(ит,ят)%ся."
+
+/datum/emote/living/smile
+	name = "улыбаться"
+	message = "улыба%(ет,ют)%ся."
+	message_mime = "улыба%(ет,ют)%ся."
+
+/datum/emote/living/smug
+	name = "ухмыляться"
+	message = "самодовольно ухмыля%(ет,ют)%ся."
+	message_mime = "самодовольно ухмыля%(ет,ют)%ся."
+
+/datum/emote/living/sniff
+	name = "нюхать"
+	message = "нюха%(ет,ют)%."
+	message_mime = "бесшумно втягива%(ет,ют)% воздух."
+
+/datum/emote/living/snore
+	name = "храпеть"
+	message = "храп%(ит,ят)%."
+	message_mime = "крепко сп%(ит,ят)%."
+	message_simple = "вороча%(ет,ют)%ся во сне."
+	message_robot = "вход%(ит,ят)% в спящий режим..."
+
+/datum/emote/living/stare
+	name = "пялиться"
+	message = "пял%(ит,ят)%ся."
+	message_param = "пял%(ит,ят)%ся на %t."
+
+/datum/emote/living/strech
+	name = "размять конечности"
+	message = "размина%(ет,ют)% конечности."
+	message_mime = "размина%(ет,ют)% конечности."
+	message_robot = "проверя%(ет,ют)% приводы."
+
+/datum/emote/living/sulk
+	name = "дуться"
+	message = "ду%(ет,ют)%ся."
+	message_mime = "ду%(ет,ют)%ся."
+
+/datum/emote/living/surrender
+	name = "сдаться"
+	message = "складыва%(ет,ют)% руки за голову и перестает двигаться"
+	message_mime = "складыва%(ет,ют)% руки за голову и перестает двигаться"
+
+/datum/emote/living/sway
+	name = "кружиться"
+	message = "умопомрачительно круж%(ит,ат)%ся."
+	message_mime = "умопомрачительно круж%(ит,ат)%ся."
+
+/datum/emote/living/tilt
+	name = "наклонить голову"
+	message = "наклоня%(ет,ют)% голову на бок."
+	message_mime = "наклоня%(ет,ют)% голову на бок."
+
+/datum/emote/living/tremble
+	name = "дрожать в ужасе"
+	message = "дрож%(ит,ат)% в ужасе!"
+	message_mime = "дрож%(ит,ат)% в ужасе!"
+
+/datum/emote/living/twitch
+	name = "сильно дергаться"
+	message = "сильно дёрга%(ет,ют)%ся."
+	message_mime = "сильно дёрга%(ет,ют)%ся."
+
+/datum/emote/living/twitch_s
+	name = "дергаться"
+	message = "дёрга%(ет,ют)%ся."
+	message_mime = "дёрга%(ет,ют)%ся."
+
+/datum/emote/living/wave
+	name = "махать рукой"
+	message = "маш%(ет,ут)%.."
+	message_mime = "маш%(ет,ут)%.."
+
+/datum/emote/living/whimper
+	name = "хныкать"
+	message = "хныч%(ет,ут)%."
+	message_mime = "каж%(ет,ут)%ся ранен%(ым,ой,ым,ыми)%."
+
+/datum/emote/living/wsmile
+	name = "слабо улыбнуться"
+	message = "слабо улыба%(ет,ют)%ся."
+	message_mime = "слабо улыба%(ет,ют)%ся."
+
+/datum/emote/living/yawn
+	name = "зевать"
+	message = "зева%(ет,ют)%."
+	message_mime = "кажется зева%(ет,ют)%."
+	message_robot = "сочуственно зева%(ет,ют)%."
+	message_AI = "сочуственно зева%(ет,ют)%."
+
+/datum/emote/living/gurgle
+	name = "булькать"
+	message = "изда%(ет,ют)% неприятное бульканье."
+	message_mime = "изда%(ет,ют)% тихое бульканье."
+
+/datum/emote/living/inhale
+	name = "вдохнуть"
+	message = "вдыха%(ет,ют)%."
+	message_mime = "кажется вдыха%(ет,ют)%."
+
+/datum/emote/living/exhale
+	name = "выдохнуть"
+	message = "выдыха%(ет,ют)%."
+	message_mime = "кажется выдыха%(ет,ют)%."
+
+/datum/emote/living/swear
+	name = "ругаться"
+	message = "руга%(ет,ют)%ся!"
+	message_mime = "дела%(ет,ют)% непристойный жест!"
+	message_simple = "изда%(ёт,ют)% сердитый шум!"
+
+/datum/emote/living/carbon/whistle
+	name = "свистеть"
+	message = "свист%(ит,ят)%."
+	message_mime = "бесшумно свист%(ит,ят)%"
+
+// code\modules\mob\emote.dm
+
+/datum/emote/jump
+	name = "прыгать"
+	message = "прыга%(ет,ют)%!"
+	message_mime = "прыга%(ет,ют)%!"
+
+/datum/emote/spin
+	name = "крутиться"
+
+/datum/emote/flip
+	name = "кувырок"
+
+// code\modules\mob\living\carbon\emote.dm
+/datum/emote/living/carbon/airguitar
+	name = "играть на гитаре"
+	message = "игра%(ет,ют)% на гитаре" // plays-the-guitar
+	message_mime = "изобража%(ет,ют)% игру на гитаре"
+
+/datum/emote/living/carbon/clap
+	name = "хлопать"
+	message = "хлопа%(ет,ют)%!"
+	message = "бесшумно хлопа%(ет,ют)%!"
+
+/datum/emote/living/carbon/crack
+	name = "хрустеть кистями"
+	message = "хруст%(ит,ят)% кистями рук!"
+	message_mime = "хруст%(ит,ят)% кистями рук!"
+
+/datum/emote/living/carbon/cry
+	name = "плакать"
+	message = "плач%(ет,ют)%."
+	message_mime = "бесшумно плач%(ет,ют)%."
+
+/datum/emote/living/carbon/circle
+	name = "Нарисовать круг"
+
+/datum/emote/living/carbon/meow
+	name = "мяукнуть"
+	message = "мяука%(ет,ют)%"
+	message_mime = "бесшумно мяука%(ет,ют)%."
+
+/datum/emote/living/carbon/purr
+	name = "мурлыкнуть"
+	message = "мурлык%(ет,ют)%."
+	message_mime = "бесшумно мурлык%(ет,ют)%."
+
+/datum/emote/living/carbon/moan
+	name = "стонать"
+	message = "стон%(ет,ут)%!"
+	message_mime = "кажется стон%(ет,ут)%!"
+
+/datum/emote/living/carbon/noogie
+	name = "потрепать по голове"
+
+/datum/emote/living/carbon/roll
+	name = "перекат"
+	message = "перекатыва%(ет,ют)%ся"
+	message_mime = "бесшумно перекатыва%(ет,ют)%ся"
+
+/datum/emote/living/carbon/scratch
+	name = "чесаться"
+	message = "чеш%(ет,ут)%ся."
+	message_mime = "чеш%(ет,ут)%ся."
+
+/datum/emote/living/carbon/sign
+	name = "показать число"
+	message = "показыва%(ет,ют)% неразличимое число."
+	message_mime = "показыва%(ет,ют)% неразличимое число."
+	message_param = "показыва%(ет,ют)% число %t."
+
+/datum/emote/living/carbon/sign/signal
+	name = "показать пальцы"
+	message = "показыва%(ет,ют)% несколько пальцев"
+	message_mime = "показыва%(ет,ют)% несколько пальцев"
+	message_param = "показыва%(ет,ют)% %t пальцев."
+
+/datum/emote/living/carbon/slap
+	name = "шлёпнуть"
+
+/datum/emote/living/carbon/hand
+	name = "вытянуть руку"
+
+/datum/emote/living/carbon/snap
+	name = "щёлкнуть пальцами"
+	message = "щёлка%(ет,ют)% пальцами."
+	message_mime = "щёлка%(ет,ют)% пальцами."
+	message_param = "щёлка%(ет,ют)% пальцами в сторону %t."
+
+/datum/emote/living/carbon/shoesteal
+	name = "стянуть обувь"
+
+/datum/emote/living/carbon/tail
+	name = "махнуть хвостом"
+	message = "маш%(ет,ут)% хвостом."
+	message_mime = "бесшумно маш%(ет,ут)% хвостом."
+
+/datum/emote/living/carbon/wink
+	name = "трясти хвостом"
+	message = "тряс%(ет,ут)% хвостом."
+	message_mime = "бесшумно тряс%(ет,ут)% хвостом."
+
+/datum/emote/living/carbon/hiss
+	name = "шипеть"
+	message = "шип%(ит,ят)%!"
+	message_mime = "изобража%(ет,ют)% шипение!"
+
+// code\modules\mob\living\carbon\human\emote.dm
+
+/datum/emote/living/carbon/human/dap
+	name = "дать пять"
+	message = "не мо%(гут,жет)% найти кому дать пять, и дает пять себе."
+	message_param = "да%(ет,ют)% пять %t."
+
+/datum/emote/living/carbon/human/eyebrow
+	name = "поднять брови"
+	message = "поднима%(ет,ют)% брови."
+	message_mime = "поднима%(ет,ют)% брови."
+
+/datum/emote/living/carbon/human/glasses
+	name = "поднять очки"
+	message = "поднима%(ет,ют)% очки"
+
+/datum/emote/living/carbon/human/grumble
+	name = "ворчать"
+	message = "ворч%(ит,ат)%!"
+	message_mime = "кажется ворч%(ит,ат)%!"
+
+/datum/emote/living/carbon/human/handshake
+	name = "пожать руку"
+	message = "пожима%(ет,ют)% свою же руку"
+	message_mime = "пожима%(ет,ют)% свою же руку"
+	message_param = "пожима%(ет,ют)% руку %t."
+
+/datum/emote/living/carbon/human/hug
+	name = "обнять"
+	message = "обнима%(ет,ют)% себя."
+	message_param = "обнима%(ет,ют)% %t."
+
+/datum/emote/living/carbon/human/mumble
+	name = "бормотать"
+	message = "бормоч%(ет,ут)%."
+	message_mime = "кажется бормоч%(ет,ут)%."
+
+/datum/emote/living/carbon/human/scream // seems like TG overriding it, so we need as well
+	message = "крич%(ит,ат)%!"
+	message_mime = "делает вид, что крич%(ит,ат)%!"
+
+/datum/emote/living/carbon/human/scream/screech //If a human tries to screech it'll just scream.
+	message = "крич%(ит,ат)%!"
+	message_mime = "делает вид, что крич%(ит,ат)%!"
+
+/datum/emote/living/carbon/human/pale
+	name = "бледнеть"
+	message = "на секунду бледне%(ет,ют)%."
+	message_mime = "кажется на секунду бледне%(ет,ют)%."
+
+/datum/emote/living/carbon/human/raise
+	name = "поднять руку"
+	message = "поднима%(ет,ют)% руку."
+	message_mime = "поднима%(ет,ют)% руку."
+
+/datum/emote/living/carbon/human/salute
+	name = "салютовать"
+	message = "салюту%(ет,ют)%!"
+	message = "бесшумно салюту%(ет,ют)%!"
+	message_param = "салюту%(ет,ют)% %t."
+
+/datum/emote/living/carbon/human/shrug
+	name = "пожать плечами"
+	message = "пожима%(ет,ют)% плечами."
+	message_mime = "пожима%(ет,ют)% плечами."
+
+/datum/emote/living/carbon/human/wag
+	name = "вилять хвостом"
+	message = "виля%(ет,ют)% хвостом."
+	message_mime = "бесшумно виля%(ет,ют)% хвостом."
+
+/datum/emote/living/carbon/human/wing
+	name = "расправить крылья"
+	message = "расправля%(ет,ют)% крылья."
+	message_mime = "бесшумно расправля%(ет,ют)% крылья."
+
+/datum/emote/living/carbon/human/clear_throat
+	name = "прочистить горло"
+	message = "прочища%(ет,ют)% горло."
+	message_mime = "кажется прочища%(ет,ют)% горло."
+
+/datum/emote/living/carbon/human/blink
+	name = "моргать"
+	message = "морга%(ет,ют)%."
+	message_mime = "морга%(ет,ют)%."
+
+/datum/emote/living/carbon/human/blink_r
+	name = "быстро моргать"
+	message = "быстро морга%(ет,ют)%."
+	message_mime = "быстро морга%(ет,ют)%."
+
+/datum/emote/living/carbon/human/monkey/gnarl
+	name = "обнажить зубы"
+	message = "рыч%(ит,ат)% и показыва%(ет,ют)% зубы!"
+	message_mime = "изобража%(ет,ют)% рык и показыва%(ет,ют)% зубы!"
+
+/datum/emote/living/carbon/human/monkey/roll // again another override
+	name = "перекат"
+	message = "перекатыва%(ет,ют)%ся"
+	message_mime = "бесшумно перекатыва%(ет,ют)%ся"
+
+/datum/emote/living/carbon/human/monkey/scratch // another override
+	name = "чесаться"
+	message = "чеш%(ет,ут)%ся."
+	message_mime = "чеш%(ет,ут)%ся."
+
+/datum/emote/living/carbon/human/monkey/screech/roar
+	name = "рычать"
+	message = "рыч%(ит,ат)%!"
+	message_mime = "изобража%(ет,ют)% рык!"
+
+/datum/emote/living/carbon/human/monkey/tail // another override
+	name = "махнуть хвостом"
+	message = "маш%(ет,ут)% хвостом."
+	message_mime = "бесшумно маш%(ет,ут)% хвостом."
+
+/datum/emote/living/carbon/human/monkey/sign // another override
+	name = "показать число"
+	message = "показыва%(ет,ют)% неразличимое число."
+	message_mime = "показыва%(ет,ют)% неразличимое число."
+	message_param = "показыва%(ет,ют)% число %t."
+
+/datum/emote/living/carbon/human/glow
+	name = "светиться"
+	message = "ярко свет%(ит,ят)%ся!"
+	message_mime = "ярко свет%(ит,ят)%ся!"
+
+/datum/emote/living/carbon/human/flare
+	name = "вспыхнуть"
+	message = "вспыхива%(ет,ют)%!"
+	message_mime = "вспыхива%(ет,ют)%!"
+
+/datum/emote/living/carbon/human/flicker
+	name = "мерцать"
+	message = "мерца%(ет,ют)%!"
+	message_mime = "мерца%(ет,ют)%!"
+
+// code\modules\mob\living\brain\emote.dm
+
+/datum/emote/brain/alarm
+	name = "издать предупреждающий звук"
+	message = "изда%(ет,ют)% предупреждающий звук."
+	message_mime = "кажется изда%(ет,ют)% предупреждающий звук."
+
+/datum/emote/brain/alert
+	name = "издать тревожный шум"
+	message = "изда%(ет,ют)% тревожный шум."
+	message_mime = "кажется изда%(ет,ют)% тревожный шум."
+
+/datum/emote/brain/flash
+	name = "мерцать светом"
+	message = "мерца%(ет,ют)% светом."
+	message_mime = "кажется мерца%(ет,ют)% светом."
+
+/datum/emote/brain/notice
+	name = "издать громкий звук"
+	message = "изда%(ет,ют)% громкий звук."
+	message_mime = "кажется пыта%(ет,ют)%ся издать громкий звук."
+
+/datum/emote/brain/whistle // another override
+	name = "свистеть"
+	message = "свист%(ит,ят)%."
+	message_mime = "бесшумно свист%(ит,ят)%"
