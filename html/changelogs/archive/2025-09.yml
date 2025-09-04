@@ -27,3 +27,6 @@
   - bugfix: Eyelids now shown even if blinking is disabled
   - qol: PDA no longer lose charge when in recharger (no infinity charging)
   - bugfix: Replaces most game font usages to MS Serif to fix cyrillic issues
+2025-09-04:
+  DenIS318:
+  - bugfix: Salute is now correctly displayed as non-mime
