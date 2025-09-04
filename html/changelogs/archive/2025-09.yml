@@ -30,3 +30,4 @@
 2025-09-04:
   DenIS318:
   - bugfix: Salute is now correctly displayed as non-mime
+  - spellcheck: Minor emote localization fixes
