@@ -485,7 +485,7 @@
 /datum/emote/living/carbon/human/salute
 	name = "салютовать"
 	message = "салюту%(ет,ют)%!"
-	message = "бесшумно салюту%(ет,ют)%!"
+	message_mime = "бесшумно салюту%(ет,ют)%!"
 	message_param = "салюту%(ет,ют)% %t."
 
 /datum/emote/living/carbon/human/shrug
