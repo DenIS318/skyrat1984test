@@ -1,5 +1,12 @@
 [
   {
+    "date": "2025-09-04",
+    "author": "DenIS318",
+    "changes": [
+      "Salute is now correctly displayed as non-mime"
+    ]
+  },
+  {
     "date": "2025-09-03",
     "author": "DenIS318",
     "changes": [
