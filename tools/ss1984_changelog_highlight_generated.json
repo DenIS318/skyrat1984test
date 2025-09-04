@@ -3,6 +3,7 @@
     "date": "2025-09-04",
     "author": "DenIS318",
     "changes": [
+      "Minor emote localization fixes",
       "Salute is now correctly displayed as non-mime"
     ]
   },
