@@ -140,7 +140,7 @@
 	name = "смотреть"
 	message = "смотр%(ит,ят)%."
 	message_mime = "смотр%(ит,ят)%."
-	message_param = "смотр%(ит,ят)%. на %t."
+	message_param = "смотр%(ит,ят)% на %t."
 
 /datum/emote/living/nod
 	name = "кивать"
@@ -431,7 +431,7 @@
 
 /datum/emote/living/carbon/human/dap
 	name = "дать пять"
-	message = "не мо%(гут,жет)% найти кому дать пять, и дает пять себе."
+	message = "не мо%(жет,гут)% найти кому дать пять, и дает пять себе."
 	message_param = "да%(ет,ют)% пять %t."
 
 /datum/emote/living/carbon/human/eyebrow
