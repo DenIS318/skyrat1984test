@@ -1,5 +1,13 @@
 [
   {
+    "date": "2025-09-06",
+    "author": "DenIS318",
+    "changes": [
+      "Monkey AI in softcrit fixed",
+      "Monkey AI now also tries to search it's back (NOT IN BACKPACK) and belt (NOT IN IT'S STORAGE) slots as weapons when needed"
+    ]
+  },
+  {
     "date": "2025-09-05",
     "author": "DenIS318",
     "changes": [
