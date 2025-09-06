@@ -1,3 +1,7 @@
+//jobs defines
+#define SECHUD_SECURITY_MEDIC "hudsecuritymedic"
+
+//outfit code
 /datum/outfit
 	var/role_job = /datum/job/ghost_role
 	var/paycheck_name = "Nanotrasen: Salary"

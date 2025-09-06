@@ -20848,12 +20848,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
-"fPc" = (
-/obj/structure/fence{
-	dir = 8
-	},
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "fPv" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -84003,6 +83997,7 @@
 "xMn" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/holopad,
+/obj/structure/closet/secure_closet/security_medic,
 /turf/open/floor/iron/white/textured,
 /area/station/security/medical)
 "xMq" = (
@@ -231124,7 +231119,7 @@ utC
 utC
 utC
 tkU
-fPc
+bSz
 bln
 bln
 bln
@@ -231381,7 +231376,7 @@ utC
 utC
 utC
 tkU
-fPc
+bSz
 bln
 uei
 tmR
@@ -231491,7 +231486,7 @@ bln
 bln
 bln
 lSu
-fPc
+bSz
 utC
 utC
 txl
@@ -231732,7 +231727,7 @@ aBR
 utC
 utC
 utC
-fPc
+bSz
 mQb
 xxB
 xxB
@@ -231748,7 +231743,7 @@ xxB
 xxB
 xxB
 lSu
-fPc
+bSz
 tkU
 utC
 txl
@@ -232152,7 +232147,7 @@ utC
 utC
 utC
 utC
-fPc
+bSz
 bln
 uei
 tmR
@@ -232246,7 +232241,7 @@ aBR
 utC
 tkU
 utC
-fPc
+bSz
 bln
 xxB
 xxB
@@ -232262,7 +232257,7 @@ xxB
 xxB
 xxB
 bln
-fPc
+bSz
 utC
 utC
 txl
@@ -232519,7 +232514,7 @@ bln
 bln
 bln
 bln
-fPc
+bSz
 tkU
 utC
 txl
@@ -232663,7 +232658,7 @@ txl
 txl
 utC
 utC
-fPc
+bSz
 bln
 bln
 bln
@@ -232776,7 +232771,7 @@ xxB
 xxB
 xxB
 bln
-fPc
+bSz
 utC
 utC
 txl
@@ -233274,7 +233269,7 @@ utC
 utC
 utC
 tkU
-fPc
+bSz
 bln
 xxB
 xxB
@@ -233290,7 +233285,7 @@ xxB
 xxB
 xxB
 bln
-fPc
+bSz
 utC
 utC
 txl
@@ -233531,7 +233526,7 @@ utC
 utC
 tkU
 tkU
-fPc
+bSz
 bln
 bln
 bln
@@ -233694,7 +233689,7 @@ utC
 utC
 utC
 utC
-fPc
+bSz
 mQb
 uei
 tmR
@@ -233788,7 +233783,7 @@ utC
 utC
 tkU
 utC
-fPc
+bSz
 bln
 xxB
 xxB
@@ -234302,7 +234297,7 @@ utC
 tkU
 fwx
 utC
-fPc
+bSz
 bln
 xxB
 xxB
@@ -234318,7 +234313,7 @@ xxB
 xxB
 xxB
 bln
-fPc
+bSz
 utC
 utC
 txl
@@ -234575,7 +234570,7 @@ bln
 bln
 bln
 bln
-fPc
+bSz
 utC
 utC
 txl
@@ -234816,7 +234811,7 @@ utC
 fwx
 utC
 tkU
-fPc
+bSz
 mQb
 lSu
 lSu
@@ -235073,7 +235068,7 @@ utC
 fwx
 utC
 tkU
-fPc
+bSz
 bln
 mQb
 bln
@@ -235240,7 +235235,7 @@ utC
 utC
 utC
 tkU
-fPc
+bSz
 utC
 utC
 utC
@@ -235497,7 +235492,7 @@ fwx
 fwx
 utC
 utC
-fPc
+bSz
 utC
 utC
 fri
@@ -236268,7 +236263,7 @@ fwx
 utC
 fri
 utC
-fPc
+bSz
 utC
 fwx
 utC
@@ -236525,7 +236520,7 @@ utC
 utC
 hMQ
 utC
-fPc
+bSz
 utC
 utC
 vfr

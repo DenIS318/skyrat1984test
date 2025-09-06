@@ -95428,6 +95428,7 @@
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 8
 	},
+/obj/structure/closet/secure_closet/security_medic,
 /turf/open/floor/iron/white/side{
 	dir = 4
 	},
