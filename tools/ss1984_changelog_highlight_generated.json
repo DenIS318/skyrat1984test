@@ -1,6 +1,15 @@
 [
   {
     "date": "2025-09-06",
+    "author": "Arceniu",
+    "changes": [
+      "Returned Security Medic",
+      "added brigmed locker to delta, meta, icebox,void, tram",
+      "returned nri flag"
+    ]
+  },
+  {
+    "date": "2025-09-06",
     "author": "DenIS318",
     "changes": [
       "Monkey AI in softcrit fixed",
