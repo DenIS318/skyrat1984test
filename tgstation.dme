@@ -9498,4 +9498,13 @@
 #include "modular_ss220\modules\admin_stuff\man_up\admin.dm"
 #include "modular_ss220\modules\admin_stuff\man_up\adminhelp.dm"
 #include "modular_ss220\modules\emote_sounds\emotes.dm"
+#include "modular_ss220\modules\admin_spawn_stuff\spawner_with_outfit\nests.dm"
+#include "modular_ss220\modules\admin_spawn_stuff\ashwalkers\bags.dm"
+#include "modular_ss220\modules\admin_spawn_stuff\ashwalkers\bow.dm"
+#include "modular_ss220\modules\admin_spawn_stuff\ashwalkers\mining_roles.dm"
+#include "modular_ss220\modules\admin_spawn_stuff\ashwalkers\ranged_skirmish.dm"
+#include "modular_ss220\modules\admin_spawn_stuff\ashwalkers\monkey_subtrees.dm"
+#include "modular_ss220\modules\admin_spawn_stuff\ashwalkers\monkey_controller.dm"
+#include "modular_ss220\modules\admin_spawn_stuff\ashwalkers\ashwalker.dm"
+#include "modular_ss220\modules\admin_spawn_stuff\ashwalkers\nests.dm"
 // END_INCLUDE
