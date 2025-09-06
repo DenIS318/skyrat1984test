@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - code_imp: "Monkey AI now also tries to search it's back (NOT IN BACKPACK) and belt (NOT IN IT'S STORAGE) slots as weapons when needed"
