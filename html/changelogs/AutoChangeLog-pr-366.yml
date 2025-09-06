@@ -1,0 +1,5 @@
+author: "Arceniu"
+delete-after: True
+changes:
+  - rscadd: "Returned Security Medic"
+  - map: "added brigmed locker to delta, meta, icebox,void, tram"
