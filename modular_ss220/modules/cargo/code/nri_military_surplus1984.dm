@@ -131,8 +131,13 @@
 	cost = CARGO_CRATE_VALUE * 9
 
 /datum/armament_entry/company_import/nri_surplus/misc/nri_flag
+	item_type = /obj/item/sign/flag/nri
+	cost = PAYCHECK_LOWER
+
+/datum/armament_entry/company_import/nri_surplus/misc/hc_flag
 	item_type = /obj/item/sign/flag/hc
 	cost = PAYCHECK_LOWER
+	contraband = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/firearm
 	subcategory = "Firearms"

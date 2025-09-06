@@ -9317,6 +9317,7 @@
 #include "modular_ss220\modules\return_prs\microfusion\code\phase_emitter.dm"
 #include "modular_ss220\modules\return_prs\microfusion\code\projectiles.dm"
 #include "modular_ss220\modules\return_prs\novaya_ert\code\ert.dm"
+#include "modular_ss220\modules\return_prs\novaya_ert\code\misc.dm"
 #include "modular_ss220\modules\return_prs\novaya_ert\code\voskhod.dm"
 #include "modular_ss220\modules\return_prs\sec_haul\code\cmg.dm"
 #include "modular_ss220\modules\return_prs\justice_modular\code\mech_fabricator.dm"
