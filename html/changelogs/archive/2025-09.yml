@@ -35,6 +35,10 @@
   DenIS318:
   - spellcheck: Ctrl + Shift + Click menu interactons translated.
 2025-09-06:
+  Arceniu:
+  - code_imp: returned nri flag
+  - rscadd: Returned Security Medic
+  - map: added brigmed locker to delta, meta, icebox,void, tram
   DenIS318:
   - bugfix: Monkey AI in softcrit fixed
   - code_imp: Monkey AI now also tries to search it's back (NOT IN BACKPACK) and belt
