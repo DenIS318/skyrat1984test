@@ -2,6 +2,7 @@
 	var/datum/outfit/outfit
 	var/list/traits_to_add = list(TRAIT_NOHUNGER)
 	faction = list(FACTION_MINING, FACTION_MINING_FAUNA, FACTION_ASHWALKER, NEST_FACTION)
+	combat_mode = TRUE
 
 /mob/living/carbon/human/species/lizard/ashwalker/hostile/Initialize(mapload)
 	. = ..()
