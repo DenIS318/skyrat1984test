@@ -91,7 +91,7 @@ jobs:
           for /f "delims=" %%i in ('gh release view "%RELEASE_TAG%" --json id -q ".id"') do set RELEASE_ID=%%i
           for /f "delims=" %%a in ('gh api repos/%GITHUB_REPOSITORY%/releases/%RELEASE_ID%/assets --jq ".[] | select(.name==\"rust_1984.dll\") | .url"') do set ASSET_URL=%%a
           if defined ASSET_URL (
-              gh api -H "Accept: application/octet-stream" %ASSET_URL% --output downloaded-file.dll
+              gh release download rust_cached -R %GITHUB_REPOSITORY% --pattern rust_1984.dll -D .
           )
 
       - name: Compute remote file MD5 if downloaded
