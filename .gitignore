@@ -281,3 +281,6 @@ librust_g.so
 librust_g64.so
 rust_1984.dll
 librust_1984.so
+
+# Ignore rust build config
+tools/build_rust_config.txt
