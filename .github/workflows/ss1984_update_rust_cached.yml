@@ -68,7 +68,9 @@ jobs:
         id: localhash
         if: steps.build_step.outputs.success == '0'
         run:
-          for /f "tokens=1" %%i in ('certutil -hashfile rust_1984.dll MD5 ^| findstr /v "hash"') do set "localmd5=%%i"
+          for /f "tokens=1" %%i in ('certutil -hashfile rust_1984.dll MD5 ^| findstr /v "hash"') do (
+              set "localmd5=%%i"
+          )
           echo md5=%localmd5% >> "%GITHUB_OUTPUT%"
 
       - name: Download existing release asset if exists
