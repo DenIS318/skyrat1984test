@@ -2,6 +2,24 @@
 
 set REPO_URL=https://github.com/skyrat1984test/rust-skyrat-1984.git
 set TARGET_DIR="%~dp0\..\RUST_REMOTE"
+set REQUIRED_FLAG_TO_SKIP_BUILD=DO_NOT_BUILD
+
+setlocal
+setlocal enabledelayedexpansion
+
+rem Read the first line of file.txt into variable firstLine
+set "firstLine="
+for /f "usebackq delims=" %%a in ("%~dp0\build_rust_config.txt") do (
+  set "firstLine=%%a"
+)
+for /f "tokens=* delims= " %%x in ("!firstLine!") do set "firstLine=%%x"
+
+if /i "!firstLine!"=="%REQUIRED_FLAG_TO_SKIP_BUILD%" (
+    echo Trying to skip build rust, loading cached from remote...
+    exit /b 0
+)
+
+endlocal
 
 REM Check if folder exists (order is important)
 if exist %TARGET_DIR% (
