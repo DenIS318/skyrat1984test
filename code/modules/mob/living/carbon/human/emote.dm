@@ -130,11 +130,13 @@
 
 /datum/emote/living/carbon/human/wag/select_message_type(mob/user, intentional)
 	. = ..()
-	var/obj/item/organ/tail/oranges_accessory = user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
-	if(oranges_accessory.wag_flags & WAG_WAGGING)
-		. = "stops wagging " + message
-	else
-		. = "wags " + message
+	// SS1984 REMOVAL START
+	// var/obj/item/organ/tail/oranges_accessory = user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+	// if(oranges_accessory.wag_flags & WAG_WAGGING)
+	// 	. = "stops wagging " + message
+	// else
+	// 	. = "wags " + message
+	// SS1984 REMOVAL END
 
 /datum/emote/living/carbon/human/wag/can_run_emote(mob/user, status_check, intentional, params)
 	var/obj/item/organ/tail/tail = user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
