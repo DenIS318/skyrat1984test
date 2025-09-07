@@ -47,10 +47,12 @@ jobs:
           cache-all-crates: true
       - name: Build RUST
         run: |
-          set +e
-          tools/build_rust_1984.bat
-          echo "success=$?" >> $GITHUB_OUTPUT
-          if [ $? -eq 0 ]; then exit 0; else exit 1; fi
+          tools\build_rust_1984.bat
+          if %errorlevel% equ 0 (
+            exit /b 0
+          ) else (
+            exit /b 1
+          )
 
       - name: Set release tag variable
         if: steps.build_step.outputs.success == '0'
