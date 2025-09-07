@@ -342,7 +342,7 @@
 /datum/emote/living/carbon/clap
 	name = "хлопать"
 	message = "хлопа%(ет,ют)%!"
-	message = "бесшумно хлопа%(ет,ют)%!"
+	message_mime = "бесшумно хлопа%(ет,ют)%!"
 
 /datum/emote/living/carbon/crack
 	name = "хрустеть кистями"
