@@ -2,16 +2,21 @@
 
 set REPO_URL=https://github.com/skyrat1984test/rust-skyrat-1984.git
 set TARGET_DIR="%~dp0\..\RUST_REMOTE"
-set REQUIRED_FLAG_TO_SKIP_BUILD="DO_NOT_BUILD"
+set REQUIRED_FLAG_TO_SKIP_BUILD=DO_NOT_BUILD
 
 setlocal
+setlocal enabledelayedexpansion
 
 rem Read the first line of file.txt into variable firstLine
 set "firstLine="
-set /p firstLine=<build_rust_config.txt
+for /f "usebackq delims=" %%a in ("%~dp0\build_rust_config.txt") do (
+  set "firstLine=%%a"
+)
+for /f "tokens=* delims= " %%x in ("!firstLine!") do set "firstLine=%%x"
 
-if "%firstLine%"=="%REQUIRED_FLAG_TO_SKIP_BUILD%" (
+if /i "!firstLine!"=="%REQUIRED_FLAG_TO_SKIP_BUILD%" (
     echo Trying to skip build rust, loading cached from remote...
+    exit /b 0
 )
 
 endlocal
@@ -43,8 +48,8 @@ IF %ERRORLEVEL% NEQ 0 (
 
 cd %TARGET_DIR%
 
-rustup target add i686-pc-windows-gnu
-cargo build --release --target i686-pc-windows-gnu
+rustup target add i686-pc-windows-msvc
+cargo build --release --target i686-pc-windows-msvc
 
 IF %ERRORLEVEL% NEQ 0 (
     ECHO Failed to build original rust
@@ -56,7 +61,7 @@ IF %ERRORLEVEL% NEQ 0 (
     taskkill /IM dreamdaemon.exe /F
 )
 
-xcopy "%TARGET_DIR%\target\i686-pc-windows-gnu\release\rust_g.dll" "%~dp0\.." /Y /q
+xcopy "%TARGET_DIR%\target\i686-pc-windows-msvc\release\rust_g.dll" "%~dp0\.." /Y /q
 IF %ERRORLEVEL% NEQ 0 (
     ECHO Failed to copy original rust_g.dll
     exit 105
@@ -64,8 +69,8 @@ IF %ERRORLEVEL% NEQ 0 (
 
 cd "%~dp0\..\RUST"
 
-rustup target add i686-pc-windows-gnu
-cargo build --release --target i686-pc-windows-gnu
+rustup target add i686-pc-windows-msvc
+cargo build --release --target i686-pc-windows-msvc
 
 IF %ERRORLEVEL% NEQ 0 (
     ECHO Failed to build modular rust 1984
@@ -74,7 +79,7 @@ IF %ERRORLEVEL% NEQ 0 (
 
 cd "%~dp0\.."
 
-xcopy "%~dp0\..\RUST\target\i686-pc-windows-gnu\release\rust_1984.dll" "%~dp0\.." /Y /q
+xcopy "%~dp0\..\RUST\target\i686-pc-windows-msvc\release\rust_1984.dll" "%~dp0\.." /Y /q
 IF %ERRORLEVEL% NEQ 0 (
     ECHO Failed to copy rust_1984.dll
     exit 107
