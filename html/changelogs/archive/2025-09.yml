@@ -43,3 +43,8 @@
   - bugfix: Monkey AI in softcrit fixed
   - code_imp: Monkey AI now also tries to search it's back (NOT IN BACKPACK) and belt
       (NOT IN IT'S STORAGE) slots as weapons when needed
+2025-09-07:
+  DenIS318:
+  - bugfix: Fonts fixed
+  - spellcheck: Fix non-mime clap emote message
+  - bugfix: Headset in softcrit can be spoken same way, as department channels
