@@ -63,27 +63,30 @@ jobs:
       - name: Compute local file MD5
         id: localhash
         if: steps.build_step.outputs.success == '0'
-        run: echo "md5=$(md5sum rust_1984.dll | cut -d ' ' -f1)" >> $GITHUB_OUTPUT
+        run:
+          for /f "tokens=1" %%i in ('certutil -hashfile rust_1984.dll MD5 ^| findstr /v "hash"') do set "localmd5=%%i"
+          echo md5=%localmd5% >> "%GITHUB_OUTPUT%"
 
       - name: Download existing release asset if exists
         id: download_asset
         if: steps.build_step.outputs.success == '0'
         run: |
-          RELEASE_ID=$(gh release view "$RELEASE_TAG" --json id -q ".id")
-          ASSET_URL=$(gh api repos/${{ github.repository }}/releases/$RELEASE_ID/assets --jq ".[] | select(.name==\"rust_1984.dll\") | .url")
-          if [ -n "$ASSET_URL" ]; then
-            gh api -H "Accept: application/octet-stream" $ASSET_URL --output downloaded-file.dll
-          fi
+          for /f "delims=" %%i in ('gh release view "%RELEASE_TAG%" --json id -q ".id"') do set "RELEASE_ID=%%i"
+          for /f "delims=" %%a in ('gh api repos/%GITHUB_REPOSITORY%/releases/%RELEASE_ID%/assets --jq ".[] | select(.name==\"rust_1984.dll\") | .url"') do set "ASSET_URL=%%a"
+          if defined ASSET_URL (
+              gh api -H "Accept: application/octet-stream" %ASSET_URL% --output downloaded-file.dll
+          )
 
       - name: Compute remote file MD5 if downloaded
         id: remotehash
         if: steps.build_step.outputs.success == '0'
         run: |
-          if [ -f downloaded-file.dll ]; then
-            echo "md5=$(md5sum downloaded-file.dll | cut -d ' ' -f1)" >> $GITHUB_OUTPUT
-          else
-            echo "md5=none" >> $GITHUB_OUTPUT
-          fi
+          if exist downloaded-file.dll (
+              for /f "tokens=1" %%x in ('certutil -hashfile downloaded-file.dll MD5 ^| findstr /v "hash"') do set "remotemd5=%%x"
+              echo md5=%remotemd5% >> "%GITHUB_OUTPUT%"
+          ) else (
+              echo md5=none >> "%GITHUB_OUTPUT%"
+          )
 
       - name: Upload file if changed
         if: steps.localhash.outputs.md5 != steps.remotehash.outputs.md5 && steps.build_step.outputs.success == '0'
