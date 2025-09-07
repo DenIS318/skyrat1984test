@@ -15,7 +15,7 @@ for /f "usebackq delims=" %%a in ("%~dp0\build_rust_config.txt") do (
 for /f "tokens=* delims= " %%x in ("!firstLine!") do set "firstLine=%%x"
 
 if /i "!firstLine!"=="%REQUIRED_FLAG_TO_SKIP_BUILD%" (
-    echo Trying to skip build rust, loading cached from remote...
+    echo Skipping rust build. If you have troubles like PROCEDURE NOT FOUND in DM, then manually download latest rust from https://github.com/skyrat1984test/skyrat1984test/releases/tag/rust_cached or ask for update, if it's outdated
     exit /b 0
 )
 
