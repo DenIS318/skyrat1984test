@@ -1,5 +1,14 @@
 [
   {
+    "date": "2025-09-07",
+    "author": "DenIS318",
+    "changes": [
+      "Fix non-mime clap emote message",
+      "Fonts fixed",
+      "Headset in softcrit can be spoken same way, as department channels"
+    ]
+  },
+  {
     "date": "2025-09-06",
     "author": "Arceniu",
     "changes": [
