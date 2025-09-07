@@ -84,6 +84,8 @@ jobs:
         id: download_asset
         if: steps.build_step.outputs.success == '0'
         shell: cmd
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           @echo off
           for /f "delims=" %%i in ('gh release view "%RELEASE_TAG%" --json id -q ".id"') do set RELEASE_ID=%%i
@@ -98,22 +100,23 @@ jobs:
         shell: cmd
         run: |
           @echo off
+          setlocal enabledelayedexpansion
           if exist downloaded-file.dll (
               for /f "tokens=1" %%x in ('certutil -hashfile downloaded-file.dll MD5 ^| findstr /v "hash" ^| findstr /v "CertUtil"') do (
                   setlocal enabledelayedexpansion
                   set remotemd5=%%x
                   endlocal & set "remotemd5=!remotemd5!"
                   echo md5=!remotemd5!>>%GITHUB_OUTPUT%
-                  goto :done
               )
-              :done
+              echo md5=!remotemd5!>>%GITHUB_OUTPUT%
           ) else (
               echo md5=none>>%GITHUB_OUTPUT%
           )
+          endlocal
 
       - name: Upload file if changed
         if: steps.localhash.outputs.md5 != steps.remotehash.outputs.md5 && steps.build_step.outputs.success == '0'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: gh release upload "$RELEASE_TAG" rust_1984.dll --clobber
         shell: cmd
