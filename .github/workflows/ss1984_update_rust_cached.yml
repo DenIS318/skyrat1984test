@@ -45,6 +45,10 @@ jobs:
             RUST_REMOTE
             RUST
           cache-all-crates: true
+      - name: Disable skipping rust build
+        shell: cmd
+        run: |
+          type nul > tools\build_rust_config.txt
       - name: Build RUST
         id: build_step
         shell: cmd
