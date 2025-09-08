@@ -18,7 +18,6 @@
 	description = "Watch over the Bridge, and spend your days commanding Bridge Assistants to brew coffee for higher-ups."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD | DEADMIN_POSITION_SECURITY
 	department_head = list(JOB_CAPTAIN, JOB_NT_REP)
-	default_radio_channel = RADIO_CHANNEL_COMMAND
 	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
