@@ -43,14 +43,16 @@
 	for(var/datum/objective/assassinate/headhunter/obj in owner.objectives)
 		existing_targets |= obj.target
 
-	var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences)
+	// SS1984 REMOVAL var/opt_in_disabled = CONFIG_GET(flag/disable_antag_opt_in_preferences)
 	for(var/datum/mind/possible_target in get_crewmember_minds())
 		if(possible_target in existing_targets)
 			continue
 		if(!is_valid_target(possible_target))
 			continue
-		if(!opt_in_disabled && !opt_in_valid(possible_target))
-			continue
+		// SS1984 REMOVAL START
+		// if(!opt_in_disabled && !opt_in_valid(possible_target))
+		// 	continue
+		// SS1984 REMOVAL END
 		possible_targets += possible_target
 
 	target = pick(possible_targets)

@@ -359,26 +359,28 @@
 *	erp_item
 */
 
-/datum/loadout_item/under/miscellaneous/black_bunnysuit
-	name = "Bunny Suit"
-	item_path = /obj/item/clothing/under/costume/bunnylewd
-	erp_item = TRUE
-	group = "Costumes"
+// SS1984 REMOVAL START
+// /datum/loadout_item/under/miscellaneous/black_bunnysuit
+// 	name = "Bunny Suit"
+// 	item_path = /obj/item/clothing/under/costume/bunnylewd
+// 	erp_item = TRUE
+// 	group = "Costumes"
 
-/datum/loadout_item/under/miscellaneous/white_bunnysuit
-	name = "Bunny Suit (White)"
-	item_path = /obj/item/clothing/under/costume/bunnylewd/white
-	erp_item = TRUE
-	group = "Costumes"
+// /datum/loadout_item/under/miscellaneous/white_bunnysuit
+// 	name = "Bunny Suit (White)"
+// 	item_path = /obj/item/clothing/under/costume/bunnylewd/white
+// 	erp_item = TRUE
+// 	group = "Costumes"
 
-/datum/loadout_item/under/miscellaneous/latex_catsuit
-	name = "Latex Catsuit"
-	item_path = /obj/item/clothing/under/misc/latex_catsuit
-	erp_item = TRUE
-	group = "Costumes"
+// /datum/loadout_item/under/miscellaneous/latex_catsuit
+// 	name = "Latex Catsuit"
+// 	item_path = /obj/item/clothing/under/misc/latex_catsuit
+// 	erp_item = TRUE
+// 	group = "Costumes"
 
-/datum/loadout_item/under/miscellaneous/stripper_outfit
-	name = "Tearaway Garments"
-	item_path = /obj/item/clothing/under/tearaway_garments
-	erp_item = TRUE
-	group = "Costumes"
+// /datum/loadout_item/under/miscellaneous/stripper_outfit
+// 	name = "Tearaway Garments"
+// 	item_path = /obj/item/clothing/under/tearaway_garments
+// 	erp_item = TRUE
+// 	group = "Costumes"
+// SS1984 REMOVAL END

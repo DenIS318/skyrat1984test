@@ -284,11 +284,6 @@
 	name = "Red Christmas Boots"
 	item_path = /obj/item/clothing/shoes/winterboots/christmas
 
-/datum/loadout_item/shoes/christmas/green
-	name = "Green Christmas Boots"
-	item_path = /obj/item/clothing/shoes/winterboots/christmas/green
-
-
 /*
 *	JOB-RESTRICTED
 */

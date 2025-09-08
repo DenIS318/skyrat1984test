@@ -151,11 +151,6 @@
 	if(booster_component?.amped)
 		playsound(src, 'sound/items/weapons/kinetic_reload.ogg', 50, TRUE)
 
-/obj/item/gun/ballistic/shotgun/riot/sol/super/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	if(amped)
-		bonus_spread -= 25
-	return ..()
-
 /obj/item/gun/ballistic/shotgun/riot/sol/super/before_firing(atom/target, mob/user)
 	var/datum/component/gun_booster/booster_component = GetComponent(/datum/component/gun_booster)
 	if(booster_component?.amped && chambered && chambered.variance > 0)

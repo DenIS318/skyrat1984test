@@ -26,7 +26,6 @@
 		return FALSE
 
 	var/occupant_departments_bitflags = character.mind?.assigned_role.departments_bitflags
-	var/occupant_job_radio = character.mind?.assigned_role.default_radio_channel
 
-	control_comp.announce("CRYO_JOIN", character.real_name, rank, occupant_departments_bitflags, occupant_job_radio)
+	control_comp.announce("CRYO_JOIN", character.real_name, rank, occupant_departments_bitflags)
 	return TRUE
