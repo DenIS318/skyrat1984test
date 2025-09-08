@@ -48,3 +48,6 @@
   - bugfix: Fonts fixed
   - spellcheck: Fix non-mime clap emote message
   - bugfix: Headset in softcrit can be spoken same way, as department channels
+2025-09-08:
+  DenIS318:
+  - bugfix: Wag emote no longer sends non-localized message part
