@@ -1,5 +1,12 @@
 [
   {
+    "date": "2025-09-08",
+    "author": "DenIS318",
+    "changes": [
+      "Wag emote no longer sends non-localized message part"
+    ]
+  },
+  {
     "date": "2025-09-07",
     "author": "DenIS318",
     "changes": [
