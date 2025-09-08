@@ -495,8 +495,8 @@
 
 /datum/emote/living/carbon/human/wag
 	name = "вилять хвостом"
-	message = "виля%(ет,ют)% хвостом."
-	message_mime = "бесшумно виля%(ет,ют)% хвостом."
+	message = "вилять хвостом." // those are special ones, look at code\modules\mob\living\carbon\human\emote.dm around 135 line (might change line by upstreams)
+	message_mime = "бесшумно вилять хвостом."
 
 /datum/emote/living/carbon/human/wing
 	name = "расправить крылья"
