@@ -196,8 +196,8 @@
 
 			// SS1984 ADDITION START
 			var/reason_text = tgui_input_text(user, "Comment:", "Add comment", "", MAX_DESC_LEN, encode = FALSE)
-			if(!reason_text)
-				reason_text = "" // it's valid
+			if(isnull(reason_text))
+				return FALSE
 
 			var/found_rank
 			var/found_name
