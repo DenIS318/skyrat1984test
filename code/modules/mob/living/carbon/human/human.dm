@@ -305,8 +305,8 @@
 				// SS1984 REMOVAL END
 				// SS1984 ADDITION START
 				var/reason_text = tgui_input_text(usr, "Comment:", "Add comment", "", MAX_DESC_LEN, encode = FALSE)
-				if(!reason_text)
-					reason_text = "" // it's valid
+				if(isnull(reason_text))
+					return
 
 				var/id_card
 				var/found_rank
