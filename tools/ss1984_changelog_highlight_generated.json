@@ -1,5 +1,28 @@
 [
   {
+    "date": "2025-09-09",
+    "author": "DenIS318",
+    "changes": [
+      "Cargo sabre sheath (shamshir leather sheath) icon fixed",
+      "Artemchik542, Pik1ta, "
+    ]
+  },
+  {
+    "date": "2025-09-09",
+    "author": "DenIS318",
+    "changes": [
+      "Localized AI laws"
+    ]
+  },
+  {
+    "date": "2025-09-09",
+    "author": "DenIS318",
+    "changes": [
+      "Security records console now requires reason for changing status (could be empty) - so it will log all status changes",
+      "Cancel button now properly work on sechud status change"
+    ]
+  },
+  {
     "date": "2025-09-08",
     "author": "DenIS318",
     "changes": [
