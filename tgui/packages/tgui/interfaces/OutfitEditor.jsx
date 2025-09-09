@@ -39,6 +39,14 @@ export const OutfitEditor = (props) => {
                 {outfit.name}
               </Stack.Item>
               <Stack.Item align="end" shrink={0}>
+                {/* SS1984 ADDITION START */}
+                <Button
+                  icon="plus"
+                  tooltip="(SS1984) Click to add custom outfit data, such as traits, abilities"
+                  tooltipPosition="bottom-start"
+                  onClick={() => act('extra_outfit_ss1984')}
+                />
+                {/* SS1984 ADDITION END */}
                 <Button
                   color="transparent"
                   icon="info"
