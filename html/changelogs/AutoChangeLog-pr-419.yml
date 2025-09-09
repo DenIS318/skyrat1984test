@@ -1,0 +1,5 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - qol: "Security records console now requires reason for changing status (could be empty) - so it will log all status changes"
+  - bugfix: "Cancel button now properly work on sechud status change"
