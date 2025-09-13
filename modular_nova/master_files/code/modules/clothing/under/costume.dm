@@ -47,15 +47,17 @@
 	greyscale_colors = "#434d7a" //THATS RIGHT, FUCK YOU! THE BATHROBE CAN BE RECOLORED!
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/under/costume/dutch
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/costume/dutch"
-	post_init_icon_state = "dutchsuit"
-	greyscale_config = /datum/greyscale_config/dutch_outfit
-	greyscale_config_worn = /datum/greyscale_config/dutch_outfit/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/dutch_outfit/worn/digi
-	greyscale_colors = "#333333#f8f8f8#ff0000#ffcc00"
-	flags_1 = IS_PLAYER_COLORABLE_1
+// SS1984 REMOVAL START - uncomment once nova fix it, the non-modular version is fine though
+// /obj/item/clothing/under/costume/dutch
+// 	icon = 'icons/map_icons/clothing/under/_under.dmi'
+// 	icon_state = "/obj/item/clothing/under/costume/dutch"
+// 	post_init_icon_state = "dutchsuit"
+// 	greyscale_config = /datum/greyscale_config/dutch_outfit
+// 	greyscale_config_worn = /datum/greyscale_config/dutch_outfit/worn
+// 	greyscale_config_worn_digi = /datum/greyscale_config/dutch_outfit/worn/digi
+// 	greyscale_colors = "#333333#f8f8f8#ff0000#ffcc00"
+// 	flags_1 = IS_PLAYER_COLORABLE_1
+// SS1984 REMOVAL END
 
 /obj/item/clothing/suit/costume/pg
 	icon = 'icons/map_icons/clothing/suit/costume.dmi'
@@ -67,8 +69,8 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/chaplainsuit/monkrobeeast
-	icon = 'icons/map_icons/clothing/suit/costume.dmi'
-	icon_state = "/obj/item/clothing/suit/chaplainsuit/monkrobeeast"
+	icon = 'icons/obj/clothing/suits/chaplain.dmi' // SS1984 EDIT, original: icon = icons\obj\clothing\suits\chaplain.dmi, non modular fix for override later
+	icon_state = "monkrobeeast" // SS1984 EDIT, original: icon_state = "/obj/item/clothing/suit/chaplainsuit/monkrobeeast", non modular fix for override later
 	post_init_icon_state = "monkrobeeast"
 	greyscale_config = /datum/greyscale_config/monkrobeeast
 	greyscale_config_worn = /datum/greyscale_config/monkrobeeast/worn
