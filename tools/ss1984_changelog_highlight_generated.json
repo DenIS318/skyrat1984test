@@ -1,5 +1,13 @@
 [
   {
+    "date": "2026-02-18",
+    "author": "DenIS318",
+    "changes": [
+      "Required amount of slime jelly to split body for slimepeople: 1120 -> 950 (maximum jelly is 1000)",
+      "Split Body ability of Slimepeople now properly updates when available (no longer always shown as grayed)"
+    ]
+  },
+  {
     "date": "2026-02-16",
     "author": "Artemchik542",
     "changes": [

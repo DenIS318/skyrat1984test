@@ -302,3 +302,9 @@
   Artemchik542:
   - spellcheck: ru laws for AI on Interdyne and DS-2
   - spellcheck: AI laws now translated more correctly
+2026-02-18:
+  DenIS318:
+  - bugfix: Split Body ability of Slimepeople now properly updates when available
+      (no longer always shown as grayed)
+  - balance: 'Required amount of slime jelly to split body for slimepeople: 1120 ->
+      950 (maximum jelly is 1000)'
