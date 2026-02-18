@@ -1,0 +1,4 @@
+author: "DenIS318"
+delete-after: True
+changes:
+  - bugfix: "Split Body ability of Slimepeople now properly updates when available (no longer always shown as grayed)"
